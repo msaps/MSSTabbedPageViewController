@@ -27,14 +27,14 @@
     
     [self.pageViewController addToParentViewController:self];
 }
-
+    
 #pragma mark - Page View Controller data source
 
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)tabbedPageViewController {
+- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
     return nil;
 }
 
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)tabbedPageViewController {
+- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController {
     return 0;
 }
 

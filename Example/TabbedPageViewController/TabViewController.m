@@ -16,7 +16,7 @@
 
 #pragma mark - Page View Controller
 
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)tabbedPageViewController {
+- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     return @[
              [storyboard instantiateViewControllerWithIdentifier:@"viewControllerA"],

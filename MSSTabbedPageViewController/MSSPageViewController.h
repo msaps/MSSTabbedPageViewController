@@ -14,20 +14,51 @@
 @class MSSPageViewController;
 
 @protocol MSSPageViewControllerDelegate <NSObject>
-
 @optional
+
+/**
+ The page view controller has scrolled to a new page offset.
+ 
+ @param pageViewController
+        The page view controller.
+ @param pageOffset 
+        The updated page offset.
+ */
 - (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPageOffset:(CGFloat)pageOffset;
 
+/**
+ The page view controller has completed scroll to a page.
+ 
+ @param pageViewController
+ The page view controller.
+ @param page
+ The new currently visible page.
+ */
 - (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPage:(NSInteger)page;
 
 @end
 
 @protocol MSSPageViewControllerDataSource <NSObject>
 
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)tabbedPageViewController;
+/**
+ The view controllers to display in the page view controller.
+ 
+ @param pageViewController
+ The page view controller.
+ @return The array of view controllers.
+ */
+- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
 
 @optional
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)tabbedPageViewController;
+
+/**
+ The default page index for the page view controller to initially display.
+ 
+ @param pageViewController
+ The page view controller.
+ @return The default page index.
+ */
+- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
 
 @end
 
@@ -37,23 +68,23 @@
 
 @property (nonatomic, weak) id<MSSPageViewControllerDelegate> delegate;
 
-/*
- * @brief The number of pages in the page view controller
+/**
+ The number of pages in the page view controller.
  */
 @property (nonatomic, assign ,readonly) NSInteger numberOfPages;
 
-/*
- * @brief The view controllers within the page view controller
+/** 
+ The view controllers within the page view controller.
  */
 @property (nonatomic, strong, readonly) NSArray *viewControllers;
 
-/*
- * @brief Whether page view controller will provide scroll updates when out of bounds
+/**  
+ Whether page view controller will provide scroll updates when out of bounds.
  */
 @property (nonatomic, assign, getter=willNotifyOutOfBoundUpdates) BOOL notifyOutOfBoundUpdates;
 
-/*
- * @brief Whether page view controller will display the current page indicator view
+/** 
+ Whether page view controller will display the page indicator view.
  */
 @property (nonatomic, assign) BOOL showPageIndicator;
 
