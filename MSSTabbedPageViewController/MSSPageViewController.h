@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewController+MSSUtilities.h"
+#import "UIView+MSSAutoLayout.h"
+
 @class MSSPageViewController;
 
 @protocol MSSPageViewControllerDelegate <NSObject>
@@ -34,6 +37,24 @@
 
 @property (nonatomic, weak) id<MSSPageViewControllerDelegate> delegate;
 
+/*
+ * @brief The number of pages in the page view controller
+ */
+@property (nonatomic, assign ,readonly) NSInteger numberOfPages;
+
+/*
+ * @brief The view controllers within the page view controller
+ */
 @property (nonatomic, strong, readonly) NSArray *viewControllers;
+
+/*
+ * @brief Whether page view controller will provide scroll updates when out of bounds
+ */
+@property (nonatomic, assign, getter=willNotifyOutOfBoundUpdates) BOOL notifyOutOfBoundUpdates;
+
+/*
+ * @brief Whether page view controller will display the current page indicator view
+ */
+@property (nonatomic, assign) BOOL showPageIndicator;
 
 @end

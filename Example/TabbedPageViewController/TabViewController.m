@@ -14,16 +14,7 @@
 
 @implementation TabViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - Page View Controller
 
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)tabbedPageViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -36,6 +27,10 @@
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPageOffset:(CGFloat)pageOffset {
     NSLog(@"%f", pageOffset);
+}
+
+- (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPage:(NSInteger)page {
+    NSLog(@"did scroll to page: %li", page);
 }
 
 @end

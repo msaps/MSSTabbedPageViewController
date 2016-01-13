@@ -7,7 +7,6 @@
 //
 
 #import "MSSPageViewController.h"
-#import "UIView+MSSAutoLayout.h"
 
 @interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
 
@@ -22,6 +21,27 @@
 @end
 
 @implementation MSSPageViewController
+
+#pragma mark - Init
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self baseInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    if (self = [super initWithCoder:coder]) {
+        [self baseInit];
+    }
+    return self;
+}
+
+- (void)baseInit {
+    _notifyOutOfBoundUpdates = YES;
+    _showPageIndicator = NO;
+}
 
 #pragma mark - Lifecycle
 
@@ -61,8 +81,13 @@
     CGFloat currentPagePosition = currentXOffset / pageWidth;
     
     if (currentPagePosition != self.previousPagePosition) {
-        if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:)]) {
-            [self.delegate pageViewController:self didScrollToPageOffset:currentPagePosition];
+
+        // check if position is out of bounds
+        BOOL outOfBounds = currentPagePosition < 0.0f || currentPagePosition > ((scrollView.contentSize.width / pageWidth) - 1.0f);
+        if (self.notifyOutOfBoundUpdates || (!self.notifyOutOfBoundUpdates && !outOfBounds)) {
+            if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:)]) {
+                [self.delegate pageViewController:self didScrollToPageOffset:currentPagePosition];
+            }
         }
         
         _previousPagePosition = currentPagePosition;
@@ -93,6 +118,20 @@
     return nil;
 }
 
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    if (self.showPageIndicator) {
+        return self.numberOfPages;
+    }
+    return 0;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    if (self.showPageIndicator) {
+        return self.currentPage;
+    }
+    return 0;
+}
+
 #pragma mark - Page View Controller delegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
@@ -115,7 +154,8 @@
     _viewControllers = [self.dataSource viewControllersForPageViewController:self];
     NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     
-    _currentPage = defaultIndex;
+    _numberOfPages = self.viewControllers.count;
+    self.currentPage = defaultIndex;
     
     [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:defaultIndex]]
                                       direction:UIPageViewControllerNavigationDirectionForward

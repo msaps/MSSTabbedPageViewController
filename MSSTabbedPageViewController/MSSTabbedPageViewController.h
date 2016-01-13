@@ -11,4 +11,6 @@
 
 @interface MSSTabbedPageViewController : UIViewController <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
 
+@property (nonatomic, strong, readonly) MSSPageViewController *pageViewController;
+
 @end

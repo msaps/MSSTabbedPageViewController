@@ -8,12 +8,6 @@
 
 #import "MSSTabbedPageViewController.h"
 
-@interface MSSTabbedPageViewController ()
-
-@property (nonatomic, strong) MSSPageViewController *pageViewController;
-
-@end
-
 @implementation MSSTabbedPageViewController
 
 #pragma mark - Lifecycle
@@ -22,7 +16,7 @@
     [super loadView];
     
     if (!_pageViewController) {
-        self.pageViewController = [MSSPageViewController new];
+        _pageViewController = [MSSPageViewController new];
         self.pageViewController.dataSource = self;
         self.pageViewController.delegate = self;
     }
@@ -31,11 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (!self.pageViewController.parentViewController) {
-        [self addChildViewController:self.pageViewController];
-        [self.view addSubview:self.pageViewController.view];
-        [self.pageViewController didMoveToParentViewController:self];
-    }
+    [self.pageViewController addToParentViewController:self];
 }
 
 #pragma mark - Page View Controller data source
