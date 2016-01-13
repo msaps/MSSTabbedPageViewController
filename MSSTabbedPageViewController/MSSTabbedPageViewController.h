@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MSSPageViewController.h"
+#import "MSSTabBarView.h"
 
-@interface MSSTabbedPageViewController : UIViewController <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
+@protocol MSSTabbedPageViewControllerDataSource <MSSPageViewControllerDataSource, MSSTabBarViewDataSource>
+@end
+
+@interface MSSTabbedPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSTabbedPageViewControllerDataSource>
 
 @property (nonatomic, strong, readonly) MSSPageViewController *pageViewController;
+
+@property (nonatomic, strong, readonly) MSSTabBarView *tabBarView;
 
 @end

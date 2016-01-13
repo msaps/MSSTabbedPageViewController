@@ -24,7 +24,8 @@
  @param pageOffset 
         The updated page offset.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPageOffset:(CGFloat)pageOffset;
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+     didScrollToPageOffset:(CGFloat)pageOffset;
 
 /**
  The page view controller has completed scroll to a page.
@@ -34,7 +35,8 @@
  @param page
  The new currently visible page.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPage:(NSInteger)page;
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+           didScrollToPage:(NSInteger)page;
 
 @end
 

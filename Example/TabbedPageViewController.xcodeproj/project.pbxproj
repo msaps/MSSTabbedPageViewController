@@ -18,6 +18,7 @@
 		46FA82001C2C6D3D0020BB60 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA81FB1C2C6D3D0020BB60 /* MSSTabbedPageViewController.m */; };
 		46FA82011C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA81FE1C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m */; };
 		D65A055E1C467EC300E0DA6E /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A055D1C467EC300E0DA6E /* UIViewController+MSSUtilities.m */; };
+		D65A05631C46860300E0DA6E /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A05621C46860300E0DA6E /* MSSTabBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		46FA81FE1C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
 		D65A055C1C467EC300E0DA6E /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
 		D65A055D1C467EC300E0DA6E /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		D65A05611C46860300E0DA6E /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		D65A05621C46860300E0DA6E /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 				46FA81F91C2C6D3D0020BB60 /* MSSPageViewController.m */,
 				46FA81FA1C2C6D3D0020BB60 /* MSSTabbedPageViewController.h */,
 				46FA81FB1C2C6D3D0020BB60 /* MSSTabbedPageViewController.m */,
+				D65A055F1C4685C700E0DA6E /* Components */,
 				46FA81FC1C2C6D3D0020BB60 /* Utilities */,
 			);
 			name = MSSTabbedPageViewController;
@@ -135,6 +139,23 @@
 				46FA81D31C2C18FE0020BB60 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D65A055F1C4685C700E0DA6E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D65A05601C4685E600E0DA6E /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D65A05601C4685E600E0DA6E /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				D65A05611C46860300E0DA6E /* MSSTabBarView.h */,
+				D65A05621C46860300E0DA6E /* MSSTabBarView.m */,
+			);
+			path = MSSTabBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65A05631C46860300E0DA6E /* MSSTabBarView.m in Sources */,
 				46FA82011C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m in Sources */,
 				D65A055E1C467EC300E0DA6E /* UIViewController+MSSUtilities.m in Sources */,
 				46FA81E51C2C19670020BB60 /* ViewController.m in Sources */,

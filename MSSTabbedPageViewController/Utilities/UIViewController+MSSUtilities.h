@@ -12,4 +12,8 @@
 
 - (void)addToParentViewController:(UIViewController *)parentViewController;
 
+- (void)addToParentViewController:(UIViewController *)parentViewController withView:(UIView *)view;
+
+- (CGFloat)requiredTopMargin;
+
 @end

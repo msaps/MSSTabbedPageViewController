@@ -14,4 +14,6 @@
 
 - (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets;
 
+- (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height;
+
 @end

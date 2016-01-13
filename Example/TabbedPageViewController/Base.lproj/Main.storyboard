@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CAa-oM-U9G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PnR-mV-E6n">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
@@ -33,6 +33,22 @@
             </objects>
             <point key="canvasLocation" x="427" y="423"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jue-oL-Guq">
+            <objects>
+                <navigationController id="PnR-mV-E6n" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJO-Jo-WH6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CAa-oM-U9G" kind="relationship" relationship="rootViewController" id="fz1-NB-Rre"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWf-82-KQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="-362"/>
+        </scene>
         <!--Tab View Controller-->
         <scene sceneID="BoV-nD-gIP">
             <objects>
@@ -46,6 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fdp-QQ-Mlx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBa-am-sdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

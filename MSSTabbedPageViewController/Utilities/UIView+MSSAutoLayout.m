@@ -15,12 +15,7 @@
 }
 
 - (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets {
-    if (subview.superview) {
-        [subview removeFromSuperview];
-    }
-    
-    [self addSubview:subview];
-    subview.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addView:subview];
     NSDictionary *views = NSDictionaryOfVariableBindings(subview);
     
     NSString *verticalConstraints = [NSString stringWithFormat:@"V:|-%f-[subview]-%f-|", insets.top, insets.bottom];
@@ -33,6 +28,33 @@
                                                                  options:0
                                                                  metrics:nil
                                                                    views:views]];
+}
+
+- (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height {
+    [self addView:subview];
+    NSDictionary *views = NSDictionaryOfVariableBindings(subview);
+    
+    NSDictionary *metrics = @{@"viewHeight":@(height)};
+    NSString *verticalConstraints = [NSString stringWithFormat:@"V:|-[subview(viewHeight)]"];
+    NSString *horizontalConstraints = [NSString stringWithFormat:@"H:|-[subview]-|"];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalConstraints
+                                                                 options:0
+                                                                 metrics:metrics
+                                                                   views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalConstraints
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:views]];
+}
+
+#pragma mark - Internal
+
+- (void)addView:(UIView *)subview {
+    if (subview.superview) {
+        [subview removeFromSuperview];
+    }
+    [self addSubview:subview];
+    subview.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 @end

@@ -33,4 +33,8 @@
     NSLog(@"did scroll to page: %li", page);
 }
 
+- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
+    return @[@"Page 1", @"Page 2", @"Page 3"];
+}
+
 @end

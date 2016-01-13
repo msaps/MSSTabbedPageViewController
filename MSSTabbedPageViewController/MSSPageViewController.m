@@ -59,12 +59,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if (!self.pageViewController.parentViewController) {
-        [self addChildViewController:self.pageViewController];
-        [self.view addExpandingSubview:self.pageViewController.view];
-        [self.pageViewController didMoveToParentViewController:self];
-    }
+    [self.pageViewController addToParentViewController:self];
     self.scrollView.delegate = self;
     
     [self setUpTabs];
