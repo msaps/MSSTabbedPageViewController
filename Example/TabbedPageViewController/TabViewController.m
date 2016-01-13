@@ -34,7 +34,7 @@
 }
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return @[@"Page 1", @"Page 2", @"Page 3"];
+    return @[@"Long Page 1", @"Page 2", @"Longer Page 3"];
 }
 
 @end

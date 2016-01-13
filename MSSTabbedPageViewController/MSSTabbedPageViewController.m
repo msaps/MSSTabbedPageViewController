@@ -65,7 +65,7 @@
 #pragma mark - Tab Bar View delegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    
+    [self.pageViewController moveToPageAtIndex:index];
 }
 
 #pragma mark - Internal
@@ -75,6 +75,8 @@
     
     UIEdgeInsets margins = self.contentView.layoutMargins;
     margins.top = self.requiredTopMargin;
+    margins.left = 0.0f;
+    margins.right = 0.0f;
     self.contentView.layoutMargins = margins;
 }
 

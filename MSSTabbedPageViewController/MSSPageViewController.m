@@ -143,6 +143,43 @@
     }
 }
 
+#pragma mark - Public
+
+- (void)moveToPageAtIndex:(NSInteger)index {
+    [self moveToPageAtIndex:index completion:nil];
+}
+
+- (void)moveToPageAtIndex:(NSInteger)index
+               completion:(void (^)(UIViewController *, BOOL, BOOL))completion {
+    
+    if (index != self.currentPage) {
+        
+        BOOL isForwards = index > self.currentPage;
+        NSArray *viewControllers = self.pageViewController.viewControllers;
+        UIViewController *viewController = [self viewControllerAtIndex:index];
+        
+        typeof(self) __weak weakSelf = self;
+        [self.pageViewController setViewControllers:@[viewController]
+                                          direction:isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:^(BOOL finished) {
+                                             typeof(weakSelf) __strong strongSelf = weakSelf;
+                                             [strongSelf pageViewController:strongSelf.pageViewController
+                                                         didFinishAnimating:YES
+                                                    previousViewControllers:viewControllers
+                                                        transitionCompleted:YES];
+                                             
+                                             if (completion) {
+                                                 completion(viewController, YES, YES);
+                                             }
+                                         }];
+    } else {
+        if (completion) {
+            completion(nil, NO, NO);
+        }
+    }
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {

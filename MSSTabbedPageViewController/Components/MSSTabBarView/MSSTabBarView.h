@@ -29,4 +29,8 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @property (nonatomic, weak) id<MSSTabBarViewDelegate> delegate;
 
+@property (nonatomic, assign) CGFloat tabPadding;
+
+@property (nonatomic, assign) UIEdgeInsets contentInset;
+
 @end

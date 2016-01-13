@@ -19,6 +19,8 @@
 		46FA82011C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA81FE1C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m */; };
 		D65A055E1C467EC300E0DA6E /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A055D1C467EC300E0DA6E /* UIViewController+MSSUtilities.m */; };
 		D65A05631C46860300E0DA6E /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A05621C46860300E0DA6E /* MSSTabBarView.m */; };
+		D65A05691C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65A05681C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.m */; };
+		D65A056B1C46A71700E0DA6E /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65A056A1C46A71700E0DA6E /* MSSTabBarCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,9 @@
 		D65A055D1C467EC300E0DA6E /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
 		D65A05611C46860300E0DA6E /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
 		D65A05621C46860300E0DA6E /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		D65A05671C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		D65A05681C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		D65A056A1C46A71700E0DA6E /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +159,9 @@
 			children = (
 				D65A05611C46860300E0DA6E /* MSSTabBarView.h */,
 				D65A05621C46860300E0DA6E /* MSSTabBarView.m */,
+				D65A05671C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.h */,
+				D65A05681C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.m */,
+				D65A056A1C46A71700E0DA6E /* MSSTabBarCollectionViewCell.xib */,
 			);
 			path = MSSTabBarView;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			files = (
 				46FA81D21C2C18FE0020BB60 /* LaunchScreen.storyboard in Resources */,
 				46FA81CF1C2C18FE0020BB60 /* Assets.xcassets in Resources */,
+				D65A056B1C46A71700E0DA6E /* MSSTabBarCollectionViewCell.xib in Resources */,
 				46FA81CD1C2C18FE0020BB60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +240,7 @@
 			files = (
 				D65A05631C46860300E0DA6E /* MSSTabBarView.m in Sources */,
 				46FA82011C2C6D3D0020BB60 /* UIView+MSSAutoLayout.m in Sources */,
+				D65A05691C46A70F00E0DA6E /* MSSTabBarCollectionViewCell.m in Sources */,
 				D65A055E1C467EC300E0DA6E /* UIViewController+MSSUtilities.m in Sources */,
 				46FA81E51C2C19670020BB60 /* ViewController.m in Sources */,
 				46FA82001C2C6D3D0020BB60 /* MSSTabbedPageViewController.m in Sources */,

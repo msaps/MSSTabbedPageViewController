@@ -90,4 +90,23 @@
  */
 @property (nonatomic, assign) BOOL showPageIndicator;
 
+/**
+ Move page view controller to a page at specific index.
+ 
+ @param index
+ The index of the page to display.
+ */
+- (void)moveToPageAtIndex:(NSInteger)index;
+
+/**
+ Move page view controller to a page at specific index.
+ 
+ @param index
+ The index of the page to display.
+ @param completion
+ Completion of the page move.
+ */
+- (void)moveToPageAtIndex:(NSInteger)index
+               completion:(void (^) (UIViewController *newController, BOOL animationFinished, BOOL transitionFinished))completion;
+
 @end
