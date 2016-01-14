@@ -8,10 +8,6 @@
 
 #import "TabViewController.h"
 
-@interface TabViewController ()
-
-@end
-
 @implementation TabViewController
 
 #pragma mark - Page View Controller
@@ -23,13 +19,12 @@
              [storyboard instantiateViewControllerWithIdentifier:@"viewController2"],
              [storyboard instantiateViewControllerWithIdentifier:@"viewController3"],
              [storyboard instantiateViewControllerWithIdentifier:@"viewController4"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController5"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController6"]
+             [storyboard instantiateViewControllerWithIdentifier:@"viewController5"]
              ];
 }
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return @[@"Long Page 1", @"Page 2", @"Longer Page 3"];
+    return @[@"Page One", @"Page Two", @"Page Three", @"Page Four", @"Page Five"];
 }
 
 @end

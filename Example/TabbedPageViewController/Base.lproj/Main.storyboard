@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="376" y="-362"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Paged Tabs-->
         <scene sceneID="BoV-nD-gIP">
             <objects>
                 <viewController id="CAa-oM-U9G" customClass="TabViewController" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fdp-QQ-Mlx"/>
+                    <navigationItem key="navigationItem" title="Paged Tabs" id="fdp-QQ-Mlx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBa-am-sdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,35 +183,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlh-d7-3Ab" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3203" y="435"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="1I1-pe-0Ja">
-            <objects>
-                <viewController storyboardIdentifier="viewController6" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j3m-wJ-fyZ" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4Vw-1C-fNX"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Vj-Ff-q7p"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0LO-8A-CIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-bl-jqA">
-                                <rect key="frame" x="270" y="288" width="61" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="RYF-bl-jqA" firstAttribute="centerX" secondItem="0LO-8A-CIZ" secondAttribute="centerX" id="MvV-sd-Q9e"/>
-                            <constraint firstItem="RYF-bl-jqA" firstAttribute="centerY" secondItem="0LO-8A-CIZ" secondAttribute="centerY" id="dx6-KS-KME"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k5Z-Ic-CVw" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3891" y="435"/>
         </scene>
     </scenes>
 </document>
