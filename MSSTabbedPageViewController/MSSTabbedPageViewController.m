@@ -81,6 +81,13 @@
     [self.tabBarView setTabOffset:pageOffset];
 }
 
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+           didScrollToPage:(NSInteger)page {
+    if (!pageViewController.isDragging) {
+        [self.tabBarView setTabIndex:page animated:YES];
+    }
+}
+
 #pragma mark - Tab Bar View data source
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {

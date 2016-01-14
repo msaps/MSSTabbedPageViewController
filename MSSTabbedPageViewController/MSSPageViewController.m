@@ -207,6 +207,10 @@
     }
 }
 
+- (BOOL)isDragging {
+    return self.scrollView.isDragging;
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {

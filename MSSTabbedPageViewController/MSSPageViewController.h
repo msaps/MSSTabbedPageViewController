@@ -114,6 +114,11 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
 @property (nonatomic, assign) BOOL allowScrollViewUpdates;
 
 /**
+ Whether the user is currently dragging the page view controller.
+ */
+@property (nonatomic, assign, readonly) BOOL isDragging;
+
+/**
  Move page view controller to a page at specific index.
  
  @param index
