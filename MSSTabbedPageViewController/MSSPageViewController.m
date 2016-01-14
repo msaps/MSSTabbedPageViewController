@@ -18,6 +18,9 @@
 
 @property (nonatomic, assign) CGFloat previousPagePosition;
 
+/// Internal scroll update toggle
+@property (nonatomic, assign) BOOL scrollUpdatesEnabled;
+
 @end
 
 @implementation MSSPageViewController
@@ -42,6 +45,7 @@
     _notifyOutOfBoundUpdates = YES;
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
+    _scrollUpdatesEnabled = YES;
 }
 
 #pragma mark - Lifecycle
@@ -66,6 +70,17 @@
     [self setUpTabs];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    // disable scroll updates during rotation
+    self.scrollUpdatesEnabled = NO;
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        self.scrollUpdatesEnabled = YES;
+    }];
+}
+
 #pragma mark - Scroll View delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -83,7 +98,7 @@
         if (self.notifyOutOfBoundUpdates || (!self.notifyOutOfBoundUpdates && !outOfBounds)) {
             
             // check whether updates are allowed
-            if (self.allowScrollViewUpdates) {
+            if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
                 if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
                     
                     MSSPageViewControllerScrollDirection direction =

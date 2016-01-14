@@ -41,6 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.view addExpandingSubview:self.contentView];
     [self setUpContentView];
     
     [self.pageViewController addToParentViewController:self withView:self.contentView];
@@ -49,6 +51,16 @@
     
     self.tabBarView.expectedTabCount = self.pageViewController.numberOfPages;
     self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:
+     ^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        [self setUpContentView];
+    } completion:nil];
 }
 
 #pragma mark - Page View Controller data source
@@ -110,10 +122,8 @@
 #pragma mark - Internal
 
 - (void)setUpContentView {
-    [self.view addExpandingSubview:self.contentView];
-    
     UIEdgeInsets margins = self.contentView.layoutMargins;
-    margins.top = self.requiredTopMargin;
+    margins.top = CGRectGetMaxY(self.navigationController.navigationBar.frame);
     margins.left = 0.0f;
     margins.right = 0.0f;
     self.contentView.layoutMargins = margins;

@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
+		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
+		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
+		D65593041C47F275000CAD99 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D65592F91C47F275000CAD99 /* Info.plist */; };
+		D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FA1C47F275000CAD99 /* LaunchScreen.storyboard */; };
+		D65593061C47F275000CAD99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FC1C47F275000CAD99 /* Main.storyboard */; };
+		D65593071C47F275000CAD99 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592FE1C47F275000CAD99 /* TabViewController.m */; };
+		D65593081C47F275000CAD99 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593001C47F275000CAD99 /* ViewController.m */; };
+		D655931B1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */; };
+		D655931C1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */; };
+		D655931D1C47F295000CAD99 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593111C47F295000CAD99 /* MSSTabBarView.m */; };
+		D655931E1C47F295000CAD99 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593131C47F295000CAD99 /* MSSPageViewController.m */; };
+		D655931F1C47F295000CAD99 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */; };
+		D65593201C47F295000CAD99 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593181C47F295000CAD99 /* UIView+MSSAutoLayout.m */; };
+		D65593211C47F295000CAD99 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46FA81BF1C2C18FE0020BB60 /* Paged Tabs Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paged Tabs Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D65592F61C47F275000CAD99 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D65592F81C47F275000CAD99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D65592F91C47F275000CAD99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D65592FA1C47F275000CAD99 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D65592FC1C47F275000CAD99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D65592FD1C47F275000CAD99 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		D65592FE1C47F275000CAD99 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		D65592FF1C47F275000CAD99 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D65593001C47F275000CAD99 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D655930D1C47F295000CAD99 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		D65593101C47F295000CAD99 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		D65593111C47F295000CAD99 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		D65593121C47F295000CAD99 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		D65593131C47F295000CAD99 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		D65593141C47F295000CAD99 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		D65593171C47F295000CAD99 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		D65593181C47F295000CAD99 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		D65593191C47F295000CAD99 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46FA81BC1C2C18FE0020BB60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46FA81B61C2C18FE0020BB60 = {
+			isa = PBXGroup;
+			children = (
+				D65592F31C47F275000CAD99 /* Paged Tabs Example */,
+				D655930A1C47F295000CAD99 /* MSSTabbedPageViewController */,
+				46FA81C01C2C18FE0020BB60 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46FA81C01C2C18FE0020BB60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46FA81BF1C2C18FE0020BB60 /* Paged Tabs Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D65592F31C47F275000CAD99 /* Paged Tabs Example */ = {
+			isa = PBXGroup;
+			children = (
+				D65592F41C47F275000CAD99 /* AppDelegate.h */,
+				D65592F51C47F275000CAD99 /* AppDelegate.m */,
+				D65592F71C47F275000CAD99 /* Resources */,
+				D65592FB1C47F275000CAD99 /* Screens */,
+				D65593091C47F27A000CAD99 /* Supporting Files */,
+			);
+			path = "Paged Tabs Example";
+			sourceTree = "<group>";
+		};
+		D65592F71C47F275000CAD99 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D65592F81C47F275000CAD99 /* Assets.xcassets */,
+				D65592F91C47F275000CAD99 /* Info.plist */,
+				D65592FA1C47F275000CAD99 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D65592FB1C47F275000CAD99 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D65592FC1C47F275000CAD99 /* Main.storyboard */,
+				D65592FD1C47F275000CAD99 /* TabViewController.h */,
+				D65592FE1C47F275000CAD99 /* TabViewController.m */,
+				D65592FF1C47F275000CAD99 /* ViewController.h */,
+				D65593001C47F275000CAD99 /* ViewController.m */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D65593091C47F27A000CAD99 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D65592F61C47F275000CAD99 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D655930A1C47F295000CAD99 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D65593121C47F295000CAD99 /* MSSPageViewController.h */,
+				D65593131C47F295000CAD99 /* MSSPageViewController.m */,
+				D65593141C47F295000CAD99 /* MSSTabbedPageViewController.h */,
+				D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */,
+				D655930B1C47F295000CAD99 /* Components */,
+				D65593161C47F295000CAD99 /* Utilities */,
+			);
+			name = MSSTabbedPageViewController;
+			path = ../MSSTabbedPageViewController;
+			sourceTree = "<group>";
+		};
+		D655930B1C47F295000CAD99 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D655930C1C47F295000CAD99 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D655930C1C47F295000CAD99 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				D655930D1C47F295000CAD99 /* MSSTabBarCollectionViewCell.h */,
+				D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */,
+				D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */,
+				D65593101C47F295000CAD99 /* MSSTabBarView.h */,
+				D65593111C47F295000CAD99 /* MSSTabBarView.m */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		D65593161C47F295000CAD99 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D65593171C47F295000CAD99 /* UIView+MSSAutoLayout.h */,
+				D65593181C47F295000CAD99 /* UIView+MSSAutoLayout.m */,
+				D65593191C47F295000CAD99 /* UIViewController+MSSUtilities.h */,
+				D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46FA81BE1C2C18FE0020BB60 /* Paged Tabs Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46FA81D61C2C18FE0020BB60 /* Build configuration list for PBXNativeTarget "Paged Tabs Example" */;
+			buildPhases = (
+				46FA81BB1C2C18FE0020BB60 /* Sources */,
+				46FA81BC1C2C18FE0020BB60 /* Frameworks */,
+				46FA81BD1C2C18FE0020BB60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Paged Tabs Example";
+			productName = TabbedPageViewController;
+			productReference = 46FA81BF1C2C18FE0020BB60 /* Paged Tabs Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46FA81B71C2C18FE0020BB60 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MSS;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Merrick Sapsford";
+				TargetAttributes = {
+					46FA81BE1C2C18FE0020BB60 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 46FA81BA1C2C18FE0020BB60 /* Build configuration list for PBXProject "Paged Tabs Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46FA81B61C2C18FE0020BB60;
+			productRefGroup = 46FA81C01C2C18FE0020BB60 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46FA81BE1C2C18FE0020BB60 /* Paged Tabs Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46FA81BD1C2C18FE0020BB60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */,
+				D65593041C47F275000CAD99 /* Info.plist in Resources */,
+				D65593031C47F275000CAD99 /* Assets.xcassets in Resources */,
+				D655931C1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */,
+				D65593061C47F275000CAD99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46FA81BB1C2C18FE0020BB60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D655931D1C47F295000CAD99 /* MSSTabBarView.m in Sources */,
+				D655931F1C47F295000CAD99 /* MSSTabbedPageViewController.m in Sources */,
+				D655931E1C47F295000CAD99 /* MSSPageViewController.m in Sources */,
+				D65593211C47F295000CAD99 /* UIViewController+MSSUtilities.m in Sources */,
+				D65593071C47F275000CAD99 /* TabViewController.m in Sources */,
+				D65593021C47F275000CAD99 /* main.m in Sources */,
+				D655931B1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */,
+				D65593081C47F275000CAD99 /* ViewController.m in Sources */,
+				D65593201C47F295000CAD99 /* UIView+MSSAutoLayout.m in Sources */,
+				D65593011C47F275000CAD99 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		46FA81D41C2C18FE0020BB60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46FA81D51C2C18FE0020BB60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46FA81D71C2C18FE0020BB60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = msapsford.pagedTabsExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		46FA81D81C2C18FE0020BB60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = msapsford.pagedTabsExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46FA81BA1C2C18FE0020BB60 /* Build configuration list for PBXProject "Paged Tabs Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46FA81D41C2C18FE0020BB60 /* Debug */,
+				46FA81D51C2C18FE0020BB60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46FA81D61C2C18FE0020BB60 /* Build configuration list for PBXNativeTarget "Paged Tabs Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46FA81D71C2C18FE0020BB60 /* Debug */,
+				46FA81D81C2C18FE0020BB60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46FA81B71C2C18FE0020BB60 /* Project object */;
+}

@@ -113,6 +113,12 @@ static MSSTabBarCollectionViewCell *sizingCell;
     }
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self updateTabBarForTabIndex:self.tabOffset];
+}
+
 #pragma mark - Collection View data source
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -239,13 +245,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         // get the current and next tab cells
         NSInteger currentTabIndex = isBackwards ? ceil(tabOffset) : floor(tabOffset);
-        NSInteger nextTabIndex = isBackwards ? floor(tabOffset) : ceil(tabOffset);
-        
+        NSInteger nextTabIndex = MAX(0, MIN(self.tabTitles.count - 1, isBackwards ? floor(tabOffset) : ceil(tabOffset)));
+
         MSSTabBarCollectionViewCell *currentTabCell = [self collectionViewCellAtTabIndex:currentTabIndex];
         MSSTabBarCollectionViewCell *nextTabCell = [self collectionViewCellAtTabIndex:nextTabIndex];
         
         // update tab bar components
-        if (currentTabCell && nextTabCell) {
+        if (currentTabCell != nextTabCell && (currentTabCell && nextTabCell)) {
             [self updateTabsWithCurrentTabCell:currentTabCell
                                    nextTabCell:nextTabCell
                                       progress:progress
@@ -260,6 +266,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)updateTabBarForTabIndex:(NSInteger)tabIndex {
     MSSTabBarCollectionViewCell *cell = [self collectionViewCellAtTabIndex:tabIndex];
     if (cell) {
+        
+        // update tab offsets
+        _previousTabOffset = _tabOffset;
+        _tabOffset = tabIndex;
+        
+        // update tab bar cells
         [self setTabCellsInactiveExceptTabIndex:tabIndex];
         [self setTabCellActive:cell];
     }
