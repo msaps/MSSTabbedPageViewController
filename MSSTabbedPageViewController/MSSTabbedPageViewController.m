@@ -45,6 +45,7 @@
     [self.contentView addPinnedToTopAndSidesSubview:self.tabBarView
                                   withHeight:MSSTabBarViewDefaultHeight];
     
+    self.tabBarView.expectedTabCount = self.pageViewController.numberOfPages;
     self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
 }
 

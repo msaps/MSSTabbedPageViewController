@@ -59,6 +59,14 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  */
 @property (nonatomic, assign) CGFloat tabOffset;
 
+/**
+ The expected number of tabs in the tab bar.
+ */
+@property (nonatomic, assign) NSInteger expectedTabCount;
+
+/**
+ The default index for the tab bar to display.
+ */
 @property (nonatomic, assign) NSInteger defaultTabIndex;
 
 /**

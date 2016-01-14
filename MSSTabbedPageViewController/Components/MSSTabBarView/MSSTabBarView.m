@@ -15,6 +15,7 @@ NSString *const MSSTabBarViewCellIdentifier = @"tabCell";
 
 CGFloat const MSSTabBarViewDefaultTabIndicatorHeight = 2.0f;
 CGFloat const MSSTabBarViewDefaultTabPadding = 8.0f;
+NSString *const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
 CGFloat const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
 
@@ -56,14 +57,6 @@ static MSSTabBarCollectionViewCell *sizingCell;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if ([super initWithFrame:frame]) {
-        [self baseInit];
-    }
-    return self;
-}
-
-- (instancetype)initWithDefaultIndex:(NSInteger)index {
-    if (self = [super init]) {
-        _tabOffset = index;
         [self baseInit];
     }
     return self;
@@ -121,7 +114,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
     
-    self.tabTitles = [self.dataSource tabTitlesForTabBarView:self];
+    self.tabTitles = [self evaluateTabTitles];
     return self.tabTitles.count;
 }
 
@@ -215,7 +208,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-#pragma mark - Internal
+#pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
     
@@ -346,6 +339,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         return (MSSTabBarCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     }
     return nil;
+}
+
+#pragma mark - Internal
+
+- (NSArray *)evaluateTabTitles {
+    NSMutableArray *tabTitles = [[self.dataSource tabTitlesForTabBarView:self]mutableCopy];
+    
+    if (self.expectedTabCount != 0) {
+        for (NSInteger tab = tabTitles.count; tab < self.expectedTabCount; tab++) {
+            NSString *title = [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, tab + 1];
+            [tabTitles addObject:title];
+        }
+    }
+    return tabTitles;
 }
 
 @end
