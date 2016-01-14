@@ -44,6 +44,8 @@
     [self.pageViewController addToParentViewController:self withView:self.contentView];
     [self.contentView addPinnedToTopAndSidesSubview:self.tabBarView
                                   withHeight:MSSTabBarViewDefaultHeight];
+    
+    self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
 }
 
 #pragma mark - Page View Controller data source
