@@ -11,6 +11,12 @@
 #import "UIViewController+MSSUtilities.h"
 #import "UIView+MSSAutoLayout.h"
 
+typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
+    MSSPageViewControllerScrollDirectionUnknown = -1,
+    MSSPageViewControllerScrollDirectionBackward = 0,
+    MSSPageViewControllerScrollDirectionForward = 1
+};
+
 @class MSSPageViewController;
 
 @protocol MSSPageViewControllerDelegate <NSObject>
@@ -25,7 +31,8 @@
         The updated page offset.
  */
 - (void)pageViewController:(MSSPageViewController *)pageViewController
-     didScrollToPageOffset:(CGFloat)pageOffset;
+     didScrollToPageOffset:(CGFloat)pageOffset
+                 direction:(MSSPageViewControllerScrollDirection)scrollDirection;
 
 /**
  The page view controller has completed scroll to a page.
@@ -80,6 +87,11 @@
  */
 @property (nonatomic, strong, readonly) NSArray *viewControllers;
 
+/**
+ The default page index of the page view ontroller.
+ */
+@property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
+
 /**  
  Whether page view controller will provide scroll updates when out of bounds.
  */
@@ -89,6 +101,11 @@
  Whether page view controller will display the page indicator view.
  */
 @property (nonatomic, assign) BOOL showPageIndicator;
+
+/**
+ Whether page view controller will provide delegate updates on scroll events
+ */
+@property (nonatomic, assign) BOOL allowScrollViewUpdates;
 
 /**
  Move page view controller to a page at specific index.
@@ -107,6 +124,8 @@
  Completion of the page move.
  */
 - (void)moveToPageAtIndex:(NSInteger)index
-               completion:(void (^) (UIViewController *newController, BOOL animationFinished, BOOL transitionFinished))completion;
+               completion:(void (^) (UIViewController *newController,
+                                     BOOL animationFinished,
+                                     BOOL transitionFinished))completion;
 
 @end

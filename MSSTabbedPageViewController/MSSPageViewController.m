@@ -41,6 +41,7 @@
 - (void)baseInit {
     _notifyOutOfBoundUpdates = YES;
     _showPageIndicator = NO;
+    _allowScrollViewUpdates = YES;
 }
 
 #pragma mark - Lifecycle
@@ -80,8 +81,19 @@
         // check if position is out of bounds
         BOOL outOfBounds = currentPagePosition < 0.0f || currentPagePosition > ((scrollView.contentSize.width / pageWidth) - 1.0f);
         if (self.notifyOutOfBoundUpdates || (!self.notifyOutOfBoundUpdates && !outOfBounds)) {
-            if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:)]) {
-                [self.delegate pageViewController:self didScrollToPageOffset:currentPagePosition];
+            
+            // check whether updates are allowed
+            if (self.allowScrollViewUpdates) {
+                if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
+                    
+                    MSSPageViewControllerScrollDirection direction =
+                        currentPagePosition > _previousPagePosition ?
+                        MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
+                    
+                    [self.delegate pageViewController:self
+                                didScrollToPageOffset:currentPagePosition
+                                            direction:direction];
+                }
             }
         }
         
@@ -187,6 +199,7 @@
     NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     
     _numberOfPages = self.viewControllers.count;
+    _defaultPageIndex = defaultIndex;
     self.currentPage = defaultIndex;
     
     [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:defaultIndex]]

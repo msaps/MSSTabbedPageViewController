@@ -33,4 +33,10 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @property (nonatomic, assign) UIEdgeInsets contentInset;
 
+@property (nonatomic, assign, readonly, getter=isAnimatingTabChange) BOOL animatingTabChange;
+
+@property (nonatomic, assign) CGFloat tabOffset;
+
+- (void)setTabIndex:(NSInteger)index animated:(BOOL)animated;
+
 @end

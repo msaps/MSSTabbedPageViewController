@@ -8,7 +8,7 @@
 
 #import "MSSTabbedPageViewController.h"
 
-@interface MSSTabbedPageViewController () <MSSTabBarViewDelegate>
+@interface MSSTabbedPageViewController () <MSSPageViewControllerDelegate, MSSTabBarViewDelegate>
 
 @property (nonatomic, strong) UIView *contentView;
 
@@ -56,6 +56,14 @@
     return 0;
 }
 
+#pragma mark - Page View Controller delegate
+
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+     didScrollToPageOffset:(CGFloat)pageOffset
+                 direction:(MSSPageViewControllerScrollDirection)scrollDirection {
+    [self.tabBarView setTabOffset:pageOffset];
+}
+
 #pragma mark - Tab Bar View data source
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
@@ -65,7 +73,18 @@
 #pragma mark - Tab Bar View delegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    [self.pageViewController moveToPageAtIndex:index];
+    self.pageViewController.allowScrollViewUpdates = NO;
+    
+    [self.tabBarView setTabIndex:index animated:YES];
+    typeof(self) __weak weakSelf = self;
+    [self.pageViewController moveToPageAtIndex:index
+                                    completion:^(UIViewController *newController,
+                                                 BOOL animationFinished,
+                                                 BOOL transitionFinished) {
+                                        typeof(weakSelf) __strong strongSelf = weakSelf;
+                                        strongSelf.pageViewController.allowScrollViewUpdates = YES;
+                                        
+    }];
 }
 
 #pragma mark - Internal

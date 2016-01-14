@@ -25,14 +25,6 @@
              ];
 }
 
-- (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPageOffset:(CGFloat)pageOffset {
-    NSLog(@"%f", pageOffset);
-}
-
-- (void)pageViewController:(MSSPageViewController *)pageViewController didScrollToPage:(NSInteger)page {
-    NSLog(@"did scroll to page: %li", page);
-}
-
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
     return @[@"Long Page 1", @"Page 2", @"Longer Page 3"];
 }

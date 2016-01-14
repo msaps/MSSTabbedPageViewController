@@ -13,7 +13,7 @@
 @protocol MSSTabbedPageViewControllerDataSource <MSSPageViewControllerDataSource, MSSTabBarViewDataSource>
 @end
 
-@interface MSSTabbedPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSTabbedPageViewControllerDataSource>
+@interface MSSTabbedPageViewController : UIViewController <MSSTabbedPageViewControllerDataSource>
 
 @property (nonatomic, strong, readonly) MSSPageViewController *pageViewController;
 
