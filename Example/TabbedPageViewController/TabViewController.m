@@ -28,10 +28,6 @@
              ];
 }
 
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController {
-    return 1;
-}
-
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
     return @[@"Long Page 1", @"Page 2", @"Longer Page 3"];
 }

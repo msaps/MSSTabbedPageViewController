@@ -15,8 +15,19 @@
 
 @interface MSSTabbedPageViewController : UIViewController <MSSTabbedPageViewControllerDataSource>
 
+/**
+ The page view controller.
+ */
 @property (nonatomic, strong, readonly) MSSPageViewController *pageViewController;
 
+/**
+ The tab bar view.
+ */
 @property (nonatomic, strong, readonly) MSSTabBarView *tabBarView;
+
+/**
+ The object that acts as a data source for the page view controller and tab bar view.
+ */
+@property (nonatomic, weak) id<MSSTabbedPageViewControllerDataSource> dataSource;
 
 @end

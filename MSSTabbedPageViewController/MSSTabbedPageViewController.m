@@ -16,6 +16,8 @@
 
 @implementation MSSTabbedPageViewController
 
+@synthesize dataSource = _dataSource;
+
 #pragma mark - Lifecycle
 
 - (void)loadView {
@@ -88,6 +90,21 @@
                                         strongSelf.pageViewController.allowScrollViewUpdates = YES;
                                         
     }];
+}
+
+#pragma mark - Public
+
+- (void)setDataSource:(id<MSSTabbedPageViewControllerDataSource>)dataSource {
+    _dataSource = dataSource;
+    self.pageViewController.dataSource = dataSource;
+    self.tabBarView.dataSource = dataSource;
+}
+
+- (id<MSSTabbedPageViewControllerDataSource>)dataSource {
+    if (_dataSource) {
+        return _dataSource;
+    }
+    return self;
 }
 
 #pragma mark - Internal

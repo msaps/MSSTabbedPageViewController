@@ -40,8 +40,14 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @interface MSSTabBarView : UIView
 
+/**
+ The object that acts as the data source for the tab bar.
+ */
 @property (nonatomic, weak) id<MSSTabBarViewDataSource> dataSource;
 
+/**
+ The object that acts as a delegate for the tab bar.
+ */
 @property (nonatomic, weak) id<MSSTabBarViewDelegate> delegate;
 
 /**

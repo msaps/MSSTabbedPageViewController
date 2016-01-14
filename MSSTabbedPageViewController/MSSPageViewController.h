@@ -73,8 +73,14 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
 
 @interface MSSPageViewController : UIViewController
 
+/**
+ The object that acts as a data source for the page view controller.
+ */
 @property (nonatomic, weak) id<MSSPageViewControllerDataSource> dataSource;
 
+/**
+ The object that acts as a delegate for the page view controller.
+ */
 @property (nonatomic, weak) id<MSSPageViewControllerDelegate> delegate;
 
 /**
