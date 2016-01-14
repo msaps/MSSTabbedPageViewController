@@ -64,18 +64,24 @@ static MSSTabBarCollectionViewCell *sizingCell;
 }
 
 - (void)baseInit {
+    
+    // General
+    _tabPadding = MSSTabBarViewDefaultTabPadding;
+    CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
+    _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
+    
+    // Collection view
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     
-    _tabPadding = MSSTabBarViewDefaultTabPadding;
-    CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
-    _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
-    
+    // Tab indicator
     _selectionIndicatorHeight = MSSTabBarViewDefaultTabIndicatorHeight;
     _selectionIndicatorView = [UIView new];
+    _tabIndicatorColor = self.tintColor;
+    _tabTextColor = [UIColor blackColor];
 }
 
 #pragma mark - Lifecycle
@@ -102,7 +108,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
     }
     
     if (!self.selectionIndicatorView.superview) {
-        self.selectionIndicatorView.backgroundColor = [UIColor blackColor];
+        self.selectionIndicatorView.backgroundColor = self.tabIndicatorColor;
         [self.collectionView addSubview:self.selectionIndicatorView];
     }
 }
@@ -208,6 +214,16 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         self.hasRespectedDefaultTabIndex = NO;
         _defaultTabIndex = defaultTabIndex;
     }
+}
+
+- (void)setTabIndicatorColor:(UIColor *)tabIndicatorColor {
+    _tabIndicatorColor = tabIndicatorColor;
+    self.selectionIndicatorView.backgroundColor = tabIndicatorColor;
+}
+
+- (void)setTabTextColor:(UIColor *)tabTextColor {
+    _tabTextColor = tabTextColor;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - Tab Bar State

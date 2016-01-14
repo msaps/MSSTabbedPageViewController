@@ -81,6 +81,16 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 @property (nonatomic, assign, readonly, getter=isAnimatingTabChange) BOOL animatingTabChange;
 
 /**
+ The color of the tab selection indicator.
+ */
+@property (nonatomic, strong) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR;
+
+/**
+ The text color of the tabs.
+ */
+@property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
+
+/**
  Set the current selected tab index of the tab bar.
  
  @param index
