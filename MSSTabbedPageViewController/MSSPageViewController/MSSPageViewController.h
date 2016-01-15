@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MSSPageChildViewController.h"
 #import "UIViewController+MSSUtilities.h"
 #import "UIView+MSSAutoLayout.h"
 

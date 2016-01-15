@@ -13,14 +13,14 @@
 		D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FA1C47F275000CAD99 /* LaunchScreen.storyboard */; };
 		D65593061C47F275000CAD99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FC1C47F275000CAD99 /* Main.storyboard */; };
 		D65593071C47F275000CAD99 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592FE1C47F275000CAD99 /* TabViewController.m */; };
-		D65593081C47F275000CAD99 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593001C47F275000CAD99 /* ViewController.m */; };
-		D655931B1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */; };
-		D655931C1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */; };
-		D655931D1C47F295000CAD99 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593111C47F295000CAD99 /* MSSTabBarView.m */; };
-		D655931E1C47F295000CAD99 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593131C47F295000CAD99 /* MSSPageViewController.m */; };
-		D655931F1C47F295000CAD99 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */; };
+		D65593081C47F275000CAD99 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593001C47F275000CAD99 /* ChildViewController.m */; };
 		D65593201C47F295000CAD99 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593181C47F295000CAD99 /* UIView+MSSAutoLayout.m */; };
 		D65593211C47F295000CAD99 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */; };
+		D65593311C490229000CAD99 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593261C490229000CAD99 /* MSSPageViewController.m */; };
+		D655933F1C490245000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593391C490245000CAD99 /* MSSTabBarCollectionViewCell.m */; };
+		D65593401C490245000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D655933A1C490245000CAD99 /* MSSTabBarCollectionViewCell.xib */; };
+		D65593411C490245000CAD99 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D655933C1C490245000CAD99 /* MSSTabBarView.m */; };
+		D65593421C490245000CAD99 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D655933E1C490245000CAD99 /* MSSTabbedPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,21 +34,22 @@
 		D65592FC1C47F275000CAD99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D65592FD1C47F275000CAD99 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D65592FE1C47F275000CAD99 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
-		D65592FF1C47F275000CAD99 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D65593001C47F275000CAD99 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D655930D1C47F295000CAD99 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
-		D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
-		D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
-		D65593101C47F295000CAD99 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
-		D65593111C47F295000CAD99 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
-		D65593121C47F295000CAD99 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
-		D65593131C47F295000CAD99 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
-		D65593141C47F295000CAD99 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
-		D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		D65592FF1C47F275000CAD99 /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		D65593001C47F275000CAD99 /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
 		D65593171C47F295000CAD99 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
 		D65593181C47F295000CAD99 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
 		D65593191C47F295000CAD99 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
 		D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		D65593241C490229000CAD99 /* MSSPageChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageChildViewController.h; sourceTree = "<group>"; };
+		D65593251C490229000CAD99 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		D65593261C490229000CAD99 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		D65593381C490245000CAD99 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		D65593391C490245000CAD99 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		D655933A1C490245000CAD99 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		D655933B1C490245000CAD99 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		D655933C1C490245000CAD99 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		D655933D1C490245000CAD99 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		D655933E1C490245000CAD99 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +108,8 @@
 				D65592FC1C47F275000CAD99 /* Main.storyboard */,
 				D65592FD1C47F275000CAD99 /* TabViewController.h */,
 				D65592FE1C47F275000CAD99 /* TabViewController.m */,
-				D65592FF1C47F275000CAD99 /* ViewController.h */,
-				D65593001C47F275000CAD99 /* ViewController.m */,
+				D65592FF1C47F275000CAD99 /* ChildViewController.h */,
+				D65593001C47F275000CAD99 /* ChildViewController.m */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -124,35 +125,14 @@
 		D655930A1C47F295000CAD99 /* MSSTabbedPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D65593121C47F295000CAD99 /* MSSPageViewController.h */,
-				D65593131C47F295000CAD99 /* MSSPageViewController.m */,
-				D65593141C47F295000CAD99 /* MSSTabbedPageViewController.h */,
-				D65593151C47F295000CAD99 /* MSSTabbedPageViewController.m */,
-				D655930B1C47F295000CAD99 /* Components */,
+				D655933D1C490245000CAD99 /* MSSTabbedPageViewController.h */,
+				D655933E1C490245000CAD99 /* MSSTabbedPageViewController.m */,
+				D65593231C490229000CAD99 /* MSSPageViewController */,
+				D65593361C490245000CAD99 /* Components */,
 				D65593161C47F295000CAD99 /* Utilities */,
 			);
 			name = MSSTabbedPageViewController;
 			path = ../MSSTabbedPageViewController;
-			sourceTree = "<group>";
-		};
-		D655930B1C47F295000CAD99 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				D655930C1C47F295000CAD99 /* MSSTabBarView */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		D655930C1C47F295000CAD99 /* MSSTabBarView */ = {
-			isa = PBXGroup;
-			children = (
-				D655930D1C47F295000CAD99 /* MSSTabBarCollectionViewCell.h */,
-				D655930E1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m */,
-				D655930F1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib */,
-				D65593101C47F295000CAD99 /* MSSTabBarView.h */,
-				D65593111C47F295000CAD99 /* MSSTabBarView.m */,
-			);
-			path = MSSTabBarView;
 			sourceTree = "<group>";
 		};
 		D65593161C47F295000CAD99 /* Utilities */ = {
@@ -164,6 +144,36 @@
 				D655931A1C47F295000CAD99 /* UIViewController+MSSUtilities.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D65593231C490229000CAD99 /* MSSPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D65593241C490229000CAD99 /* MSSPageChildViewController.h */,
+				D65593251C490229000CAD99 /* MSSPageViewController.h */,
+				D65593261C490229000CAD99 /* MSSPageViewController.m */,
+			);
+			path = MSSPageViewController;
+			sourceTree = "<group>";
+		};
+		D65593361C490245000CAD99 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D65593371C490245000CAD99 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D65593371C490245000CAD99 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				D65593381C490245000CAD99 /* MSSTabBarCollectionViewCell.h */,
+				D65593391C490245000CAD99 /* MSSTabBarCollectionViewCell.m */,
+				D655933A1C490245000CAD99 /* MSSTabBarCollectionViewCell.xib */,
+				D655933B1C490245000CAD99 /* MSSTabBarView.h */,
+				D655933C1C490245000CAD99 /* MSSTabBarView.m */,
+			);
+			path = MSSTabBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +236,7 @@
 			files = (
 				D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */,
 				D65593031C47F275000CAD99 /* Assets.xcassets in Resources */,
-				D655931C1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */,
+				D65593401C490245000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */,
 				D65593061C47F275000CAD99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,15 +248,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D655931D1C47F295000CAD99 /* MSSTabBarView.m in Sources */,
-				D655931F1C47F295000CAD99 /* MSSTabbedPageViewController.m in Sources */,
-				D655931E1C47F295000CAD99 /* MSSPageViewController.m in Sources */,
+				D65593411C490245000CAD99 /* MSSTabBarView.m in Sources */,
 				D65593211C47F295000CAD99 /* UIViewController+MSSUtilities.m in Sources */,
+				D65593311C490229000CAD99 /* MSSPageViewController.m in Sources */,
+				D65593421C490245000CAD99 /* MSSTabbedPageViewController.m in Sources */,
 				D65593071C47F275000CAD99 /* TabViewController.m in Sources */,
 				D65593021C47F275000CAD99 /* main.m in Sources */,
-				D655931B1C47F295000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */,
-				D65593081C47F275000CAD99 /* ViewController.m in Sources */,
+				D65593081C47F275000CAD99 /* ChildViewController.m in Sources */,
 				D65593201C47F295000CAD99 /* UIView+MSSAutoLayout.m in Sources */,
+				D655933F1C490245000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */,
 				D65593011C47F275000CAD99 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

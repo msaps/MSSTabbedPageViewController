@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSPageChildViewController.h"
 
-@interface ViewController : UIViewController
+@interface ChildViewController : UIViewController <MSSPageChildViewController>
 
 @end

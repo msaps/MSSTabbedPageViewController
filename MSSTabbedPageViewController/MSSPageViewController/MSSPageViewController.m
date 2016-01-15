@@ -215,6 +215,7 @@
 
 - (void)setUpTabs {
     _viewControllers = [self.dataSource viewControllersForPageViewController:self];
+    [self setUpViewControllers:self.viewControllers];
     NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     
     _numberOfPages = self.viewControllers.count;
@@ -225,6 +226,14 @@
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:NO
                                      completion:nil];
+}
+
+- (void)setUpViewControllers:(NSArray *)viewControllers {
+    for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
+        if ([viewController respondsToSelector:@selector(pageViewController)]) {
+            viewController.pageViewController = self;
+        }
+    }
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
