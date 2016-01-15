@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "UIViewController+MSSUtilities.h"
 #import "UIView+MSSAutoLayout.h"
 
@@ -44,6 +43,30 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  */
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page;
+
+
+/**
+ The page view controller has successfully prepared child view controllers ready for display.
+ 
+ @param pageViewController
+ The page view controller.
+ @param viewControllers
+ The view controllers inside the page view controller.
+ */
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+ didPrepareViewControllers:(NSArray *)viewControllers;
+
+
+/**
+ The page view controller will display the initial view controller.
+ 
+ @param pageViewController
+ The page view controller.
+ @param viewController
+ The initial view controller.
+ */
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+willDisplayInitialViewController:(UIViewController *)viewController;
 
 @end
 
@@ -138,5 +161,14 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
                completion:(void (^) (UIViewController *newController,
                                      BOOL animationFinished,
                                      BOOL transitionFinished))completion;
+
+@end
+
+@protocol MSSPageChildViewController <NSObject>
+
+/**
+ The page view controller of the parent
+ */
+@property (nonatomic, weak) MSSPageViewController *pageViewController;
 
 @end

@@ -63,12 +63,24 @@ static MSSTabBarCollectionViewCell *sizingCell;
     return self;
 }
 
+- (instancetype)initWithHeight:(CGFloat)height {
+    if (self = [super init]) {
+        _height = height;
+        [self baseInit];
+    }
+    return self;
+}
+
 - (void)baseInit {
     
     // General
     _tabPadding = MSSTabBarViewDefaultTabPadding;
     CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
+    
+    if (_height == 0.0f) {
+        _height = MSSTabBarViewDefaultHeight;
+    }
     
     // Collection view
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];

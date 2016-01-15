@@ -214,17 +214,37 @@
 #pragma mark - Internal
 
 - (void)setUpTabs {
-    _viewControllers = [self.dataSource viewControllersForPageViewController:self];
-    NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     
+    // view controllers
+    _viewControllers = [self.dataSource viewControllersForPageViewController:self];
+    [self setUpViewControllers:self.viewControllers];
+    
+    NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     _numberOfPages = self.viewControllers.count;
     _defaultPageIndex = defaultIndex;
     self.currentPage = defaultIndex;
     
-    [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:defaultIndex]]
+    if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
+        [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
+    }
+    
+    // display initial page
+    UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+    if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
+        [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
+    }
+    [self.pageViewController setViewControllers:@[viewController]
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:NO
                                      completion:nil];
+}
+
+- (void)setUpViewControllers:(NSArray *)viewControllers {
+    for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
+        if ([viewController respondsToSelector:@selector(pageViewController)]) {
+            viewController.pageViewController = self;
+        }
+    }
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
