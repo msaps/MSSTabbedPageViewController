@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSTabbedPageViewController.h"
 
-@interface ViewController : UIViewController
+@interface ChildViewController : UIViewController <MSSTabbedPageChildViewController>
 
 @end

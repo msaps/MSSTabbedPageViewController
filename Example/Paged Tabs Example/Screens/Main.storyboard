@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="viewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1125" y="-362"/>
         </scene>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="Hus-RE-kFZ">
             <objects>
-                <viewController storyboardIdentifier="viewController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lUi-SO-Kmj" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lUi-SO-Kmj" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kcS-SI-yas"/>
                         <viewControllerLayoutGuide type="bottom" id="mcx-dY-C9u"/>
@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="1125" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="P1z-Ti-6nM">
             <objects>
-                <viewController storyboardIdentifier="viewController3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpW-HZ-XGw" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpW-HZ-XGw" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VPd-05-9JE"/>
                         <viewControllerLayoutGuide type="bottom" id="cAF-HY-8Yk"/>
@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="1813" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="Q0T-I8-Gaj">
             <objects>
-                <viewController storyboardIdentifier="viewController4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hax-2Q-hC6" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hax-2Q-hC6" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vlz-6G-8Yz"/>
                         <viewControllerLayoutGuide type="bottom" id="R4I-CO-s4F"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="2505" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="1s2-cn-ADL">
             <objects>
-                <viewController storyboardIdentifier="viewController5" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8VS-3y-B1N" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController5" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8VS-3y-B1N" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Psl-ox-gTP"/>
                         <viewControllerLayoutGuide type="bottom" id="deD-Yo-ChM"/>
