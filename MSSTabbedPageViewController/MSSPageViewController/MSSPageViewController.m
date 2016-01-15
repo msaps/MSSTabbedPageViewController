@@ -227,7 +227,13 @@
     if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
         [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
     }
-    [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:defaultIndex]]
+    
+    // display initial page
+    UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+    if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
+        [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
+    }
+    [self.pageViewController setViewControllers:@[viewController]
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:NO
                                      completion:nil];

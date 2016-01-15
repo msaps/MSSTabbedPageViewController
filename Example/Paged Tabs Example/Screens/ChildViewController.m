@@ -16,5 +16,6 @@
 
 @synthesize pageViewController = _pageViewController;
 @synthesize tabBarView = _tabBarView;
+@synthesize requiredContentInset = _requiredContentInset;
 
 @end
