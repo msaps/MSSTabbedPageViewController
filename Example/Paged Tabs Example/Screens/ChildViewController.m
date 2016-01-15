@@ -15,5 +15,6 @@
 @implementation ChildViewController
 
 @synthesize pageViewController = _pageViewController;
+@synthesize tabBarView = _tabBarView;
 
 @end

@@ -48,9 +48,6 @@
     [self.pageViewController addToParentViewController:self withView:self.contentView];
     [self.contentView addPinnedToTopAndSidesSubview:self.tabBarView
                                   withHeight:MSSTabBarViewDefaultHeight];
-    
-    self.tabBarView.expectedTabCount = self.pageViewController.numberOfPages;
-    self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
@@ -85,6 +82,19 @@
            didScrollToPage:(NSInteger)page {
     if (!pageViewController.isDragging) {
         [self.tabBarView setTabIndex:page animated:YES];
+    }
+}
+
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+ didPrepareViewControllers:(NSArray *)viewControllers {
+    
+    self.tabBarView.expectedTabCount = self.pageViewController.numberOfPages;
+    self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
+    
+    for (UIViewController<MSSTabbedPageChildViewController> *viewController in viewControllers) {
+        if ([viewController respondsToSelector:@selector(tabBarView)]) {
+            viewController.tabBarView = self.tabBarView;
+        }
     }
 }
 

@@ -31,3 +31,12 @@
 @property (nonatomic, weak) id<MSSTabbedPageViewControllerDataSource> dataSource;
 
 @end
+
+@protocol MSSTabbedPageChildViewController <MSSPageChildViewController>
+
+/**
+ The tab bar view of the parent tabbed page view controller.
+ */
+@property (nonatomic, weak) MSSTabBarView *tabBarView;
+
+@end

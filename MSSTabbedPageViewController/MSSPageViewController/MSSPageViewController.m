@@ -214,14 +214,19 @@
 #pragma mark - Internal
 
 - (void)setUpTabs {
+    
+    // view controllers
     _viewControllers = [self.dataSource viewControllersForPageViewController:self];
     [self setUpViewControllers:self.viewControllers];
-    NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     
+    NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
     _numberOfPages = self.viewControllers.count;
     _defaultPageIndex = defaultIndex;
     self.currentPage = defaultIndex;
     
+    if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
+        [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
+    }
     [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:defaultIndex]]
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:NO
