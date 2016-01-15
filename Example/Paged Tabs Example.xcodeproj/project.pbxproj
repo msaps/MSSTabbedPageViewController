@@ -10,7 +10,6 @@
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
 		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
-		D65593041C47F275000CAD99 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D65592F91C47F275000CAD99 /* Info.plist */; };
 		D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FA1C47F275000CAD99 /* LaunchScreen.storyboard */; };
 		D65593061C47F275000CAD99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FC1C47F275000CAD99 /* Main.storyboard */; };
 		D65593071C47F275000CAD99 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592FE1C47F275000CAD99 /* TabViewController.m */; };
@@ -194,7 +193,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MSS;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Merrick Sapsford";
 				TargetAttributes = {
 					46FA81BE1C2C18FE0020BB60 = {
@@ -226,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */,
-				D65593041C47F275000CAD99 /* Info.plist in Resources */,
 				D65593031C47F275000CAD99 /* Assets.xcassets in Resources */,
 				D655931C1C47F295000CAD99 /* MSSTabBarCollectionViewCell.xib in Resources */,
 				D65593061C47F275000CAD99 /* Main.storyboard in Resources */,
