@@ -54,9 +54,9 @@ Child view controllers can have access to numerous components of the parent cont
 
 ### Page View Controller Enhancements
 
-MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the MSSTabbedPageViewControllerDataSource as seen above. 
+`MSSPageViewController` is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above. 
 
-The delegate methods that MSSPageViewController provides are listed below:
+The delegate methods that `MSSPageViewController` provides are listed below:
 
 ```
 - (void)pageViewController:(MSSPageViewController *)pageViewController
