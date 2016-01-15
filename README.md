@@ -16,7 +16,7 @@ MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.or
 ## Usage
 To run the example project, clone the repo. Use `pod install` in your project.
 
-To use the tabbed page view controller, simply create a UIViewController that is a subclass of MSSTabbedPageViewController. Then implement the following data source methods:
+To use the tabbed page view controller, simply create a UIViewController that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source methods:
 
 ```
 // array of view controllers to display in page view controller
@@ -26,12 +26,33 @@ To use the tabbed page view controller, simply create a UIViewController that is
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView;
 ```
 
-There are also some optional data source methods:
+There are also some optional `MSSTabbedPageViewControllerDataSource` methods:
 
 ```
 // default page index to display
 - (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
 ```
+The `MSSTabbedPageViewControllerDelegate` provides the following optional methods:
+
+```
+// The desired tab bar height in the tabbed page view controller
+- (CGFloat)tabbedPageViewControllerHeightForTabBar:(MSSTabbedPageViewController *)tabbedPageViewController;
+```
+
+Child view controllers can have access to numerous components of the parent controller by implementing the `MSSTabbedPageChildViewController` protocol:
+
+```
+// Parent page view controller
+@property (nonatomic, weak) MSSPageViewController *pageViewController;
+
+// Parent tab bar view
+@property (nonatomic, weak) MSSTabBarView *tabBarView;
+
+// The required inset for the child view controller to display correctly in the parent
+@property (nonatomic, assign) UIEdgeInsets requiredContentInset;
+```
+
+### Page View Controller Enhancements
 
 MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the MSSTabbedPageViewControllerDataSource as seen above. 
 
