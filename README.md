@@ -33,7 +33,9 @@ There are also some optional data source methods:
 - (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
 ```
 
-MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides s simpler data source and enhanced delegation methods. The data source methods are encapsulated in the MSSTabbedPageViewControllerDataSource as seen above. The delegate methods that MSSPageViewController provides are listed below:
+MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the MSSTabbedPageViewControllerDataSource as seen above. 
+
+The delegate methods that MSSPageViewController provides are listed below:
 
 ```
 - (void)pageViewController:(MSSPageViewController *)pageViewController
@@ -53,5 +55,4 @@ Supports iOS 8 and iOS 9.
 
 ## Author
 Merrick Sapsford
-
 Mail: [merrick@merricksapsford.co.uk](mailto://merrick@merricksapsford.co.uk)
