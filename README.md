@@ -36,6 +36,17 @@ There are also some optional data source methods:
 MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides s simpler data source and enhanced delegation methods. The data source methods are encapsulated in the MSSTabbedPageViewControllerDataSource as seen above. The delegate methods that MSSPageViewController provides are listed below:
 
 ```
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+     didScrollToPageOffset:(CGFloat)pageOffset
+                 direction:(MSSPageViewControllerScrollDirection)scrollDirection;
+```
+Called when the page view controller is scrolled by the user to a specific offset, similar to scrollViewDidScroll. The pageOffset maintains the current page position and a scroll direction is provided. 
+
+```
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+           didScrollToPage:(NSInteger)page;
+```
+Called when the page view controller completes a full scroll to a new page. 
 
 ## Requirements
 Supports iOS 8 and iOS 9.
