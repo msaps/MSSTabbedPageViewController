@@ -18,7 +18,7 @@ CGFloat     const MSSTabBarViewDefaultTabIndicatorHeight = 2.0f;
 CGFloat     const MSSTabBarViewDefaultTabPadding = 8.0f;
 CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
-NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
+NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
 
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -386,7 +386,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.expectedTabCount != 0) {
         for (NSInteger tab = tabTitles.count; tab < self.expectedTabCount; tab++) {
-            NSString *title = [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (NSInteger)(tab + 1)];
+            NSString *title = [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (int)tab + 1];
             [tabTitles addObject:title];
         }
     }
