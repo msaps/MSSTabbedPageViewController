@@ -16,7 +16,7 @@ MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.or
 ## Usage
 To run the example project, clone the repo. Use `pod install` in your project.
 
-To use the tabbed page view controller, simply create a UIViewController that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source methods:
+To use the tabbed page view controller, simply create a `UIViewController` that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source methods:
 
 ```
 // array of view controllers to display in page view controller
@@ -54,16 +54,16 @@ Child view controllers can have access to numerous components of the parent cont
 
 ### Page View Controller Enhancements
 
-`MSSPageViewController` is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above. 
+MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above. 
 
-The delegate methods that `MSSPageViewController` provides are listed below:
+The delegate methods that `MSSPageViewControllerDelegate` provides are listed below:
 
 ```
 - (void)pageViewController:(MSSPageViewController *)pageViewController
      didScrollToPageOffset:(CGFloat)pageOffset
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection;
 ```
-Called when the page view controller is scrolled by the user to a specific offset, similar to scrollViewDidScroll. The pageOffset maintains the current page position and a scroll direction is provided. 
+Called when the page view controller is scrolled by the user to a specific offset, similar to `scrollViewDidScroll`. The pageOffset maintains the current page position and a scroll direction is provided. 
 
 ```
 - (void)pageViewController:(MSSPageViewController *)pageViewController
