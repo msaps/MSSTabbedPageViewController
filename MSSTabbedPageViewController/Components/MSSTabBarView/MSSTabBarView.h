@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-extern CGFloat const MSSTabBarViewDefaultHeight;
-
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
@@ -89,6 +87,20 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The text color of the tabs.
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
+
+/**
+ The height of the tab bar.
+ */
+@property (nonatomic, assign, readonly) CGFloat height;
+
+/**
+ Initialize a tab bar with a specified height.
+ 
+ @param height
+ The height for the tab bar.
+ @return Tab bar instance.
+ */
+- (instancetype)initWithHeight:(CGFloat)height;
 
 /**
  Set the current selected tab index of the tab bar.

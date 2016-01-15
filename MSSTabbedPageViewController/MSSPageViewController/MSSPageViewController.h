@@ -56,6 +56,18 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
 - (void)pageViewController:(MSSPageViewController *)pageViewController
  didPrepareViewControllers:(NSArray *)viewControllers;
 
+
+/**
+ The page view controller will display the initial view controller.
+ 
+ @param pageViewController
+ The page view controller.
+ @param viewController
+ The initial view controller.
+ */
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+willDisplayInitialViewController:(UIViewController *)viewController;
+
 @end
 
 @protocol MSSPageViewControllerDataSource <NSObject>
