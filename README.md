@@ -76,4 +76,5 @@ Supports iOS 8 and iOS 9.
 
 ## Author
 Merrick Sapsford
+
 Mail: [merrick@merricksapsford.co.uk](mailto://merrick@merricksapsford.co.uk)
