@@ -49,16 +49,6 @@
 @property (nonatomic, weak) id<MSSTabBarViewDelegate> delegate;
 
 /**
- The internal horizontal label padding value for each tab.
- */
-@property (nonatomic, assign) CGFloat tabPadding;
-
-/**
- The content inset for the tabs.
- */
-@property (nonatomic, assign) UIEdgeInsets contentInset;
-
-/**
  The current tab offset of the tab bar.
  */
 @property (nonatomic, assign) CGFloat tabOffset;
@@ -79,6 +69,36 @@
 @property (nonatomic, assign, readonly, getter=isAnimatingTabChange) BOOL animatingTabChange;
 
 /**
+ The background view for the tab bar.
+ */
+@property (nonatomic, strong) UIView *backgroundView;
+
+/**
+ The height of the tab bar.
+ */
+@property (nonatomic, assign, readonly) CGFloat height;
+
+/**
+ The internal horizontal label padding value for each tab.
+ */
+@property (nonatomic, assign) CGFloat tabPadding;
+
+/**
+ The content inset for the tabs.
+ */
+@property (nonatomic, assign) UIEdgeInsets contentInset;
+
+/**
+ The height of the selection indicator.
+ */
+@property (nonatomic, assign) CGFloat selectionIndicatorHeight;
+
+/**
+ The inset for the selection indicator from the bottom of the tab bar.
+ */
+@property (nonatomic, assign) CGFloat selectionIndicatorInset;
+
+/**
  The color of the tab selection indicator.
  */
 @property (nonatomic, strong) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR;
@@ -87,11 +107,6 @@
  The text color of the tabs.
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
-
-/**
- The height of the tab bar.
- */
-@property (nonatomic, assign, readonly) CGFloat height;
 
 /**
  Initialize a tab bar with a specified height.
