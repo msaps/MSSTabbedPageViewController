@@ -142,6 +142,11 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 @property (nonatomic, assign, readonly) BOOL isDragging;
 
 /**
+ Whether scroll view interaction is enabled on the page view controller
+ */
+@property (nonatomic, assign, getter=isScrollEnabled) BOOL scrollEnabled;
+
+/**
  Move page view controller to a page at specific index.
  
  @param index
