@@ -30,8 +30,6 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
 
 @property (nonatomic, assign) CGFloat previousTabOffset;
 
-@property (nonatomic, assign) CGFloat selectionIndicatorHeight;
-
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
 
 @end
@@ -152,6 +150,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
                                                                                   forIndexPath:indexPath];
     
     cell.titleLabel.text = title;
+    cell.titleLabel.textColor = self.tabTextColor;
     cell.backgroundColor = [UIColor clearColor];
     
     // check whether this is the default run
@@ -242,6 +241,30 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabTextColor:(UIColor *)tabTextColor {
     _tabTextColor = tabTextColor;
     [self.collectionView reloadData];
+}
+
+- (void)setBackgroundView:(UIView *)backgroundView {
+    _backgroundView = backgroundView;
+    [self addExpandingSubview:backgroundView];
+    [self sendSubviewToBack:backgroundView];
+}
+
+- (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
+    _selectionIndicatorHeight = selectionIndicatorHeight;
+    CGRect frame = self.selectionIndicatorView.frame;
+    if (frame.size.height != selectionIndicatorHeight) {
+        CGFloat diff = selectionIndicatorHeight - frame.size.height;
+        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
+        frame.size = CGSizeMake(frame.size.width, selectionIndicatorHeight);
+        self.selectionIndicatorView.frame = frame;
+    }
+}
+
+- (void)setSelectionIndicatorInset:(CGFloat)selectionIndicatorInset {
+    _selectionIndicatorInset = selectionIndicatorInset;
+    CGRect frame = self.selectionIndicatorView.frame;
+    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - self.selectionIndicatorInset - self.selectionIndicatorHeight);
+    self.selectionIndicatorView.frame = frame;
 }
 
 #pragma mark - Tab Bar State
@@ -365,7 +388,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     self.selectionIndicatorView.frame = CGRectMake(xOrigin,
-                                                   self.bounds.size.height - self.selectionIndicatorHeight,
+                                                   self.bounds.size.height - self.selectionIndicatorInset - self.selectionIndicatorHeight,
                                                    width,
                                                    self.selectionIndicatorHeight);
     [self updateCollectionViewScrollOffset];

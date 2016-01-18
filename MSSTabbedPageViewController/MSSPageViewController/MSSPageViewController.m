@@ -211,6 +211,14 @@
     return self.scrollView.isDragging;
 }
 
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    self.scrollView.scrollEnabled = scrollEnabled;
+}
+
+- (BOOL)isScrollEnabled {
+    return self.scrollView.scrollEnabled;
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {

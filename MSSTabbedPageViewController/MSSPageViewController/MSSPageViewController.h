@@ -44,7 +44,6 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page;
 
-
 /**
  The page view controller has successfully prepared child view controllers ready for display.
  
@@ -55,7 +54,6 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  */
 - (void)pageViewController:(MSSPageViewController *)pageViewController
  didPrepareViewControllers:(NSArray *)viewControllers;
-
 
 /**
  The page view controller will display the initial view controller.
@@ -140,6 +138,11 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  Whether the user is currently dragging the page view controller.
  */
 @property (nonatomic, assign, readonly) BOOL isDragging;
+
+/**
+ Whether scroll view interaction is enabled on the page view controller
+ */
+@property (nonatomic, assign, getter=isScrollEnabled) BOOL scrollEnabled;
 
 /**
  Move page view controller to a page at specific index.
