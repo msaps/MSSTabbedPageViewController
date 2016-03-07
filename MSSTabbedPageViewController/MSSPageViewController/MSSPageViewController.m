@@ -224,27 +224,35 @@
 - (void)setUpTabs {
     
     // view controllers
-    _viewControllers = [self.dataSource viewControllersForPageViewController:self];
-    [self setUpViewControllers:self.viewControllers];
-    
-    NSInteger defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
-    _numberOfPages = self.viewControllers.count;
-    _defaultPageIndex = defaultIndex;
-    self.currentPage = defaultIndex;
-    
-    if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
-        [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
+    if ([self.dataSource respondsToSelector:@selector(viewControllersForPageViewController:)]) {
+        _viewControllers = [self.dataSource viewControllersForPageViewController:self];
     }
     
-    // display initial page
-    UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
-    if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
-        [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
+    if (self.viewControllers.count > 0) {
+        [self setUpViewControllers:self.viewControllers];
+        
+        NSInteger defaultIndex = 0;
+        if ([self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
+            defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
+        }
+        _numberOfPages = self.viewControllers.count;
+        _defaultPageIndex = defaultIndex;
+        self.currentPage = defaultIndex;
+        
+        if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
+            [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
+        }
+        
+        // display initial page
+        UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+        if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
+            [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
+        }
+        [self.pageViewController setViewControllers:@[viewController]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:NO
+                                         completion:nil];
     }
-    [self.pageViewController setViewControllers:@[viewController]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:NO
-                                     completion:nil];
 }
 
 - (void)setUpViewControllers:(NSArray *)viewControllers {
