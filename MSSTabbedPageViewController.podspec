@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSSTabbedPageViewController"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "A custom container UIViewController which provides a simple to implement page view controller with scrolling tab bar"
 
   s.description  = <<-DESC
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/MerrickSapsford/MSSTabbedPageViewController"
   s.screenshots  = "https://raw.githubusercontent.com/MerrickSapsford/MSSTabbedPageViewController/develop/Example/MSSTabbedPageViewController.gif"
   s.license      = "MIT"
-  s.author       = { "Merrick Sapsford" => "merrick@merricksapsford.co.uk" }
+  s.author       = { "Merrick Sapsford" => "merrick@sapsford.tech" }
   s.social_media_url   = "http://twitter.com/MSapsfordDev"
 
   s.platform     = :ios, "9.0"
