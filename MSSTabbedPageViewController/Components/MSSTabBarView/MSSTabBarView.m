@@ -276,24 +276,38 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat progress = (CGFloat)modff(tabOffset, &integral);
     BOOL isBackwards = !(tabOffset >= self.previousTabOffset);
     
-    if (progress != 0.0f) {
+    if (tabOffset <= 0.0f) { // stick at bottom of tab bar
         
-        // get the current and next tab cells
-        NSInteger currentTabIndex = isBackwards ? ceil(tabOffset) : floor(tabOffset);
-        NSInteger nextTabIndex = MAX(0, MIN(self.tabTitles.count - 1, isBackwards ? floor(tabOffset) : ceil(tabOffset)));
-
-        MSSTabBarCollectionViewCell *currentTabCell = [self collectionViewCellAtTabIndex:currentTabIndex];
-        MSSTabBarCollectionViewCell *nextTabCell = [self collectionViewCellAtTabIndex:nextTabIndex];
+        MSSTabBarCollectionViewCell *firstTabCell = [self collectionViewCellAtTabIndex:0];
+        [self updateTabsWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f backwards:NO];
+        [self updateTabSelectionIndicatorWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f];
         
-        // update tab bar components
-        if (currentTabCell != nextTabCell && (currentTabCell && nextTabCell)) {
-            [self updateTabsWithCurrentTabCell:currentTabCell
-                                   nextTabCell:nextTabCell
-                                      progress:progress
-                                     backwards:isBackwards];
-            [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
-                                                    nextTabCell:nextTabCell
-                                                       progress:progress];
+    } else if (tabOffset >= self.tabTitles.count - 1) { // stick at top of tab bar
+        
+        MSSTabBarCollectionViewCell *lastTabCell = [self collectionViewCellAtTabIndex:self.tabTitles.count - 1];
+        [self updateTabsWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f backwards:NO];
+        [self updateTabSelectionIndicatorWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f];
+        
+    } else { // update as required
+        if (progress != 0.0f) {
+            
+            // get the current and next tab cells
+            NSInteger currentTabIndex = isBackwards ? ceil(tabOffset) : floor(tabOffset);
+            NSInteger nextTabIndex = MAX(0, MIN(self.tabTitles.count - 1, isBackwards ? floor(tabOffset) : ceil(tabOffset)));
+            
+            MSSTabBarCollectionViewCell *currentTabCell = [self collectionViewCellAtTabIndex:currentTabIndex];
+            MSSTabBarCollectionViewCell *nextTabCell = [self collectionViewCellAtTabIndex:nextTabIndex];
+            
+            // update tab bar components
+            if (currentTabCell != nextTabCell && (currentTabCell && nextTabCell)) {
+                [self updateTabsWithCurrentTabCell:currentTabCell
+                                       nextTabCell:nextTabCell
+                                          progress:progress
+                                         backwards:isBackwards];
+                [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
+                                                        nextTabCell:nextTabCell
+                                                           progress:progress];
+            }
         }
     }
 }
