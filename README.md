@@ -78,4 +78,4 @@ Supports iOS 8 and iOS 9.
 ## Author
 Merrick Sapsford
 
-Mail: [dev@sapsford.tech](mailto:dev@sapsford.tech)
+Mail: [merrick@sapsford.tech](mailto:merrick@sapsford.tech)
