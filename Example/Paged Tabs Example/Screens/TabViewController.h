@@ -6,8 +6,8 @@
 //  Copyright © 2015 Merrick Sapsford. All rights reserved.
 //
 
-#import "MSSPageViewController.h"
+#import "MSSTabbedPageViewController.h"
 
-@interface TabViewController : MSSPageViewController
+@interface TabViewController : MSSTabbedPageViewController
 
 @end

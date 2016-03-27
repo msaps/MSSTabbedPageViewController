@@ -267,6 +267,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectionIndicatorView.frame = frame;
 }
 
+- (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource {
+    _dataSource = dataSource;
+    [self.collectionView reloadData];
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {

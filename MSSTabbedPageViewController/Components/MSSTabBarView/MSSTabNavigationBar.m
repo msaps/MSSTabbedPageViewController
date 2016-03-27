@@ -24,8 +24,6 @@
     tabBarView.delegate = self;
     [self addSubview:tabBarView];
     _tabBarView = tabBarView;
-    
-    
 }
 
 #pragma mark - Lifecycle
