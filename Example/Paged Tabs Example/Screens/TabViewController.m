@@ -8,7 +8,20 @@
 
 #import "TabViewController.h"
 
+@interface TabViewController () <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
+
+@property (nonatomic, strong) MSSPageViewController *pageViewController;
+
+@end
+
 @implementation TabViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.delegate = self;
+    self.dataSource = self;
+}
 
 #pragma mark - Page View Controller
 
@@ -23,8 +36,8 @@
              ];
 }
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return @[@"Page One", @"Page Two", @"Page Three", @"Page Four", @"Page Five"];
-}
+//- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
+//    return @[@"Page One", @"Page Two", @"Page Three", @"Page Four", @"Page Five"];
+//}
 
 @end

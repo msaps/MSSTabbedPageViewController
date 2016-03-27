@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern CGFloat const MSSTabBarViewDefaultHeight;
+
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
@@ -23,6 +25,7 @@
 @end
 
 @protocol MSSTabBarViewDelegate <NSObject>
+@optional
 
 /**
  A tab has been selected.

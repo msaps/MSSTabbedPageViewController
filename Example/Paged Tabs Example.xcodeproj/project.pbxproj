@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46FAB84F1CA8016D00406045 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */; };
+		46FAB8521CA802B900406045 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAB8511CA802B900406045 /* MSSCustomHeightNavigationBar.m */; };
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
 		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
@@ -25,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		46FA81BF1C2C18FE0020BB60 /* Paged Tabs Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paged Tabs Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46FAB84D1CA8016D00406045 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		46FAB8501CA802B900406045 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		46FAB8511CA802B900406045 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
 		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D65592F61C47F275000CAD99 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 				D655936C1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.xib */,
 				D655936D1C4903CD000CAD99 /* MSSTabBarView.h */,
 				D655936E1C4903CD000CAD99 /* MSSTabBarView.m */,
+				46FAB84D1CA8016D00406045 /* MSSTabNavigationBar.h */,
+				46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */,
 			);
 			path = MSSTabBarView;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 				D65593781C4903CD000CAD99 /* UIView+MSSAutoLayout.m */,
 				D65593791C4903CD000CAD99 /* UIViewController+MSSUtilities.h */,
 				D655937A1C4903CD000CAD99 /* UIViewController+MSSUtilities.m */,
+				46FAB8501CA802B900406045 /* MSSCustomHeightNavigationBar.h */,
+				46FAB8511CA802B900406045 /* MSSCustomHeightNavigationBar.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 				D655937F1C4903CD000CAD99 /* MSSTabbedPageViewController.m in Sources */,
 				D655937E1C4903CD000CAD99 /* MSSPageViewController.m in Sources */,
 				D65593811C4903CD000CAD99 /* UIViewController+MSSUtilities.m in Sources */,
+				46FAB84F1CA8016D00406045 /* MSSTabNavigationBar.m in Sources */,
+				46FAB8521CA802B900406045 /* MSSCustomHeightNavigationBar.m in Sources */,
 				D65593071C47F275000CAD99 /* TabViewController.m in Sources */,
 				D65593021C47F275000CAD99 /* main.m in Sources */,
 				D655937B1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */,
