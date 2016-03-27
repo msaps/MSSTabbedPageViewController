@@ -8,7 +8,9 @@
 
 #import "MSSPageViewController.h"
 
-@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
+@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate> {
+    BOOL _viewHasLoaded;
+}
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
@@ -64,6 +66,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _viewHasLoaded = YES;
+    
     [self.pageViewController addToParentViewController:self];
     self.scrollView.delegate = self;
     
@@ -219,6 +223,13 @@
     return self.scrollView.scrollEnabled;
 }
 
+- (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
+    _dataSource = dataSource;
+    if (_viewHasLoaded) {
+        [self setUpTabs];
+    }
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {
@@ -252,6 +263,10 @@
                                           direction:UIPageViewControllerNavigationDirectionForward
                                            animated:NO
                                          completion:nil];
+        self.scrollView.userInteractionEnabled = YES;
+        
+    } else {
+        self.scrollView.userInteractionEnabled = NO; // disable scroll view if no pages
     }
 }
 
@@ -271,7 +286,10 @@
 }
 
 - (NSInteger)indexOfViewController:(UIViewController *)viewController {
-    return [self.viewControllers indexOfObject:viewController];
+    if (self.viewControllers.count > 0) {
+        return [self.viewControllers indexOfObject:viewController];
+    }
+    return NSNotFound;
 }
 
 - (UIScrollView *)scrollView {

@@ -97,12 +97,12 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /**
  The object that acts as a data source for the page view controller.
  */
-@property (nonatomic, weak) id<MSSPageViewControllerDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDataSource> dataSource;
 
 /**
  The object that acts as a delegate for the page view controller.
  */
-@property (nonatomic, weak) id<MSSPageViewControllerDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDelegate> delegate;
 
 /**
  The number of pages in the page view controller.
