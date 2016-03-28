@@ -48,7 +48,7 @@
 }
 
 - (void)baseInit {
-    _notifyOutOfBoundUpdates = YES;
+    _provideOutOfBoundsUpdates = YES;
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
@@ -245,22 +245,24 @@
     
     if (currentPagePosition != self.previousPagePosition) {
 
-        // check if position is out of bounds
+        // limit updates if out of bounds updates are disabled
+        // updates will be limited to min of 0 and max of number of pages
         BOOL outOfBounds = currentPagePosition < 0.0f || currentPagePosition > ((scrollView.contentSize.width / pageWidth) - 1.0f);
-        if (self.notifyOutOfBoundUpdates || (!self.notifyOutOfBoundUpdates && !outOfBounds)) {
-            
-            // check whether updates are allowed
-            if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
-                if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
-                    
-                    MSSPageViewControllerScrollDirection direction =
-                        currentPagePosition > _previousPagePosition ?
-                        MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
-                    
-                    [self.delegate pageViewController:self
-                                didScrollToPageOffset:currentPagePosition
-                                            direction:direction];
-                }
+        if (!self.provideOutOfBoundsUpdates && outOfBounds) {
+            currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
+        }
+        
+        // check whether updates are allowed
+        if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
+            if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
+                
+                MSSPageViewControllerScrollDirection direction =
+                currentPagePosition > _previousPagePosition ?
+                MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
+                
+                [self.delegate pageViewController:self
+                            didScrollToPageOffset:currentPagePosition
+                                        direction:direction];
             }
         }
         

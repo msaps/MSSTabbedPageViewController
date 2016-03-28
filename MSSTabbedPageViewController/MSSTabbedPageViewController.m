@@ -16,6 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.provideOutOfBoundsUpdates = NO;
+    
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         navigationBar.tabBarDataSource = self;

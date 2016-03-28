@@ -117,7 +117,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /**  
  Whether page view controller will provide scroll updates when out of bounds.
  */
-@property (nonatomic, assign, getter=willNotifyOutOfBoundUpdates) BOOL notifyOutOfBoundUpdates;
+@property (nonatomic, assign, getter=willProvideOutOfBoundsUpdates) BOOL provideOutOfBoundsUpdates;
 
 /** 
  Whether page view controller will display the page indicator view.
