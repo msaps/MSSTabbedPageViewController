@@ -10,18 +10,9 @@
 
 @interface TabViewController () <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
 
-@property (nonatomic, strong) MSSPageViewController *pageViewController;
-
 @end
 
 @implementation TabViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.delegate = self;
-    self.dataSource = self;
-}
 
 #pragma mark - Page View Controller
 

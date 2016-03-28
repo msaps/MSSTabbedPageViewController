@@ -8,12 +8,6 @@
 
 #import "MSSTabbedPageViewController.h"
 
-@interface MSSTabbedPageViewController () <MSSPageViewControllerDelegate>
-
-@property (nonatomic, weak) MSSTabBarView *tabBarView;
-
-@end
-
 @implementation MSSTabbedPageViewController
 
 #pragma mark - Lifecycle
@@ -25,14 +19,13 @@
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         navigationBar.tabBarDataSource = self;
         navigationBar.tabBarDelegate = self;
-        self.tabBarView = navigationBar.tabBarView;
+        _tabBarView = navigationBar.tabBarView;
     }
 }
 
 #pragma mark - Public
 
 - (void)setDelegate:(id<MSSPageViewControllerDelegate>)delegate {
-    
     // only allow self to be page view controller delegate
     if (delegate == (id<MSSPageViewControllerDelegate>)self) {
         [super setDelegate:delegate];

@@ -92,7 +92,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 
 @end
 
-@interface MSSPageViewController : UIViewController
+@interface MSSPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSPageViewControllerDataSource>
 
 /**
  The object that acts as a data source for the page view controller.

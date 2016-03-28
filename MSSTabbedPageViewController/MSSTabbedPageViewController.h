@@ -11,6 +11,8 @@
 
 @interface MSSTabbedPageViewController : MSSPageViewController <MSSTabBarViewDataSource, MSSTabBarViewDelegate>
 
+@property (nonatomic, weak, readonly) MSSTabBarView *tabBarView;
+
 @end
 
 @protocol MSSTabbedPageChildViewController <MSSPageChildViewController>

@@ -71,6 +71,11 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     return self.tabBarView.delegate;
 }
 
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
+    self.tabBarView.tabIndicatorColor = tintColor;
+}
+
 #pragma mark - Tab Bar data source
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
