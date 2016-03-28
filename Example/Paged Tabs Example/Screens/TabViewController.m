@@ -31,8 +31,4 @@
     return @[@"Page One", @"Page Two", @"Page Three", @"Page Four", @"Page Five"];
 }
 
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController {
-    return 2;
-}
-
 @end
