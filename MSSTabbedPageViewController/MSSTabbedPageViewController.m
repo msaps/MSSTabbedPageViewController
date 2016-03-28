@@ -45,6 +45,22 @@
     return nil;
 }
 
+#pragma mark - Tab bar delegate
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
+    self.allowScrollViewUpdates = NO;
+    
+    [self.tabBarView setTabIndex:index animated:YES];
+    typeof(self) __weak weakSelf = self;
+    [self moveToPageAtIndex:index
+                 completion:^(UIViewController *newController,
+                              BOOL animationFinished,
+                              BOOL transitionFinished) {
+                     typeof(weakSelf) __strong strongSelf = weakSelf;
+                     strongSelf.allowScrollViewUpdates = YES;
+                 }];
+}
+
 #pragma mark - Page View Controller delegate
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController

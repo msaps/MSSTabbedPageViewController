@@ -42,6 +42,15 @@
     return MSSTabBarViewDefaultHeight;
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+
+    if (CGRectContainsPoint(self.tabBarView.frame, point)) {
+        CGPoint tabBarPoint = [self.tabBarView convertPoint:point fromView:self];
+        return [self.tabBarView hitTest:tabBarPoint withEvent:event];
+    }
+    return [super hitTest:point withEvent:event];
+}
+
 #pragma mark - Public
 
 - (void)setTabBarDataSource:(id<MSSTabBarViewDataSource>)tabBarDataSource {
