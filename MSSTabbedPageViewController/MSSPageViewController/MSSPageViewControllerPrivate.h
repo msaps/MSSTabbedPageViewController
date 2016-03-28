@@ -9,10 +9,13 @@
 @interface MSSPageViewController () <UIScrollViewDelegate>
 
 /**
- The default page index of the page view ontroller.
+ The default page index of the page view controller.
  */
 @property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
 
+/**
+ The current active page index of the page view controller.
+ */
 @property (nonatomic, assign) NSInteger currentPage;
 
 @property (nonatomic, assign) BOOL userInteractionEnabled;
