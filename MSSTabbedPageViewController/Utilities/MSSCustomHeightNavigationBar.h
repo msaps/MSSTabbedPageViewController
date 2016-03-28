@@ -12,6 +12,8 @@
 
 - (void)baseInit;
 
-- (CGFloat)requiredHeightIncrease;
+- (CGFloat)heightIncreaseValue;
+
+- (BOOL)heightIncreaseRequired;
 
 @end

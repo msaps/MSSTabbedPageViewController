@@ -8,6 +8,13 @@
 
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewControllerPrivate.h"
+#import "MSSTabNavigationBarPrivate.h"
+
+@interface MSSTabbedPageViewController ()
+
+@property (nonatomic, weak) MSSTabNavigationBar *tabNavigationBar;
+
+@end
 
 @implementation MSSTabbedPageViewController
 
@@ -17,15 +24,31 @@
     [super viewDidLoad];
     
     self.provideOutOfBoundsUpdates = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         navigationBar.tabBarDataSource = self;
         navigationBar.tabBarDelegate = self;
+        _tabNavigationBar = navigationBar;
         
         MSSTabBarView *tabBarView = navigationBar.tabBarView;
         _tabBarView = tabBarView;
         tabBarView.defaultTabIndex = self.defaultPageIndex;
+        
+        [navigationBar tabbedPageViewController:self viewWillAppear:animated];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // if next view controller is not tabbed page view controller update navigation bar
+    if (![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]]) {
+        [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
     }
 }
 

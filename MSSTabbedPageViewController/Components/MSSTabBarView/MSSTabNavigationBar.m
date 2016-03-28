@@ -7,10 +7,14 @@
 //
 
 #import "MSSTabNavigationBar.h"
+#import "MSSTabNavigationBarPrivate.h"
 
 CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 @interface MSSTabNavigationBar () <MSSTabBarViewDelegate, MSSTabBarViewDataSource>
+
+@property (nonatomic, weak) MSSTabbedPageViewController *activeTabbedPageViewController;
+@property (nonatomic, assign) BOOL tabBarRequired;
 
 @end
 
@@ -33,15 +37,19 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat tabBarHeight = [self requiredHeightIncrease] - kMSSTabNavigationBarBottomPadding;
+    CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
     self.tabBarView.frame = CGRectMake(0.0f,
                                        self.bounds.size.height,
                                        self.bounds.size.width,
                                        tabBarHeight);
 }
 
-- (CGFloat)requiredHeightIncrease {
+- (CGFloat)heightIncreaseValue {
     return MSSTabBarViewDefaultHeight + kMSSTabNavigationBarBottomPadding;
+}
+
+- (BOOL)heightIncreaseRequired {
+    return self.tabBarRequired;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
@@ -82,6 +90,30 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     UIColor *foregroundColor = nil;
     if ((foregroundColor = titleTextAttributes[NSForegroundColorAttributeName])) {
         self.tabBarView.tabTextColor = foregroundColor;
+    }
+}
+
+#pragma mark - Private
+
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated {
+    _activeTabbedPageViewController = tabbedPageViewController;
+    [self setTabBarVisible:YES animated:animated];
+}
+
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillDisappear:(BOOL)animated {
+    if (tabbedPageViewController == self.activeTabbedPageViewController) {
+         [self setTabBarVisible:NO animated:animated];
+    }
+}
+
+#pragma mark - Internal
+
+- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated {
+    if (self.tabBarRequired != visible) {
+        self.tabBarView.alpha = visible;
+        
+        self.tabBarRequired = visible;
+        [self setNeedsLayout];
     }
 }
 

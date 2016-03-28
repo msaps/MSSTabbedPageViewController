@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MSSTabbedPageViewController.h"
 
-@interface ChildViewController : UIViewController <MSSTabbedPageChildViewController>
+@interface ChildViewController : UIViewController <MSSTabbedPageChildViewController, UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end

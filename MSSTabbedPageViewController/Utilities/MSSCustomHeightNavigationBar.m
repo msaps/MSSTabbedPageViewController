@@ -28,7 +28,7 @@
 
 - (void)baseInit {
     
-    [self setTransform:CGAffineTransformMakeTranslation(0, -([self requiredHeightIncrease]))];
+    [self setTransform:CGAffineTransformMakeTranslation(0, -([self heightIncreaseValue]))];
 }
 
 #pragma mark - Lifecycle
@@ -46,7 +46,7 @@
             CGRect frame = [view frame];
             CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
             CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarHidden ? 0.0f : statusBarFrame.size.height;
-            frame.origin.y = bounds.origin.y + [self requiredHeightIncrease] - statusBarHeight;
+            frame.origin.y = bounds.origin.y + [self heightIncreaseValue] - statusBarHeight;
             frame.size.height = bounds.size.height + statusBarHeight;
             
             [view setFrame:frame];
@@ -56,13 +56,17 @@
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize originalSize = [super sizeThatFits:size];
-    originalSize.height += [self requiredHeightIncrease];
+    originalSize.height += self.heightIncreaseRequired ? [self heightIncreaseValue] : 0.0f;
     
     return originalSize;
 }
 
-- (CGFloat)requiredHeightIncrease {
+- (CGFloat)heightIncreaseValue {
     return 44;
+}
+
+- (BOOL)heightIncreaseRequired {
+    return YES;
 }
 
 @end
