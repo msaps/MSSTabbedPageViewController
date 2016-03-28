@@ -76,6 +76,15 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     self.tabBarView.tabIndicatorColor = tintColor;
 }
 
+- (void)setTitleTextAttributes:(NSDictionary<NSString *,id> *)titleTextAttributes {
+    [super setTitleTextAttributes:titleTextAttributes];
+    
+    UIColor *foregroundColor = nil;
+    if ((foregroundColor = titleTextAttributes[NSForegroundColorAttributeName])) {
+        self.tabBarView.tabTextColor = foregroundColor;
+    }
+}
+
 #pragma mark - Tab Bar data source
 
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
