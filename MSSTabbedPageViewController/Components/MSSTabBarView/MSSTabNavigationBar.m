@@ -8,6 +8,8 @@
 
 #import "MSSTabNavigationBar.h"
 
+CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
+
 @interface MSSTabNavigationBar () <MSSTabBarViewDelegate, MSSTabBarViewDataSource>
 
 @end
@@ -31,7 +33,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat tabBarHeight = [self requiredHeightIncrease];
+    CGFloat tabBarHeight = [self requiredHeightIncrease] - kMSSTabNavigationBarBottomPadding;
     self.tabBarView.frame = CGRectMake(0.0f,
                                        self.bounds.size.height,
                                        self.bounds.size.width,
@@ -39,7 +41,7 @@
 }
 
 - (CGFloat)requiredHeightIncrease {
-    return MSSTabBarViewDefaultHeight;
+    return MSSTabBarViewDefaultHeight + kMSSTabNavigationBarBottomPadding;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
