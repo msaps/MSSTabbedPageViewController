@@ -206,10 +206,13 @@
 }
 
 - (void)setUpViewControllers:(NSArray *)viewControllers {
+    NSInteger index = 0;
     for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
         if ([viewController respondsToSelector:@selector(pageViewController)]) {
             viewController.pageViewController = self;
+            viewController.pageIndex = index;
         }
+        index++;
     }
 }
 
