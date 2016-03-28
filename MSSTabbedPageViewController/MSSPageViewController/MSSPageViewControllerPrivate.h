@@ -13,4 +13,6 @@
  */
 @property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
 
+@property (nonatomic, assign) BOOL userInteractionEnabled;
+
 @end

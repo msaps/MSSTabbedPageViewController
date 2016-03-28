@@ -34,6 +34,20 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection;
 
 /**
+ The page view controller has started a scroll to a new page.
+ 
+ @param pageViewController
+ The page view controller.
+ @param newPage
+ The new visible page.
+ @param currentPage
+ The new currently visible page.
+ */
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+          willScrollToPage:(NSInteger)newPage
+               currentPage:(NSInteger)currentPage;
+
+/**
  The page view controller has completed scroll to a page.
  
  @param pageViewController

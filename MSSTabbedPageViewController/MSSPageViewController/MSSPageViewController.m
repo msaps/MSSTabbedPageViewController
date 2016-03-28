@@ -159,6 +159,14 @@
     return self;
 }
 
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    self.scrollView.userInteractionEnabled = userInteractionEnabled;
+}
+
+- (BOOL)userInteractionEnabled {
+    return self.scrollView.userInteractionEnabled;
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {
@@ -311,11 +319,24 @@
 #pragma mark - Page View Controller delegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
+willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    
+    if ([self.delegate respondsToSelector:@selector(pageViewController:willScrollToPage:currentPage:)]) {
+        NSInteger currentPage = self.currentPage;
+        NSInteger nextPage = [self indexOfViewController:pendingViewControllers.firstObject];
+        
+        [self.delegate pageViewController:self
+                         willScrollToPage:nextPage
+                              currentPage:currentPage];
+    }
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     
-    if (completed) {
+    if (completed || previousViewControllers.firstObject == [self viewControllerAtIndex:self.currentPage]) {
         _currentPage = [self indexOfViewController:self.pageViewController.viewControllers.firstObject];
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {

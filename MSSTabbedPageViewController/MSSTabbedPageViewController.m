@@ -48,6 +48,7 @@
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
     self.allowScrollViewUpdates = NO;
+    self.userInteractionEnabled = NO;
     
     [self.tabBarView setTabIndex:index animated:YES];
     typeof(self) __weak weakSelf = self;
@@ -66,6 +67,18 @@
      didScrollToPageOffset:(CGFloat)pageOffset
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection {
     [self.tabBarView setTabOffset:pageOffset];
+}
+
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+          willScrollToPage:(NSInteger)newPage
+               currentPage:(NSInteger)currentPage {
+    self.tabBarView.userInteractionEnabled = NO;
+}
+
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+           didScrollToPage:(NSInteger)page {
+    self.userInteractionEnabled = YES;
+    self.tabBarView.userInteractionEnabled = YES;
 }
 
 @end
