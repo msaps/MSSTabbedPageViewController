@@ -9,15 +9,13 @@
 #import "MSSPageViewController.h"
 #import "MSSPageViewControllerPrivate.h"
 
-@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate> {
+@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     BOOL _viewHasLoaded;
 }
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
 @property (nonatomic, weak) UIScrollView *scrollView;
-
-@property (nonatomic, assign) NSInteger currentPage;
 
 @property (nonatomic, assign) CGFloat previousPagePosition;
 
@@ -336,7 +334,7 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     
-    if (completed || previousViewControllers.firstObject == [self viewControllerAtIndex:self.currentPage]) {
+    if (completed || ((previousViewControllers.firstObject == [self viewControllerAtIndex:self.currentPage]) && !self.isDragging)) {
         _currentPage = [self indexOfViewController:self.pageViewController.viewControllers.firstObject];
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {
