@@ -25,8 +25,8 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
 @property (nonatomic, strong) NSArray *tabTitles;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-
 @property (nonatomic, strong) UIView *selectionIndicatorView;
+@property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
 
 @property (nonatomic, assign) CGFloat previousTabOffset;
 
@@ -127,6 +127,14 @@ static MSSTabBarCollectionViewCell *sizingCell;
     [super layoutSubviews];
     
     [self updateTabBarForTabIndex:self.tabOffset];
+    
+    // if default tab has not yet been displayed
+    if (self.defaultTabIndex != 0 && !self.selectedCell) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.defaultTabIndex inSection:0];
+        [self.collectionView scrollToItemAtIndexPath:indexPath
+                                    atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                            animated:NO];
+    }
 }
 
 #pragma mark - Collection View data source
@@ -341,6 +349,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell {
+    _selectedCell = cell;
     cell.titleLabel.alpha = 1.0f;
     [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
                                               andWidth:cell.frame.size.width
