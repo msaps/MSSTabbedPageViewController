@@ -7,6 +7,7 @@
 //
 
 #import "MSSTabbedPageViewController.h"
+#import "MSSPageViewControllerPrivate.h"
 
 @implementation MSSTabbedPageViewController
 
@@ -19,7 +20,10 @@
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         navigationBar.tabBarDataSource = self;
         navigationBar.tabBarDelegate = self;
-        _tabBarView = navigationBar.tabBarView;
+        
+        MSSTabBarView *tabBarView = navigationBar.tabBarView;
+        _tabBarView = tabBarView;
+        tabBarView.defaultTabIndex = self.defaultPageIndex;
     }
 }
 

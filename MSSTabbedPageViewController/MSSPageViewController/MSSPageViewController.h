@@ -114,11 +114,6 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  */
 @property (nonatomic, strong, readonly) NSArray *viewControllers;
 
-/**
- The default page index of the page view ontroller.
- */
-@property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
-
 /**  
  Whether page view controller will provide scroll updates when out of bounds.
  */

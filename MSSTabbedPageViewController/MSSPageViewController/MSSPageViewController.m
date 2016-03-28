@@ -7,6 +7,7 @@
 //
 
 #import "MSSPageViewController.h"
+#import "MSSPageViewControllerPrivate.h"
 
 @interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate> {
     BOOL _viewHasLoaded;

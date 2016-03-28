@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46BED4D61CA96E5B0019A067 /* MSSPageViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSPageViewControllerPrivate.h; sourceTree = "<group>"; };
 		46C4DDEF1CA8181B00216F57 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
 		46C4DDF01CA8181B00216F57 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
 		46FA81BF1C2C18FE0020BB60 /* Paged Tabs Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paged Tabs Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +166,7 @@
 		D655936F1C4903CD000CAD99 /* MSSPageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				46BED4D61CA96E5B0019A067 /* MSSPageViewControllerPrivate.h */,
 				D65593711C4903CD000CAD99 /* MSSPageViewController.h */,
 				D65593721C4903CD000CAD99 /* MSSPageViewController.m */,
 			);
