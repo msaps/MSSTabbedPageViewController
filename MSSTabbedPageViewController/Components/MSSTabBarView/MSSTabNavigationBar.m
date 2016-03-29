@@ -37,7 +37,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     [super layoutSubviews];
     
     CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
-    CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -tabBarHeight; // offset y if tab hidden to animate up
+    CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -[self heightIncreaseValue]; // offset y if tab hidden to animate up
     
     self.tabBarView.frame = CGRectMake(0.0f,
                                        self.bounds.size.height + yOffset,
