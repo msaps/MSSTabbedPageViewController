@@ -49,7 +49,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     return MSSTabBarViewDefaultHeight + kMSSTabNavigationBarBottomPadding;
 }
 
-- (BOOL)heightIncrease{
+- (BOOL)heightIncreaseRequired {
     return self.tabBarRequired;
 }
 

@@ -10,6 +10,6 @@
 
 @interface UIView (MSSAnimations)
 
-- (void)fadeOutInWithHiddenUpdate:(void (^) (BOOL animated))hiddenUpdate animated:(BOOL)animated;
+- (void)fadeOutInWithHiddenUpdate:(void (^) (BOOL animated))hiddenUpdate duration:(CGFloat)duration animated:(BOOL)animated;
 
 @end

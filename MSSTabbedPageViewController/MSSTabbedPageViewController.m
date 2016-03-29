@@ -30,9 +30,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // set up navigation bar for tabbed page view if available
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
+        
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         
+        // update while hidden
         [navigationBar.tabBarView fadeOutInWithHiddenUpdate:^(BOOL animated) {
             
             navigationBar.tabBarDataSource = self;
@@ -43,7 +46,7 @@
             _tabBarView = tabBarView;
             tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
             
-        } animated:animated];
+        } duration:0.5f animated:animated];
         
         [navigationBar tabbedPageViewController:self viewWillAppear:animated];
     }

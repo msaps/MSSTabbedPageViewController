@@ -10,13 +10,14 @@
 
 @implementation UIView (MSSAnimations)
 
-- (void)fadeOutInWithHiddenUpdate:(void (^)(BOOL))hiddenUpdate animated:(BOOL)animated {
+- (void)fadeOutInWithHiddenUpdate:(void (^)(BOOL))hiddenUpdate duration:(CGFloat)duration animated:(BOOL)animated {
     if (animated) {
-        [UIView animateWithDuration:0.3f animations:^{
+        CGFloat individualDuration = duration / 2.0f;
+        [UIView animateWithDuration:individualDuration animations:^{
             self.alpha = 0.0f;
         } completion:^(BOOL finished) {
             hiddenUpdate(animated);
-            [UIView animateWithDuration:0.3f animations:^{
+            [UIView animateWithDuration:individualDuration animations:^{
                 self.alpha = 1.0f;
             }];
         }];
