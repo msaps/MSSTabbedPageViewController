@@ -9,6 +9,7 @@
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewControllerPrivate.h"
 #import "MSSTabNavigationBarPrivate.h"
+#import "UIView+MSSAnimations.h"
 
 @interface MSSTabbedPageViewController ()
 
@@ -31,13 +32,18 @@
     
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
-        navigationBar.tabBarDataSource = self;
-        navigationBar.tabBarDelegate = self;
-        _tabNavigationBar = navigationBar;
         
-        MSSTabBarView *tabBarView = navigationBar.tabBarView;
-        _tabBarView = tabBarView;
-        tabBarView.defaultTabIndex = self.defaultPageIndex;
+        [navigationBar.tabBarView fadeOutInWithHiddenUpdate:^(BOOL animated) {
+            
+            navigationBar.tabBarDataSource = self;
+            navigationBar.tabBarDelegate = self;
+            _tabNavigationBar = navigationBar;
+            
+            MSSTabBarView *tabBarView = navigationBar.tabBarView;
+            _tabBarView = tabBarView;
+            tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
+            
+        } animated:animated];
         
         [navigationBar tabbedPageViewController:self viewWillAppear:animated];
     }

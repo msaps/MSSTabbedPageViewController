@@ -277,6 +277,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource {
     _dataSource = dataSource;
+    [self reset];
     [self.collectionView reloadData];
 }
 
@@ -454,6 +455,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     return tabTitles;
+}
+
+- (void)reset {
+    _selectedCell = nil;
+    _hasRespectedDefaultTabIndex = NO;
+    _tabOffset = 0.0f;
+    _previousTabOffset = 0.0f;
 }
 
 @end

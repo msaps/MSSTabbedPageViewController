@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		465F5B2E1CAAA62100998332 /* UIView+MSSAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 465F5B2D1CAAA62100998332 /* UIView+MSSAnimations.m */; };
 		46C4DDF11CA8181B00216F57 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C4DDF01CA8181B00216F57 /* MSSTabbedPageViewController.m */; };
 		46FAB84F1CA8016D00406045 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */; };
 		46FAB8521CA802B900406045 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAB8511CA802B900406045 /* MSSCustomHeightNavigationBar.m */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		465F5B2C1CAAA62100998332 /* UIView+MSSAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAnimations.h"; sourceTree = "<group>"; };
+		465F5B2D1CAAA62100998332 /* UIView+MSSAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAnimations.m"; sourceTree = "<group>"; };
 		46A6E4B31CA9C60F00BC82DD /* MSSTabNavigationBarPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBarPrivate.h; sourceTree = "<group>"; };
 		46BED4D61CA96E5B0019A067 /* MSSPageViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSPageViewControllerPrivate.h; sourceTree = "<group>"; };
 		46C4DDEF1CA8181B00216F57 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 		D65593761C4903CD000CAD99 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				465F5B2C1CAAA62100998332 /* UIView+MSSAnimations.h */,
+				465F5B2D1CAAA62100998332 /* UIView+MSSAnimations.m */,
 				D65593771C4903CD000CAD99 /* UIView+MSSAutoLayout.h */,
 				D65593781C4903CD000CAD99 /* UIView+MSSAutoLayout.m */,
 				D65593791C4903CD000CAD99 /* UIViewController+MSSUtilities.h */,
@@ -260,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465F5B2E1CAAA62100998332 /* UIView+MSSAnimations.m in Sources */,
 				D655937D1C4903CD000CAD99 /* MSSTabBarView.m in Sources */,
 				46C4DDF11CA8181B00216F57 /* MSSTabbedPageViewController.m in Sources */,
 				D655937E1C4903CD000CAD99 /* MSSPageViewController.m in Sources */,
