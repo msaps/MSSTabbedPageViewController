@@ -45,8 +45,9 @@
             CGRect bounds = [self bounds];
             CGRect frame = [view frame];
             CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+            CGFloat heightIncrease = self.heightIncreaseRequired ? [self heightIncreaseValue] : 0.0f;
             CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarHidden ? 0.0f : statusBarFrame.size.height;
-            frame.origin.y = bounds.origin.y + [self heightIncreaseValue] - statusBarHeight;
+            frame.origin.y = bounds.origin.y + heightIncrease - statusBarHeight;
             frame.size.height = bounds.size.height + statusBarHeight;
             
             [view setFrame:frame];

@@ -38,8 +38,9 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     [super layoutSubviews];
     
     CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
+    CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -tabBarHeight; // offset y if tab hidden to animate up
     self.tabBarView.frame = CGRectMake(0.0f,
-                                       self.bounds.size.height,
+                                       self.bounds.size.height + yOffset,
                                        self.bounds.size.width,
                                        tabBarHeight);
 }
@@ -54,7 +55,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
 
-    if (CGRectContainsPoint(self.tabBarView.frame, point)) {
+    if (CGRectContainsPoint(self.tabBarView.frame, point) && self.tabBarView.userInteractionEnabled) {
         CGPoint tabBarPoint = [self.tabBarView convertPoint:point fromView:self];
         return [self.tabBarView hitTest:tabBarPoint withEvent:event];
     }
@@ -97,23 +98,35 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 - (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated {
     _activeTabbedPageViewController = tabbedPageViewController;
-    [self setTabBarVisible:YES animated:animated];
+    [self setTabBarRequired:YES animated:animated];
 }
 
 - (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillDisappear:(BOOL)animated {
     if (tabbedPageViewController == self.activeTabbedPageViewController) {
-         [self setTabBarVisible:NO animated:animated];
+         [self setTabBarRequired:NO animated:animated];
     }
 }
 
 #pragma mark - Internal
 
-- (void)setTabBarVisible:(BOOL)visible animated:(BOOL)animated {
-    if (self.tabBarRequired != visible) {
-        self.tabBarView.alpha = visible;
+- (void)setTabBarRequired:(BOOL)required animated:(BOOL)animated {
+    if (self.tabBarRequired != required) {
+        self.tabBarRequired = required;
+        self.tabBarView.userInteractionEnabled = required;
         
-        self.tabBarRequired = visible;
-        [self setNeedsLayout];
+        // show or hide tab bar view
+        void (^tabVisiblityBlock)() = ^void() {
+            self.tabBarView.alpha = required;
+            [self layoutIfNeeded];
+        };
+        
+        if (animated) {
+            [UIView animateWithDuration:0.3f animations:^{
+                tabVisiblityBlock();
+            }];
+        } else {
+            tabVisiblityBlock();
+        }
     }
 }
 
