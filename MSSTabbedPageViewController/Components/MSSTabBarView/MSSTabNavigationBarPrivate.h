@@ -10,6 +10,8 @@
 
 @interface MSSTabNavigationBar ()
 
+@property (nonatomic, assign) BOOL tabBarRequired;
+
 - (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated;
 
 - (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillDisappear:(BOOL)animated;

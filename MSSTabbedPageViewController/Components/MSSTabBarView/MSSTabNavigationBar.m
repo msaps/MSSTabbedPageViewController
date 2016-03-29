@@ -14,7 +14,6 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 @interface MSSTabNavigationBar () <MSSTabBarViewDelegate, MSSTabBarViewDataSource>
 
 @property (nonatomic, weak) MSSTabbedPageViewController *activeTabbedPageViewController;
-@property (nonatomic, assign) BOOL tabBarRequired;
 
 @end
 
@@ -39,6 +38,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     
     CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
     CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -tabBarHeight; // offset y if tab hidden to animate up
+    
     self.tabBarView.frame = CGRectMake(0.0f,
                                        self.bounds.size.height + yOffset,
                                        self.bounds.size.width,
@@ -107,15 +107,20 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     }
 }
 
+- (void)setTabBarRequired:(BOOL)tabBarRequired {
+    _tabBarRequired = tabBarRequired;
+    self.tabBarView.alpha = tabBarRequired;
+    self.tabBarView.userInteractionEnabled = tabBarRequired;
+}
+
 #pragma mark - Internal
 
 - (void)setTabBarRequired:(BOOL)required animated:(BOOL)animated {
     if (self.tabBarRequired != required) {
-        self.tabBarRequired = required;
-        self.tabBarView.userInteractionEnabled = required;
         
         // show or hide tab bar view
         void (^tabVisiblityBlock)() = ^void() {
+            self.tabBarRequired = required;
             self.tabBarView.alpha = required;
             [self layoutIfNeeded];
         };

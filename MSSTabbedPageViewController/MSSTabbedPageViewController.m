@@ -11,9 +11,11 @@
 #import "MSSTabNavigationBarPrivate.h"
 #import "UIView+MSSAnimations.h"
 
-@interface MSSTabbedPageViewController ()
+@interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
 @property (nonatomic, weak) MSSTabNavigationBar *tabNavigationBar;
+
+@property (nonatomic, assign) BOOL allowTabBarRequiredCancellation;
 
 @end
 
@@ -23,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.provideOutOfBoundsUpdates = NO;
 }
 
@@ -32,8 +34,9 @@
     
     // set up navigation bar for tabbed page view if available
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
-        
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
+        
+        self.navigationController.delegate = self;
         
         // update while hidden
         [navigationBar.tabBarView fadeOutInWithHiddenUpdate:^(BOOL animated) {
@@ -56,7 +59,8 @@
     [super viewWillDisappear:animated];
     
     // if next view controller is not tabbed page view controller update navigation bar
-    if (![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]]) {
+    self.allowTabBarRequiredCancellation = ![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]];
+    if (self.allowTabBarRequiredCancellation) {
         [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
     }
 }
@@ -113,6 +117,20 @@
            didScrollToPage:(NSInteger)page {
     self.userInteractionEnabled = YES;
     self.tabBarView.userInteractionEnabled = YES;
+}
+
+#pragma mark - Navigation Controller delegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    // Fix for navigation controller swipe back gesture
+    // Manually set tab bar to hidden if gesture was cancelled
+    id<UIViewControllerTransitionCoordinator> transitionCoordinator = navigationController.topViewController.transitionCoordinator;
+    [transitionCoordinator notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        if ([context isCancelled] && self.allowTabBarRequiredCancellation) {
+            self.tabNavigationBar.tabBarRequired = NO;
+        }
+    }];
 }
 
 @end
