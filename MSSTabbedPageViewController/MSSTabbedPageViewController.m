@@ -9,7 +9,6 @@
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewControllerPrivate.h"
 #import "MSSTabNavigationBarPrivate.h"
-#import "UIView+MSSAnimations.h"
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
@@ -35,21 +34,14 @@
     // set up navigation bar for tabbed page view if available
     if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
-        
         self.navigationController.delegate = self;
+        _tabNavigationBar = navigationBar;
         
-        // update while hidden
-        [navigationBar.tabBarView fadeOutInWithHiddenUpdate:^(BOOL animated) {
-            
-            navigationBar.tabBarDataSource = self;
-            navigationBar.tabBarDelegate = self;
-            _tabNavigationBar = navigationBar;
-            
-            MSSTabBarView *tabBarView = navigationBar.tabBarView;
-            _tabBarView = tabBarView;
-            tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
-            
-        } duration:0.5f animated:animated];
+        MSSTabBarView *tabBarView = navigationBar.tabBarView;
+        [tabBarView setDataSource:self animated:animated];
+        tabBarView.delegate = self;
+        _tabBarView = tabBarView;
+        tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
         
         [navigationBar tabbedPageViewController:self viewWillAppear:animated];
     }

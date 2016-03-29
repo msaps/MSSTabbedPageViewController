@@ -13,7 +13,4 @@
 
 @property (nonatomic, strong, readonly) MSSTabBarView *tabBarView;
 
-@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDataSource> tabBarDataSource;
-@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDelegate> tabBarDelegate;
-
 @end

@@ -281,6 +281,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.collectionView reloadData];
 }
 
+- (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated {
+#warning TODO - Animate data source transition
+    [self setDataSource:dataSource];
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -351,7 +356,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell {
     _selectedCell = cell;
+    
     cell.titleLabel.alpha = 1.0f;
+
     [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
                                               andWidth:cell.frame.size.width
                                      accountForPadding:YES];

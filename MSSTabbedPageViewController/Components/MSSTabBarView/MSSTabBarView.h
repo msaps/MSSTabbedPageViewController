@@ -130,4 +130,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  */
 - (void)setTabIndex:(NSInteger)index animated:(BOOL)animated;
 
+- (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
+
 @end
