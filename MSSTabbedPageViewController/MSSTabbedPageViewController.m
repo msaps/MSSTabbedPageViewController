@@ -32,7 +32,7 @@
     [super viewWillAppear:animated];
     
     // set up navigation bar for tabbed page view if available
-    if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]]) {
+    if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]] && !self.tabBarView) {
         MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
         self.navigationController.delegate = self;
         _tabNavigationBar = navigationBar;
@@ -50,10 +50,16 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    // if next view controller is not tabbed page view controller update navigation bar
-    self.allowTabBarRequiredCancellation = ![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]];
-    if (self.allowTabBarRequiredCancellation) {
-        [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
+    if (self.tabNavigationBar && (self.tabBarView == self.tabNavigationBar.tabBarView)) {
+        
+        // if next view controller is not tabbed page view controller update navigation bar
+        self.allowTabBarRequiredCancellation = ![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]];
+        if (self.allowTabBarRequiredCancellation) {
+            [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
+        }
+        
+        // remove the current tab bar
+        self.tabBarView = nil;
     }
 }
 
@@ -113,7 +119,9 @@
 
 #pragma mark - Navigation Controller delegate
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
     
     // Fix for navigation controller swipe back gesture
     // Manually set tab bar to hidden if gesture was cancelled

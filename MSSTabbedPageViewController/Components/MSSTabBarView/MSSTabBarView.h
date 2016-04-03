@@ -45,7 +45,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The object that acts as the data source for the tab bar.
  */
 @property (nonatomic, weak) id<MSSTabBarViewDataSource> dataSource;
-
 /**
  The object that acts as a delegate for the tab bar.
  */
@@ -55,12 +54,10 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The current tab offset of the tab bar.
  */
 @property (nonatomic, assign) CGFloat tabOffset;
-
 /**
  The expected number of tabs in the tab bar.
  */
 @property (nonatomic, assign) NSInteger expectedTabCount;
-
 /**
  The default index for the tab bar to display.
  */
@@ -80,12 +77,10 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The height of the tab bar.
  */
 @property (nonatomic, assign, readonly) CGFloat height;
-
 /**
  The internal horizontal label padding value for each tab.
  */
 @property (nonatomic, assign) CGFloat tabPadding;
-
 /**
  The content inset for the tabs.
  */
@@ -95,7 +90,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The height of the selection indicator.
  */
 @property (nonatomic, assign) CGFloat selectionIndicatorHeight;
-
 /**
  The inset for the selection indicator from the bottom of the tab bar.
  */
@@ -105,7 +99,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  The color of the tab selection indicator.
  */
 @property (nonatomic, strong) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR;
-
 /**
  The text color of the tabs.
  */
@@ -129,7 +122,14 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  Animate the tab index transition.
  */
 - (void)setTabIndex:(NSInteger)index animated:(BOOL)animated;
-
+/**
+ Set the data source of the tab bar.
+ 
+ @param dataSource
+ The data source.
+ @param animated
+ Animate the data sourcetransition.
+ */
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
 
 @end

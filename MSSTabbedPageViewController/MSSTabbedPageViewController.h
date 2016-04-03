@@ -11,7 +11,10 @@
 
 @interface MSSTabbedPageViewController : MSSPageViewController <MSSTabBarViewDataSource, MSSTabBarViewDelegate>
 
-@property (nonatomic, weak, readonly) MSSTabBarView *tabBarView;
+/**
+ The tab bar view.
+ */
+@property (nonatomic, strong) MSSTabBarView *tabBarView;
 
 @end
 

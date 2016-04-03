@@ -32,6 +32,8 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
 
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
 
+@property (nonatomic, assign) BOOL animateDataSourceTransition;
+
 @end
 
 static MSSTabBarCollectionViewCell *sizingCell;
@@ -129,11 +131,11 @@ static MSSTabBarCollectionViewCell *sizingCell;
     [self updateTabBarForTabIndex:self.tabOffset];
     
     // if default tab has not yet been displayed
-    if (self.defaultTabIndex != 0 && !self.selectedCell) {
+    if (self.tabTitles.count > 0 && !self.selectedCell) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.defaultTabIndex inSection:0];
         [self.collectionView scrollToItemAtIndexPath:indexPath
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
-                                            animated:NO];
+                                            animated:self.animateDataSourceTransition];
     }
 }
 
@@ -276,14 +278,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource {
-    _dataSource = dataSource;
-    [self reset];
-    [self.collectionView reloadData];
+    self.animateDataSourceTransition = NO;
+    [self doSetDataSource:dataSource];
 }
 
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated {
-#warning TODO - Animate data source transition
-    [self setDataSource:dataSource];
+    self.animateDataSourceTransition = animated;
+    [self doSetDataSource:dataSource];
 }
 
 #pragma mark - Tab Bar State
@@ -359,9 +360,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     cell.titleLabel.alpha = 1.0f;
 
-    [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                              andWidth:cell.frame.size.width
-                                     accountForPadding:YES];
+    if (self.animateDataSourceTransition) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                                      andWidth:cell.frame.size.width
+                                             accountForPadding:YES];
+        }];
+    } else {
+        [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                                  andWidth:cell.frame.size.width
+                                         accountForPadding:YES];
+    }
 }
 
 - (void)setTabCellInactive:(MSSTabBarCollectionViewCell *)cell {
@@ -469,6 +478,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _hasRespectedDefaultTabIndex = NO;
     _tabOffset = 0.0f;
     _previousTabOffset = 0.0f;
+}
+
+- (void)doSetDataSource:(id<MSSTabBarViewDataSource>)dataSource {
+    _dataSource = dataSource;
+    [self reset];
+    [self.collectionView reloadData];
+    [self setNeedsLayout];
 }
 
 @end
