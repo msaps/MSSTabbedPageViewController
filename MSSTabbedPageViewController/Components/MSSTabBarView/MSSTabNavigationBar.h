@@ -11,6 +11,9 @@
 
 @interface MSSTabNavigationBar : MSSCustomHeightNavigationBar
 
+/**
+ The tab bar view in the navigation bar.
+ */
 @property (nonatomic, strong, readonly) MSSTabBarView *tabBarView;
 
 @end

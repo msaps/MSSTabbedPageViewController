@@ -17,25 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqc-PR-yBn">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="G7Y-Hq-E3u"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YH5-ZI-9du"/>
-                                </connections>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjY-bc-PW7">
+                                <rect key="frame" x="271" y="288" width="58" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bqc-PR-yBn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IPk-AS-MVR"/>
-                            <constraint firstItem="bqc-PR-yBn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mez-pk-2Q5"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bqc-PR-yBn" secondAttribute="bottom" id="NXq-Cs-WBE"/>
-                            <constraint firstAttribute="trailing" secondItem="bqc-PR-yBn" secondAttribute="trailing" id="lgd-eg-dVr"/>
+                            <constraint firstItem="pjY-bc-PW7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sN-TH-m4F"/>
+                            <constraint firstItem="pjY-bc-PW7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VCl-yG-I6x"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="bqc-PR-yBn" id="pwi-VS-bl6"/>
                         <segue destination="TOv-MT-sBN" kind="show" identifier="showDetail" id="uoX-at-0hw"/>
                     </connections>
                 </viewController>
