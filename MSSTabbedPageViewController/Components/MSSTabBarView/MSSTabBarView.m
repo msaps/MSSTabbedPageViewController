@@ -77,6 +77,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
     _tabPadding = MSSTabBarViewDefaultTabPadding;
     CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
+    _userScrollEnabled = NO;
     
     if (_height == 0.0f) {
         _height = MSSTabBarViewDefaultHeight;
@@ -88,6 +89,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
+    _collectionView.scrollEnabled = self.userScrollEnabled;
     
     // Tab indicator
     _selectionIndicatorHeight = MSSTabBarViewDefaultTabIndicatorHeight;
@@ -285,6 +287,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated {
     self.animateDataSourceTransition = animated;
     [self doSetDataSource:dataSource];
+}
+
+- (void)setUserScrollEnabled:(BOOL)userScrollEnabled {
+    _userScrollEnabled = userScrollEnabled;
+    self.collectionView.scrollEnabled = userScrollEnabled;
 }
 
 #pragma mark - Tab Bar State

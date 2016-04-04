@@ -105,6 +105,11 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
 
 /**
+ Whether the user can manually scroll the tab bar.
+ */
+@property (nonatomic, assign) BOOL userScrollEnabled;
+
+/**
  Initialize a tab bar with a specified height.
  
  @param height
