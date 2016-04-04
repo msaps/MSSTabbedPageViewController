@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PnR-mV-E6n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PnR-mV-E6n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Child View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuG-uM-PCm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjY-bc-PW7">
                                 <rect key="frame" x="271" y="288" width="58" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -24,20 +25,41 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="GuG-uM-PCm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="esJ-eK-Ha4"/>
-                            <constraint firstItem="GuG-uM-PCm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="v0D-VD-bMR"/>
+                            <constraint firstItem="pjY-bc-PW7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sN-TH-m4F"/>
+                            <constraint firstItem="pjY-bc-PW7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VCl-yG-I6x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="TOv-MT-sBN" kind="show" identifier="showDetail" id="uoX-at-0hw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="427" y="423"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="11P-dU-qYz">
+            <objects>
+                <viewController id="TOv-MT-sBN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cz2-Ol-ZLi"/>
+                        <viewControllerLayoutGuide type="bottom" id="f4V-fn-h15"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zpT-DG-TZS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgo-dR-uO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="1149"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jue-oL-Guq">
             <objects>
                 <navigationController id="PnR-mV-E6n" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJO-Jo-WH6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJO-Jo-WH6" customClass="MSSTabNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -49,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="376" y="-362"/>
         </scene>
-        <!--Paged Tabs-->
+        <!--Tab View Controller-->
         <scene sceneID="BoV-nD-gIP">
             <objects>
-                <viewController id="CAa-oM-U9G" customClass="TabViewController" sceneMemberID="viewController">
+                <viewController id="CAa-oM-U9G" userLabel="Tab View Controller" customClass="TabViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x53-J0-tZM"/>
                         <viewControllerLayoutGuide type="bottom" id="f4L-I6-hqw"/>

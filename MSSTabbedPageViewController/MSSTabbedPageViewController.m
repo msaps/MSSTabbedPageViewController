@@ -1,77 +1,101 @@
 //
 //  MSSTabbedPageViewController.m
-//  TabbedPageViewController
+//  Paged Tabs Example
 //
-//  Created by Merrick Sapsford on 24/12/2015.
-//  Copyright © 2015 Merrick Sapsford. All rights reserved.
+//  Created by Merrick Sapsford on 27/03/2016.
+//  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
 #import "MSSTabbedPageViewController.h"
+#import "MSSPageViewControllerPrivate.h"
+#import "MSSTabNavigationBarPrivate.h"
 
-@interface MSSTabbedPageViewController () <MSSPageViewControllerDelegate, MSSTabBarViewDelegate>
+@interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, weak) MSSTabNavigationBar *tabNavigationBar;
+
+@property (nonatomic, assign) BOOL allowTabBarRequiredCancellation;
 
 @end
 
 @implementation MSSTabbedPageViewController
 
-@synthesize dataSource = _dataSource;
-
 #pragma mark - Lifecycle
-
-- (void)loadView {
-    [super loadView];
-    
-    if (!_contentView) {
-        _contentView = [UIView new];
-    }
-    
-    if (!_pageViewController) {
-        _pageViewController = [MSSPageViewController new];
-        self.pageViewController.dataSource = self;
-        self.pageViewController.delegate = self;
-    }
-    if (!_tabBarView) {
-        CGFloat tabHeight = 0.0f;
-        if ([self.delegate respondsToSelector:@selector(tabbedPageViewControllerHeightForTabBar:)]) {
-            tabHeight = [self.delegate tabbedPageViewControllerHeightForTabBar:self];
-        }
-        _tabBarView = [[MSSTabBarView alloc]initWithHeight:tabHeight];
-        self.tabBarView.dataSource = self;
-        self.tabBarView.delegate = self;
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view addExpandingSubview:self.contentView];
-    [self setUpContentView];
-    
-    [self.pageViewController addToParentViewController:self withView:self.contentView];
-    [self.contentView addPinnedToTopAndSidesSubview:self.tabBarView
-                                  withHeight:self.tabBarView.height];
+
+    self.provideOutOfBoundsUpdates = NO;
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    [coordinator animateAlongsideTransition:
-     ^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        [self setUpContentView];
-    } completion:nil];
+    // set up navigation bar for tabbed page view if available
+    if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]] && !self.tabBarView) {
+        MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
+        self.navigationController.delegate = self;
+        _tabNavigationBar = navigationBar;
+        
+        MSSTabBarView *tabBarView = navigationBar.tabBarView;
+        [tabBarView setDataSource:self animated:animated];
+        tabBarView.delegate = self;
+        _tabBarView = tabBarView;
+        tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
+        
+        [navigationBar tabbedPageViewController:self viewWillAppear:animated];
+    }
 }
 
-#pragma mark - Page View Controller data source
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (self.tabNavigationBar && (self.tabBarView == self.tabNavigationBar.tabBarView)) {
+        
+        // if next view controller is not tabbed page view controller update navigation bar
+        self.allowTabBarRequiredCancellation = ![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]];
+        if (self.allowTabBarRequiredCancellation) {
+            [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
+        }
+        
+        // remove the current tab bar
+        _tabBarView = nil;
+    }
+}
 
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
+#pragma mark - Public
+
+- (void)setDelegate:(id<MSSPageViewControllerDelegate>)delegate {
+    // only allow self to be page view controller delegate
+    if (delegate == (id<MSSPageViewControllerDelegate>)self) {
+        [super setDelegate:delegate];
+    }
+}
+
+#pragma mark - Tab bar data source
+
+- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
     return nil;
 }
 
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController {
-    return 0;
+#pragma mark - Tab bar delegate
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
+        self.allowScrollViewUpdates = NO;
+        self.userInteractionEnabled = NO;
+        
+        [self.tabBarView setTabIndex:index animated:YES];
+        typeof(self) __weak weakSelf = self;
+        [self moveToPageAtIndex:index
+                     completion:^(UIViewController *newController,
+                                  BOOL animationFinished,
+                                  BOOL transitionFinished) {
+                         typeof(weakSelf) __strong strongSelf = weakSelf;
+                         strongSelf.allowScrollViewUpdates = YES;
+                         strongSelf.userInteractionEnabled = YES;
+                     }];
+    }
 }
 
 #pragma mark - Page View Controller delegate
@@ -83,82 +107,52 @@
 }
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
-           didScrollToPage:(NSInteger)page {
-    if (!pageViewController.isDragging) {
-        [self.tabBarView setTabIndex:page animated:YES];
-    }
+          willScrollToPage:(NSInteger)newPage
+               currentPage:(NSInteger)currentPage {
+    self.tabBarView.userInteractionEnabled = NO;
 }
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
- didPrepareViewControllers:(NSArray *)viewControllers {
-    
-    self.tabBarView.expectedTabCount = self.pageViewController.numberOfPages;
-    self.tabBarView.defaultTabIndex = self.pageViewController.defaultPageIndex;
-    
-    for (UIViewController<MSSTabbedPageChildViewController> *viewController in viewControllers) {
-        if ([viewController conformsToProtocol:@protocol(MSSTabbedPageChildViewController)]) {
-            viewController.tabBarView = self.tabBarView;
-            viewController.requiredContentInset = UIEdgeInsetsMake(self.tabBarView.height,
-                                                                   0.0f,
-                                                                   0.0f,
-                                                                   0.0f);
-        }
+           didScrollToPage:(NSInteger)page {
+    if (!self.isDragging) {
+        self.tabBarView.userInteractionEnabled = YES;
     }
+    self.allowScrollViewUpdates = YES;
+    self.userInteractionEnabled = YES;
 }
 
-#pragma mark - Tab Bar View data source
+#pragma mark - Navigation Controller delegate
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return nil;
-}
-
-#pragma mark - Tab Bar View delegate
-
-- (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    self.pageViewController.allowScrollViewUpdates = NO;
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
     
-    [self.tabBarView setTabIndex:index animated:YES];
-    typeof(self) __weak weakSelf = self;
-    [self.pageViewController moveToPageAtIndex:index
-                                    completion:^(UIViewController *newController,
-                                                 BOOL animationFinished,
-                                                 BOOL transitionFinished) {
-                                        typeof(weakSelf) __strong strongSelf = weakSelf;
-                                        strongSelf.pageViewController.allowScrollViewUpdates = YES;
-                                        
+    // Fix for navigation controller swipe back gesture
+    // Manually set tab bar to hidden if gesture was cancelled
+    id<UIViewControllerTransitionCoordinator> transitionCoordinator = navigationController.topViewController.transitionCoordinator;
+    [transitionCoordinator notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        if ([context isCancelled] && self.allowTabBarRequiredCancellation) {
+            self.tabNavigationBar.tabBarRequired = NO;
+            [self.tabNavigationBar setNeedsLayout];
+        }
     }];
 }
 
-#pragma mark - Public
+#pragma mark - Scroll View delegate
 
-- (void)setDataSource:(id<MSSTabbedPageViewControllerDataSource>)dataSource {
-    _dataSource = dataSource;
-    self.pageViewController.dataSource = dataSource;
-    self.tabBarView.dataSource = dataSource;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [super scrollViewWillBeginDragging:scrollView];
+    self.tabBarView.userInteractionEnabled = NO;
 }
 
-- (id<MSSTabbedPageViewControllerDataSource>)dataSource {
-    if (_dataSource) {
-        return _dataSource;
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        self.tabBarView.userInteractionEnabled = YES;
     }
-    return self;
 }
 
-- (id<MSSTabbedPageViewControllerDelegate>)delegate {
-    if (_delegate) {
-        return _delegate;
-    }
-    return self;
-}
-
-#pragma mark - Internal
-
-- (void)setUpContentView {
-    UIEdgeInsets margins = self.contentView.layoutMargins;
-    margins.top = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    margins.left = 0.0f;
-    margins.right = 0.0f;
-    self.contentView.layoutMargins = margins;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.tabBarView.userInteractionEnabled = YES;
 }
 
 @end

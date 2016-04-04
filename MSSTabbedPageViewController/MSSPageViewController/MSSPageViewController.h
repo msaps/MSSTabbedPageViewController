@@ -32,7 +32,19 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
 - (void)pageViewController:(MSSPageViewController *)pageViewController
      didScrollToPageOffset:(CGFloat)pageOffset
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection;
-
+/**
+ The page view controller has started a scroll to a new page.
+ 
+ @param pageViewController
+ The page view controller.
+ @param newPage
+ The new visible page.
+ @param currentPage
+ The new currently visible page.
+ */
+- (void)pageViewController:(MSSPageViewController *)pageViewController
+          willScrollToPage:(NSInteger)newPage
+               currentPage:(NSInteger)currentPage;
 /**
  The page view controller has completed scroll to a page.
  
@@ -54,7 +66,6 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  */
 - (void)pageViewController:(MSSPageViewController *)pageViewController
  didPrepareViewControllers:(NSArray *)viewControllers;
-
 /**
  The page view controller will display the initial view controller.
  
@@ -92,37 +103,25 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 
 @end
 
-@interface MSSPageViewController : UIViewController
+@interface MSSPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSPageViewControllerDataSource>
 
 /**
  The object that acts as a data source for the page view controller.
  */
-@property (nonatomic, weak) id<MSSPageViewControllerDataSource> dataSource;
-
+@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDataSource> dataSource;
 /**
  The object that acts as a delegate for the page view controller.
  */
-@property (nonatomic, weak) id<MSSPageViewControllerDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDelegate> delegate;
 
 /**
  The number of pages in the page view controller.
  */
 @property (nonatomic, assign ,readonly) NSInteger numberOfPages;
-
 /** 
  The view controllers within the page view controller.
  */
 @property (nonatomic, strong, readonly) NSArray *viewControllers;
-
-/**
- The default page index of the page view ontroller.
- */
-@property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
-
-/**  
- Whether page view controller will provide scroll updates when out of bounds.
- */
-@property (nonatomic, assign, getter=willNotifyOutOfBoundUpdates) BOOL notifyOutOfBoundUpdates;
 
 /** 
  Whether page view controller will display the page indicator view.
@@ -133,16 +132,20 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  Whether page view controller will provide delegate updates on scroll events
  */
 @property (nonatomic, assign) BOOL allowScrollViewUpdates;
-
 /**
  Whether the user is currently dragging the page view controller.
  */
 @property (nonatomic, assign, readonly) BOOL isDragging;
-
 /**
  Whether scroll view interaction is enabled on the page view controller
  */
 @property (nonatomic, assign, getter=isScrollEnabled) BOOL scrollEnabled;
+/**
+ Whether page view controller will provide scroll updates when out of bounds.
+ */
+@property (nonatomic, assign, getter=willProvideOutOfBoundsUpdates) BOOL provideOutOfBoundsUpdates;
+
+@property (nonatomic, assign, readonly, getter=isAnimatingPageUpdate) BOOL animatingPageUpdate;
 
 /**
  Move page view controller to a page at specific index.
@@ -173,5 +176,9 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  The page view controller of the parent
  */
 @property (nonatomic, weak) MSSPageViewController *pageViewController;
+/**
+ The index of the current view controller
+ */
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
