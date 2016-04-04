@@ -129,6 +129,7 @@
     [transitionCoordinator notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         if ([context isCancelled] && self.allowTabBarRequiredCancellation) {
             self.tabNavigationBar.tabBarRequired = NO;
+            [self.tabNavigationBar setNeedsLayout];
         }
     }];
 }
