@@ -44,11 +44,11 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 /**
  The object that acts as the data source for the tab bar.
  */
-@property (nonatomic, weak) id<MSSTabBarViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDataSource> dataSource;
 /**
  The object that acts as a delegate for the tab bar.
  */
-@property (nonatomic, weak) id<MSSTabBarViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDelegate> delegate;
 
 /**
  The current tab offset of the tab bar.

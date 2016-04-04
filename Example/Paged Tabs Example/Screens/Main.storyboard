@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="376" y="-362"/>
         </scene>
-        <!--Paged Tabs-->
+        <!--Tab View Controller-->
         <scene sceneID="BoV-nD-gIP">
             <objects>
-                <viewController id="CAa-oM-U9G" customClass="TabViewController" sceneMemberID="viewController">
+                <viewController id="CAa-oM-U9G" userLabel="Tab View Controller" customClass="TabViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x53-J0-tZM"/>
                         <viewControllerLayoutGuide type="bottom" id="f4L-I6-hqw"/>

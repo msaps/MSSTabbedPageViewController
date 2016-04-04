@@ -14,7 +14,7 @@
 /**
  The tab bar view.
  */
-@property (nonatomic, strong) MSSTabBarView *tabBarView;
+@property (nonatomic, weak) IBOutlet MSSTabBarView *tabBarView;
 
 @end
 

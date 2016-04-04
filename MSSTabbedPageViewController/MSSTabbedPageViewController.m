@@ -59,7 +59,7 @@
         }
         
         // remove the current tab bar
-        self.tabBarView = nil;
+        _tabBarView = nil;
     }
 }
 

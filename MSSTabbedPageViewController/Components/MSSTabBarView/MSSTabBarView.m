@@ -396,6 +396,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
                                           nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
                                               progress:(CGFloat)progress {
+    if (self.tabTitles.count == 0) {
+        return;
+    }
     
     // calculate the upper and lower x origins for cells
     CGFloat upperXPos = MAX(nextTabCell.frame.origin.x, currentTabCell.frame.origin.x);
@@ -425,6 +428,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)updateSelectionIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
                                             andWidth:(CGFloat)width
                                    accountForPadding:(BOOL)padding {
+    if (self.tabTitles.count == 0) {
+        return;
+    }
     
     if (padding) {
         CGFloat tabInternalPadding = self.tabPadding;

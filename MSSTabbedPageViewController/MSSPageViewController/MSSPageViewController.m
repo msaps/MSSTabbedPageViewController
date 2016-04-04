@@ -70,7 +70,7 @@
     [super viewDidLoad];
     _viewHasLoaded = YES;
     
-    [self.pageViewController addToParentViewController:self];
+    [self.pageViewController addToParentViewController:self atZIndex:0];
     self.scrollView.delegate = self;
     
     [self setUpTabs];
