@@ -246,6 +246,10 @@
 
 #pragma mark - Scroll View delegate
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _animatingPageUpdate = NO;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat pageWidth = scrollView.frame.size.width;

@@ -93,6 +93,7 @@
                                   BOOL transitionFinished) {
                          typeof(weakSelf) __strong strongSelf = weakSelf;
                          strongSelf.allowScrollViewUpdates = YES;
+                         strongSelf.userInteractionEnabled = YES;
                      }];
     }
 }
@@ -114,9 +115,10 @@
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page {
     if (!self.isDragging) {
-        self.userInteractionEnabled = YES;
         self.tabBarView.userInteractionEnabled = YES;
     }
+    self.allowScrollViewUpdates = YES;
+    self.userInteractionEnabled = YES;
 }
 
 #pragma mark - Navigation Controller delegate
@@ -139,6 +141,7 @@
 #pragma mark - Scroll View delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [super scrollViewWillBeginDragging:scrollView];
     self.tabBarView.userInteractionEnabled = NO;
 }
 
