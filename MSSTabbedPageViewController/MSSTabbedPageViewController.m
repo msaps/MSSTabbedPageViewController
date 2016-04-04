@@ -81,7 +81,7 @@
 #pragma mark - Tab bar delegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    if (index != self.currentPage) {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
         self.allowScrollViewUpdates = NO;
         self.userInteractionEnabled = NO;
         
@@ -113,8 +113,10 @@
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page {
-    self.userInteractionEnabled = YES;
-    self.tabBarView.userInteractionEnabled = YES;
+    if (!self.isDragging) {
+        self.userInteractionEnabled = YES;
+        self.tabBarView.userInteractionEnabled = YES;
+    }
 }
 
 #pragma mark - Navigation Controller delegate
@@ -132,6 +134,22 @@
             [self.tabNavigationBar setNeedsLayout];
         }
     }];
+}
+
+#pragma mark - Scroll View delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.tabBarView.userInteractionEnabled = NO;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        self.tabBarView.userInteractionEnabled = YES;
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.tabBarView.userInteractionEnabled = YES;
 }
 
 @end

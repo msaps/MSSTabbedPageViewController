@@ -97,6 +97,7 @@
                completion:(void (^)(UIViewController *, BOOL, BOOL))completion {
     
     if (index != self.currentPage) {
+        _animatingPageUpdate = YES;
         
         BOOL isForwards = index > self.currentPage;
         NSArray *viewControllers = self.pageViewController.viewControllers;
@@ -116,6 +117,7 @@
                                              if (completion) {
                                                  completion(viewController, YES, YES);
                                              }
+                                             _animatingPageUpdate = NO;
                                          }];
     } else {
         if (completion) {

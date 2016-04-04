@@ -145,6 +145,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  */
 @property (nonatomic, assign, getter=willProvideOutOfBoundsUpdates) BOOL provideOutOfBoundsUpdates;
 
+@property (nonatomic, assign, readonly, getter=isAnimatingPageUpdate) BOOL animatingPageUpdate;
 
 /**
  Move page view controller to a page at specific index.
