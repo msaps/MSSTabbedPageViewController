@@ -23,9 +23,13 @@ To use the tabbed page view controller, simply create a `UIViewController` that 
 // array of view controllers to display in page view controller
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
 
-// array of NSString's for titles in tab bar
+// array of strings for titles in tab bar
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView;
 ```
+
+If you are using a `UINavigationController` (As shown in Example project) you can embed the tab bar in the navigation bar. Simply set the `UINavigationBar` class in the navigation controller to `MSSTabNavigationBar` and the navigation bar will attach to the view controller.
+
+Otherwise you must attach a `MSSTabBarView` via the `tabBarView` property on `MSSTabbedPageViewController`, and setting the `dataSource` and `delegate` of the `MSSTabBarView` to the view controller. 
 
 There are also some optional `MSSTabbedPageViewControllerDataSource` methods:
 
@@ -33,14 +37,8 @@ There are also some optional `MSSTabbedPageViewControllerDataSource` methods:
 // default page index to display
 - (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
 ```
-The `MSSTabbedPageViewControllerDelegate` provides the following optional methods:
 
-```
-// The desired tab bar height in the tabbed page view controller
-- (CGFloat)tabbedPageViewControllerHeightForTabBar:(MSSTabbedPageViewController *)tabbedPageViewController;
-```
-
-Child view controllers can have access to numerous components of the parent controller by implementing the `MSSTabbedPageChildViewController` protocol:
+Child view controllers can have access to components of the parent controller by implementing the `MSSTabbedPageChildViewController` protocol:
 
 ```
 // Parent page view controller
@@ -48,9 +46,6 @@ Child view controllers can have access to numerous components of the parent cont
 
 // Parent tab bar view
 @property (nonatomic, weak) MSSTabBarView *tabBarView;
-
-// The required inset for the child view controller to display correctly in the parent
-@property (nonatomic, assign) UIEdgeInsets requiredContentInset;
 ```
 
 ### Page View Controller Enhancements
