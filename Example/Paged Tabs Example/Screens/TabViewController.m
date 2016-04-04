@@ -8,6 +8,10 @@
 
 #import "TabViewController.h"
 
+@interface TabViewController () <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
+
+@end
+
 @implementation TabViewController
 
 #pragma mark - Page View Controller

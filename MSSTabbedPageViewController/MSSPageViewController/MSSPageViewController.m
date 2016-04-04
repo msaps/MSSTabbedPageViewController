@@ -7,14 +7,15 @@
 //
 
 #import "MSSPageViewController.h"
+#import "MSSPageViewControllerPrivate.h"
 
-@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
+@interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
+    BOOL _viewHasLoaded;
+}
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
 @property (nonatomic, weak) UIScrollView *scrollView;
-
-@property (nonatomic, assign) NSInteger currentPage;
 
 @property (nonatomic, assign) CGFloat previousPagePosition;
 
@@ -24,6 +25,9 @@
 @end
 
 @implementation MSSPageViewController
+
+@synthesize dataSource = _dataSource,
+            delegate = _delegate;
 
 #pragma mark - Init
 
@@ -42,7 +46,7 @@
 }
 
 - (void)baseInit {
-    _notifyOutOfBoundUpdates = YES;
+    _provideOutOfBoundsUpdates = YES;
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
@@ -64,7 +68,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.pageViewController addToParentViewController:self];
+    _viewHasLoaded = YES;
+    
+    [self.pageViewController addToParentViewController:self atZIndex:0];
     self.scrollView.delegate = self;
     
     [self setUpTabs];
@@ -81,7 +87,168 @@
     }];
 }
 
+#pragma mark - Public
+
+- (void)moveToPageAtIndex:(NSInteger)index {
+    [self moveToPageAtIndex:index completion:nil];
+}
+
+- (void)moveToPageAtIndex:(NSInteger)index
+               completion:(void (^)(UIViewController *, BOOL, BOOL))completion {
+    
+    if (index != self.currentPage) {
+        _animatingPageUpdate = YES;
+        
+        BOOL isForwards = index > self.currentPage;
+        NSArray *viewControllers = self.pageViewController.viewControllers;
+        UIViewController *viewController = [self viewControllerAtIndex:index];
+        
+        typeof(self) __weak weakSelf = self;
+        [self.pageViewController setViewControllers:@[viewController]
+                                          direction:isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:^(BOOL finished) {
+                                             typeof(weakSelf) __strong strongSelf = weakSelf;
+                                             [strongSelf pageViewController:strongSelf.pageViewController
+                                                         didFinishAnimating:YES
+                                                    previousViewControllers:viewControllers
+                                                        transitionCompleted:YES];
+                                             
+                                             if (completion) {
+                                                 completion(viewController, YES, YES);
+                                             }
+                                             _animatingPageUpdate = NO;
+                                         }];
+    } else {
+        if (completion) {
+            completion(nil, NO, NO);
+        }
+    }
+}
+
+- (BOOL)isDragging {
+    return self.scrollView.isDragging;
+}
+
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    self.scrollView.scrollEnabled = scrollEnabled;
+}
+
+- (BOOL)isScrollEnabled {
+    return self.scrollView.scrollEnabled;
+}
+
+- (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
+    _dataSource = dataSource;
+    if (_viewHasLoaded) {
+        [self setUpTabs];
+    }
+}
+
+- (id<MSSPageViewControllerDataSource>)dataSource {
+    if (_dataSource) {
+        return _dataSource;
+    }
+    return self;
+}
+
+- (id<MSSPageViewControllerDelegate>)delegate {
+    if (_delegate) {
+        return _delegate;
+    }
+    return self;
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    self.scrollView.userInteractionEnabled = userInteractionEnabled;
+}
+
+- (BOOL)userInteractionEnabled {
+    return self.scrollView.userInteractionEnabled;
+}
+
+#pragma mark - Internal
+
+- (void)setUpTabs {
+    
+    // view controllers
+    if ([self.dataSource respondsToSelector:@selector(viewControllersForPageViewController:)]) {
+        _viewControllers = [self.dataSource viewControllersForPageViewController:self];
+    }
+    
+    if (self.viewControllers.count > 0) {
+        [self setUpViewControllers:self.viewControllers];
+        
+        NSInteger defaultIndex = 0;
+        if ([self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
+            defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
+        }
+        _numberOfPages = self.viewControllers.count;
+        _defaultPageIndex = defaultIndex;
+        self.currentPage = defaultIndex;
+        
+        if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
+            [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
+        }
+        
+        // display initial page
+        UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+        if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
+            [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
+        }
+        [self.pageViewController setViewControllers:@[viewController]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:NO
+                                         completion:nil];
+        self.scrollView.userInteractionEnabled = YES;
+        
+    } else {
+        self.scrollView.userInteractionEnabled = NO; // disable scroll view if no pages
+    }
+}
+
+- (void)setUpViewControllers:(NSArray *)viewControllers {
+    NSInteger index = 0;
+    for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
+        if ([viewController respondsToSelector:@selector(pageViewController)]) {
+            viewController.pageViewController = self;
+            viewController.pageIndex = index;
+        }
+        index++;
+    }
+}
+
+- (UIViewController *)viewControllerAtIndex:(NSInteger)index {
+    if (index < self.viewControllers.count) {
+        return self.viewControllers[index];
+    }
+    return nil;
+}
+
+- (NSInteger)indexOfViewController:(UIViewController *)viewController {
+    if (self.viewControllers.count > 0) {
+        return [self.viewControllers indexOfObject:viewController];
+    }
+    return NSNotFound;
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        for (UIView *subview in self.pageViewController.view.subviews) {
+            if ([subview isKindOfClass:[UIScrollView class]]) {
+                _scrollView = (UIScrollView *)subview;
+                break;
+            }
+        }
+    }
+    return _scrollView;
+}
+
 #pragma mark - Scroll View delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _animatingPageUpdate = NO;
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
@@ -93,22 +260,24 @@
     
     if (currentPagePosition != self.previousPagePosition) {
 
-        // check if position is out of bounds
+        // limit updates if out of bounds updates are disabled
+        // updates will be limited to min of 0 and max of number of pages
         BOOL outOfBounds = currentPagePosition < 0.0f || currentPagePosition > ((scrollView.contentSize.width / pageWidth) - 1.0f);
-        if (self.notifyOutOfBoundUpdates || (!self.notifyOutOfBoundUpdates && !outOfBounds)) {
-            
-            // check whether updates are allowed
-            if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
-                if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
-                    
-                    MSSPageViewControllerScrollDirection direction =
-                        currentPagePosition > _previousPagePosition ?
-                        MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
-                    
-                    [self.delegate pageViewController:self
-                                didScrollToPageOffset:currentPagePosition
-                                            direction:direction];
-                }
+        if (!self.provideOutOfBoundsUpdates && outOfBounds) {
+            currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
+        }
+        
+        // check whether updates are allowed
+        if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
+            if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
+                
+                MSSPageViewControllerScrollDirection direction =
+                currentPagePosition > _previousPagePosition ?
+                MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
+                
+                [self.delegate pageViewController:self
+                            didScrollToPageOffset:currentPagePosition
+                                        direction:direction];
             }
         }
         
@@ -157,11 +326,24 @@
 #pragma mark - Page View Controller delegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
+willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    
+    if ([self.delegate respondsToSelector:@selector(pageViewController:willScrollToPage:currentPage:)]) {
+        NSInteger currentPage = self.currentPage;
+        NSInteger nextPage = [self indexOfViewController:pendingViewControllers.firstObject];
+        
+        [self.delegate pageViewController:self
+                         willScrollToPage:nextPage
+                              currentPage:currentPage];
+    }
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     
-    if (completed) {
+    if (completed || ((previousViewControllers.firstObject == [self viewControllerAtIndex:self.currentPage]) && !self.isDragging)) {
         _currentPage = [self indexOfViewController:self.pageViewController.viewControllers.firstObject];
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {
@@ -170,120 +352,10 @@
     }
 }
 
-#pragma mark - Public
+#pragma mark - MSSPageViewController data source
 
-- (void)moveToPageAtIndex:(NSInteger)index {
-    [self moveToPageAtIndex:index completion:nil];
-}
-
-- (void)moveToPageAtIndex:(NSInteger)index
-               completion:(void (^)(UIViewController *, BOOL, BOOL))completion {
-    
-    if (index != self.currentPage) {
-        
-        BOOL isForwards = index > self.currentPage;
-        NSArray *viewControllers = self.pageViewController.viewControllers;
-        UIViewController *viewController = [self viewControllerAtIndex:index];
-        
-        typeof(self) __weak weakSelf = self;
-        [self.pageViewController setViewControllers:@[viewController]
-                                          direction:isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
-                                           animated:YES
-                                         completion:^(BOOL finished) {
-                                             typeof(weakSelf) __strong strongSelf = weakSelf;
-                                             [strongSelf pageViewController:strongSelf.pageViewController
-                                                         didFinishAnimating:YES
-                                                    previousViewControllers:viewControllers
-                                                        transitionCompleted:YES];
-                                             
-                                             if (completion) {
-                                                 completion(viewController, YES, YES);
-                                             }
-                                         }];
-    } else {
-        if (completion) {
-            completion(nil, NO, NO);
-        }
-    }
-}
-
-- (BOOL)isDragging {
-    return self.scrollView.isDragging;
-}
-
-- (void)setScrollEnabled:(BOOL)scrollEnabled {
-    self.scrollView.scrollEnabled = scrollEnabled;
-}
-
-- (BOOL)isScrollEnabled {
-    return self.scrollView.scrollEnabled;
-}
-
-#pragma mark - Internal
-
-- (void)setUpTabs {
-    
-    // view controllers
-    if ([self.dataSource respondsToSelector:@selector(viewControllersForPageViewController:)]) {
-        _viewControllers = [self.dataSource viewControllersForPageViewController:self];
-    }
-    
-    if (self.viewControllers.count > 0) {
-        [self setUpViewControllers:self.viewControllers];
-        
-        NSInteger defaultIndex = 0;
-        if ([self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
-            defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
-        }
-        _numberOfPages = self.viewControllers.count;
-        _defaultPageIndex = defaultIndex;
-        self.currentPage = defaultIndex;
-        
-        if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
-            [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
-        }
-        
-        // display initial page
-        UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
-        if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
-            [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
-        }
-        [self.pageViewController setViewControllers:@[viewController]
-                                          direction:UIPageViewControllerNavigationDirectionForward
-                                           animated:NO
-                                         completion:nil];
-    }
-}
-
-- (void)setUpViewControllers:(NSArray *)viewControllers {
-    for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
-        if ([viewController respondsToSelector:@selector(pageViewController)]) {
-            viewController.pageViewController = self;
-        }
-    }
-}
-
-- (UIViewController *)viewControllerAtIndex:(NSInteger)index {
-    if (index < self.viewControllers.count) {
-        return self.viewControllers[index];
-    }
+- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
     return nil;
-}
-
-- (NSInteger)indexOfViewController:(UIViewController *)viewController {
-    return [self.viewControllers indexOfObject:viewController];
-}
-
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        for (UIView *subview in self.pageViewController.view.subviews) {
-            if ([subview isKindOfClass:[UIScrollView class]]) {
-                _scrollView = (UIScrollView *)subview;
-                break;
-            }
-        }
-    }
-    return _scrollView;
 }
 
 @end

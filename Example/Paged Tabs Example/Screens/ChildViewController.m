@@ -8,14 +8,10 @@
 
 #import "ChildViewController.h"
 
-@interface ChildViewController ()
-
-@end
-
 @implementation ChildViewController
 
-@synthesize pageViewController = _pageViewController;
-@synthesize tabBarView = _tabBarView;
-@synthesize requiredContentInset = _requiredContentInset;
+@synthesize pageViewController;
+@synthesize pageIndex;
+@synthesize tabBarView;
 
 @end

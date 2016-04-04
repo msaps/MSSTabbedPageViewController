@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSInteger const UIViewDefaultZIndex;
+
 @interface UIView (MSSAutoLayout)
 
 - (void)addExpandingSubview:(UIView *)subview;
 
 - (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets;
+
+- (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets atZIndex:(NSInteger)index;
 
 - (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height;
 

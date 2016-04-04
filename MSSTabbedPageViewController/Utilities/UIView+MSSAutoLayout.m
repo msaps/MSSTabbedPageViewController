@@ -8,6 +8,8 @@
 
 #import "UIView+MSSAutoLayout.h"
 
+NSInteger const UIViewDefaultZIndex = -1;
+
 @implementation UIView (MSSAutoLayout)
 
 - (void)addExpandingSubview:(UIView *)subview {
@@ -15,7 +17,11 @@
 }
 
 - (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets {
-    [self addView:subview];
+    [self addExpandingSubview:subview edgeInsets:insets atZIndex:UIViewDefaultZIndex];
+}
+
+- (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets atZIndex:(NSInteger)index {
+    [self addView:subview atZIndex:index];
     NSDictionary *views = NSDictionaryOfVariableBindings(subview);
     
     NSString *verticalConstraints = [NSString stringWithFormat:@"V:|-%f-[subview]-%f-|", insets.top, insets.bottom];
@@ -31,7 +37,7 @@
 }
 
 - (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height {
-    [self addView:subview];
+    [self addView:subview atZIndex:UIViewDefaultZIndex];
     NSDictionary *views = NSDictionaryOfVariableBindings(subview);
     
     NSDictionary *metrics = @{@"viewHeight":@(height)};
@@ -49,11 +55,15 @@
 
 #pragma mark - Internal
 
-- (void)addView:(UIView *)subview {
+- (void)addView:(UIView *)subview atZIndex:(NSInteger)index {
     if (subview.superview) {
         [subview removeFromSuperview];
     }
-    [self addSubview:subview];
+    if (index >= 0) {
+        [self insertSubview:subview atIndex:index];
+    } else {
+        [self addSubview:subview];
+    }
     subview.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
