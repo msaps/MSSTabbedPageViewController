@@ -121,8 +121,14 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 #pragma mark - Tab Bar data source
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return nil;
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
+    return 0;
+}
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index {
+    
 }
 
 @end

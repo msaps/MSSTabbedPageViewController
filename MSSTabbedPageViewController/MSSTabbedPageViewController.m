@@ -74,14 +74,20 @@
 
 #pragma mark - Tab bar data source
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return nil;
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
+    return self.viewControllers.count;
+}
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index {
+    
 }
 
 #pragma mark - Tab bar delegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate && index < self.viewControllers.count) {
         self.allowScrollViewUpdates = NO;
         self.userInteractionEnabled = NO;
         

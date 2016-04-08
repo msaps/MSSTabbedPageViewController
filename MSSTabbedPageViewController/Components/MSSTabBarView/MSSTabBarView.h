@@ -7,20 +7,51 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSTabBarCollectionViewCell.h"
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
+@required
+
+/**
+ The number of items to display in the tab bar.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @return the number of tab bar items.
+ */
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView;
+
+/**
+ Populate a tab bar item.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @param tab
+ The tab to populate.
+ 
+ @param index
+ The index of the tab.
+ */
+- (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index;
+
+@optional
+
 /**
  The tab titles to display in the tab bar.
  
  @param tabBarView
  The tab bar view.
+ 
  @return The array of tab titles.
  */
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView;
+- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
+__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
 @end
 
@@ -55,9 +86,9 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  */
 @property (nonatomic, assign) CGFloat tabOffset;
 /**
- The expected number of tabs in the tab bar.
+ The number of tabs in the tab bar.
  */
-@property (nonatomic, assign) NSInteger expectedTabCount;
+@property (nonatomic, assign, readonly) NSInteger tabCount;
 /**
  The default index for the tab bar to display.
  */
