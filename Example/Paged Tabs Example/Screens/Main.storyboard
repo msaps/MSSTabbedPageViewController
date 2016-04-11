@@ -70,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="XHJ-ZZ-Ryp" kind="relationship" relationship="rootViewController" id="zrl-GU-O4W"/>
+                        <segue destination="XHJ-ZZ-Ryp" kind="relationship" relationship="rootViewController" id="h5J-sU-2dj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWf-82-KQc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.tabBarView.tabStyle = self.style.tabStyle;
+    self.tabBarView.sizingStyle = self.style.sizingStyle;
 }
 
 #pragma mark - Page View Controller

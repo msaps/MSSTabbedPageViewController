@@ -33,6 +33,7 @@ NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
@@ -170,8 +171,8 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     cell.backgroundColor = [UIColor clearColor];
     
     // default contents
-    cell.title = [self titleAtIndex:indexPath.row];
     cell.tabStyle = self.tabStyle;
+    cell.title = [self titleAtIndex:indexPath.row];
     
     // populate cell
     if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
@@ -180,10 +181,10 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     // check whether this is the default run
     // cell should be set active if it is the default
-    if (!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) {
+    if ((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) || [self.selectedIndexPath isEqual:indexPath]) {
         
         self.hasRespectedDefaultTabIndex = YES;
-        [self setTabCellActive:cell];
+        [self setTabCellActive:cell indexPath:indexPath];
         
     } else { // standard cell inactive
         
@@ -398,7 +399,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         // update tab bar cells
         [self setTabCellsInactiveExceptTabIndex:tabIndex];
-        [self setTabCellActive:cell];
+        [self setTabCellActive:cell indexPath:[NSIndexPath indexPathForItem:tabIndex inSection:0]];
     }
 }
 
@@ -411,8 +412,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell {
+- (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell
+               indexPath:(NSIndexPath *)indexPath {
     _selectedCell = cell;
+    _selectedIndexPath = indexPath;
     
     cell.selectionProgress = 1.0f;
 
@@ -554,6 +557,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)reset {
     _selectedCell = nil;
+    _selectedIndexPath = nil;
     _hasRespectedDefaultTabIndex = NO;
     _tabOffset = 0.0f;
     _previousTabOffset = 0.0f;

@@ -25,7 +25,9 @@
     
     self.styles = @[
                     [TabControllerStyle styleWithName:@"Wrapped Text" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleWrap numberOfTabs:5],
-                    [TabControllerStyle styleWithName:@"Distributed Text" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3]
+                    [TabControllerStyle styleWithName:@"Distributed Text" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3],
+                    [TabControllerStyle styleWithName:@"Wrapped Images" tabStyle:MSSTabStyleImage sizingStyle:MSSTabSizingStyleWrap numberOfTabs:5],
+                    [TabControllerStyle styleWithName:@"Distributed Images" tabStyle:MSSTabStyleImage sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3]
                     ];
 }
 

@@ -38,7 +38,7 @@
         _tabNavigationBar = navigationBar;
         
         MSSTabBarView *tabBarView = navigationBar.tabBarView;
-        [tabBarView setDataSource:self animated:animated];
+        tabBarView.dataSource = self;
         tabBarView.delegate = self;
         _tabBarView = tabBarView;
         tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
