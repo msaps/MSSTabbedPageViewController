@@ -36,8 +36,8 @@
 }
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index {
-    NSString *imageName = [NSString stringWithFormat:@"tab%li.png", index + 1];
-    NSString *pageName = [NSString stringWithFormat:@"Page %li", index + 1];
+    NSString *imageName = [NSString stringWithFormat:@"tab%i.png", (index + 1)];
+    NSString *pageName = [NSString stringWithFormat:@"Page %i", (index + 1)];
     
     tab.image = [UIImage imageNamed:imageName];
     tab.title = pageName;

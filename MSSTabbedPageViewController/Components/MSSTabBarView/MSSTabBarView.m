@@ -335,7 +335,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         _sizingStyle = sizingStyle;
         [self.collectionView reloadData];
     } else {
-        NSLog(@"%@ - Distributed tab spacing is unavailable when using a tab count greater than %li", NSStringFromClass([self class]), MSSTabBarViewMaxDistributedTabs);
+        NSLog(@"%@ - Distributed tab spacing is unavailable when using a tab count greater than %li", NSStringFromClass([self class]), (long)MSSTabBarViewMaxDistributedTabs);
     }
 }
 
@@ -552,7 +552,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.tabTitles) {
         return self.tabTitles[index];
     } else {
-        return [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (index + 1)];
+        return [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (long)(index + 1)];
     }
 }
 
