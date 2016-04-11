@@ -345,6 +345,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.collectionView reloadData];
 }
 
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
+    self.tabIndicatorColor = tintColor;
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {

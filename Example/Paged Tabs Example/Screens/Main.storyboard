@@ -44,6 +44,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJO-Jo-WH6" customClass="MSSTabNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0093617555430000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="XHJ-ZZ-Ryp" kind="relationship" relationship="rootViewController" id="h5J-sU-2dj"/>
@@ -101,7 +102,9 @@
                             <constraint firstItem="J0c-gz-YJt" firstAttribute="leading" secondItem="soB-l3-j58" secondAttribute="leading" id="u8f-kt-0Ab"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tabbed Styles" id="bcG-zm-wj7"/>
+                    <navigationItem key="navigationItem" title="Tabbed Styles" id="bcG-zm-wj7">
+                        <barButtonItem key="backBarButtonItem" title="Styles" id="TI0-if-acc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="J0c-gz-YJt" id="iJz-ZK-VcY"/>
                         <segue destination="CAa-oM-U9G" kind="show" identifier="showTabViewController" id="Abz-0K-y5h"/>
