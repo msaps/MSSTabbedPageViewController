@@ -129,7 +129,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The sizing style to use for tabs in the tab bar.
  
- MSSTabSizingStyleWrap - wrap the tabs to the size of their contents.
+ MSSTabSizingStyleSizeToFit - size tabs to the size of their contents.
  
  MSSTabSizingStyleDistributed - distribute the tabs equally in the frame of the tab bar (Max 5).
  */

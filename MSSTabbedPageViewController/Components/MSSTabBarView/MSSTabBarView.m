@@ -331,7 +331,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setSizingStyle:(MSSTabSizingStyle)sizingStyle {
     if ((sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) ||
-        sizingStyle == MSSTabSizingStyleWrap) {
+        sizingStyle == MSSTabSizingStyleSizeToFit) {
         _sizingStyle = sizingStyle;
         [self.collectionView reloadData];
     } else {
