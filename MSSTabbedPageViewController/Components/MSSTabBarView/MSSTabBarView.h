@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSSTabBarCollectionViewCell.h"
 #import "MSSTabSizingStyle.h"
+#import "MSSTabStyle.h"
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
@@ -26,7 +27,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @return the number of tab bar items.
  */
 - (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView;
-
 /**
  Populate a tab bar item.
  
@@ -39,7 +39,9 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @param index
  The index of the tab.
  */
-- (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index;
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index;
 
 @optional
 
@@ -131,6 +133,14 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, assign) CGFloat selectionIndicatorInset;
 
+/**
+ The style for tabs in the tab bar.
+ 
+ MSSTabStyleImage - use images as the content for each tab.
+ 
+ MSSTabStyleText - use text as the content for each tab.
+ */
+@property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
 /**
  The color of the tab selection indicator.
  */

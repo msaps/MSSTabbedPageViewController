@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,23 +15,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="157" height="55"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-mn-Vu6">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-mn-Vu6">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="55"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u6B-3w-cac">
+                        <rect key="frame" x="51" y="0.0" width="55" height="55"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0093617555430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="u6B-3w-cac" secondAttribute="height" multiplier="1:1" id="NTl-jn-h6X"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="7ve-mn-Vu6" firstAttribute="leading" secondItem="TZf-1P-n8n" secondAttribute="leading" id="GRc-AG-XRg"/>
+                <constraint firstItem="u6B-3w-cac" firstAttribute="centerX" secondItem="TZf-1P-n8n" secondAttribute="centerX" id="IU4-Qq-ZlE"/>
+                <constraint firstItem="u6B-3w-cac" firstAttribute="top" secondItem="TZf-1P-n8n" secondAttribute="top" id="KMh-Fs-iBk"/>
                 <constraint firstAttribute="bottom" secondItem="7ve-mn-Vu6" secondAttribute="bottom" id="PCV-se-8TZ"/>
+                <constraint firstItem="u6B-3w-cac" firstAttribute="leading" secondItem="TZf-1P-n8n" secondAttribute="leading" priority="500" id="VrD-Hl-9rh"/>
                 <constraint firstItem="7ve-mn-Vu6" firstAttribute="top" secondItem="TZf-1P-n8n" secondAttribute="top" id="WWM-w0-ZfH"/>
+                <constraint firstAttribute="bottom" secondItem="u6B-3w-cac" secondAttribute="bottom" id="pds-gW-qBw"/>
                 <constraint firstAttribute="trailing" secondItem="7ve-mn-Vu6" secondAttribute="trailing" id="t15-fG-MGP"/>
+                <constraint firstAttribute="trailing" secondItem="u6B-3w-cac" secondAttribute="trailing" priority="500" id="ykd-Vd-Uk0"/>
             </constraints>
             <size key="customSize" width="157" height="55"/>
             <connections>
+                <outlet property="imageView" destination="u6B-3w-cac" id="sQI-ML-nxF"/>
                 <outlet property="titleLabel" destination="7ve-mn-Vu6" id="WbW-JV-qCq"/>
             </connections>
             <point key="canvasLocation" x="484.5" y="419.5"/>

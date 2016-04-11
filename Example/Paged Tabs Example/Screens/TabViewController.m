@@ -16,8 +16,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.tabBarView.sizingStyle = MSSTabSizingStyleDistributed;
 }
 
 #pragma mark - Page View Controller

@@ -8,6 +8,7 @@
 
 #import "MSSTabBarView.h"
 #import "UIView+MSSAutoLayout.h"
+#import "MSSTabBarCollectionViewCell+Private.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -42,7 +43,7 @@ NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
 
 @end
 
-static MSSTabBarCollectionViewCell *sizingCell;
+static MSSTabBarCollectionViewCell *_sizingCell;
 
 @implementation MSSTabBarView
 
@@ -116,8 +117,8 @@ static MSSTabBarCollectionViewCell *sizingCell;
                                         bundle:[NSBundle mainBundle]];
         [self.collectionView registerNib:cellNib
               forCellWithReuseIdentifier:MSSTabBarViewCellIdentifier];
-        if (!sizingCell) {
-            sizingCell = [[cellNib instantiateWithOwner:self options:nil]objectAtIndex:0];
+        if (!_sizingCell) {
+            _sizingCell = [[cellNib instantiateWithOwner:self options:nil]objectAtIndex:0];
         }
         
         // collection view
@@ -165,11 +166,12 @@ static MSSTabBarCollectionViewCell *sizingCell;
                                                                                   forIndexPath:indexPath];
     
     // default appearance
-    cell.titleLabel.textColor = self.tabTextColor;
+    cell.textColor = self.tabTextColor;
     cell.backgroundColor = [UIColor clearColor];
     
     // default contents
-    cell.titleLabel.text = [self titleAtIndex:indexPath.row];
+    cell.title = [self titleAtIndex:indexPath.row];
+    cell.tabStyle = self.tabStyle;
     
     // populate cell
     if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
@@ -185,7 +187,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
         
     } else { // standard cell inactive
         
-        cell.titleLabel.alpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+        cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
     }
 
     return cell;
@@ -211,12 +213,12 @@ static MSSTabBarCollectionViewCell *sizingCell;
         
         // update sizing cell with population
         if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
-            [self.dataSource tabBarView:self populateTab:sizingCell atIndex:indexPath.item];
+            [self.dataSource tabBarView:self populateTab:_sizingCell atIndex:indexPath.item];
         } else  {
-            sizingCell.titleLabel.text = [self titleAtIndex:indexPath.row];
+            _sizingCell.title = [self titleAtIndex:indexPath.row];
         }
         
-        CGSize requiredSize = [sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
+        CGSize requiredSize = [_sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
                                         withHorizontalFittingPriority:UILayoutPriorityDefaultLow
                                               verticalFittingPriority:UILayoutPriorityRequired];
         requiredSize.width += self.tabPadding;
@@ -335,6 +337,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
+- (void)setTabStyle:(MSSTabStyle)tabStyle {
+    _tabStyle = tabStyle;
+    _sizingCell.tabStyle = tabStyle;
+    [self.collectionView reloadData];
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -406,7 +414,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell {
     _selectedCell = cell;
     
-    cell.titleLabel.alpha = 1.0f;
+    cell.selectionProgress = 1.0f;
 
     if (self.animateDataSourceTransition) {
         [UIView animateWithDuration:0.3f animations:^{
@@ -422,7 +430,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setTabCellInactive:(MSSTabBarCollectionViewCell *)cell {
-    cell.titleLabel.alpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+    cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
 }
 
 - (void)updateTabsWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
@@ -437,8 +445,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat nextAlpha = unselectedAlpha + alphaDiff;
     CGFloat currentAlpha = 1.0f - alphaDiff;
     
-    currentTabCell.titleLabel.alpha = currentAlpha;
-    nextTabCell.titleLabel.alpha = nextAlpha;
+    currentTabCell.selectionProgress = currentAlpha;
+    nextTabCell.selectionProgress = nextAlpha;
 }
 
 - (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell

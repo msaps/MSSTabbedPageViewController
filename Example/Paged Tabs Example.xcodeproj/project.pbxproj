@@ -27,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		46334F121CBBA23C00DFCEA2 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		46334F131CBBACAF00DFCEA2 /* MSSTabStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		46334F141CBBB33500DFCEA2 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
 		46A6E4B31CA9C60F00BC82DD /* MSSTabNavigationBarPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBarPrivate.h; sourceTree = "<group>"; };
 		46BED4D61CA96E5B0019A067 /* MSSPageViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSPageViewControllerPrivate.h; sourceTree = "<group>"; };
 		46C4DDEF1CA8181B00216F57 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
@@ -155,11 +157,13 @@
 			isa = PBXGroup;
 			children = (
 				D655936A1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.h */,
+				46334F141CBBB33500DFCEA2 /* MSSTabBarCollectionViewCell+Private.h */,
 				D655936B1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.m */,
 				D655936C1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.xib */,
 				D655936D1C4903CD000CAD99 /* MSSTabBarView.h */,
 				D655936E1C4903CD000CAD99 /* MSSTabBarView.m */,
 				46334F121CBBA23C00DFCEA2 /* MSSTabSizingStyle.h */,
+				46334F131CBBACAF00DFCEA2 /* MSSTabStyle.h */,
 				46A6E4B31CA9C60F00BC82DD /* MSSTabNavigationBarPrivate.h */,
 				46FAB84D1CA8016D00406045 /* MSSTabNavigationBar.h */,
 				46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */,
