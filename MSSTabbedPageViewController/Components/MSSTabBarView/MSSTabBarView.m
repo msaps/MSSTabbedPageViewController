@@ -391,6 +391,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                         nextTabCell:nextTabCell
                                                            progress:progress];
             }
+        } else { // on a page
+            _selectedIndexPath = [NSIndexPath indexPathForItem:(NSInteger)tabOffset inSection:0];
         }
     }
 }

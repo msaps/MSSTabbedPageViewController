@@ -105,7 +105,7 @@
                         <barButtonItem key="backBarButtonItem" title="Styles" id="TI0-if-acc"/>
                         <barButtonItem key="leftBarButtonItem" title="Close" id="fEj-9l-Rvd">
                             <connections>
-                                <action selector="closeButtonPressed:" destination="XHJ-ZZ-Ryp" id="YZh-P0-FQZ"/>
+                                <action selector="closeButtonPressed:" destination="XHJ-ZZ-Ryp" id="9jL-mD-xMm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
