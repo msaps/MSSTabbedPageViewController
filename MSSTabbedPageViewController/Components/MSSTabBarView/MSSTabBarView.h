@@ -176,7 +176,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  @param dataSource
  The data source.
  @param animated
- Animate the data sourcetransition.
+ Animate the data source transition.
  */
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
 
