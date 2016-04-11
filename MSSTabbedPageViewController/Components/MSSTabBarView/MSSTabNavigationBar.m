@@ -30,6 +30,8 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     tabBarView.tintColor = self.tintColor;
     [self addSubview:tabBarView];
     _tabBarView = tabBarView;
+    
+    self.tabBarRequired = self.tabBarRequired;
 }
 
 #pragma mark - Lifecycle
@@ -56,11 +58,13 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
 
-    if (CGRectContainsPoint(self.tabBarView.frame, point) && self.tabBarView.userInteractionEnabled) {
+    if (CGRectContainsPoint(self.tabBarView.frame, point) && self.tabBarView.userInteractionEnabled && self.tabBarRequired) {
         CGPoint tabBarPoint = [self.tabBarView convertPoint:point fromView:self];
         return [self.tabBarView hitTest:tabBarPoint withEvent:event];
     }
-    return [super hitTest:point withEvent:event];
+    
+    UIView *hitView = [super hitTest:point withEvent:event];
+    return hitView;
 }
 
 #pragma mark - Public
@@ -108,7 +112,6 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
         // show or hide tab bar view
         void (^tabVisiblityBlock)() = ^void() {
             self.tabBarRequired = required;
-            self.tabBarView.alpha = required;
             [self layoutIfNeeded];
         };
         
