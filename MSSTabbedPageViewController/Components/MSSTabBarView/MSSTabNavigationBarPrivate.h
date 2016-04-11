@@ -12,8 +12,11 @@
 
 @property (nonatomic, assign) BOOL tabBarRequired;
 
-- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated;
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController
+                  viewWillAppear:(BOOL)animated
+                       isInitial:(BOOL)isInitial;
 
-- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillDisappear:(BOOL)animated;
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController
+               viewWillDisappear:(BOOL)animated;
 
 @end

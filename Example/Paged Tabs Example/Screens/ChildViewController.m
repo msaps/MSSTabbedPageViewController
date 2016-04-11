@@ -14,4 +14,10 @@
 @synthesize pageIndex;
 @synthesize tabBarView;
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.titleLabel.text = [NSString stringWithFormat:@"Page %i", (int)(self.pageIndex + 1)];
+}
+
 @end

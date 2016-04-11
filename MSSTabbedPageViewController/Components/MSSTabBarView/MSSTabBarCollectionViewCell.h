@@ -7,9 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSTabStyle.h"
 
 @interface MSSTabBarCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+/**
+ The style of the tab.
+ */
+@property (nonatomic, assign, readonly) MSSTabStyle tabStyle;
+/**
+ The image displayed in the tab cell.
+ 
+ NOTE - only visible when using MSSTabStyleImage.
+ */
+@property (nonatomic, strong) UIImage *image;
+/**
+ The text displayed in the tab cell.
+ 
+ NOTE - only visible when using MSSTabStyleText.
+ */
+@property (nonatomic, copy) NSString *title;
 
 @end

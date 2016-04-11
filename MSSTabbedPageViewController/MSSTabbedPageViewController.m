@@ -38,12 +38,13 @@
         _tabNavigationBar = navigationBar;
         
         MSSTabBarView *tabBarView = navigationBar.tabBarView;
-        [tabBarView setDataSource:self animated:animated];
+        tabBarView.dataSource = self;
         tabBarView.delegate = self;
         _tabBarView = tabBarView;
         tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
         
-        [navigationBar tabbedPageViewController:self viewWillAppear:animated];
+        BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
+        [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
     }
 }
 
@@ -74,14 +75,20 @@
 
 #pragma mark - Tab bar data source
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return nil;
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
+    return self.viewControllers.count;
+}
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index {
+    
 }
 
 #pragma mark - Tab bar delegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
-    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate && index < self.viewControllers.count) {
         self.allowScrollViewUpdates = NO;
         self.userInteractionEnabled = NO;
         
@@ -114,6 +121,7 @@
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page {
+    
     if (!self.isDragging) {
         self.tabBarView.userInteractionEnabled = YES;
     }
