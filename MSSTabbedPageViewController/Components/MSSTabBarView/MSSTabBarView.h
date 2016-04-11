@@ -101,20 +101,31 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  Whether the tab bar is currently animating a tab change transition.
  */
 @property (nonatomic, assign, readonly, getter=isAnimatingTabChange) BOOL animatingTabChange;
+/**
+ Whether the user can manually scroll the tab bar.
+ */
+@property (nonatomic, assign) BOOL userScrollEnabled;
 
 /**
  The background view for the tab bar.
  */
 @property (nonatomic, strong) UIView *backgroundView;
-
+/**
+ The height of the selection indicator.
+ */
+@property (nonatomic, assign) CGFloat selectionIndicatorHeight UI_APPEARANCE_SELECTOR;
+/**
+ The inset for the selection indicator from the bottom of the tab bar.
+ */
+@property (nonatomic, assign) CGFloat selectionIndicatorInset UI_APPEARANCE_SELECTOR;
 /**
  The internal horizontal label padding value for each tab.
  */
-@property (nonatomic, assign) CGFloat tabPadding;
+@property (nonatomic, assign) CGFloat tabPadding UI_APPEARANCE_SELECTOR;
 /**
  The content inset for the tabs.
  */
-@property (nonatomic, assign) UIEdgeInsets contentInset;
+@property (nonatomic, assign) UIEdgeInsets contentInset UI_APPEARANCE_SELECTOR;
 /**
  The sizing style to use for tabs in the tab bar.
  
@@ -122,17 +133,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  
  MSSTabSizingStyleDistributed - distribute the tabs equally in the frame of the tab bar (Max 5).
  */
-@property (nonatomic, assign) MSSTabSizingStyle sizingStyle;
-
-/**
- The height of the selection indicator.
- */
-@property (nonatomic, assign) CGFloat selectionIndicatorHeight;
-/**
- The inset for the selection indicator from the bottom of the tab bar.
- */
-@property (nonatomic, assign) CGFloat selectionIndicatorInset;
-
+@property (nonatomic, assign) MSSTabSizingStyle sizingStyle UI_APPEARANCE_SELECTOR;
 /**
  The style for tabs in the tab bar.
  
@@ -149,11 +150,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The text color of the tabs.
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
-
-/**
- Whether the user can manually scroll the tab bar.
- */
-@property (nonatomic, assign) BOOL userScrollEnabled;
 
 
 /**
