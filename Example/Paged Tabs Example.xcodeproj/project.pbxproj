@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46334F171CBBBB7C00DFCEA2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F161CBBBB7C00DFCEA2 /* RootViewController.m */; };
+		46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */; };
 		46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */; };
 		46C4DDF11CA8181B00216F57 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C4DDF01CA8181B00216F57 /* MSSTabbedPageViewController.m */; };
 		46FAB84F1CA8016D00406045 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FAB84E1CA8016D00406045 /* MSSTabNavigationBar.m */; };
@@ -31,8 +31,8 @@
 		46334F121CBBA23C00DFCEA2 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
 		46334F131CBBACAF00DFCEA2 /* MSSTabStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
 		46334F141CBBB33500DFCEA2 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
-		46334F151CBBBB7C00DFCEA2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		46334F161CBBBB7C00DFCEA2 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		46334F151CBBBB7C00DFCEA2 /* StylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylesViewController.h; sourceTree = "<group>"; };
+		46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylesViewController.m; sourceTree = "<group>"; };
 		46334F191CBBBCBC00DFCEA2 /* TabControllerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerStyle.h; sourceTree = "<group>"; };
 		46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerStyle.m; sourceTree = "<group>"; };
 		46A6E4B31CA9C60F00BC82DD /* MSSTabNavigationBarPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBarPrivate.h; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				D65592FC1C47F275000CAD99 /* Main.storyboard */,
-				46334F151CBBBB7C00DFCEA2 /* RootViewController.h */,
-				46334F161CBBBB7C00DFCEA2 /* RootViewController.m */,
+				46334F151CBBBB7C00DFCEA2 /* StylesViewController.h */,
+				46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */,
 				D65592FD1C47F275000CAD99 /* TabViewController.h */,
 				D65592FE1C47F275000CAD99 /* TabViewController.m */,
 				D65592FF1C47F275000CAD99 /* ChildViewController.h */,
@@ -295,7 +295,7 @@
 				D655937B1C4903CD000CAD99 /* MSSTabBarCollectionViewCell.m in Sources */,
 				46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */,
 				D65593081C47F275000CAD99 /* ChildViewController.m in Sources */,
-				46334F171CBBBB7C00DFCEA2 /* RootViewController.m in Sources */,
+				46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */,
 				D65593801C4903CD000CAD99 /* UIView+MSSAutoLayout.m in Sources */,
 				D65593011C47F275000CAD99 /* AppDelegate.m in Sources */,
 			);

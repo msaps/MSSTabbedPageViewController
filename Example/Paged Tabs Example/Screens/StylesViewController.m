@@ -6,17 +6,17 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "StylesViewController.h"
 #import "TabViewController.h"
 
-@interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface StylesViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray *styles;
 
 @end
 
-@implementation RootViewController
+@implementation StylesViewController
 
 #pragma mark - Lifecycle
 
@@ -38,6 +38,12 @@
     tabViewController.style = style;
     
     [super prepareForSegue:segue sender:sender];
+}
+
+#pragma mark - Interaction
+
+- (IBAction)closeButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource

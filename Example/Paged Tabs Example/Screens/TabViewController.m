@@ -15,11 +15,42 @@
 
 @implementation TabViewController
 
+#pragma mark - Init
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        _style = [TabControllerStyle styleWithName:@"Default"
+                                          tabStyle:MSSTabStyleText
+                                       sizingStyle:MSSTabSizingStyleSizeToFit
+                                      numberOfTabs:6];
+    }
+    return self;
+}
+
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if (self.navigationController.viewControllers.firstObject == self) { // only show styles option if initial screen
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Styles"
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(showStylesScreen:)];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.tabBarView.tabStyle = self.style.tabStyle;
     self.tabBarView.sizingStyle = self.style.sizingStyle;
+}
+
+#pragma mark - Interaction
+
+- (void)showStylesScreen:(id)sender {
+    [self performSegueWithIdentifier:@"showStylesSegue" sender:self];
 }
 
 #pragma mark - Page View Controller
@@ -36,8 +67,8 @@
 }
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index {
-    NSString *imageName = [NSString stringWithFormat:@"tab%i.png", (index + 1)];
-    NSString *pageName = [NSString stringWithFormat:@"Page %i", (index + 1)];
+    NSString *imageName = [NSString stringWithFormat:@"tab%i.png", (int)(index + 1)];
+    NSString *pageName = [NSString stringWithFormat:@"Page %i", (int)(index + 1)];
     
     tab.image = [UIImage imageNamed:imageName];
     tab.title = pageName;
