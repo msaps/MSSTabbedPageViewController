@@ -121,7 +121,6 @@
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page {
-    [self.tabBarView setTabOffset:page];
     
     if (!self.isDragging) {
         self.tabBarView.userInteractionEnabled = YES;
