@@ -11,8 +11,11 @@
 
 @interface MSSTabBarCollectionViewCell ()
 
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *containerViewBottomMargin;
 
 @end
 
@@ -48,6 +51,8 @@
     return self.imageView.image;
 }
 
+#pragma mark - Private
+
 - (void)setSelectionProgress:(CGFloat)selectionProgress {
     _selectionProgress = selectionProgress;
     switch (self.tabStyle) {
@@ -79,6 +84,10 @@
         default:
             break;
     }
+}
+
+- (void)setContentBottomMargin:(CGFloat)contentBottomMargin {
+    self.containerViewBottomMargin.constant = contentBottomMargin;
 }
 
 @end

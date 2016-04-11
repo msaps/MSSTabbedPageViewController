@@ -16,4 +16,6 @@
 
 - (void)setTabStyle:(MSSTabStyle)tabStyle;
 
+- (void)setContentBottomMargin:(CGFloat)contentBottomMargin;
+
 @end

@@ -169,6 +169,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     // default appearance
     cell.textColor = self.tabTextColor;
     cell.backgroundColor = [UIColor clearColor];
+    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
     
     // default contents
     cell.tabStyle = self.tabStyle;
