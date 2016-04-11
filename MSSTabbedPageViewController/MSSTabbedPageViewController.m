@@ -43,7 +43,8 @@
         _tabBarView = tabBarView;
         tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
         
-        [navigationBar tabbedPageViewController:self viewWillAppear:animated];
+        BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
+        [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
     }
 }
 

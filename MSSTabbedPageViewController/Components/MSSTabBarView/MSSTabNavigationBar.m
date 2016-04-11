@@ -80,8 +80,10 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 #pragma mark - Private
 
-- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated {
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated isInitial:(BOOL)isInitial {
     _activeTabbedPageViewController = tabbedPageViewController;
+    
+    [self setOffsetTransformRequired:isInitial];
     [self setTabBarRequired:YES animated:animated];
 }
 
