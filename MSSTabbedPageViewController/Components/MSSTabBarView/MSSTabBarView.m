@@ -31,6 +31,7 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
 @property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
 
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
 
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;

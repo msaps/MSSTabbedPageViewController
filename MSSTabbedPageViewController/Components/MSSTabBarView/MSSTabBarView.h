@@ -105,10 +105,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 @property (nonatomic, strong) UIView *backgroundView;
 
 /**
- The height of the tab bar.
- */
-@property (nonatomic, assign, readonly) CGFloat height;
-/**
  The internal horizontal label padding value for each tab.
  */
 @property (nonatomic, assign) CGFloat tabPadding;
