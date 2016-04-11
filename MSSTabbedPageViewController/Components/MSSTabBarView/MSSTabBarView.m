@@ -182,7 +182,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     // check whether this is the default run
     // cell should be set active if it is the default
-    if ((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) || [self.selectedIndexPath isEqual:indexPath] && self.tabOffset == 0.0f) {
+    if (((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) || [self.selectedIndexPath isEqual:indexPath]) && self.tabOffset == 0.0f) {
         
         self.hasRespectedDefaultTabIndex = YES;
         [self setTabCellActive:cell indexPath:indexPath];
