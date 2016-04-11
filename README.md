@@ -69,7 +69,7 @@ Called when the page view controller is scrolled by the user to a specific offse
 Called when the page view controller completes a full scroll to a new page. 
 
 ## Appearance
-`MSSTabBarView` has numerous properties for adjusting its appearance:
+`MSSTabBarView` provides properties for appearance customisation, including:
 
 - `sizingStyle` - Whether the tab bar should size to fit or equally distribute its tabs.
 - `tabStyle` - The style to use for tabs, either `MSSTabStyleText` for text or `MSSTabStyleImage` for images.
