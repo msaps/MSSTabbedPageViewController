@@ -7,6 +7,7 @@
 //
 
 #import "TabViewController.h"
+#import "ChildViewController.h"
 
 @interface TabViewController () <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
 
@@ -25,13 +26,13 @@
 
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    return @[
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController1"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController2"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController3"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController4"],
-             [storyboard instantiateViewControllerWithIdentifier:@"viewController5"]
-             ];
+    NSMutableArray *viewControllers = [NSMutableArray new];
+    
+    for (NSInteger i = 0; i < self.style.numberOfTabs; i++) {
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"viewController1"];
+        [viewControllers addObject:viewController];
+    }
+    return viewControllers;
 }
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index {
