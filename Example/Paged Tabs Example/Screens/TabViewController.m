@@ -14,6 +14,12 @@
 
 @implementation TabViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.tabBarView.sizingStyle = MSSTabSizingStyleDistributed;
+}
+
 #pragma mark - Page View Controller
 
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
@@ -25,10 +31,6 @@
              [storyboard instantiateViewControllerWithIdentifier:@"viewController4"],
              [storyboard instantiateViewControllerWithIdentifier:@"viewController5"]
              ];
-}
-
-- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
-    return 5;
 }
 
 @end

@@ -22,6 +22,8 @@ CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
 NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
 
+NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
+
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;
@@ -192,22 +194,36 @@ static MSSTabBarCollectionViewCell *sizingCell;
 #pragma mark - Collection View delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
+                  layout:(UICollectionViewFlowLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    // update sizing cell with population
-    if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
-        [self.dataSource tabBarView:self populateTab:sizingCell atIndex:indexPath.item];
-    } else  {
-        sizingCell.titleLabel.text = [self titleAtIndex:indexPath.row];
+    CGSize cellSize = CGSizeZero;
+    
+    if (self.sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) { // distributed in frame
+        
+        CGFloat contentInsetTotal = self.contentInset.left + self.contentInset.right;
+        CGFloat totalSpacing = collectionViewLayout.minimumInteritemSpacing * (self.tabCount - 1);
+        CGFloat totalWidth = collectionView.bounds.size.width - contentInsetTotal - totalSpacing;
+        
+        return CGSizeMake(totalWidth / self.tabCount, collectionView.bounds.size.height);
+        
+    } else { // wrap tab contents
+        
+        // update sizing cell with population
+        if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
+            [self.dataSource tabBarView:self populateTab:sizingCell atIndex:indexPath.item];
+        } else  {
+            sizingCell.titleLabel.text = [self titleAtIndex:indexPath.row];
+        }
+        
+        CGSize requiredSize = [sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
+                                        withHorizontalFittingPriority:UILayoutPriorityDefaultLow
+                                              verticalFittingPriority:UILayoutPriorityRequired];
+        requiredSize.width += self.tabPadding;
+        cellSize = requiredSize;
     }
     
-    CGSize requiredSize = [sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
-                                    withHorizontalFittingPriority:UILayoutPriorityDefaultLow
-                                          verticalFittingPriority:UILayoutPriorityRequired];
-    requiredSize.width += self.tabPadding;
-    
-    return requiredSize;
+    return cellSize;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -307,6 +323,16 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setUserScrollEnabled:(BOOL)userScrollEnabled {
     _userScrollEnabled = userScrollEnabled;
     self.collectionView.scrollEnabled = userScrollEnabled;
+}
+
+- (void)setSizingStyle:(MSSTabSizingStyle)sizingStyle {
+    if ((sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) ||
+        sizingStyle == MSSTabSizingStyleWrap) {
+        _sizingStyle = sizingStyle;
+        [self.collectionView reloadData];
+    } else {
+        NSLog(@"%@ - Distributed tab spacing is unavailable when using a tab count greater than %li", NSStringFromClass([self class]), MSSTabBarViewMaxDistributedTabs);
+    }
 }
 
 #pragma mark - Tab Bar State
@@ -468,15 +494,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)updateCollectionViewScrollOffset {
-    
-    // scroll collection view to center selection indicator if possible
-    CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
-    CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
-    [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
-                                                        self.collectionView.frame.origin.y,
-                                                        collectionViewWidth,
-                                                        self.collectionView.frame.size.height)
-                                    animated:NO];
+    if (self.sizingStyle != MSSTabSizingStyleDistributed) {
+        
+        // scroll collection view to center selection indicator if possible
+        CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
+        CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
+        [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
+                                                            self.collectionView.frame.origin.y,
+                                                            collectionViewWidth,
+                                                            self.collectionView.frame.size.height)
+                                        animated:NO];
+    }
 }
 
 - (MSSTabBarCollectionViewCell *)collectionViewCellAtTabIndex:(NSInteger)tabIndex {

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MSSTabBarCollectionViewCell.h"
+#import "MSSTabSizingStyle.h"
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
@@ -112,6 +113,14 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The content inset for the tabs.
  */
 @property (nonatomic, assign) UIEdgeInsets contentInset;
+/**
+ The sizing style to use for tabs in the tab bar.
+ 
+ MSSTabSizingStyleWrap - wrap the tabs to the size of their contents.
+ 
+ MSSTabSizingStyleDistributed - distribute the tabs equally in the frame of the tab bar (Max 5).
+ */
+@property (nonatomic, assign) MSSTabSizingStyle sizingStyle;
 
 /**
  The height of the selection indicator.
@@ -135,6 +144,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  Whether the user can manually scroll the tab bar.
  */
 @property (nonatomic, assign) BOOL userScrollEnabled;
+
 
 /**
  Initialize a tab bar with a specified height.
