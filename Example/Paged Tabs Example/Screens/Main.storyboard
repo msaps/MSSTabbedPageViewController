@@ -44,7 +44,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJO-Jo-WH6" customClass="MSSTabNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.0" blue="0.0093617555430000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="XHJ-ZZ-Ryp" kind="relationship" relationship="rootViewController" id="h5J-sU-2dj"/>
