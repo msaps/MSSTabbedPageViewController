@@ -7,20 +7,54 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSTabBarCollectionViewCell.h"
+#import "MSSTabSizingStyle.h"
+#import "MSSTabStyle.h"
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
+@required
+
+/**
+ The number of items to display in the tab bar.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @return the number of tab bar items.
+ */
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView;
+/**
+ Populate a tab bar item.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @param tab
+ The tab to populate.
+ 
+ @param index
+ The index of the tab.
+ */
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index;
+
+@optional
+
 /**
  The tab titles to display in the tab bar.
  
  @param tabBarView
  The tab bar view.
+ 
  @return The array of tab titles.
  */
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView;
+- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
+__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
 @end
 
@@ -55,9 +89,9 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  */
 @property (nonatomic, assign) CGFloat tabOffset;
 /**
- The expected number of tabs in the tab bar.
+ The number of tabs in the tab bar.
  */
-@property (nonatomic, assign) NSInteger expectedTabCount;
+@property (nonatomic, assign, readonly) NSInteger tabCount;
 /**
  The default index for the tab bar to display.
  */
@@ -67,34 +101,47 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  Whether the tab bar is currently animating a tab change transition.
  */
 @property (nonatomic, assign, readonly, getter=isAnimatingTabChange) BOOL animatingTabChange;
+/**
+ Whether the user can manually scroll the tab bar.
+ */
+@property (nonatomic, assign) BOOL userScrollEnabled;
 
 /**
  The background view for the tab bar.
  */
 @property (nonatomic, strong) UIView *backgroundView;
-
-/**
- The height of the tab bar.
- */
-@property (nonatomic, assign, readonly) CGFloat height;
-/**
- The internal horizontal label padding value for each tab.
- */
-@property (nonatomic, assign) CGFloat tabPadding;
-/**
- The content inset for the tabs.
- */
-@property (nonatomic, assign) UIEdgeInsets contentInset;
-
 /**
  The height of the selection indicator.
  */
-@property (nonatomic, assign) CGFloat selectionIndicatorHeight;
+@property (nonatomic, assign) CGFloat selectionIndicatorHeight UI_APPEARANCE_SELECTOR;
 /**
  The inset for the selection indicator from the bottom of the tab bar.
  */
-@property (nonatomic, assign) CGFloat selectionIndicatorInset;
-
+@property (nonatomic, assign) CGFloat selectionIndicatorInset UI_APPEARANCE_SELECTOR;
+/**
+ The internal horizontal label padding value for each tab.
+ */
+@property (nonatomic, assign) CGFloat tabPadding UI_APPEARANCE_SELECTOR;
+/**
+ The content inset for the tabs.
+ */
+@property (nonatomic, assign) UIEdgeInsets contentInset UI_APPEARANCE_SELECTOR;
+/**
+ The sizing style to use for tabs in the tab bar.
+ 
+ MSSTabSizingStyleSizeToFit - size tabs to the size of their contents.
+ 
+ MSSTabSizingStyleDistributed - distribute the tabs equally in the frame of the tab bar (Max 5).
+ */
+@property (nonatomic, assign) MSSTabSizingStyle sizingStyle UI_APPEARANCE_SELECTOR;
+/**
+ The style for tabs in the tab bar.
+ 
+ MSSTabStyleImage - use images as the content for each tab.
+ 
+ MSSTabStyleText - use text as the content for each tab.
+ */
+@property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
 /**
  The color of the tab selection indicator.
  */
@@ -104,10 +151,6 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
 
-/**
- Whether the user can manually scroll the tab bar.
- */
-@property (nonatomic, assign) BOOL userScrollEnabled;
 
 /**
  Initialize a tab bar with a specified height.
@@ -133,7 +176,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @param dataSource
  The data source.
  @param animated
- Animate the data sourcetransition.
+ Animate the data source transition.
  */
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
 

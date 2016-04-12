@@ -45,8 +45,14 @@
             CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
             CGFloat heightIncrease = self.heightIncreaseRequired ? [self getHeightIncreaseValue] : 0.0f;
             CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarHidden ? 0.0f : statusBarFrame.size.height;
-            frame.origin.y = bounds.origin.y + heightIncrease - statusBarHeight;
-            frame.size.height = bounds.size.height + statusBarHeight;
+            
+            if (!CGAffineTransformEqualToTransform(self.transform, CGAffineTransformIdentity)) {
+                frame.origin.y = bounds.origin.y + heightIncrease - statusBarHeight;
+                frame.size.height = bounds.size.height + statusBarHeight;
+            } else {
+                frame.origin.y = -statusBarHeight;
+                frame.size.height = bounds.size.height + statusBarHeight + heightIncrease;
+            }
             
             [view setFrame:frame];
         }
@@ -55,10 +61,12 @@
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize originalSize = [super sizeThatFits:size];
-    originalSize.height += self.heightIncreaseRequired ? [self getHeightIncreaseValue] : 0.0f;
+    originalSize.height += [self getHeightIncreaseValue];
     
     return originalSize;
 }
+
+#pragma mark - Public
 
 - (CGFloat)heightIncreaseValue {
     return 0.0f;
@@ -68,13 +76,21 @@
     return YES;
 }
 
+- (void)setOffsetTransformRequired:(BOOL)required {
+    if (required) {
+        [self setTransform:CGAffineTransformMakeTranslation(0, -([self heightIncreaseValue]))];
+    } else {
+        [self setTransform:CGAffineTransformIdentity];
+    }
+}
+
 #pragma mark - Internal
 
 - (CGFloat)getHeightIncreaseValue {
     if (self.heightIncreaseRequired) {
-        [self setTransform:CGAffineTransformMakeTranslation(0, -([self heightIncreaseValue]))];
+        return [self heightIncreaseValue];
     }
-    return [self heightIncreaseValue];
+    return 0.0f;
 }
 
 @end

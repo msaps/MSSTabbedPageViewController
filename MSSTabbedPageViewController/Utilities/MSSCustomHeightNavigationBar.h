@@ -10,6 +10,8 @@
 
 @interface MSSCustomHeightNavigationBar : UINavigationBar
 
+@property (nonatomic, assign) BOOL offsetTransformRequired;
+
 - (void)baseInit;
 
 - (CGFloat)heightIncreaseValue;

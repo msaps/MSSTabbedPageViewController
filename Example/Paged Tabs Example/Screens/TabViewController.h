@@ -7,7 +7,10 @@
 //
 
 #import "MSSTabbedPageViewController.h"
+#import "TabControllerStyle.h"
 
 @interface TabViewController : MSSTabbedPageViewController
+
+@property (nonatomic, strong) TabControllerStyle *style;
 
 @end

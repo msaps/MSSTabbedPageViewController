@@ -11,4 +11,6 @@
 
 @interface ChildViewController : UIViewController <MSSTabbedPageChildViewController>
 
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+
 @end

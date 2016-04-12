@@ -8,7 +8,10 @@
 
 #import "MSSTabBarView.h"
 #import "UIView+MSSAutoLayout.h"
-#import "MSSTabBarCollectionViewCell.h"
+#import "MSSTabBarCollectionViewCell+Private.h"
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NSString *  const MSSTabBarViewCellIdentifier = @"tabCell";
 
@@ -18,16 +21,21 @@ CGFloat     const MSSTabBarViewDefaultTabIndicatorHeight = 2.0f;
 CGFloat     const MSSTabBarViewDefaultTabPadding = 8.0f;
 CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
-NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
+NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
+
+NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
 
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;
+@property (nonatomic, assign) NSInteger tabCount;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
 
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
@@ -36,7 +44,7 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %i";
 
 @end
 
-static MSSTabBarCollectionViewCell *sizingCell;
+static MSSTabBarCollectionViewCell *_sizingCell;
 
 @implementation MSSTabBarView
 
@@ -110,8 +118,8 @@ static MSSTabBarCollectionViewCell *sizingCell;
                                         bundle:[NSBundle mainBundle]];
         [self.collectionView registerNib:cellNib
               forCellWithReuseIdentifier:MSSTabBarViewCellIdentifier];
-        if (!sizingCell) {
-            sizingCell = [[cellNib instantiateWithOwner:self options:nil]objectAtIndex:0];
+        if (!_sizingCell) {
+            _sizingCell = [[cellNib instantiateWithOwner:self options:nil]objectAtIndex:0];
         }
         
         // collection view
@@ -133,7 +141,7 @@ static MSSTabBarCollectionViewCell *sizingCell;
     [self updateTabBarForTabIndex:self.tabOffset];
     
     // if default tab has not yet been displayed
-    if (self.tabTitles.count > 0 && !self.selectedCell) {
+    if (self.tabCount > 0 && !self.selectedCell) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.defaultTabIndex inSection:0];
         [self.collectionView scrollToItemAtIndexPath:indexPath
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
@@ -149,32 +157,39 @@ static MSSTabBarCollectionViewCell *sizingCell;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    
-    self.tabTitles = [self evaluateTabTitles];
-    return self.tabTitles.count;
+    return [self evaluateDataSource];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *title = self.tabTitles[indexPath.row];
     MSSTabBarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MSSTabBarViewCellIdentifier
                                                                                   forIndexPath:indexPath];
     
-    cell.titleLabel.text = title;
-    cell.titleLabel.textColor = self.tabTextColor;
+    // default appearance
+    cell.textColor = self.tabTextColor;
     cell.backgroundColor = [UIColor clearColor];
+    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+    
+    // default contents
+    cell.tabStyle = self.tabStyle;
+    cell.title = [self titleAtIndex:indexPath.row];
+    
+    // populate cell
+    if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
+        [self.dataSource tabBarView:self populateTab:cell atIndex:indexPath.item];
+    }
     
     // check whether this is the default run
     // cell should be set active if it is the default
-    if (!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) {
+    if (((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) || [self.selectedIndexPath isEqual:indexPath]) && self.tabOffset == 0.0f) {
         
         self.hasRespectedDefaultTabIndex = YES;
-        [self setTabCellActive:cell];
+        [self setTabCellActive:cell indexPath:indexPath];
         
     } else { // standard cell inactive
         
-        cell.titleLabel.alpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+        cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
     }
 
     return cell;
@@ -183,16 +198,36 @@ static MSSTabBarCollectionViewCell *sizingCell;
 #pragma mark - Collection View delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
+                  layout:(UICollectionViewFlowLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    sizingCell.titleLabel.text = self.tabTitles[indexPath.row];
-    CGSize requiredSize = [sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
-                                    withHorizontalFittingPriority:UILayoutPriorityDefaultLow
-                                          verticalFittingPriority:UILayoutPriorityRequired];
-    requiredSize.width += self.tabPadding;
+    CGSize cellSize = CGSizeZero;
     
-    return requiredSize;
+    if (self.sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) { // distributed in frame
+        
+        CGFloat contentInsetTotal = self.contentInset.left + self.contentInset.right;
+        CGFloat totalSpacing = collectionViewLayout.minimumInteritemSpacing * (self.tabCount - 1);
+        CGFloat totalWidth = collectionView.bounds.size.width - contentInsetTotal - totalSpacing;
+        
+        return CGSizeMake(totalWidth / self.tabCount, collectionView.bounds.size.height);
+        
+    } else { // wrap tab contents
+        
+        // update sizing cell with population
+        if ([self.dataSource respondsToSelector:@selector(tabBarView:populateTab:atIndex:)]) {
+            [self.dataSource tabBarView:self populateTab:_sizingCell atIndex:indexPath.item];
+        } else  {
+            _sizingCell.title = [self titleAtIndex:indexPath.row];
+        }
+        
+        CGSize requiredSize = [_sizingCell systemLayoutSizeFittingSize:CGSizeMake(0.0f, collectionView.bounds.size.height)
+                                        withHorizontalFittingPriority:UILayoutPriorityDefaultLow
+                                              verticalFittingPriority:UILayoutPriorityRequired];
+        requiredSize.width += self.tabPadding;
+        cellSize = requiredSize;
+    }
+    
+    return cellSize;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -294,6 +329,27 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.collectionView.scrollEnabled = userScrollEnabled;
 }
 
+- (void)setSizingStyle:(MSSTabSizingStyle)sizingStyle {
+    if ((sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) ||
+        sizingStyle == MSSTabSizingStyleSizeToFit) {
+        _sizingStyle = sizingStyle;
+        [self.collectionView reloadData];
+    } else {
+        NSLog(@"%@ - Distributed tab spacing is unavailable when using a tab count greater than %li", NSStringFromClass([self class]), (long)MSSTabBarViewMaxDistributedTabs);
+    }
+}
+
+- (void)setTabStyle:(MSSTabStyle)tabStyle {
+    _tabStyle = tabStyle;
+    _sizingCell.tabStyle = tabStyle;
+    [self.collectionView reloadData];
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
+    self.tabIndicatorColor = tintColor;
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -309,9 +365,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [self updateTabsWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f backwards:NO];
         [self updateTabSelectionIndicatorWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f];
         
-    } else if (tabOffset >= self.tabTitles.count - 1) { // stick at top of tab bar
+    } else if (tabOffset >= self.tabCount - 1) { // stick at top of tab bar
         
-        MSSTabBarCollectionViewCell *lastTabCell = [self collectionViewCellAtTabIndex:self.tabTitles.count - 1];
+        MSSTabBarCollectionViewCell *lastTabCell = [self collectionViewCellAtTabIndex:self.tabCount - 1];
         [self updateTabsWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f backwards:NO];
         [self updateTabSelectionIndicatorWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f];
         
@@ -320,7 +376,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             
             // get the current and next tab cells
             NSInteger currentTabIndex = isBackwards ? ceil(tabOffset) : floor(tabOffset);
-            NSInteger nextTabIndex = MAX(0, MIN(self.tabTitles.count - 1, isBackwards ? floor(tabOffset) : ceil(tabOffset)));
+            NSInteger nextTabIndex = MAX(0, MIN(self.tabCount - 1, isBackwards ? floor(tabOffset) : ceil(tabOffset)));
             
             MSSTabBarCollectionViewCell *currentTabCell = [self collectionViewCellAtTabIndex:currentTabIndex];
             MSSTabBarCollectionViewCell *nextTabCell = [self collectionViewCellAtTabIndex:nextTabIndex];
@@ -349,12 +405,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         // update tab bar cells
         [self setTabCellsInactiveExceptTabIndex:tabIndex];
-        [self setTabCellActive:cell];
+        [self setTabCellActive:cell indexPath:[NSIndexPath indexPathForItem:tabIndex inSection:0]];
     }
 }
 
 - (void)setTabCellsInactiveExceptTabIndex:(NSInteger)index {
-    for (NSInteger item = 0; item < self.tabTitles.count; item++) {
+    for (NSInteger item = 0; item < self.tabCount; item++) {
         if (item != index) {
             MSSTabBarCollectionViewCell *cell = [self collectionViewCellAtTabIndex:item];
             [self setTabCellInactive:cell];
@@ -362,10 +418,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell {
+- (void)setTabCellActive:(MSSTabBarCollectionViewCell *)cell
+               indexPath:(NSIndexPath *)indexPath {
     _selectedCell = cell;
+    _selectedIndexPath = indexPath;
     
-    cell.titleLabel.alpha = 1.0f;
+    cell.selectionProgress = 1.0f;
 
     if (self.animateDataSourceTransition) {
         [UIView animateWithDuration:0.3f animations:^{
@@ -381,7 +439,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setTabCellInactive:(MSSTabBarCollectionViewCell *)cell {
-    cell.titleLabel.alpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+    cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
 }
 
 - (void)updateTabsWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
@@ -396,14 +454,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat nextAlpha = unselectedAlpha + alphaDiff;
     CGFloat currentAlpha = 1.0f - alphaDiff;
     
-    currentTabCell.titleLabel.alpha = currentAlpha;
-    nextTabCell.titleLabel.alpha = nextAlpha;
+    currentTabCell.selectionProgress = currentAlpha;
+    nextTabCell.selectionProgress = nextAlpha;
 }
 
 - (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
                                           nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
                                               progress:(CGFloat)progress {
-    if (self.tabTitles.count == 0) {
+    if (self.tabCount == 0) {
         return;
     }
     
@@ -435,7 +493,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)updateSelectionIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
                                             andWidth:(CGFloat)width
                                    accountForPadding:(BOOL)padding {
-    if (self.tabTitles.count == 0) {
+    if (self.tabCount == 0) {
         return;
     }
     
@@ -453,19 +511,21 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)updateCollectionViewScrollOffset {
-    
-    // scroll collection view to center selection indicator if possible
-    CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
-    CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
-    [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
-                                                        self.collectionView.frame.origin.y,
-                                                        collectionViewWidth,
-                                                        self.collectionView.frame.size.height)
-                                    animated:NO];
+    if (self.sizingStyle != MSSTabSizingStyleDistributed) {
+        
+        // scroll collection view to center selection indicator if possible
+        CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
+        CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
+        [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
+                                                            self.collectionView.frame.origin.y,
+                                                            collectionViewWidth,
+                                                            self.collectionView.frame.size.height)
+                                        animated:NO];
+    }
 }
 
 - (MSSTabBarCollectionViewCell *)collectionViewCellAtTabIndex:(NSInteger)tabIndex {
-    if (tabIndex >= 0 && tabIndex < self.tabTitles.count) {
+    if (tabIndex >= 0 && tabIndex < self.tabCount) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tabIndex inSection:0];
         return (MSSTabBarCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     }
@@ -475,19 +535,35 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - Internal
 
 - (NSArray *)evaluateTabTitles {
-    NSMutableArray *tabTitles = [[self.dataSource tabTitlesForTabBarView:self]mutableCopy];
-    
-    if (self.expectedTabCount != 0) {
-        for (NSInteger tab = tabTitles.count; tab < self.expectedTabCount; tab++) {
-            NSString *title = [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (int)tab + 1];
-            [tabTitles addObject:title];
-        }
-    }
+    NSArray *tabTitles = [[self.dataSource tabTitlesForTabBarView:self]copy];
     return tabTitles;
+}
+
+- (NSInteger)evaluateDataSource {
+    NSInteger tabCount = 0;
+    if ([self.dataSource respondsToSelector:@selector(numberOfItemsForTabBarView:)]) {
+        tabCount = [self.dataSource numberOfItemsForTabBarView:self];
+        
+    } else if ([self.dataSource respondsToSelector:@selector(tabTitlesForTabBarView:)]) {
+        
+        self.tabTitles = [self evaluateTabTitles];
+        tabCount = self.tabTitles.count;
+    }
+    _tabCount = tabCount;
+    return tabCount;
+}
+
+- (NSString *)titleAtIndex:(NSInteger)index {
+    if (self.tabTitles) {
+        return self.tabTitles[index];
+    } else {
+        return [NSString stringWithFormat:MSSTabBarViewDefaultTabTitleFormat, (long)(index + 1)];
+    }
 }
 
 - (void)reset {
     _selectedCell = nil;
+    _selectedIndexPath = nil;
     _hasRespectedDefaultTabIndex = NO;
     _tabOffset = 0.0f;
     _previousTabOffset = 0.0f;
@@ -499,5 +575,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.collectionView reloadData];
     [self setNeedsLayout];
 }
+
+#pragma clang diagnostic pop
 
 @end

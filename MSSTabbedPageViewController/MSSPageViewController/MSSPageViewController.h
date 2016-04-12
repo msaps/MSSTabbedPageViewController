@@ -129,7 +129,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 @property (nonatomic, assign) BOOL showPageIndicator;
 
 /**
- Whether page view controller will provide delegate updates on scroll events
+ Whether page view controller will provide delegate updates on scroll events.
  */
 @property (nonatomic, assign) BOOL allowScrollViewUpdates;
 /**
@@ -137,14 +137,16 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  */
 @property (nonatomic, assign, readonly) BOOL isDragging;
 /**
- Whether scroll view interaction is enabled on the page view controller
+ Whether scroll view interaction is enabled on the page view controller.
  */
 @property (nonatomic, assign, getter=isScrollEnabled) BOOL scrollEnabled;
 /**
  Whether page view controller will provide scroll updates when out of bounds.
  */
 @property (nonatomic, assign, getter=willProvideOutOfBoundsUpdates) BOOL provideOutOfBoundsUpdates;
-
+/**
+ Whether the page view controller is currently animating a page update.
+ */
 @property (nonatomic, assign, readonly, getter=isAnimatingPageUpdate) BOOL animatingPageUpdate;
 
 /**

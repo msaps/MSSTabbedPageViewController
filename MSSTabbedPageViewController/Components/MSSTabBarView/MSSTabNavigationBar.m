@@ -9,6 +9,7 @@
 #import "MSSTabNavigationBar.h"
 #import "MSSTabNavigationBarPrivate.h"
 
+CGFloat const kMSSTabNavigationBarLayoutParameterInvalid = -1.0f;
 CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 @interface MSSTabNavigationBar () <MSSTabBarViewDelegate, MSSTabBarViewDataSource>
@@ -19,16 +20,25 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 @implementation MSSTabNavigationBar
 
+@synthesize tabBarHeight = _tabBarHeight;
+@synthesize tabBarBottomPadding = _tabBarBottomPadding;
+
 #pragma mark - Init
 
 - (void)baseInit {
     [super baseInit];
     
+    _tabBarHeight = kMSSTabNavigationBarLayoutParameterInvalid;
+    _tabBarBottomPadding = kMSSTabNavigationBarLayoutParameterInvalid;
+    
     MSSTabBarView *tabBarView = [MSSTabBarView new];
     tabBarView.dataSource = self;
     tabBarView.delegate = self;
+    tabBarView.tintColor = self.tintColor;
     [self addSubview:tabBarView];
     _tabBarView = tabBarView;
+    
+    self.tabBarRequired = self.tabBarRequired;
 }
 
 #pragma mark - Lifecycle
@@ -36,7 +46,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
+    CGFloat tabBarHeight = [self heightIncreaseValue] - self.tabBarBottomPadding;
     CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -[self heightIncreaseValue]; // offset y if tab hidden to animate up
     
     self.tabBarView.frame = CGRectMake(0.0f,
@@ -46,7 +56,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 }
 
 - (CGFloat)heightIncreaseValue {
-    return MSSTabBarViewDefaultHeight + kMSSTabNavigationBarBottomPadding;
+    return self.tabBarHeight + self.tabBarBottomPadding;
 }
 
 - (BOOL)heightIncreaseRequired {
@@ -55,18 +65,20 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
 
-    if (CGRectContainsPoint(self.tabBarView.frame, point) && self.tabBarView.userInteractionEnabled) {
+    if (CGRectContainsPoint(self.tabBarView.frame, point) && self.tabBarView.userInteractionEnabled && self.tabBarRequired) {
         CGPoint tabBarPoint = [self.tabBarView convertPoint:point fromView:self];
         return [self.tabBarView hitTest:tabBarPoint withEvent:event];
     }
-    return [super hitTest:point withEvent:event];
+    
+    UIView *hitView = [super hitTest:point withEvent:event];
+    return hitView;
 }
 
 #pragma mark - Public
 
 - (void)setTintColor:(UIColor *)tintColor {
     [super setTintColor:tintColor];
-    self.tabBarView.tabIndicatorColor = tintColor;
+    self.tabBarView.tintColor = tintColor;
 }
 
 - (void)setTitleTextAttributes:(NSDictionary<NSString *,id> *)titleTextAttributes {
@@ -78,10 +90,36 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     }
 }
 
+- (void)setTabBarHeight:(CGFloat)tabBarHeight {
+    _tabBarHeight = tabBarHeight;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)tabBarHeight {
+    if (_tabBarHeight == kMSSTabNavigationBarLayoutParameterInvalid) {
+        return MSSTabBarViewDefaultHeight;
+    }
+    return _tabBarHeight;
+}
+
+- (void)setTabBarBottomPadding:(CGFloat)tabBarBottomPadding {
+    _tabBarBottomPadding = tabBarBottomPadding;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)tabBarBottomPadding {
+    if (_tabBarBottomPadding == kMSSTabNavigationBarLayoutParameterInvalid) {
+        return kMSSTabNavigationBarBottomPadding;
+    }
+    return _tabBarBottomPadding;
+}
+
 #pragma mark - Private
 
-- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated {
+- (void)tabbedPageViewController:(MSSTabbedPageViewController *)tabbedPageViewController viewWillAppear:(BOOL)animated isInitial:(BOOL)isInitial {
     _activeTabbedPageViewController = tabbedPageViewController;
+    
+    [self setOffsetTransformRequired:isInitial];
     [self setTabBarRequired:YES animated:animated];
 }
 
@@ -105,7 +143,6 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
         // show or hide tab bar view
         void (^tabVisiblityBlock)() = ^void() {
             self.tabBarRequired = required;
-            self.tabBarView.alpha = required;
             [self layoutIfNeeded];
         };
         
@@ -121,8 +158,14 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 #pragma mark - Tab Bar data source
 
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView {
-    return nil;
+- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
+    return 0;
+}
+
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index {
+    
 }
 
 @end

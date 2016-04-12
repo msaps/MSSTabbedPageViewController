@@ -18,25 +18,23 @@ MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.or
 ## Usage
 To run the example project, clone the repo. Use `pod install` in your project.
 
-To use the tabbed page view controller, simply create a `UIViewController` that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source methods:
+To use the tabbed page view controller, simply create a `UIViewController` that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source method:
 
 ```
 // array of view controllers to display in page view controller
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
-
-// array of strings for titles in tab bar
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView;
 ```
 
 If you are using a `UINavigationController` (As shown in Example project) you can embed the tab bar in the navigation bar. Simply set the `UINavigationBar` class in the navigation controller to `MSSTabNavigationBar` and the navigation bar will attach to the view controller.
 
 Otherwise you must attach a `MSSTabBarView` via the `tabBarView` property on `MSSTabbedPageViewController`, and setting the `dataSource` and `delegate` of the `MSSTabBarView` to the view controller. 
 
-There are also some optional `MSSTabbedPageViewControllerDataSource` methods:
+The attached tab bar will automatically get the number of pages and display default titles for each page. To customise the content of the tabs in the tab bar override the following:
 
 ```
-// default page index to display
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
+- (void)tabBarView:(MSSTabBarView *)tabBarView
+       populateTab:(MSSTabBarCollectionViewCell *)tab
+           atIndex:(NSInteger)index;
 ```
 
 Child view controllers can have access to components of the parent controller by implementing the `MSSTabbedPageChildViewController` protocol:
@@ -44,6 +42,9 @@ Child view controllers can have access to components of the parent controller by
 ```
 // Parent page view controller
 @property (nonatomic, weak) MSSPageViewController *pageViewController;
+
+// The page index of the child view controller
+@property (nonatomic, assign) NSInteger pageIndex;
 
 // Parent tab bar view
 @property (nonatomic, weak) MSSTabBarView *tabBarView;
@@ -67,6 +68,14 @@ Called when the page view controller is scrolled by the user to a specific offse
            didScrollToPage:(NSInteger)page;
 ```
 Called when the page view controller completes a full scroll to a new page. 
+
+## Appearance
+`MSSTabBarView` provides properties for appearance customisation, including:
+
+- `sizingStyle` - Whether the tab bar should size to fit or equally distribute its tabs.
+- `tabStyle` - The style to use for tabs, either `MSSTabStyleText` for text or `MSSTabStyleImage` for images.
+- `tabIndicatorColor` - The color of the selection indicator. Also attached to the `tintColor` of the tab bar.
+- `tabTextColor` - The text colour for the tabs.
 
 ## Requirements
 Supports iOS 8 and iOS 9.
