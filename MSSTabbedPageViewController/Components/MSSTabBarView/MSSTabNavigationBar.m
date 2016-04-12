@@ -9,6 +9,7 @@
 #import "MSSTabNavigationBar.h"
 #import "MSSTabNavigationBarPrivate.h"
 
+CGFloat const kMSSTabNavigationBarLayoutParameterInvalid = -1.0f;
 CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 @interface MSSTabNavigationBar () <MSSTabBarViewDelegate, MSSTabBarViewDataSource>
@@ -19,10 +20,16 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 
 @implementation MSSTabNavigationBar
 
+@synthesize tabBarHeight = _tabBarHeight;
+@synthesize tabBarBottomPadding = _tabBarBottomPadding;
+
 #pragma mark - Init
 
 - (void)baseInit {
     [super baseInit];
+    
+    _tabBarHeight = kMSSTabNavigationBarLayoutParameterInvalid;
+    _tabBarBottomPadding = kMSSTabNavigationBarLayoutParameterInvalid;
     
     MSSTabBarView *tabBarView = [MSSTabBarView new];
     tabBarView.dataSource = self;
@@ -39,7 +46,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat tabBarHeight = [self heightIncreaseValue] - kMSSTabNavigationBarBottomPadding;
+    CGFloat tabBarHeight = [self heightIncreaseValue] - self.tabBarBottomPadding;
     CGFloat yOffset = self.heightIncreaseRequired ? 0.0f : -[self heightIncreaseValue]; // offset y if tab hidden to animate up
     
     self.tabBarView.frame = CGRectMake(0.0f,
@@ -49,7 +56,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
 }
 
 - (CGFloat)heightIncreaseValue {
-    return MSSTabBarViewDefaultHeight + kMSSTabNavigationBarBottomPadding;
+    return self.tabBarHeight + self.tabBarBottomPadding;
 }
 
 - (BOOL)heightIncreaseRequired {
@@ -81,6 +88,30 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     if ((foregroundColor = titleTextAttributes[NSForegroundColorAttributeName])) {
         self.tabBarView.tabTextColor = foregroundColor;
     }
+}
+
+- (void)setTabBarHeight:(CGFloat)tabBarHeight {
+    _tabBarHeight = tabBarHeight;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)tabBarHeight {
+    if (_tabBarHeight == kMSSTabNavigationBarLayoutParameterInvalid) {
+        return MSSTabBarViewDefaultHeight;
+    }
+    return _tabBarHeight;
+}
+
+- (void)setTabBarBottomPadding:(CGFloat)tabBarBottomPadding {
+    _tabBarBottomPadding = tabBarBottomPadding;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)tabBarBottomPadding {
+    if (_tabBarBottomPadding == kMSSTabNavigationBarLayoutParameterInvalid) {
+        return kMSSTabNavigationBarBottomPadding;
+    }
+    return _tabBarBottomPadding;
 }
 
 #pragma mark - Private
