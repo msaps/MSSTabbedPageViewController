@@ -77,7 +77,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     [self.pageViewController addToParentViewController:self atZIndex:0];
     self.scrollView.delegate = self;
     
-    [self setUpTabs];
+    [self setUpPages];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
@@ -145,7 +145,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 - (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
     _dataSource = dataSource;
     if (_viewHasLoaded) {
-        [self setUpTabs];
+        [self setUpPages];
     }
 }
 
@@ -180,7 +180,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 
 #pragma mark - Internal
 
-- (void)setUpTabs {
+- (void)setUpPages {
     
     // view controllers
     if ([self.dataSource respondsToSelector:@selector(viewControllersForPageViewController:)]) {

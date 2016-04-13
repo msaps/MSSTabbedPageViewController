@@ -56,6 +56,15 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
 __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
+/**
+ The default tab index to to display in the tab bar.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @return
+ The default tab index.
+ */
 - (NSInteger)defaultTabIndexForTabBarView:(MSSTabBarView *)tabBarView;
 
 @end
