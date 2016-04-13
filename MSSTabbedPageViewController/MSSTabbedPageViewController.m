@@ -7,7 +7,7 @@
 //
 
 #import "MSSTabbedPageViewController.h"
-#import "MSSPageViewControllerPrivate.h"
+#import "MSSPageViewController+Private.h"
 #import "MSSTabNavigationBar+Private.h"
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>

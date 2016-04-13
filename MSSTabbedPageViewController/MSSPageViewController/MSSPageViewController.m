@@ -7,7 +7,7 @@
 //
 
 #import "MSSPageViewController.h"
-#import "MSSPageViewControllerPrivate.h"
+#import "MSSPageViewController+Private.h"
 
 NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 
