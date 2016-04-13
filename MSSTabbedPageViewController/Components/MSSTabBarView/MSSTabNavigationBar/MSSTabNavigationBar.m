@@ -7,7 +7,7 @@
 //
 
 #import "MSSTabNavigationBar.h"
-#import "MSSTabNavigationBarPrivate.h"
+#import "MSSTabNavigationBar+Private.h"
 
 CGFloat const kMSSTabNavigationBarLayoutParameterInvalid = -1.0f;
 CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
