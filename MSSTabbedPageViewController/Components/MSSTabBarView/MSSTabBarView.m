@@ -25,6 +25,8 @@ NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
 
 NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
 
+CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
+
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;
@@ -37,6 +39,7 @@ NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
 
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
+@property (nonatomic, assign) NSInteger defaultTabIndex;
 
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
 
@@ -104,6 +107,8 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _selectionIndicatorView = [UIView new];
     _tabIndicatorColor = self.tintColor;
     _tabTextColor = [UIColor blackColor];
+    
+    _tabOffset = MSSTabBarViewTabOffsetInvalid;
 }
 
 #pragma mark - Lifecycle
@@ -137,7 +142,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     [self updateTabBarForTabIndex:self.tabOffset];
     
     // if default tab has not yet been displayed
@@ -180,18 +185,14 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         [self.dataSource tabBarView:self populateTab:cell atIndex:indexPath.item];
     }
     
-    // check whether this is the default run
-    // cell should be set active if it is the default
-    if (((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) || [self.selectedIndexPath isEqual:indexPath]) && self.tabOffset == 0.0f) {
-        
-        self.hasRespectedDefaultTabIndex = YES;
+    cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
+    
+    if ((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) ||
+        ([self.selectedIndexPath isEqual:indexPath] && self.tabOffset == MSSTabBarViewTabOffsetInvalid)) {
+        _hasRespectedDefaultTabIndex = YES;
         [self setTabCellActive:cell indexPath:indexPath];
-        
-    } else { // standard cell inactive
-        
-        cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
     }
-
+    
     return cell;
 }
 
@@ -242,7 +243,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setTabPadding:(CGFloat)tabPadding {
     _tabPadding = tabPadding;
-    [self.collectionView reloadData];
+    [self reloadData];
 }
 
 - (void)setContentInset:(UIEdgeInsets)contentInset {
@@ -274,7 +275,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setDefaultTabIndex:(NSInteger)defaultTabIndex {
-    if (self.tabOffset == 0.0f) { // only allow default to be set if tab is runtime default
+    if (self.tabOffset == MSSTabBarViewTabOffsetInvalid) { // only allow default to be set if tab is runtime default
         self.hasRespectedDefaultTabIndex = NO;
         _defaultTabIndex = defaultTabIndex;
     }
@@ -287,7 +288,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setTabTextColor:(UIColor *)tabTextColor {
     _tabTextColor = tabTextColor;
-    [self.collectionView reloadData];
+    [self reloadData];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView {
@@ -333,7 +334,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ((sizingStyle == MSSTabSizingStyleDistributed && self.tabCount <= MSSTabBarViewMaxDistributedTabs) ||
         sizingStyle == MSSTabSizingStyleSizeToFit) {
         _sizingStyle = sizingStyle;
-        [self.collectionView reloadData];
+        [self reloadData];
     } else {
         NSLog(@"%@ - Distributed tab spacing is unavailable when using a tab count greater than %li", NSStringFromClass([self class]), (long)MSSTabBarViewMaxDistributedTabs);
     }
@@ -342,7 +343,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabStyle:(MSSTabStyle)tabStyle {
     _tabStyle = tabStyle;
     _sizingCell.tabStyle = tabStyle;
-    [self.collectionView reloadData];
+    [self reloadData];
 }
 
 - (void)setTintColor:(UIColor *)tintColor {
@@ -565,15 +566,25 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedCell = nil;
     _selectedIndexPath = nil;
     _hasRespectedDefaultTabIndex = NO;
-    _tabOffset = 0.0f;
-    _previousTabOffset = 0.0f;
+    _tabOffset = MSSTabBarViewTabOffsetInvalid;
+    _previousTabOffset = MSSTabBarViewTabOffsetInvalid;
 }
 
 - (void)doSetDataSource:(id<MSSTabBarViewDataSource>)dataSource {
     _dataSource = dataSource;
     [self reset];
+    if ([dataSource respondsToSelector:@selector(defaultTabIndexForTabBarView:)]) {
+        self.defaultTabIndex = [dataSource defaultTabIndexForTabBarView:self];
+    }
     [self.collectionView reloadData];
     [self setNeedsLayout];
+}
+
+- (void)reloadData {
+    if (self.tabOffset == MSSTabBarViewTabOffsetInvalid) {
+        _hasRespectedDefaultTabIndex = NO;
+    }
+    [self.collectionView reloadData];
 }
 
 #pragma clang diagnostic pop

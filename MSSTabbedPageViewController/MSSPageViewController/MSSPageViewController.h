@@ -10,6 +10,8 @@
 #import "UIViewController+MSSUtilities.h"
 #import "UIView+MSSAutoLayout.h"
 
+extern NSInteger const MSSPageViewControllerPageNumberInvalid;
+
 typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
     MSSPageViewControllerScrollDirectionUnknown = -1,
     MSSPageViewControllerScrollDirectionBackward = 0,

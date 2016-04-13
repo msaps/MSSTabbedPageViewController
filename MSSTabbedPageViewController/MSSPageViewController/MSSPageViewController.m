@@ -9,6 +9,8 @@
 #import "MSSPageViewController.h"
 #import "MSSPageViewControllerPrivate.h"
 
+NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
+
 @interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     BOOL _viewHasLoaded;
 }
@@ -27,7 +29,8 @@
 @implementation MSSPageViewController
 
 @synthesize dataSource = _dataSource,
-            delegate = _delegate;
+            delegate = _delegate,
+            defaultPageIndex = _defaultPageIndex;
 
 #pragma mark - Init
 
@@ -50,6 +53,7 @@
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
+    _currentPage = MSSPageViewControllerPageNumberInvalid;
 }
 
 #pragma mark - Lifecycle
@@ -167,6 +171,13 @@
     return self.scrollView.userInteractionEnabled;
 }
 
+- (NSInteger)defaultPageIndex {
+    if (_defaultPageIndex == 0 && [self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
+        _defaultPageIndex = [self.dataSource defaultPageIndexForPageViewController:self];
+    }
+    return _defaultPageIndex;
+}
+
 #pragma mark - Internal
 
 - (void)setUpTabs {
@@ -179,20 +190,15 @@
     if (self.viewControllers.count > 0) {
         [self setUpViewControllers:self.viewControllers];
         
-        NSInteger defaultIndex = 0;
-        if ([self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
-            defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
-        }
         _numberOfPages = self.viewControllers.count;
-        _defaultPageIndex = defaultIndex;
-        self.currentPage = defaultIndex;
+        self.currentPage = self.defaultPageIndex;
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
             [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
         }
         
         // display initial page
-        UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+        UIViewController *viewController = [self viewControllerAtIndex:self.currentPage];
         if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
             [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
         }

@@ -56,6 +56,8 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
 __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
+- (NSInteger)defaultTabIndexForTabBarView:(MSSTabBarView *)tabBarView;
+
 @end
 
 @protocol MSSTabBarViewDelegate <NSObject>
@@ -92,10 +94,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The number of tabs in the tab bar.
  */
 @property (nonatomic, assign, readonly) NSInteger tabCount;
-/**
- The default index for the tab bar to display.
- */
-@property (nonatomic, assign) NSInteger defaultTabIndex;
 
 /**
  Whether the tab bar is currently animating a tab change transition.
