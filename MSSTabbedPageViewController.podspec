@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSSTabbedPageViewController"
-  s.version      = "0.2.2"
+  s.version      = "0.2.3"
   s.summary      = "A custom container UIViewController which provides a simple to implement page view controller with scrolling tab bar"
 
   s.description  = <<-DESC
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/MerrickSapsford/MSSTabbedPageViewController.git", :tag => s.version.to_s }
   s.requires_arc = true
   s.source_files  = "MSSTabbedPageViewController/Classes", "MSSTabbedPageViewController/**/*.{h,m}"
+  s.resources = ['MSSTabbedPageViewController/**/*.{xib}']
   s.frameworks = 'UIKit'
 
 end
