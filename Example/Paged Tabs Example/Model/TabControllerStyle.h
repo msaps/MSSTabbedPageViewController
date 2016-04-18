@@ -14,11 +14,18 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) MSSTabStyle tabStyle;
 @property (nonatomic, assign) MSSTabSizingStyle sizingStyle;
+@property (nonatomic, assign) MSSTabTransitionStyle transitionStyle;
 @property (nonatomic, assign) NSInteger numberOfTabs;
 
 + (instancetype)styleWithName:(NSString *)name
                      tabStyle:(MSSTabStyle)tabStyle
+                  sizingStyle:(MSSTabSizingStyle)sizingStyle
+                 numberOfTabs:(NSInteger)numberOfTabs;
+
++ (instancetype)styleWithName:(NSString *)name
+                     tabStyle:(MSSTabStyle)tabStyle
                       sizingStyle:(MSSTabSizingStyle)sizingStyle
+              transitionStyle:(MSSTabTransitionStyle)transitionStyle
                      numberOfTabs:(NSInteger)numberOfTabs;
 
 @end
