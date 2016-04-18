@@ -11,6 +11,11 @@
 #import "MSSTabSizingStyle.h"
 #import "MSSTabStyle.h"
 
+typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
+    MSSTabTransitionStyleProgressive,
+    MSSTabTransitionStyleSnap
+};
+
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @class MSSTabBarView;
@@ -56,6 +61,17 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
 - (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
 __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
+/**
+ The default tab index to to display in the tab bar.
+ 
+ @param tabBarView
+ The tab bar view.
+ 
+ @return
+ The default tab index.
+ */
+- (NSInteger)defaultTabIndexForTabBarView:(MSSTabBarView *)tabBarView;
+
 @end
 
 @protocol MSSTabBarViewDelegate <NSObject>
@@ -92,10 +108,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The number of tabs in the tab bar.
  */
 @property (nonatomic, assign, readonly) NSInteger tabCount;
-/**
- The default index for the tab bar to display.
- */
-@property (nonatomic, assign) NSInteger defaultTabIndex;
 
 /**
  Whether the tab bar is currently animating a tab change transition.
@@ -150,7 +162,14 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The text color of the tabs.
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
-
+/**
+ The transition style for the tabs to use during transitioning.
+ */
+@property (nonatomic, assign) MSSTabTransitionStyle tabTransitionStyle UI_APPEARANCE_SELECTOR;
+/**
+ The transition style for the selection indicator to use during transitioning.
+ */
+@property (nonatomic, assign) MSSTabTransitionStyle selectionIndicatorTransitionStyle UI_APPEARANCE_SELECTOR;
 
 /**
  Initialize a tab bar with a specified height.
@@ -179,5 +198,10 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  Animate the data source transition.
  */
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
+
+/**
+ Set the tab and selection indicator transition style.
+ */
+- (void)setTransitionStyle:(MSSTabTransitionStyle)transitionStyle;
 
 @end

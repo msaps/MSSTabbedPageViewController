@@ -7,8 +7,8 @@
 //
 
 #import "MSSTabbedPageViewController.h"
-#import "MSSPageViewControllerPrivate.h"
-#import "MSSTabNavigationBarPrivate.h"
+#import "MSSPageViewController+Private.h"
+#import "MSSTabNavigationBar+Private.h"
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
@@ -41,7 +41,6 @@
         tabBarView.dataSource = self;
         tabBarView.delegate = self;
         _tabBarView = tabBarView;
-        tabBarView.defaultTabIndex = (self.currentPage != self.defaultPageIndex) ? self.currentPage : self.defaultPageIndex;
         
         BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
         [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
@@ -83,6 +82,13 @@
        populateTab:(MSSTabBarCollectionViewCell *)tab
            atIndex:(NSInteger)index {
     
+}
+
+- (NSInteger)defaultTabIndexForTabBarView:(MSSTabBarView *)tabBarView {
+    if (self.currentPage == MSSPageViewControllerPageNumberInvalid) { // return default page if page has not been moved
+        return self.defaultPageIndex;
+    }
+    return self.currentPage;
 }
 
 #pragma mark - Tab bar delegate

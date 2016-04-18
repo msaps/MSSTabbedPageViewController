@@ -76,6 +76,11 @@ Called when the page view controller completes a full scroll to a new page.
 - `tabStyle` - The style to use for tabs, either `MSSTabStyleText` for text or `MSSTabStyleImage` for images.
 - `tabIndicatorColor` - The color of the selection indicator. Also attached to the `tintColor` of the tab bar.
 - `tabTextColor` - The text colour for the tabs.
+- `tabTransitionStyle` - The transition style to use for the tabs. 
+- `selectionIndicatorTransitionStyle` - The transition style for the selection indicator.
+ - `MSSTabTransitionStyleProgressive` to progressively transition between tabs.
+ - `MSSTabTransitionStyleSnap` to snap between tabs during transitioning.
+ - use `setTransitionStyle:` to set both the `selectionIndicatorTransitionStyle` and `tabTransitionStyle`.
 
 ## Requirements
 Supports iOS 8 and iOS 9.
