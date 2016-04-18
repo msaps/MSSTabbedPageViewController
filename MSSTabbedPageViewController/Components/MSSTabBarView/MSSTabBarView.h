@@ -163,9 +163,13 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
 /**
- The transition style to use during transitioning of tabs.
+ The transition style for the tabs to use during transitioning.
  */
 @property (nonatomic, assign) MSSTabTransitionStyle tabTransitionStyle UI_APPEARANCE_SELECTOR;
+/**
+ The transition style for the selection indicator to use during transitioning.
+ */
+@property (nonatomic, assign) MSSTabTransitionStyle selectionIndicatorTransitionStyle UI_APPEARANCE_SELECTOR;
 
 /**
  Initialize a tab bar with a specified height.
@@ -194,5 +198,10 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  Animate the data source transition.
  */
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
+
+/**
+ Set the tab and selection indicator transition style.
+ */
+- (void)setTransitionStyle:(MSSTabTransitionStyle)transitionStyle;
 
 @end

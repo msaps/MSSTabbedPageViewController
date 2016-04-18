@@ -23,7 +23,8 @@ CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
 NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
 
-NSInteger     const MSSTabBarViewMaxDistributedTabs = 5;
+NSInteger   const MSSTabBarViewMaxDistributedTabs = 5;
+CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
 
 CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
@@ -258,7 +259,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabIndex:(NSInteger)index animated:(BOOL)animated {
     if (animated) {
         _animatingTabChange = YES;
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.25f animations:^{
             [self updateTabBarForTabIndex:index];
         } completion:^(BOOL finished) {
             _animatingTabChange = NO;
@@ -351,6 +352,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.tabIndicatorColor = tintColor;
 }
 
+- (void)setTransitionStyle:(MSSTabTransitionStyle)transitionStyle {
+    self.selectionIndicatorTransitionStyle = transitionStyle;
+    self.tabTransitionStyle = transitionStyle;
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -427,7 +433,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     cell.selectionProgress = 1.0f;
 
     if (self.animateDataSourceTransition) {
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.25f animations:^{
             [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
                                                       andWidth:cell.frame.size.width
                                              accountForPadding:YES];
@@ -450,13 +456,30 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     // Calculate updated alpha values for tabs
     progress = isBackwards ? 1.0f - progress : progress;
-    CGFloat unselectedAlpha = MSSTabBarViewDefaultTabUnselectedAlpha;
-    CGFloat alphaDiff = (1.0f - unselectedAlpha) * progress;
-    CGFloat nextAlpha = unselectedAlpha + alphaDiff;
-    CGFloat currentAlpha = 1.0f - alphaDiff;
     
-    currentTabCell.selectionProgress = currentAlpha;
-    nextTabCell.selectionProgress = nextAlpha;
+    if (self.tabTransitionStyle == MSSTabTransitionStyleProgressive) { // progressive
+        
+        CGFloat unselectedAlpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+        CGFloat alphaDiff = (1.0f - unselectedAlpha) * progress;
+        CGFloat nextAlpha = unselectedAlpha + alphaDiff;
+        CGFloat currentAlpha = 1.0f - alphaDiff;
+        
+        currentTabCell.selectionProgress = currentAlpha;
+        nextTabCell.selectionProgress = nextAlpha;
+        
+    } else { // snap
+        
+        CGFloat currentAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? MSSTabBarViewDefaultTabUnselectedAlpha : 1.0f;
+        CGFloat targetAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? 1.0f : MSSTabBarViewDefaultTabUnselectedAlpha;
+        
+        BOOL requiresUpdate = (nextTabCell.selectionProgress != targetAlpha);
+        if (requiresUpdate) {
+            [UIView animateWithDuration:0.25f animations:^{
+                currentTabCell.selectionProgress = currentAlpha;
+                nextTabCell.selectionProgress = targetAlpha;
+            }];
+        }
+    }
 }
 
 - (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
@@ -481,7 +504,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat newX = 0.0f;
     CGFloat newWidth = 0.0f;
     
-    if (self.tabTransitionStyle == MSSTabTransitionStyleProgressive) {
+    if (self.selectionIndicatorTransitionStyle == MSSTabTransitionStyleProgressive) {
         
         // calculate width difference
         CGFloat currentTabWidth = currentTabCell.frame.size.width;
@@ -496,18 +519,21 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                   andWidth:newWidth
                                          accountForPadding:YES];
         
-    } else if (self.tabTransitionStyle == MSSTabTransitionStyleSnap) {
+    } else if (self.selectionIndicatorTransitionStyle == MSSTabTransitionStyleSnap) {
         
-        MSSTabBarCollectionViewCell *cell = progress > 0.5f ? nextTabCell : currentTabCell;
+        MSSTabBarCollectionViewCell *cell = progress > MSSTabBarViewTabTransitionSnapRatio ? nextTabCell : currentTabCell;
         
         newX = cell.frame.origin.x;
         newWidth = cell.frame.size.width;
         
-        [UIView animateWithDuration:0.25f animations:^{
-            [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                                      andWidth:newWidth
-                                             accountForPadding:YES];
-        }];
+        BOOL requiresUpdate = self.selectionIndicatorView.frame.origin.x != newX;
+        if (requiresUpdate) {
+            [UIView animateWithDuration:0.25f animations:^{
+                [self updateSelectionIndicatorViewFrameWithXOrigin:newX
+                                                          andWidth:newWidth
+                                                 accountForPadding:YES];
+            }];
+        }
     }
 }
 
