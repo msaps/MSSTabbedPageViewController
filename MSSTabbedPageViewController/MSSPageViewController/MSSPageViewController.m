@@ -7,7 +7,9 @@
 //
 
 #import "MSSPageViewController.h"
-#import "MSSPageViewControllerPrivate.h"
+#import "MSSPageViewController+Private.h"
+
+NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 
 @interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     BOOL _viewHasLoaded;
@@ -27,7 +29,8 @@
 @implementation MSSPageViewController
 
 @synthesize dataSource = _dataSource,
-            delegate = _delegate;
+            delegate = _delegate,
+            defaultPageIndex = _defaultPageIndex;
 
 #pragma mark - Init
 
@@ -50,6 +53,7 @@
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
+    _currentPage = MSSPageViewControllerPageNumberInvalid;
 }
 
 #pragma mark - Lifecycle
@@ -73,7 +77,7 @@
     [self.pageViewController addToParentViewController:self atZIndex:0];
     self.scrollView.delegate = self;
     
-    [self setUpTabs];
+    [self setUpPages];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size
@@ -141,7 +145,7 @@
 - (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
     _dataSource = dataSource;
     if (_viewHasLoaded) {
-        [self setUpTabs];
+        [self setUpPages];
     }
 }
 
@@ -167,9 +171,16 @@
     return self.scrollView.userInteractionEnabled;
 }
 
+- (NSInteger)defaultPageIndex {
+    if (_defaultPageIndex == 0 && [self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
+        _defaultPageIndex = [self.dataSource defaultPageIndexForPageViewController:self];
+    }
+    return _defaultPageIndex;
+}
+
 #pragma mark - Internal
 
-- (void)setUpTabs {
+- (void)setUpPages {
     
     // view controllers
     if ([self.dataSource respondsToSelector:@selector(viewControllersForPageViewController:)]) {
@@ -179,20 +190,15 @@
     if (self.viewControllers.count > 0) {
         [self setUpViewControllers:self.viewControllers];
         
-        NSInteger defaultIndex = 0;
-        if ([self.dataSource respondsToSelector:@selector(defaultPageIndexForPageViewController:)]) {
-            defaultIndex = [self.dataSource defaultPageIndexForPageViewController:self];
-        }
         _numberOfPages = self.viewControllers.count;
-        _defaultPageIndex = defaultIndex;
-        self.currentPage = defaultIndex;
+        self.currentPage = self.defaultPageIndex;
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
             [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
         }
         
         // display initial page
-        UIViewController *viewController = [self viewControllerAtIndex:defaultIndex];
+        UIViewController *viewController = [self viewControllerAtIndex:self.currentPage];
         if ([self.delegate respondsToSelector:@selector(pageViewController:willDisplayInitialViewController:)]) {
             [self.delegate pageViewController:self willDisplayInitialViewController:viewController];
         }
