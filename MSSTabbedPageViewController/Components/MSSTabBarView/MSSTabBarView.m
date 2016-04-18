@@ -478,17 +478,37 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         currentTabCell = temp;
     }
     
-    // calculate width difference
-    CGFloat currentTabWidth = currentTabCell.frame.size.width;
-    CGFloat nextTabWidth = nextTabCell.frame.size.width;
-    CGFloat widthDiff = (nextTabWidth - currentTabWidth) * progress;
+    CGFloat newX = 0.0f;
+    CGFloat newWidth = 0.0f;
     
-    // calculate new frame for indicator
-    CGFloat newX = lowerXPos + ((upperXPos - lowerXPos) * progress);
-    CGFloat newWidth = currentTabWidth + widthDiff;
-    [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                              andWidth:newWidth
-                                     accountForPadding:YES];
+    if (self.tabTransitionStyle == MSSTabTransitionStyleProgressive) {
+        
+        // calculate width difference
+        CGFloat currentTabWidth = currentTabCell.frame.size.width;
+        CGFloat nextTabWidth = nextTabCell.frame.size.width;
+        CGFloat widthDiff = (nextTabWidth - currentTabWidth) * progress;
+        
+        // calculate new frame for indicator
+        newX = lowerXPos + ((upperXPos - lowerXPos) * progress);
+        newWidth = currentTabWidth + widthDiff;
+        
+        [self updateSelectionIndicatorViewFrameWithXOrigin:newX
+                                                  andWidth:newWidth
+                                         accountForPadding:YES];
+        
+    } else if (self.tabTransitionStyle == MSSTabTransitionStyleSnap) {
+        
+        MSSTabBarCollectionViewCell *cell = progress > 0.5f ? nextTabCell : currentTabCell;
+        
+        newX = cell.frame.origin.x;
+        newWidth = cell.frame.size.width;
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            [self updateSelectionIndicatorViewFrameWithXOrigin:newX
+                                                      andWidth:newWidth
+                                             accountForPadding:YES];
+        }];
+    }
 }
 
 - (void)updateSelectionIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin

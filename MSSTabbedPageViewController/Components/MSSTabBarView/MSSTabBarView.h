@@ -11,6 +11,11 @@
 #import "MSSTabSizingStyle.h"
 #import "MSSTabStyle.h"
 
+typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
+    MSSTabTransitionStyleProgressive,
+    MSSTabTransitionStyleSnap
+};
+
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @class MSSTabBarView;
@@ -157,7 +162,10 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The text color of the tabs.
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
-
+/**
+ The transition style to use during transitioning of tabs.
+ */
+@property (nonatomic, assign) MSSTabTransitionStyle tabTransitionStyle UI_APPEARANCE_SELECTOR;
 
 /**
  Initialize a tab bar with a specified height.
