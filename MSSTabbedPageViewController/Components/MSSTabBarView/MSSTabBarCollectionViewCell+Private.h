@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MSSTabStyle.h"
+#import "MSSTabBarCollectionViewCell.h"
 
 @interface MSSTabBarCollectionViewCell ()
 
