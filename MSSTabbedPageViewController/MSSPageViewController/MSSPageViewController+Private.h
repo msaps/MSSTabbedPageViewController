@@ -6,6 +6,8 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
+#import "MSSPageViewController.h"
+
 @interface MSSPageViewController () <UIScrollViewDelegate>
 
 /**

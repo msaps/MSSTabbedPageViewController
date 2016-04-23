@@ -6,6 +6,8 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
+#import "MSSTabNavigationBar.h"
+
 @class MSSTabbedPageViewController;
 
 @interface MSSTabNavigationBar ()
