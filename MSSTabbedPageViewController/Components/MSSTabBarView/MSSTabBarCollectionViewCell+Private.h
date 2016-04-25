@@ -13,6 +13,7 @@
 @interface MSSTabBarCollectionViewCell ()
 
 @property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIFont *textFont;
 @property (nonatomic, assign) CGFloat selectionProgress;
 
 - (void)setTabStyle:(MSSTabStyle)tabStyle;

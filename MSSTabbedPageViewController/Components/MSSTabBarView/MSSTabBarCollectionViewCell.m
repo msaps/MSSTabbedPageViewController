@@ -41,6 +41,14 @@
     return self.titleLabel.textColor;
 }
 
+- (void)setTextFont:(UIFont *)textFont {
+	self.titleLabel.font = textFont;
+}
+
+- (UIFont *)textFont {
+	return self.titleLabel.font;
+}
+
 - (void)setImage:(UIImage *)image {
     if (self.tabStyle == MSSTabStyleImage) {
         self.imageView.image = image;
