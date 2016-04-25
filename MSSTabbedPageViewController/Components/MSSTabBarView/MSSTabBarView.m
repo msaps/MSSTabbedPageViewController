@@ -121,7 +121,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         
         // create sizing cell if required
         UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([MSSTabBarCollectionViewCell class])
-                                        bundle:[NSBundle mainBundle]];
+                                        bundle:[NSBundle bundleForClass:[MSSTabBarCollectionViewCell class]]];
         [self.collectionView registerNib:cellNib
               forCellWithReuseIdentifier:MSSTabBarViewCellIdentifier];
         if (!_sizingCell) {
