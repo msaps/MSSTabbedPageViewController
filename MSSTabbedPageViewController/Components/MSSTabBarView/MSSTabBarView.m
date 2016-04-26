@@ -121,7 +121,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         
         // create sizing cell if required
         UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([MSSTabBarCollectionViewCell class])
-                                        bundle:[NSBundle mainBundle]];
+                                        bundle:[NSBundle bundleForClass:[MSSTabBarCollectionViewCell class]]];
         [self.collectionView registerNib:cellNib
               forCellWithReuseIdentifier:MSSTabBarViewCellIdentifier];
         if (!_sizingCell) {
@@ -174,6 +174,9 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     // default appearance
     cell.textColor = self.tabTextColor;
+	if(self.tabTextFont){
+		cell.textFont = self.tabTextFont;
+	}
     cell.backgroundColor = [UIColor clearColor];
     [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
     
@@ -290,6 +293,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabTextColor:(UIColor *)tabTextColor {
     _tabTextColor = tabTextColor;
     [self reloadData];
+}
+
+- (void)setTabTextFont:(UIFont *)tabTextFont {
+	_tabTextFont = tabTextFont;
+	[self reloadData];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView {

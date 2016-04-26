@@ -163,6 +163,10 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
 /**
+ The font used for the tabs. A nil value uses the default font from the cell nib.
+ */
+@property (nonatomic, strong) UIFont *tabTextFont UI_APPEARANCE_SELECTOR;
+/**
  The transition style for the tabs to use during transitioning.
  */
 @property (nonatomic, assign) MSSTabTransitionStyle tabTransitionStyle UI_APPEARANCE_SELECTOR;
