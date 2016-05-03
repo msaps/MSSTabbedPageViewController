@@ -101,9 +101,7 @@
         [self.tabBarView setTabIndex:index animated:YES];
         typeof(self) __weak weakSelf = self;
         [self moveToPageAtIndex:index
-                     completion:^(UIViewController *newController,
-                                  BOOL animationFinished,
-                                  BOOL transitionFinished) {
+                     completion:^(UIViewController *newViewController, BOOL animated, BOOL transitionFinished) {
                          typeof(weakSelf) __strong strongSelf = weakSelf;
                          strongSelf.allowScrollViewUpdates = YES;
                          strongSelf.userInteractionEnabled = YES;
