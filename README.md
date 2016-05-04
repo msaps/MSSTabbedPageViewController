@@ -10,13 +10,17 @@ MSSTabbedPageViewController is a UIViewController that provides a simple to impl
 
 <p><p>
 
+## Example
+To run the example project, clone the repo and build the workspace. Examples are available for both Objective-C and Swift projects.
+
 ## Installation
 MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
     pod "MSSTabbedPageViewController"
 
+And run `pod install`.
+
 ## Usage
-To run the example project, clone the repo. Use `pod install` in your project.
 
 To use the tabbed page view controller, simply create a `UIViewController` that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source method:
 
