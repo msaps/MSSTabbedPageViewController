@@ -103,7 +103,7 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  The page view controller.
  @return The default page index.
  */
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
+- (NSInteger)defaultPageIndexForPageViewController:(nonnull MSSPageViewController *)pageViewController;
 
 @end
 
