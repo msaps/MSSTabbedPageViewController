@@ -31,7 +31,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  
  @return the number of tab bar items.
  */
-- (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView;
+- (NSInteger)numberOfItemsForTabBarView:(nonnull MSSTabBarView *)tabBarView;
 /**
  Populate a tab bar item.
  
@@ -44,8 +44,8 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @param index
  The index of the tab.
  */
-- (void)tabBarView:(MSSTabBarView *)tabBarView
-       populateTab:(MSSTabBarCollectionViewCell *)tab
+- (void)tabBarView:(nonnull MSSTabBarView *)tabBarView
+       populateTab:(nonnull MSSTabBarCollectionViewCell *)tab
            atIndex:(NSInteger)index;
 
 @optional
@@ -58,7 +58,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  
  @return The array of tab titles.
  */
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
+- (nullable NSArray<NSString *> *)tabTitlesForTabBarView:(nonnull MSSTabBarView *)tabBarView
 __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
 /**
@@ -70,7 +70,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  @return
  The default tab index.
  */
-- (NSInteger)defaultTabIndexForTabBarView:(MSSTabBarView *)tabBarView;
+- (NSInteger)defaultTabIndexForTabBarView:(nonnull MSSTabBarView *)tabBarView;
 
 @end
 
@@ -85,7 +85,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  @param index
  The index of the selected tab.
  */
-- (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index;
+- (void)tabBarView:(nonnull MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index;
 
 @end
 
@@ -94,11 +94,11 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The object that acts as the data source for the tab bar.
  */
-@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDataSource> dataSource;
+@property (nonatomic, weak, nullable) IBOutlet id<MSSTabBarViewDataSource> dataSource;
 /**
  The object that acts as a delegate for the tab bar.
  */
-@property (nonatomic, weak) IBOutlet id<MSSTabBarViewDelegate> delegate;
+@property (nonatomic, weak, nullable) IBOutlet id<MSSTabBarViewDelegate> delegate;
 
 /**
  The current tab offset of the tab bar.
@@ -121,7 +121,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The background view for the tab bar.
  */
-@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong, nullable) UIView *backgroundView;
 /**
  The height of the selection indicator.
  */
@@ -157,15 +157,15 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The color of the tab selection indicator.
  */
-@property (nonatomic, strong) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR;
 /**
  The text color of the tabs.
  */
-@property (nonatomic, strong) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
 /**
  The font used for the tabs. A nil value uses the default font from the cell nib.
  */
-@property (nonatomic, strong) UIFont *tabTextFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR;
 /**
  The transition style for the tabs to use during transitioning.
  */
@@ -182,7 +182,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The height for the tab bar.
  @return Tab bar instance.
  */
-- (instancetype)initWithHeight:(CGFloat)height;
+- (nonnull instancetype)initWithHeight:(CGFloat)height;
 
 /**
  Set the current selected tab index of the tab bar.
@@ -201,7 +201,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  @param animated
  Animate the data source transition.
  */
-- (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
+- (void)setDataSource:(nullable id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
 
 /**
  Set the tab and selection indicator transition style.

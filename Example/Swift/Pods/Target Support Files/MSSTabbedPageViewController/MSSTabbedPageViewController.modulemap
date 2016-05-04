@@ -1,0 +1,6 @@
+framework module MSSTabbedPageViewController {
+  umbrella header "MSSTabbedPageViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

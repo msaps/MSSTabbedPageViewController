@@ -1,0 +1,6 @@
+framework module Pods_Paged_Tabs_Example {
+  umbrella header "Pods-Paged Tabs Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

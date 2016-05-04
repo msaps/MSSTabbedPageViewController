@@ -14,7 +14,7 @@
 /**
  The tab bar view.
  */
-@property (nonatomic, weak) IBOutlet MSSTabBarView *tabBarView;
+@property (nonatomic, weak, nullable) IBOutlet MSSTabBarView *tabBarView;
 
 @end
 
@@ -23,6 +23,6 @@
 /**
  The tab bar view of the parent tabbed page view controller.
  */
-@property (nonatomic, weak) MSSTabBarView *tabBarView;
+@property (nonatomic, weak, nullable) MSSTabBarView *tabBarView;
 
 @end

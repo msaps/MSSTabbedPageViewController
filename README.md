@@ -5,18 +5,22 @@
 MSSTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.
 
 <div style="width:100%;">
-<img src="Example/MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
+<img src="MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
 </div>
 
 <p><p>
+
+## Example
+To run the example project, clone the repo and build the workspace. Examples are available for both Objective-C and Swift projects.
 
 ## Installation
 MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
     pod "MSSTabbedPageViewController"
 
+And run `pod install`.
+
 ## Usage
-To run the example project, clone the repo. Use `pod install` in your project.
 
 To use the tabbed page view controller, simply create a `UIViewController` that is a subclass of `MSSTabbedPageViewController`. Then implement the following data source method:
 

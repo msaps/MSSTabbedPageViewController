@@ -1,0 +1,14 @@
+PODS:
+  - MSSTabbedPageViewController (0.2.5)
+
+DEPENDENCIES:
+  - MSSTabbedPageViewController (from `../../`)
+
+EXTERNAL SOURCES:
+  MSSTabbedPageViewController:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  MSSTabbedPageViewController: b7ffb3f9929cda501c8ce497d79653fad27f8196
+
+COCOAPODS: 0.39.0
