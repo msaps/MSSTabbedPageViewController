@@ -5,7 +5,7 @@
 MSSTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.
 
 <div style="width:100%;">
-<img src="Example/MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
+<img src="MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
 </div>
 
 <p><p>
