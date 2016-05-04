@@ -9,6 +9,30 @@
 import UIKit
 import MSSTabbedPageViewController
 
-class ChildViewController: UIViewController {
+class ChildViewController: UIViewController, MSSTabbedPageChildViewController {
     
+    // MARK: MSSTabbedPageChildViewController
+    
+    var pageViewController: MSSPageViewController?
+    var tabBarView: MSSTabBarView?
+    var pageIndex: Int
+    
+    // MARK: Vars
+    
+    @IBOutlet weak var titleLabel: UILabel?
+    
+    // MARK: Init
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.pageIndex = 0
+        super.init(coder: aDecoder)
+    }
+    
+    // MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.titleLabel?.text = String(format: "Page %d", self.pageIndex + 1)
+    }
 }

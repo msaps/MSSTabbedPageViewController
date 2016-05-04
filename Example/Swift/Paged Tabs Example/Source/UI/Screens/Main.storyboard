@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-196" y="479"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Paged Tabs-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TabViewController" customModule="Paged_Tabs_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Bhv-iu-VEa"/>
+                    <navigationItem key="navigationItem" title="Paged Tabs" id="Bhv-iu-VEa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,8 +50,23 @@
                     <view key="view" contentMode="scaleToFill" id="ELh-VJ-FFf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-JZ-jim">
+                                <rect key="frame" x="273" y="289" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VOn-JZ-jim" firstAttribute="centerX" secondItem="ELh-VJ-FFf" secondAttribute="centerX" id="8xD-UC-rpY"/>
+                            <constraint firstItem="VOn-JZ-jim" firstAttribute="centerY" secondItem="ELh-VJ-FFf" secondAttribute="centerY" id="bYE-rq-WfX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="VOn-JZ-jim" id="m7b-9Y-R2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwQ-RR-IA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
