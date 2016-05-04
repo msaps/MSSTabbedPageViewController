@@ -11,7 +11,8 @@
 		4672ADBE1CD9FD0700BAD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4672ADB61CD9FD0700BAD572 /* LaunchScreen.storyboard */; };
 		4672ADBF1CD9FD0700BAD572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADB81CD9FD0700BAD572 /* AppDelegate.swift */; };
 		4672ADC01CD9FD0700BAD572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4672ADBB1CD9FD0700BAD572 /* Main.storyboard */; };
-		4672ADC11CD9FD0700BAD572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADBC1CD9FD0700BAD572 /* ViewController.swift */; };
+		4672ADC71CD9FE8400BAD572 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADC61CD9FE8400BAD572 /* TabViewController.swift */; };
+		4672ADC91CD9FF5900BAD572 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADC81CD9FF5900BAD572 /* ChildViewController.swift */; };
 		FC6F044BC810AE3493482C8E /* Pods_Paged_Tabs_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84546C97789D16CC12298FD9 /* Pods_Paged_Tabs_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +24,8 @@
 		4672ADB61CD9FD0700BAD572 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4672ADB81CD9FD0700BAD572 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4672ADBB1CD9FD0700BAD572 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		4672ADBC1CD9FD0700BAD572 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4672ADC61CD9FE8400BAD572 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		4672ADC81CD9FF5900BAD572 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		84546C97789D16CC12298FD9 /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1EA9724ACF2C972467B2DB /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				4672ADBB1CD9FD0700BAD572 /* Main.storyboard */,
-				4672ADBC1CD9FD0700BAD572 /* ViewController.swift */,
+				4672ADC61CD9FE8400BAD572 /* TabViewController.swift */,
+				4672ADC81CD9FF5900BAD572 /* ChildViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -242,8 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4672ADC11CD9FD0700BAD572 /* ViewController.swift in Sources */,
+				4672ADC71CD9FE8400BAD572 /* TabViewController.swift in Sources */,
 				4672ADBF1CD9FD0700BAD572 /* AppDelegate.swift in Sources */,
+				4672ADC91CD9FF5900BAD572 /* ChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,10 +342,12 @@
 			baseConfigurationReference = 8A1EA9724ACF2C972467B2DB /* Pods-Paged Tabs Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Paged Tabs Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Paged-Tabs-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,6 +356,7 @@
 			baseConfigurationReference = 2B756E049F31A0465510EAF7 /* Pods-Paged Tabs Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Paged Tabs Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Paged-Tabs-Example";
