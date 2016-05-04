@@ -11,8 +11,4 @@ import MSSTabbedPageViewController
 
 class TabViewController: MSSTabbedPageViewController {
     
-    override func viewControllersForPageViewController(pageViewController: MSSPageViewController!) -> [AnyObject]! {
-        return nil
-    }
-    
 }
