@@ -92,7 +92,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  The page view controller.
  @return The array of view controllers.
  */
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
+- (NSArray<UIViewController *> *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
 
 @optional
 
@@ -125,7 +125,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /** 
  The view controllers within the page view controller.
  */
-@property (nonatomic, strong, readonly) NSArray *viewControllers;
+@property (nonatomic, strong, readonly) NSArray<UIViewController *> *viewControllers;
 
 /** 
  Whether page view controller will display the page indicator view.

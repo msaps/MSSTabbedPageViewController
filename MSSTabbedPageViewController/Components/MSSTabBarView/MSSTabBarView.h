@@ -58,7 +58,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  
  @return The array of tab titles.
  */
-- (NSArray *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
+- (NSArray<NSString *> *)tabTitlesForTabBarView:(MSSTabBarView *)tabBarView
 __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
 
 /**
