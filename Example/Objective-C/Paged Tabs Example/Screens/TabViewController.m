@@ -9,10 +9,6 @@
 #import "TabViewController.h"
 #import "ChildViewController.h"
 
-@interface TabViewController () <MSSPageViewControllerDataSource, MSSPageViewControllerDelegate>
-
-@end
-
 @implementation TabViewController
 
 #pragma mark - Init
@@ -54,7 +50,7 @@
     [self performSegueWithIdentifier:@"showStylesSegue" sender:self];
 }
 
-#pragma mark - Page View Controller
+#pragma mark - MSSPageViewControllerDataSource
 
 - (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -66,6 +62,8 @@
     }
     return viewControllers;
 }
+
+#pragma mark - MSSTabBarViewDataSource
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView populateTab:(MSSTabBarCollectionViewCell *)tab atIndex:(NSInteger)index {
     NSString *imageName = [NSString stringWithFormat:@"tab%i.png", (int)(index + 1)];
