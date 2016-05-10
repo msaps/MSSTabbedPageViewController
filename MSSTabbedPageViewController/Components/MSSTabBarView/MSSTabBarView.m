@@ -22,6 +22,7 @@ CGFloat     const MSSTabBarViewDefaultTabPadding = 8.0f;
 CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
 NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
+BOOL        const MSSTabBarViewDefaultScrollEnabled = NO;
 
 NSInteger   const MSSTabBarViewMaxDistributedTabs = 5;
 CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
@@ -89,7 +90,6 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _tabPadding = MSSTabBarViewDefaultTabPadding;
     CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
-    _userScrollEnabled = NO;
     
     if (_height == 0.0f) {
         _height = MSSTabBarViewDefaultHeight;
@@ -101,7 +101,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
-    _collectionView.scrollEnabled = self.userScrollEnabled;
+    self.scrollEnabled = MSSTabBarViewDefaultScrollEnabled;
     
     // Tab indicator
     _selectionIndicatorHeight = MSSTabBarViewDefaultTabIndicatorHeight;
@@ -334,9 +334,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self doSetDataSource:dataSource];
 }
 
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    self.collectionView.scrollEnabled = scrollEnabled;
+}
+
+- (BOOL)scrollEnabled {
+    return self.collectionView.scrollEnabled;
+}
+
 - (void)setUserScrollEnabled:(BOOL)userScrollEnabled {
-    _userScrollEnabled = userScrollEnabled;
-    self.collectionView.scrollEnabled = userScrollEnabled;
+    self.scrollEnabled = userScrollEnabled;
+}
+
+- (BOOL)userScrollEnabled {
+    return self.scrollEnabled;
 }
 
 - (void)setSizingStyle:(MSSTabSizingStyle)sizingStyle {

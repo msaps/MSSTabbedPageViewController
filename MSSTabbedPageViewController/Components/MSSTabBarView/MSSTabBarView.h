@@ -59,7 +59,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @return The array of tab titles.
  */
 - (nullable NSArray<NSString *> *)tabTitlesForTabBarView:(nonnull MSSTabBarView *)tabBarView
-__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
+__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead")));
 
 /**
  The default tab index to to display in the tab bar.
@@ -116,7 +116,11 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  Whether the user can manually scroll the tab bar.
  */
-@property (nonatomic, assign) BOOL userScrollEnabled;
+@property (nonatomic, assign) BOOL scrollEnabled;
+/**
+ Whether the tab bar contents can be scrolled.
+ */
+@property (nonatomic, assign) BOOL userScrollEnabled __attribute__((deprecated("Use scrollEnabled instead")));
 
 /**
  The background view for the tab bar.
