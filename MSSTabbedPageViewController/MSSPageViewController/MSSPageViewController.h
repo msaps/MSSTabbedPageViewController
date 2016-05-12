@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
     MSSPageViewControllerScrollDirectionForward = 1
 };
 
+typedef void(^MSSPageViewControllerPageMoveCompletion)(UIViewController *_Nonnull newViewController, BOOL animated, BOOL transitionFinished);
+
 @class MSSPageViewController;
 
 @protocol MSSPageViewControllerDelegate <NSObject>
@@ -31,7 +33,7 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  @param pageOffset 
         The updated page offset.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController
+- (void)pageViewController:(nonnull MSSPageViewController *)pageViewController
      didScrollToPageOffset:(CGFloat)pageOffset
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection;
 /**
@@ -44,7 +46,7 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  @param currentPage
  The new currently visible page.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController
+- (void)pageViewController:(nonnull MSSPageViewController *)pageViewController
           willScrollToPage:(NSInteger)newPage
                currentPage:(NSInteger)currentPage;
 /**
@@ -55,7 +57,7 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  @param page
  The new currently visible page.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController
+- (void)pageViewController:(nonnull MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page;
 
 /**
@@ -66,8 +68,8 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  @param viewControllers
  The view controllers inside the page view controller.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController
- didPrepareViewControllers:(NSArray *)viewControllers;
+- (void)pageViewController:(nonnull MSSPageViewController *)pageViewController
+ didPrepareViewControllers:(nonnull NSArray *)viewControllers;
 /**
  The page view controller will display the initial view controller.
  
@@ -76,8 +78,8 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
  @param viewController
  The initial view controller.
  */
-- (void)pageViewController:(MSSPageViewController *)pageViewController
-willDisplayInitialViewController:(UIViewController *)viewController;
+- (void)pageViewController:(nonnull MSSPageViewController *)pageViewController
+willDisplayInitialViewController:(nonnull UIViewController *)viewController;
 
 @end
 
@@ -90,7 +92,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  The page view controller.
  @return The array of view controllers.
  */
-- (NSArray *)viewControllersForPageViewController:(MSSPageViewController *)pageViewController;
+- (nullable NSArray<UIViewController *> *)viewControllersForPageViewController:(nonnull MSSPageViewController *)pageViewController;
 
 @optional
 
@@ -101,7 +103,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  The page view controller.
  @return The default page index.
  */
-- (NSInteger)defaultPageIndexForPageViewController:(MSSPageViewController *)pageViewController;
+- (NSInteger)defaultPageIndexForPageViewController:(nonnull MSSPageViewController *)pageViewController;
 
 @end
 
@@ -110,11 +112,11 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /**
  The object that acts as a data source for the page view controller.
  */
-@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDataSource> dataSource;
+@property (nonatomic, weak, nullable) IBOutlet id<MSSPageViewControllerDataSource> dataSource;
 /**
  The object that acts as a delegate for the page view controller.
  */
-@property (nonatomic, weak) IBOutlet id<MSSPageViewControllerDelegate> delegate;
+@property (nonatomic, weak, nullable) IBOutlet id<MSSPageViewControllerDelegate> delegate;
 
 /**
  The number of pages in the page view controller.
@@ -123,7 +125,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /** 
  The view controllers within the page view controller.
  */
-@property (nonatomic, strong, readonly) NSArray *viewControllers;
+@property (nonatomic, strong, readonly, nullable) NSArray<UIViewController *> *viewControllers;
 
 /** 
  Whether page view controller will display the page indicator view.
@@ -168,9 +170,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
  Completion of the page move.
  */
 - (void)moveToPageAtIndex:(NSInteger)index
-               completion:(void (^) (UIViewController *newController,
-                                     BOOL animationFinished,
-                                     BOOL transitionFinished))completion;
+               completion:(nullable MSSPageViewControllerPageMoveCompletion)completion;
 
 @end
 
@@ -179,7 +179,7 @@ willDisplayInitialViewController:(UIViewController *)viewController;
 /**
  The page view controller of the parent
  */
-@property (nonatomic, weak) MSSPageViewController *pageViewController;
+@property (nonatomic, weak, nullable) MSSPageViewController *pageViewController;
 /**
  The index of the current view controller
  */

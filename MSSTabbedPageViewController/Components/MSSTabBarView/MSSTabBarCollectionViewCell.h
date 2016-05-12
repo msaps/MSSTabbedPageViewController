@@ -20,12 +20,12 @@
  
  NOTE - only visible when using MSSTabStyleImage.
  */
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong, nullable) UIImage *image;
 /**
  The text displayed in the tab cell.
  
  NOTE - only visible when using MSSTabStyleText.
  */
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy, nullable) NSString *title;
 
 @end
