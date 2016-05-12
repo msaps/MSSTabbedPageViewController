@@ -42,6 +42,9 @@
     [self.tabBarView setTransitionStyle:self.style.transitionStyle];
     self.tabBarView.tabStyle = self.style.tabStyle;
     self.tabBarView.sizingStyle = self.style.sizingStyle;
+    
+    self.tabBarView.tabAttributes = @{MSSTabTextColor : [UIColor redColor],
+                                      MSSTabTextFont : [UIFont systemFontOfSize:16.0f weight:UIFontWeightThin]};
 }
 
 #pragma mark - Interaction

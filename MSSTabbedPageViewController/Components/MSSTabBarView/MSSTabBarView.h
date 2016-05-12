@@ -18,6 +18,9 @@ typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
+extern NSString *const MSSTabTextColor;
+extern NSString *const MSSTabTextFont;
+
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
@@ -165,11 +168,11 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The text color of the tabs.
  */
-@property (nonatomic, strong, nullable) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIColor *tabTextColor UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use tabAttributes instead")));
 /**
  The font used for the tabs. A nil value uses the default font from the cell nib.
  */
-@property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR __attribute__((deprecated("Use tabAttributes instead")));
 /**
  The transition style for the tabs to use during transitioning.
  */
@@ -178,6 +181,9 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The transition style for the selection indicator to use during transitioning.
  */
 @property (nonatomic, assign) MSSTabTransitionStyle selectionIndicatorTransitionStyle UI_APPEARANCE_SELECTOR;
+
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *tabAttributes;
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *selectedTabAttributes;
 
 /**
  Initialize a tab bar with a specified height.
