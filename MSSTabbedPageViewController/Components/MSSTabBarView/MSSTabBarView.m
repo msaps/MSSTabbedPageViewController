@@ -419,6 +419,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                         nextTabCell:nextTabCell
                                                            progress:progress];
             }
+        } else { // finished update - on a tab cell
+            
+            NSInteger index = floor(tabOffset);
+            MSSTabBarCollectionViewCell *selectedCell = [self collectionViewCellAtTabIndex:index];
+            NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
+            
+            if (selectedCell && indexPath) {
+                [self setTabCellActive:selectedCell indexPath:indexPath];
+            }
         }
     }
 }
@@ -672,6 +681,19 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         cell.textColor = self.tabTextColor;
         if(self.tabTextFont){
             cell.textFont = self.tabTextFont;
+        }
+    }
+    
+    // selected appearance
+    if (self.selectedTabAttributes) {
+        UIColor *selectedTabTextColor;
+        if ((selectedTabTextColor = self.selectedTabAttributes[MSSTabTextColor])) {
+            cell.selectedTextColor = selectedTabTextColor;
+        }
+        
+        UIFont *selectedTabTextFont;
+        if ((selectedTabTextFont = self.selectedTabAttributes[MSSTabTextFont])) {
+            cell.selectedTextFont = selectedTabTextFont;
         }
     }
     
