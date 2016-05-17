@@ -1,0 +1,7 @@
+platform :ios, '8.0'
+
+target 'Paged Tabs Example' do
+
+pod 'MSSTabbedPageViewController', :path => '../../../'
+
+end
