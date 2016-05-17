@@ -145,6 +145,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The content inset for the tabs.
  */
 @property (nonatomic, assign) UIEdgeInsets contentInset UI_APPEARANCE_SELECTOR;
+
 /**
  The sizing style to use for tabs in the tab bar.
  
@@ -161,6 +162,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  MSSTabStyleText - use text as the content for each tab.
  */
 @property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
+
 /**
  The color of the tab selection indicator.
  */
@@ -174,6 +176,21 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR __attribute__((deprecated("Use tabAttributes instead")));
 /**
+ The appearance attributes for tabs.
+ 
+ Available attributes:
+ MSSTabTextColor, MSSTabTextFont
+ */
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *tabAttributes UI_APPEARANCE_SELECTOR;
+/**
+ The appearance attributes for selected tabs.
+ 
+ Available attributes:
+ MSSTabTextColor, MSSTabTextFont
+ */
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *selectedTabAttributes UI_APPEARANCE_SELECTOR;
+
+/**
  The transition style for the tabs to use during transitioning.
  */
 @property (nonatomic, assign) MSSTabTransitionStyle tabTransitionStyle UI_APPEARANCE_SELECTOR;
@@ -181,9 +198,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The transition style for the selection indicator to use during transitioning.
  */
 @property (nonatomic, assign) MSSTabTransitionStyle selectionIndicatorTransitionStyle UI_APPEARANCE_SELECTOR;
-
-@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *tabAttributes;
-@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *selectedTabAttributes;
 
 /**
  Initialize a tab bar with a specified height.
