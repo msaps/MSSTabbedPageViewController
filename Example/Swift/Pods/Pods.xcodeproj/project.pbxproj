@@ -1,1847 +1,697 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>006BBAB4A3A7359093A9A4228EE5F1C4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0250E5FB6CA82AF8C03E6E0E9CE60F39</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabSizingStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>09B1A4B6BE3AB0B4E646BCEB0982925F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>960CB4822FA38463912989662C906FAF</string>
-				<string>3B423059CD6B2FD8D4FE6F342F4DFE41</string>
-				<string>AAC705986F1225F10AFD35D7B1E021C7</string>
-				<string>6255DF05E24FD9DCC4F9C099BA692461</string>
-				<string>E8B4CF645C252388C332DB3BB6D4E82D</string>
-				<string>8E28E4CF64A4B5990D68DD50B29084B7</string>
-				<string>4007833A14ED2EF7FDF3C1C33B3BA2AC</string>
-				<string>8BB469DBECEA1030DF3702E24FA01924</string>
-				<string>10886CFF7FEEB94D6340B0C71832873A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>09EB5ED131916C041F1D255D861943C5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0C87734963D4D24842F1D75C5B014D18</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabBarCollectionViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>10886CFF7FEEB94D6340B0C71832873A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>10A8FFD848FDF0D64C2E975642C7E805</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1091FB7913AE4DA091AD67D6694FBA2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>109B912A153CEB5FE868E8CB0A292133</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0296EEA54AB3B94543D5C2EF82A4D80</string>
-				<string>936CDC78E1EB0F0DF3841B1D11D89217</string>
-				<string>A1588B34637F3163885732C4CBBC5A5E</string>
-				<string>80A83221E880C93958526E451699409E</string>
-				<string>FBBAD9AF687935E3A5B31D2EAC7E6492</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>10A8FFD848FDF0D64C2E975642C7E805</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIViewController+MSSUtilities.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>141F4E3AF9575988DD05387AFEBFC86A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0250E5FB6CA82AF8C03E6E0E9CE60F39</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>18340F12838DEE43507667CC74401EB1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-				<string>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>19924EE9F13B417197DB79748BCC08F3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0C87734963D4D24842F1D75C5B014D18</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>1E1D8A363F9782AE068074B59C009C50</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIView+MSSAutoLayout.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1F7DD518E17A9327717AF361DF882A9F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F170B17F9AA4D2B200281002BF403BD8</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-Paged Tabs Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_Paged_Tabs_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>1FA4279D8D65165E4E1015BBED25D7DE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabNavigationBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2392CF548FC97B41737451DB59DE9CF2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BF549AB6DA7EE1933249981764BE64D0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabBarView</string>
-			<key>path</key>
-			<string>MSSTabBarView</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>282D51A38FDA16BFCF00614956D5443F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>52664B2AFE6B9D312AA86FF7D6F8992F</string>
-				<string>3B036682FCF3D348CB9DC7A78E6F4DDA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>29C869751C4E10675624A3DA00BC30A0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D02094CC1E56854AE1D503D2B18B713</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8CA36D05FC117F0609F553031FB44F9A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5CE5176205D06FF3FFE3DDDA9291E44B</string>
-				<string>74857149DC1E0D599B8A01A78349A926</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2EC60358B6419B006A901141E9461B7A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>75C4D2827AA37B8970E3737902A1A3DB</string>
-			<key>remoteInfo</key>
-			<string>MSSTabbedPageViewController</string>
-		</dict>
-		<key>3274672595B76034B56A18E73BD88B7D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIView+MSSAutoLayout.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3780F860529C8FE5C4C2E7E38A99BD68</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>29C869751C4E10675624A3DA00BC30A0</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/MSSTabbedPageViewController/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>MSSTabbedPageViewController</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>3795D891E3FFB6B206CEBB1BF3CC0126</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C4B67A942326F49D57FBBB05A645F992</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3B036682FCF3D348CB9DC7A78E6F4DDA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_Paged_Tabs_Example.framework</string>
-			<key>path</key>
-			<string>Pods_Paged_Tabs_Example.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>3B423059CD6B2FD8D4FE6F342F4DFE41</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5CC1B4631B7F702D37D2B18381778A1A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3CD21CF0F902003F8D72E5C76495A323</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8FEE1047047C8683DB0D4859771160E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3E8A41712432260586490FC6158C7F03</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CD438666901C8CAFAD443FA0E02575A4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>4007833A14ED2EF7FDF3C1C33B3BA2AC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>87C5CAB71A661CBE8A0DEA86EA6F6185</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>41C1F4A73B49775B048462457708BB06</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>433CD3331B6C3787F473C941B61FC68F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>18340F12838DEE43507667CC74401EB1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44187F07495581A8EA7180E9A59D570A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0296EEA54AB3B94543D5C2EF82A4D80</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>487F680F36CF5C1DDD343C925D73B767</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4FA7F441EC5F667B27E0F73B8BBB52C9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>501BE56F553D904BD067E9A9E1D26020</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4FA7F441EC5F667B27E0F73B8BBB52C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>52664B2AFE6B9D312AA86FF7D6F8992F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController.framework</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5278E61234CF3A2803F099C38DF95611</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>3780F860529C8FE5C4C2E7E38A99BD68</string>
-				<string>95F665A3F62840F08FF1B3168897C2B9</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>531F024353D062EDF593A46CA01504B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1091FB7913AE4DA091AD67D6694FBA2F</string>
-				<string>09EB5ED131916C041F1D255D861943C5</string>
-				<string>9A210AD2134A7AE0FFF5CBF08A8CAB19</string>
-				<string>C1191CC7B643740658E62C06291608CD</string>
-				<string>4FA7F441EC5F667B27E0F73B8BBB52C9</string>
-				<string>B5277288938F0AA84D21EAC46C7B082A</string>
-				<string>7D7319A93DE38DF80B295CB2F3286D0D</string>
-				<string>8CA36D05FC117F0609F553031FB44F9A</string>
-				<string>CD78223081637C649C2F673350064EC0</string>
-				<string>F170B17F9AA4D2B200281002BF403BD8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-Paged Tabs Example</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-Paged Tabs Example</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>59D624CCEA129E52B67A4E1753857B46</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BF549AB6DA7EE1933249981764BE64D0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5A7F6A740FC2DA57CA4F604FC3EA3B24</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EAA48F96035B37CF257A4D3444261230</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5C5DD9CB580013A5391890F9A43B67AB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>487F680F36CF5C1DDD343C925D73B767</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5CC1B4631B7F702D37D2B18381778A1A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSPageViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5CE5176205D06FF3FFE3DDDA9291E44B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5D807E03BE27FC5A95DFFA9C13D69FA6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>41C1F4A73B49775B048462457708BB06</string>
-				<string>905ADE831E631F9E7F55603306B62D9F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6255DF05E24FD9DCC4F9C099BA692461</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C05A38AE329C4B4B3C273E036FF0263D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>64BCD0844BA6F509C0596610911912EE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>501BE56F553D904BD067E9A9E1D26020</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6951E334DB415650C0A95A5FCCDAA5DF</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>A04682D187AF9C8109C50271DB1E13E8</string>
-			<key>buildPhases</key>
-			<array>
-				<string>64BCD0844BA6F509C0596610911912EE</string>
-				<string>9CEDFDA1F73A8D7BEB08D7D91AA4F7D3</string>
-				<string>BC5BB5F34461DE3DBB6FE7F421D3C824</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>F8446ADA87439061C350C49E045F6B95</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-Paged Tabs Example</string>
-			<key>productName</key>
-			<string>Pods-Paged Tabs Example</string>
-			<key>productReference</key>
-			<string>3B036682FCF3D348CB9DC7A78E6F4DDA</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>6E7E5AF37923BFA48D6994B9BFC6535F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>6F68C38D103C9E1561E42B455A4E1859</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabBarCollectionViewCell+Private.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>74857149DC1E0D599B8A01A78349A926</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>75183DFA0FD679894415E21B0F756F24</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>531F024353D062EDF593A46CA01504B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75C4D2827AA37B8970E3737902A1A3DB</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5278E61234CF3A2803F099C38DF95611</string>
-			<key>buildPhases</key>
-			<array>
-				<string>09B1A4B6BE3AB0B4E646BCEB0982925F</string>
-				<string>5D807E03BE27FC5A95DFFA9C13D69FA6</string>
-				<string>EEC3C5C523482B2FBBFA91D06F40FE01</string>
-				<string>7DBEFF31B4DAD4E56D24BFB9115E6262</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>productName</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>productReference</key>
-			<string>52664B2AFE6B9D312AA86FF7D6F8992F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>76B99FE8F387F9E117551FC3291F6826</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C7799E16AE5A76844D9763178FDDAF66</string>
-				<string>D5C052C925978EC68F3BD6E15994FCB6</string>
-				<string>29C869751C4E10675624A3DA00BC30A0</string>
-				<string>B09818BCE246B7457262328876569D61</string>
-				<string>006BBAB4A3A7359093A9A4228EE5F1C4</string>
-				<string>EAA48F96035B37CF257A4D3444261230</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>Example/Swift/Pods/Target Support Files/MSSTabbedPageViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7C5F74EBAAC0A903D9F74E7340D4C15F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B4FB94EA8759B8C292BCAE5B8E12D48E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7D7319A93DE38DF80B295CB2F3286D0D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>7C5F74EBAAC0A903D9F74E7340D4C15F</string>
-				<string>433CD3331B6C3787F473C941B61FC68F</string>
-				<string>282D51A38FDA16BFCF00614956D5443F</string>
-				<string>75183DFA0FD679894415E21B0F756F24</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DBEFF31B4DAD4E56D24BFB9115E6262</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>59D624CCEA129E52B67A4E1753857B46</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>7EE3212DD5B931537DE5D9564DA6E5A2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6E7E5AF37923BFA48D6994B9BFC6535F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>80A0CF1F3103248325120A49D671EF35</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSPageViewController+Private.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80A83221E880C93958526E451699409E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CD438666901C8CAFAD443FA0E02575A4</string>
-				<string>5CC1B4631B7F702D37D2B18381778A1A</string>
-				<string>80A0CF1F3103248325120A49D671EF35</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSPageViewController</string>
-			<key>path</key>
-			<string>MSSPageViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85C32667272F54358D762839A794F5D6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A6C16B192C0D256B723731ABDD8EE234</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>87C5CAB71A661CBE8A0DEA86EA6F6185</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSTabNavigationBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8BB469DBECEA1030DF3702E24FA01924</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3274672595B76034B56A18E73BD88B7D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8CA36D05FC117F0609F553031FB44F9A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8E28E4CF64A4B5990D68DD50B29084B7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>936CDC78E1EB0F0DF3841B1D11D89217</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8FEE1047047C8683DB0D4859771160E1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabNavigationBar+Private.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>905ADE831E631F9E7F55603306B62D9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>936CDC78E1EB0F0DF3841B1D11D89217</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>95E67FDE74B60CC0499F04CB447BA487</key>
-		<dict>
-			<key>fileRef</key>
-			<string>80A0CF1F3103248325120A49D671EF35</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>95F665A3F62840F08FF1B3168897C2B9</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>29C869751C4E10675624A3DA00BC30A0</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/MSSTabbedPageViewController/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>MSSTabbedPageViewController</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>960CB4822FA38463912989662C906FAF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DF67E28BF69E8EA0B9361B9BF45A95D8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A210AD2134A7AE0FFF5CBF08A8CAB19</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9C80EA6B0A0244641ABD8701A00D77C1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6F68C38D103C9E1561E42B455A4E1859</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>9CEDFDA1F73A8D7BEB08D7D91AA4F7D3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7EE3212DD5B931537DE5D9564DA6E5A2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A04682D187AF9C8109C50271DB1E13E8</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>ABC85ED22F7ECCBB0EE8B4E7D5AB8D22</string>
-				<string>1F7DD518E17A9327717AF361DF882A9F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A1588B34637F3163885732C4CBBC5A5E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C0B91E59A32438509FA8653487884C9C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Components</string>
-			<key>path</key>
-			<string>Components</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A6C16B192C0D256B723731ABDD8EE234</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2392CF548FC97B41737451DB59DE9CF2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Components</string>
-			<key>path</key>
-			<string>Components</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A7E394F4B0CFC917AB232A767A5E706B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E4D0C0EF34AFB575148D19B5CFD102D9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>AAC705986F1225F10AFD35D7B1E021C7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CF4FBC13537ABEC0EFCBD54995A54BA9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ABC85ED22F7ECCBB0EE8B4E7D5AB8D22</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CD78223081637C649C2F673350064EC0</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-Paged Tabs Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_Paged_Tabs_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B09818BCE246B7457262328876569D61</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B4FB94EA8759B8C292BCAE5B8E12D48E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>109B912A153CEB5FE868E8CB0A292133</string>
-				<string>E86D2C29C235DF702E70A306707EFF7B</string>
-				<string>76B99FE8F387F9E117551FC3291F6826</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>path</key>
-			<string>../../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5277288938F0AA84D21EAC46C7B082A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B8EE61E03B42007C6B32A269FD8D13B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1FA4279D8D65165E4E1015BBED25D7DE</string>
-				<string>87C5CAB71A661CBE8A0DEA86EA6F6185</string>
-				<string>8FEE1047047C8683DB0D4859771160E1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabNavigationBar</string>
-			<key>path</key>
-			<string>MSSTabNavigationBar</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BC5BB5F34461DE3DBB6FE7F421D3C824</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2D02094CC1E56854AE1D503D2B18B713</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BF549AB6DA7EE1933249981764BE64D0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>MSSTabBarCollectionViewCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C05A38AE329C4B4B3C273E036FF0263D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSTabBarView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C0B91E59A32438509FA8653487884C9C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0C87734963D4D24842F1D75C5B014D18</string>
-				<string>CF4FBC13537ABEC0EFCBD54995A54BA9</string>
-				<string>6F68C38D103C9E1561E42B455A4E1859</string>
-				<string>FB94F388DAAFA02319CDE00B4FF34ADE</string>
-				<string>C05A38AE329C4B4B3C273E036FF0263D</string>
-				<string>0250E5FB6CA82AF8C03E6E0E9CE60F39</string>
-				<string>487F680F36CF5C1DDD343C925D73B767</string>
-				<string>B8EE61E03B42007C6B32A269FD8D13B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MSSTabBarView</string>
-			<key>path</key>
-			<string>MSSTabBarView</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C1191CC7B643740658E62C06291608CD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>C41F60D52649C4BB8FA29674711317B2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1FA4279D8D65165E4E1015BBED25D7DE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C4B67A942326F49D57FBBB05A645F992</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIViewController+MSSUtilities.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C7799E16AE5A76844D9763178FDDAF66</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CC147EAE3CA487F61E3F4B367FCD9AFC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FB94F388DAAFA02319CDE00B4FF34ADE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>CD438666901C8CAFAD443FA0E02575A4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSPageViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CD78223081637C649C2F673350064EC0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CF4FBC13537ABEC0EFCBD54995A54BA9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSTabBarCollectionViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>282D51A38FDA16BFCF00614956D5443F</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>75C4D2827AA37B8970E3737902A1A3DB</string>
-				<string>6951E334DB415650C0A95A5FCCDAA5DF</string>
-			</array>
-		</dict>
-		<key>D5C052C925978EC68F3BD6E15994FCB6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF67E28BF69E8EA0B9361B9BF45A95D8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MSSCustomHeightNavigationBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E4D0C0EF34AFB575148D19B5CFD102D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSCustomHeightNavigationBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E86D2C29C235DF702E70A306707EFF7B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>85C32667272F54358D762839A794F5D6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E8B4CF645C252388C332DB3BB6D4E82D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B09818BCE246B7457262328876569D61</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EAA48F96035B37CF257A4D3444261230</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EABB159C87BDFCA0AF05522376A2F4E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1E1D8A363F9782AE068074B59C009C50</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>EEC3C5C523482B2FBBFA91D06F40FE01</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A7E394F4B0CFC917AB232A767A5E706B</string>
-				<string>95E67FDE74B60CC0499F04CB447BA487</string>
-				<string>3E8A41712432260586490FC6158C7F03</string>
-				<string>9C80EA6B0A0244641ABD8701A00D77C1</string>
-				<string>19924EE9F13B417197DB79748BCC08F3</string>
-				<string>CC147EAE3CA487F61E3F4B367FCD9AFC</string>
-				<string>5A7F6A740FC2DA57CA4F604FC3EA3B24</string>
-				<string>44187F07495581A8EA7180E9A59D570A</string>
-				<string>3CD21CF0F902003F8D72E5C76495A323</string>
-				<string>C41F60D52649C4BB8FA29674711317B2</string>
-				<string>141F4E3AF9575988DD05387AFEBFC86A</string>
-				<string>5C5DD9CB580013A5391890F9A43B67AB</string>
-				<string>EABB159C87BDFCA0AF05522376A2F4E2</string>
-				<string>3795D891E3FFB6B206CEBB1BF3CC0126</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0296EEA54AB3B94543D5C2EF82A4D80</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabbedPageViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F170B17F9AA4D2B200281002BF403BD8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-Paged Tabs Example.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F8446ADA87439061C350C49E045F6B95</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>MSSTabbedPageViewController</string>
-			<key>target</key>
-			<string>75C4D2827AA37B8970E3737902A1A3DB</string>
-			<key>targetProxy</key>
-			<string>2EC60358B6419B006A901141E9461B7A</string>
-		</dict>
-		<key>FB94F388DAAFA02319CDE00B4FF34ADE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MSSTabBarView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBBAD9AF687935E3A5B31D2EAC7E6492</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E4D0C0EF34AFB575148D19B5CFD102D9</string>
-				<string>DF67E28BF69E8EA0B9361B9BF45A95D8</string>
-				<string>1E1D8A363F9782AE068074B59C009C50</string>
-				<string>3274672595B76034B56A18E73BD88B7D</string>
-				<string>C4B67A942326F49D57FBBB05A645F992</string>
-				<string>10A8FFD848FDF0D64C2E975642C7E805</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Utilities</string>
-			<key>path</key>
-			<string>Utilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10886CFF7FEEB94D6340B0C71832873A /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */; };
+		141F4E3AF9575988DD05387AFEBFC86A /* MSSTabSizingStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19924EE9F13B417197DB79748BCC08F3 /* MSSTabBarCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3795D891E3FFB6B206CEBB1BF3CC0126 /* UIViewController+MSSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B423059CD6B2FD8D4FE6F342F4DFE41 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */; };
+		3CD21CF0F902003F8D72E5C76495A323 /* MSSTabNavigationBar+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E8A41712432260586490FC6158C7F03 /* MSSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F7B9A87507D404031CFB5113CE1D649 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		4007833A14ED2EF7FDF3C1C33B3BA2AC /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */; };
+		44187F07495581A8EA7180E9A59D570A /* MSSTabbedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59D624CCEA129E52B67A4E1753857B46 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */; };
+		5A7F6A740FC2DA57CA4F604FC3EA3B24 /* MSSTabbedPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C5DD9CB580013A5391890F9A43B67AB /* MSSTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6255DF05E24FD9DCC4F9C099BA692461 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */; };
+		8767A1FFA735FA4E28A6CE13CA36CD9A /* Pods-Paged Tabs Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BB469DBECEA1030DF3702E24FA01924 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */; };
+		8E28E4CF64A4B5990D68DD50B29084B7 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */; };
+		95E67FDE74B60CC0499F04CB447BA487 /* MSSPageViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		960CB4822FA38463912989662C906FAF /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */; };
+		9C80EA6B0A0244641ABD8701A00D77C1 /* MSSTabBarCollectionViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7E394F4B0CFC917AB232A767A5E706B /* MSSCustomHeightNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAC705986F1225F10AFD35D7B1E021C7 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */; };
+		B60738DBD65CFFB03603E8D2B0385ED1 /* Pods-Paged Tabs Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */; };
+		C41F60D52649C4BB8FA29674711317B2 /* MSSTabNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC147EAE3CA487F61E3F4B367FCD9AFC /* MSSTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E75E497FB300E260C4CD626B38CED9AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		E8B4CF645C252388C332DB3BB6D4E82D /* MSSTabbedPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */; };
+		EABB159C87BDFCA0AF05522376A2F4E2 /* UIView+MSSAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7CF2F6AA433275646486CBFABA960B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A8098F6AEBC801C7083F07E6E85B45E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75C4D2827AA37B8970E3737902A1A3DB;
+			remoteInfo = MSSTabbedPageViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		006BBAB4A3A7359093A9A4228EE5F1C4 /* MSSTabbedPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-prefix.pch"; sourceTree = "<group>"; };
+		0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		09EB5ED131916C041F1D255D861943C5 /* Pods-Paged Tabs Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Paged Tabs Example.modulemap"; sourceTree = "<group>"; };
+		0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		1091FB7913AE4DA091AD67D6694FBA2F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSSTabbedPageViewController.xcconfig; sourceTree = "<group>"; };
+		3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paged Tabs Example-dummy.m"; sourceTree = "<group>"; };
+		5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		7D7319A93DE38DF80B295CB2F3286D0D /* Pods-Paged Tabs Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paged Tabs Example-resources.sh"; sourceTree = "<group>"; };
+		80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paged Tabs Example-umbrella.h"; sourceTree = "<group>"; };
+		8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
+		936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A210AD2134A7AE0FFF5CBF08A8CAB19 /* Pods-Paged Tabs Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Paged Tabs Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSSTabbedPageViewController-dummy.m"; sourceTree = "<group>"; };
+		B5277288938F0AA84D21EAC46C7B082A /* Pods-Paged Tabs Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paged Tabs Example-frameworks.sh"; sourceTree = "<group>"; };
+		BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		C1191CC7B643740658E62C06291608CD /* Pods-Paged Tabs Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Paged Tabs Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		C7799E16AE5A76844D9763178FDDAF66 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		CD78223081637C649C2F673350064EC0 /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
+		CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		D5C052C925978EC68F3BD6E15994FCB6 /* MSSTabbedPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSSTabbedPageViewController.modulemap; sourceTree = "<group>"; };
+		DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSSTabbedPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-umbrella.h"; sourceTree = "<group>"; };
+		F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
+		FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D807E03BE27FC5A95DFFA9C13D69FA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7CF2F6AA433275646486CBFABA960B3 /* Foundation.framework in Frameworks */,
+				3F7B9A87507D404031CFB5113CE1D649 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB26D8865A9ACE3DF4E63320416D6241 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E75E497FB300E260C4CD626B38CED9AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		109B912A153CEB5FE868E8CB0A292133 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */,
+				936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */,
+				A1588B34637F3163885732C4CBBC5A5E /* Components */,
+				80A83221E880C93958526E451699409E /* MSSPageViewController */,
+				FBBAD9AF687935E3A5B31D2EAC7E6492 /* Utilities */,
+			);
+			path = MSSTabbedPageViewController;
+			sourceTree = "<group>";
+		};
+		2392CF548FC97B41737451DB59DE9CF2 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		531F024353D062EDF593A46CA01504B0 /* Pods-Paged Tabs Example */ = {
+			isa = PBXGroup;
+			children = (
+				1091FB7913AE4DA091AD67D6694FBA2F /* Info.plist */,
+				09EB5ED131916C041F1D255D861943C5 /* Pods-Paged Tabs Example.modulemap */,
+				9A210AD2134A7AE0FFF5CBF08A8CAB19 /* Pods-Paged Tabs Example-acknowledgements.markdown */,
+				C1191CC7B643740658E62C06291608CD /* Pods-Paged Tabs Example-acknowledgements.plist */,
+				4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */,
+				B5277288938F0AA84D21EAC46C7B082A /* Pods-Paged Tabs Example-frameworks.sh */,
+				7D7319A93DE38DF80B295CB2F3286D0D /* Pods-Paged Tabs Example-resources.sh */,
+				8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */,
+				CD78223081637C649C2F673350064EC0 /* Pods-Paged Tabs Example.debug.xcconfig */,
+				F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */,
+			);
+			name = "Pods-Paged Tabs Example";
+			path = "Target Support Files/Pods-Paged Tabs Example";
+			sourceTree = "<group>";
+		};
+		75183DFA0FD679894415E21B0F756F24 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				531F024353D062EDF593A46CA01504B0 /* Pods-Paged Tabs Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		76B99FE8F387F9E117551FC3291F6826 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7799E16AE5A76844D9763178FDDAF66 /* Info.plist */,
+				D5C052C925978EC68F3BD6E15994FCB6 /* MSSTabbedPageViewController.modulemap */,
+				29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */,
+				B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */,
+				006BBAB4A3A7359093A9A4228EE5F1C4 /* MSSTabbedPageViewController-prefix.pch */,
+				EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Swift/Pods/Target Support Files/MSSTabbedPageViewController";
+			sourceTree = "<group>";
+		};
+		771626EEB82DF3E12D86695FA18CE5D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */,
+				C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C5F74EBAAC0A903D9F74E7340D4C15F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4FB94EA8759B8C292BCAE5B8E12D48E /* MSSTabbedPageViewController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				7C5F74EBAAC0A903D9F74E7340D4C15F /* Development Pods */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				771626EEB82DF3E12D86695FA18CE5D1 /* Products */,
+				75183DFA0FD679894415E21B0F756F24 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		80A83221E880C93958526E451699409E /* MSSPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */,
+				5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */,
+				80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */,
+			);
+			path = MSSPageViewController;
+			sourceTree = "<group>";
+		};
+		85C32667272F54358D762839A794F5D6 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A6C16B192C0D256B723731ABDD8EE234 /* Components */,
+			);
+			path = MSSTabbedPageViewController;
+			sourceTree = "<group>";
+		};
+		A1588B34637F3163885732C4CBBC5A5E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C0B91E59A32438509FA8653487884C9C /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A6C16B192C0D256B723731ABDD8EE234 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2392CF548FC97B41737451DB59DE9CF2 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B4FB94EA8759B8C292BCAE5B8E12D48E /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				109B912A153CEB5FE868E8CB0A292133 /* MSSTabbedPageViewController */,
+				E86D2C29C235DF702E70A306707EFF7B /* Resources */,
+				76B99FE8F387F9E117551FC3291F6826 /* Support Files */,
+			);
+			name = MSSTabbedPageViewController;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		B8EE61E03B42007C6B32A269FD8D13B0 /* MSSTabNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */,
+				87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */,
+				8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */,
+			);
+			path = MSSTabNavigationBar;
+			sourceTree = "<group>";
+		};
+		C0B91E59A32438509FA8653487884C9C /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */,
+				CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */,
+				6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */,
+				FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */,
+				C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */,
+				0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */,
+				487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */,
+				B8EE61E03B42007C6B32A269FD8D13B0 /* MSSTabNavigationBar */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		E86D2C29C235DF702E70A306707EFF7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85C32667272F54358D762839A794F5D6 /* MSSTabbedPageViewController */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FBBAD9AF687935E3A5B31D2EAC7E6492 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */,
+				DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */,
+				1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */,
+				3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */,
+				C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */,
+				10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EEC3C5C523482B2FBBFA91D06F40FE01 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E394F4B0CFC917AB232A767A5E706B /* MSSCustomHeightNavigationBar.h in Headers */,
+				95E67FDE74B60CC0499F04CB447BA487 /* MSSPageViewController+Private.h in Headers */,
+				3E8A41712432260586490FC6158C7F03 /* MSSPageViewController.h in Headers */,
+				9C80EA6B0A0244641ABD8701A00D77C1 /* MSSTabBarCollectionViewCell+Private.h in Headers */,
+				19924EE9F13B417197DB79748BCC08F3 /* MSSTabBarCollectionViewCell.h in Headers */,
+				CC147EAE3CA487F61E3F4B367FCD9AFC /* MSSTabBarView.h in Headers */,
+				5A7F6A740FC2DA57CA4F604FC3EA3B24 /* MSSTabbedPageViewController-umbrella.h in Headers */,
+				44187F07495581A8EA7180E9A59D570A /* MSSTabbedPageViewController.h in Headers */,
+				3CD21CF0F902003F8D72E5C76495A323 /* MSSTabNavigationBar+Private.h in Headers */,
+				C41F60D52649C4BB8FA29674711317B2 /* MSSTabNavigationBar.h in Headers */,
+				141F4E3AF9575988DD05387AFEBFC86A /* MSSTabSizingStyle.h in Headers */,
+				5C5DD9CB580013A5391890F9A43B67AB /* MSSTabStyle.h in Headers */,
+				EABB159C87BDFCA0AF05522376A2F4E2 /* UIView+MSSAutoLayout.h in Headers */,
+				3795D891E3FFB6B206CEBB1BF3CC0126 /* UIViewController+MSSUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F438E77CDFB81B4BC5B211EBAE0CE9EE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8767A1FFA735FA4E28A6CE13CA36CD9A /* Pods-Paged Tabs Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6BA146D0F4F1CE202FA9693D8346A340 /* Pods-Paged Tabs Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03E52DB2D410E61583BC9FD166199BE9 /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */;
+			buildPhases = (
+				60058E62B902E3C1C3EE5F932959C1C2 /* Sources */,
+				AB26D8865A9ACE3DF4E63320416D6241 /* Frameworks */,
+				F438E77CDFB81B4BC5B211EBAE0CE9EE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6609FA42402CA3DACEAE9F56A24046 /* PBXTargetDependency */,
+			);
+			name = "Pods-Paged Tabs Example";
+			productName = "Pods-Paged Tabs Example";
+			productReference = C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5278E61234CF3A2803F099C38DF95611 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */;
+			buildPhases = (
+				09B1A4B6BE3AB0B4E646BCEB0982925F /* Sources */,
+				5D807E03BE27FC5A95DFFA9C13D69FA6 /* Frameworks */,
+				EEC3C5C523482B2FBBFA91D06F40FE01 /* Headers */,
+				7DBEFF31B4DAD4E56D24BFB9115E6262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MSSTabbedPageViewController;
+			productName = MSSTabbedPageViewController;
+			productReference = E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 771626EEB82DF3E12D86695FA18CE5D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */,
+				6BA146D0F4F1CE202FA9693D8346A340 /* Pods-Paged Tabs Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DBEFF31B4DAD4E56D24BFB9115E6262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D624CCEA129E52B67A4E1753857B46 /* MSSTabBarCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09B1A4B6BE3AB0B4E646BCEB0982925F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960CB4822FA38463912989662C906FAF /* MSSCustomHeightNavigationBar.m in Sources */,
+				3B423059CD6B2FD8D4FE6F342F4DFE41 /* MSSPageViewController.m in Sources */,
+				AAC705986F1225F10AFD35D7B1E021C7 /* MSSTabBarCollectionViewCell.m in Sources */,
+				6255DF05E24FD9DCC4F9C099BA692461 /* MSSTabBarView.m in Sources */,
+				E8B4CF645C252388C332DB3BB6D4E82D /* MSSTabbedPageViewController-dummy.m in Sources */,
+				8E28E4CF64A4B5990D68DD50B29084B7 /* MSSTabbedPageViewController.m in Sources */,
+				4007833A14ED2EF7FDF3C1C33B3BA2AC /* MSSTabNavigationBar.m in Sources */,
+				8BB469DBECEA1030DF3702E24FA01924 /* UIView+MSSAutoLayout.m in Sources */,
+				10886CFF7FEEB94D6340B0C71832873A /* UIViewController+MSSUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60058E62B902E3C1C3EE5F932959C1C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B60738DBD65CFFB03603E8D2B0385ED1 /* Pods-Paged Tabs Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A6609FA42402CA3DACEAE9F56A24046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MSSTabbedPageViewController;
+			target = 75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */;
+			targetProxy = 9A8098F6AEBC801C7083F07E6E85B45E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4375DC9C8A0DC4F9388776B73179E001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Paged Tabs Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Paged_Tabs_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		570D5649ED3548B9C916AF7E3869ECD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MSSTabbedPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A66AE780B04CDB5F6B526093C5F15049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD78223081637C649C2F673350064EC0 /* Pods-Paged Tabs Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Paged Tabs Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Paged_Tabs_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C0D19C4C564B03557947E8F7817685B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MSSTabbedPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03E52DB2D410E61583BC9FD166199BE9 /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A66AE780B04CDB5F6B526093C5F15049 /* Debug */,
+				4375DC9C8A0DC4F9388776B73179E001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5278E61234CF3A2803F099C38DF95611 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				570D5649ED3548B9C916AF7E3869ECD1 /* Debug */,
+				C0D19C4C564B03557947E8F7817685B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

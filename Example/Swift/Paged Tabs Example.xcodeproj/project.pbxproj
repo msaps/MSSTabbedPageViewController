@@ -13,11 +13,10 @@
 		4672ADC01CD9FD0700BAD572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4672ADBB1CD9FD0700BAD572 /* Main.storyboard */; };
 		4672ADC71CD9FE8400BAD572 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADC61CD9FE8400BAD572 /* TabViewController.swift */; };
 		4672ADC91CD9FF5900BAD572 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672ADC81CD9FF5900BAD572 /* ChildViewController.swift */; };
-		FC6F044BC810AE3493482C8E /* Pods_Paged_Tabs_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84546C97789D16CC12298FD9 /* Pods_Paged_Tabs_Example.framework */; };
+		A7FF76B0D788D517690C2D8B /* Pods_Paged_Tabs_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C747EADA9DA7848AC68F97 /* Pods_Paged_Tabs_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B756E049F31A0465510EAF7 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
 		4672AD9F1CD9F95A00BAD572 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4672ADAE1CD9F95A00BAD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4672ADB51CD9FD0700BAD572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,8 +25,9 @@
 		4672ADBB1CD9FD0700BAD572 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4672ADC61CD9FE8400BAD572 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4672ADC81CD9FF5900BAD572 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
-		84546C97789D16CC12298FD9 /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1EA9724ACF2C972467B2DB /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
+		81C747EADA9DA7848AC68F97 /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A39325481596E4ADF456AE15 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
+		B63E0DCACA90F2715FFA92C5 /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC6F044BC810AE3493482C8E /* Pods_Paged_Tabs_Example.framework in Frameworks */,
+				A7FF76B0D788D517690C2D8B /* Pods_Paged_Tabs_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 			children = (
 				4672ADA11CD9F95A00BAD572 /* Paged Tabs Example */,
 				4672ADA01CD9F95A00BAD572 /* Products */,
-				F5FB59E345284FE115F29016 /* Pods */,
-				94BB9BC44554617133D5B9B2 /* Frameworks */,
+				8F0A5F64CBCF3E8F1595D4F8 /* Pods */,
+				6BCC94E57A56D946F9D8230F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,19 +106,19 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		94BB9BC44554617133D5B9B2 /* Frameworks */ = {
+		6BCC94E57A56D946F9D8230F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84546C97789D16CC12298FD9 /* Pods_Paged_Tabs_Example.framework */,
+				81C747EADA9DA7848AC68F97 /* Pods_Paged_Tabs_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F5FB59E345284FE115F29016 /* Pods */ = {
+		8F0A5F64CBCF3E8F1595D4F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8A1EA9724ACF2C972467B2DB /* Pods-Paged Tabs Example.debug.xcconfig */,
-				2B756E049F31A0465510EAF7 /* Pods-Paged Tabs Example.release.xcconfig */,
+				B63E0DCACA90F2715FFA92C5 /* Pods-Paged Tabs Example.debug.xcconfig */,
+				A39325481596E4ADF456AE15 /* Pods-Paged Tabs Example.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -130,12 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4672ADB11CD9F95A00BAD572 /* Build configuration list for PBXNativeTarget "Paged Tabs Example" */;
 			buildPhases = (
-				1263B776F091554F093941CF /* Check Pods Manifest.lock */,
+				D4372872528D12D16E151368 /* 📦 Check Pods Manifest.lock */,
 				4672AD9B1CD9F95A00BAD572 /* Sources */,
 				4672AD9C1CD9F95A00BAD572 /* Frameworks */,
 				4672AD9D1CD9F95A00BAD572 /* Resources */,
-				53C9E185AE390350BD096C47 /* Embed Pods Frameworks */,
-				51E14A4140EAB14267F4FC77 /* Copy Pods Resources */,
+				4B0770D700F456D0E5B64F6E /* 📦 Embed Pods Frameworks */,
+				37B04E1113FAE48B26C9C5C8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,29 +193,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1263B776F091554F093941CF /* Check Pods Manifest.lock */ = {
+		37B04E1113FAE48B26C9C5C8 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		51E14A4140EAB14267F4FC77 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,19 +208,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53C9E185AE390350BD096C47 /* Embed Pods Frameworks */ = {
+		4B0770D700F456D0E5B64F6E /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4372872528D12D16E151368 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -339,7 +339,7 @@
 		};
 		4672ADB21CD9F95A00BAD572 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A1EA9724ACF2C972467B2DB /* Pods-Paged Tabs Example.debug.xcconfig */;
+			baseConfigurationReference = B63E0DCACA90F2715FFA92C5 /* Pods-Paged Tabs Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -353,7 +353,7 @@
 		};
 		4672ADB31CD9F95A00BAD572 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B756E049F31A0465510EAF7 /* Pods-Paged Tabs Example.release.xcconfig */;
+			baseConfigurationReference = A39325481596E4ADF456AE15 /* Pods-Paged Tabs Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

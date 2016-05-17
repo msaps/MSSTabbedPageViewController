@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */; };
 		46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */; };
-		CB8016F3782D4BFD1954DE49 /* libPods-Paged Tabs Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CBD7BFA01A2BDAD5D3AC6 /* libPods-Paged Tabs Example.a */; };
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
 		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
@@ -17,17 +16,18 @@
 		D65593061C47F275000CAD99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FC1C47F275000CAD99 /* Main.storyboard */; };
 		D65593071C47F275000CAD99 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592FE1C47F275000CAD99 /* TabViewController.m */; };
 		D65593081C47F275000CAD99 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593001C47F275000CAD99 /* ChildViewController.m */; };
+		E945DCBA1E22CBC347EE4624 /* libPods-Paged Tabs Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23493E3BFC0AC8B02C5977BE /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
-		3A7CBD7BFA01A2BDAD5D3AC6 /* libPods-Paged Tabs Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paged Tabs Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paged Tabs Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46334F151CBBBB7C00DFCEA2 /* StylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylesViewController.h; sourceTree = "<group>"; };
 		46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylesViewController.m; sourceTree = "<group>"; };
 		46334F191CBBBCBC00DFCEA2 /* TabControllerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerStyle.h; sourceTree = "<group>"; };
 		46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerStyle.m; sourceTree = "<group>"; };
 		46FA81BF1C2C18FE0020BB60 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		57DCF2BEE3076A307F979913 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
+		5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
+		701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D65592F61C47F275000CAD99 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,13 +46,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB8016F3782D4BFD1954DE49 /* libPods-Paged Tabs Example.a in Frameworks */,
+				E945DCBA1E22CBC347EE4624 /* libPods-Paged Tabs Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C6393D457D15B8EE812DEA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		46334F181CBBBC9E00DFCEA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,8 +75,8 @@
 			children = (
 				D65592F31C47F275000CAD99 /* Paged Tabs Example */,
 				46FA81C01C2C18FE0020BB60 /* Products */,
-				85002441DF886E857BA97519 /* Pods */,
-				C8C79FA8520616B8BDA01C3F /* Frameworks */,
+				B08E52CA33BE40D3111B41A1 /* Pods */,
+				0C6393D457D15B8EE812DEA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,21 +88,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		85002441DF886E857BA97519 /* Pods */ = {
+		B08E52CA33BE40D3111B41A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				23493E3BFC0AC8B02C5977BE /* Pods-Paged Tabs Example.debug.xcconfig */,
-				57DCF2BEE3076A307F979913 /* Pods-Paged Tabs Example.release.xcconfig */,
+				701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */,
+				5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		C8C79FA8520616B8BDA01C3F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3A7CBD7BFA01A2BDAD5D3AC6 /* libPods-Paged Tabs Example.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D65592F31C47F275000CAD99 /* Paged Tabs Example */ = {
@@ -149,12 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46FA81D61C2C18FE0020BB60 /* Build configuration list for PBXNativeTarget "Paged Tabs Example" */;
 			buildPhases = (
-				203135534D04A9D3A1DF5289 /* Check Pods Manifest.lock */,
+				EE09CE227179E1F5BAE4A211 /* 📦 Check Pods Manifest.lock */,
 				46FA81BB1C2C18FE0020BB60 /* Sources */,
 				46FA81BC1C2C18FE0020BB60 /* Frameworks */,
 				46FA81BD1C2C18FE0020BB60 /* Resources */,
-				88489AB8B126709D700322FD /* Embed Pods Frameworks */,
-				87512313468516C857603174 /* Copy Pods Resources */,
+				2F90482B7AC34ACDF07BE9F2 /* 📦 Embed Pods Frameworks */,
+				308191F38190CDE33E7EF005 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,29 +212,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		203135534D04A9D3A1DF5289 /* Check Pods Manifest.lock */ = {
+		2F90482B7AC34ACDF07BE9F2 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		87512313468516C857603174 /* Copy Pods Resources */ = {
+		308191F38190CDE33E7EF005 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,19 +242,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88489AB8B126709D700322FD /* Embed Pods Frameworks */ = {
+		EE09CE227179E1F5BAE4A211 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -360,7 +360,7 @@
 		};
 		46FA81D71C2C18FE0020BB60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23493E3BFC0AC8B02C5977BE /* Pods-Paged Tabs Example.debug.xcconfig */;
+			baseConfigurationReference = 701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
@@ -373,7 +373,7 @@
 		};
 		46FA81D81C2C18FE0020BB60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57DCF2BEE3076A307F979913 /* Pods-Paged Tabs Example.release.xcconfig */;
+			baseConfigurationReference = 5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
