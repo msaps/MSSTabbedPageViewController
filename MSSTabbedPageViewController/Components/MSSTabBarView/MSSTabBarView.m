@@ -29,6 +29,10 @@ CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
 
 CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
+// appearance
+NSString *  const MSSTabTextColor = @"tabTextColor";
+NSString *  const MSSTabTextFont = @"tabTextFont";
+
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;
@@ -171,14 +175,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     MSSTabBarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MSSTabBarViewCellIdentifier
                                                                                   forIndexPath:indexPath];
-    
-    // default appearance
-    cell.textColor = self.tabTextColor;
-	if(self.tabTextFont){
-		cell.textFont = self.tabTextFont;
-	}
-    cell.backgroundColor = [UIColor clearColor];
-    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+    [self updateCellAppearance:cell];
     
     // default contents
     cell.tabStyle = self.tabStyle;
@@ -376,6 +373,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.tabTransitionStyle = transitionStyle;
 }
 
+- (void)setTabAttributes:(NSDictionary<NSString *,id> *)tabAttributes {
+    _tabAttributes = tabAttributes;
+    [self reloadData];
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -416,6 +418,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
                                                         nextTabCell:nextTabCell
                                                            progress:progress];
+            }
+        } else { // finished update - on a tab cell
+            
+            NSInteger index = floor(tabOffset);
+            MSSTabBarCollectionViewCell *selectedCell = [self collectionViewCellAtTabIndex:index];
+            NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
+            
+            if (selectedCell && indexPath) {
+                [self setTabCellActive:selectedCell indexPath:indexPath];
             }
         }
     }
@@ -650,6 +661,44 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         _hasRespectedDefaultTabIndex = NO;
     }
     [self.collectionView reloadData];
+}
+
+- (void)updateCellAppearance:(MSSTabBarCollectionViewCell *)cell {
+    
+    // default appearance
+    if (self.tabAttributes) {
+        UIColor *tabTextColor;
+        if ((tabTextColor = self.tabAttributes[MSSTabTextColor])) {
+            cell.textColor = tabTextColor;
+        }
+        
+        UIFont *tabTextFont;
+        if ((tabTextFont = self.tabAttributes[MSSTabTextFont])) {
+            cell.textFont = tabTextFont;
+        }
+        
+    } else {
+        cell.textColor = self.tabTextColor;
+        if(self.tabTextFont){
+            cell.textFont = self.tabTextFont;
+        }
+    }
+    
+    // selected appearance
+    if (self.selectedTabAttributes) {
+        UIColor *selectedTabTextColor;
+        if ((selectedTabTextColor = self.selectedTabAttributes[MSSTabTextColor])) {
+            cell.selectedTextColor = selectedTabTextColor;
+        }
+        
+        UIFont *selectedTabTextFont;
+        if ((selectedTabTextFont = self.selectedTabAttributes[MSSTabTextFont])) {
+            cell.selectedTextFont = selectedTabTextFont;
+        }
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
 }
 
 #pragma clang diagnostic pop
