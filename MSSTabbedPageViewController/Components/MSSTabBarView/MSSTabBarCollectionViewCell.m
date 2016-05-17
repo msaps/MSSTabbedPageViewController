@@ -73,7 +73,7 @@
         
         if (self.selectedTextFont || self.selectedTextColor) {
             [UIView transitionWithView:self
-                              duration:0.25f
+                              duration:0.2f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:
              ^{
