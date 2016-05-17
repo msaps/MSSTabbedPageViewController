@@ -22,11 +22,16 @@ CGFloat     const MSSTabBarViewDefaultTabPadding = 8.0f;
 CGFloat     const MSSTabBarViewDefaultTabUnselectedAlpha = 0.3f;
 CGFloat     const MSSTabBarViewDefaultHorizontalContentInset = 8.0f;
 NSString *  const MSSTabBarViewDefaultTabTitleFormat = @"Tab %li";
+BOOL        const MSSTabBarViewDefaultScrollEnabled = NO;
 
 NSInteger   const MSSTabBarViewMaxDistributedTabs = 5;
 CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
 
 CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
+
+// appearance
+NSString *  const MSSTabTextColor = @"tabTextColor";
+NSString *  const MSSTabTextFont = @"tabTextFont";
 
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -89,7 +94,6 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _tabPadding = MSSTabBarViewDefaultTabPadding;
     CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
-    _userScrollEnabled = NO;
     
     if (_height == 0.0f) {
         _height = MSSTabBarViewDefaultHeight;
@@ -101,7 +105,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
-    _collectionView.scrollEnabled = self.userScrollEnabled;
+    self.scrollEnabled = MSSTabBarViewDefaultScrollEnabled;
     
     // Tab indicator
     _selectionIndicatorHeight = MSSTabBarViewDefaultTabIndicatorHeight;
@@ -171,14 +175,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     MSSTabBarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MSSTabBarViewCellIdentifier
                                                                                   forIndexPath:indexPath];
-    
-    // default appearance
-    cell.textColor = self.tabTextColor;
-	if(self.tabTextFont){
-		cell.textFont = self.tabTextFont;
-	}
-    cell.backgroundColor = [UIColor clearColor];
-    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+    [self updateCellAppearance:cell];
     
     // default contents
     cell.tabStyle = self.tabStyle;
@@ -334,9 +331,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self doSetDataSource:dataSource];
 }
 
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    self.collectionView.scrollEnabled = scrollEnabled;
+}
+
+- (BOOL)scrollEnabled {
+    return self.collectionView.scrollEnabled;
+}
+
 - (void)setUserScrollEnabled:(BOOL)userScrollEnabled {
-    _userScrollEnabled = userScrollEnabled;
-    self.collectionView.scrollEnabled = userScrollEnabled;
+    self.scrollEnabled = userScrollEnabled;
+}
+
+- (BOOL)userScrollEnabled {
+    return self.scrollEnabled;
 }
 
 - (void)setSizingStyle:(MSSTabSizingStyle)sizingStyle {
@@ -363,6 +371,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTransitionStyle:(MSSTabTransitionStyle)transitionStyle {
     self.selectionIndicatorTransitionStyle = transitionStyle;
     self.tabTransitionStyle = transitionStyle;
+}
+
+- (void)setTabAttributes:(NSDictionary<NSString *,id> *)tabAttributes {
+    _tabAttributes = tabAttributes;
+    [self reloadData];
 }
 
 #pragma mark - Tab Bar State
@@ -405,6 +418,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
                                                         nextTabCell:nextTabCell
                                                            progress:progress];
+            }
+        } else { // finished update - on a tab cell
+            
+            NSInteger index = floor(tabOffset);
+            MSSTabBarCollectionViewCell *selectedCell = [self collectionViewCellAtTabIndex:index];
+            NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
+            
+            if (selectedCell && indexPath) {
+                [self setTabCellActive:selectedCell indexPath:indexPath];
             }
         }
     }
@@ -639,6 +661,44 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         _hasRespectedDefaultTabIndex = NO;
     }
     [self.collectionView reloadData];
+}
+
+- (void)updateCellAppearance:(MSSTabBarCollectionViewCell *)cell {
+    
+    // default appearance
+    if (self.tabAttributes) {
+        UIColor *tabTextColor;
+        if ((tabTextColor = self.tabAttributes[MSSTabTextColor])) {
+            cell.textColor = tabTextColor;
+        }
+        
+        UIFont *tabTextFont;
+        if ((tabTextFont = self.tabAttributes[MSSTabTextFont])) {
+            cell.textFont = tabTextFont;
+        }
+        
+    } else {
+        cell.textColor = self.tabTextColor;
+        if(self.tabTextFont){
+            cell.textFont = self.tabTextFont;
+        }
+    }
+    
+    // selected appearance
+    if (self.selectedTabAttributes) {
+        UIColor *selectedTabTextColor;
+        if ((selectedTabTextColor = self.selectedTabAttributes[MSSTabTextColor])) {
+            cell.selectedTextColor = selectedTabTextColor;
+        }
+        
+        UIFont *selectedTabTextFont;
+        if ((selectedTabTextFont = self.selectedTabAttributes[MSSTabTextFont])) {
+            cell.selectedTextFont = selectedTabTextFont;
+        }
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
 }
 
 #pragma clang diagnostic pop

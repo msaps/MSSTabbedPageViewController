@@ -9,7 +9,9 @@
 #import "MSSTabBarCollectionViewCell.h"
 #import "MSSTabBarCollectionViewCell+Private.h"
 
-@interface MSSTabBarCollectionViewCell ()
+@interface MSSTabBarCollectionViewCell () {
+    BOOL _isSelected;
+}
 
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -34,19 +36,13 @@
 }
 
 - (void)setTextColor:(UIColor *)textColor {
+    _textColor = textColor;
     self.titleLabel.textColor = textColor;
 }
 
-- (UIColor *)textColor {
-    return self.titleLabel.textColor;
-}
-
 - (void)setTextFont:(UIFont *)textFont {
+    _textFont = textFont;
 	self.titleLabel.font = textFont;
-}
-
-- (UIFont *)textFont {
-	return self.titleLabel.font;
 }
 
 - (void)setImage:(UIImage *)image {
@@ -70,6 +66,28 @@
             
         default:
             break;
+    }
+    
+    BOOL isSelected = (selectionProgress == 1.0f);
+    if (_isSelected != isSelected) { // update selected state
+        
+        if (self.selectedTextFont || self.selectedTextColor) {
+            [UIView transitionWithView:self
+                              duration:0.2f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:
+             ^{
+                 if (self.selectedTextColor) {
+                     self.titleLabel.textColor = isSelected ? self.selectedTextColor : self.textColor;
+                 }
+                 if (self.selectedTextFont) {
+                     self.titleLabel.font = isSelected ? self.selectedTextFont : self.textFont;
+                 }
+            } completion:nil];
+        }
+        
+        _isSelected = isSelected;
+        self.selected = isSelected;
     }
 }
 

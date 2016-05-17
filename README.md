@@ -31,9 +31,12 @@ To use the tabbed page view controller, simply create a `UIViewController` that 
 
 If you are using a `UINavigationController` (As shown in Example project) you can embed the tab bar in the navigation bar. Simply set the `UINavigationBar` class in the navigation controller to `MSSTabNavigationBar` and the navigation bar will attach to the view controller.
 
-Otherwise you must attach a `MSSTabBarView` via the `tabBarView` property on `MSSTabbedPageViewController`, and setting the `dataSource` and `delegate` of the `MSSTabBarView` to the view controller. 
+To manually attach a tab bar view to the `MSSTabbedPageViewController`:
 
-The attached tab bar will automatically get the number of pages and display default titles for each page. To customise the content of the tabs in the tab bar override the following:
+- Set the `tabBarView` property of the `MSSTabbedPageViewController` to an `MSSTabBarView` instance (Note: `tabBarView` is weak and an `IBOutlet`).
+- Set the `dataSource` and `delegate` properties of the `MSSTabBarView` instance to the `MSSTabbedPageViewController` (Both are `IBOutlet`able).
+
+To customise the content of the tabs in the tab bar override the following:
 
 ```
 - (void)tabBarView:(MSSTabBarView *)tabBarView
@@ -41,7 +44,7 @@ The attached tab bar will automatically get the number of pages and display defa
            atIndex:(NSInteger)index;
 ```
 
-Child view controllers can have access to components of the parent controller by implementing the `MSSTabbedPageChildViewController` protocol:
+Child view controllers can have access to components of the parent `MSSTabbedPageViewController` by implementing the `MSSTabbedPageChildViewController` protocol:
 
 ```
 // Parent page view controller
@@ -78,13 +81,16 @@ Called when the page view controller completes a full scroll to a new page.
 
 - `sizingStyle` - Whether the tab bar should size to fit or equally distribute its tabs.
 - `tabStyle` - The style to use for tabs, either `MSSTabStyleText` for text or `MSSTabStyleImage` for images.
+- `tabAttributes` - Appearance attributes for tabs:
+ - `MSSTabTextColor`
+ - `MSSTabTextFont`
+- `selectedTabAttributes` - Appearance attributes for the selected tab. 
 - `tabIndicatorColor` - The color of the selection indicator. Also attached to the `tintColor` of the tab bar.
-- `tabTextColor` - The text colour for the tabs.
-- `tabTransitionStyle` - The transition style to use for the tabs. 
 - `selectionIndicatorTransitionStyle` - The transition style for the selection indicator.
  - `MSSTabTransitionStyleProgressive` to progressively transition between tabs.
  - `MSSTabTransitionStyleSnap` to snap between tabs during transitioning.
  - use `setTransitionStyle:` to set both the `selectionIndicatorTransitionStyle` and `tabTransitionStyle`.
+- `tabTransitionStyle` - The transition style to use for the tabs. 
 
 ## Requirements
 Supports iOS 8 and iOS 9.

@@ -18,6 +18,9 @@ typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
+extern NSString *const _Nonnull MSSTabTextColor;
+extern NSString *const _Nonnull MSSTabTextFont;
+
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
 
@@ -59,7 +62,7 @@ extern CGFloat const MSSTabBarViewDefaultHeight;
  @return The array of tab titles.
  */
 - (nullable NSArray<NSString *> *)tabTitlesForTabBarView:(nonnull MSSTabBarView *)tabBarView
-__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead.")));
+__attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populateTab:atIndex instead")));
 
 /**
  The default tab index to to display in the tab bar.
@@ -116,7 +119,11 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  Whether the user can manually scroll the tab bar.
  */
-@property (nonatomic, assign) BOOL userScrollEnabled;
+@property (nonatomic, assign) BOOL scrollEnabled;
+/**
+ Whether the tab bar contents can be scrolled.
+ */
+@property (nonatomic, assign) BOOL userScrollEnabled __attribute__((deprecated("Use scrollEnabled instead")));
 
 /**
  The background view for the tab bar.
@@ -138,6 +145,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The content inset for the tabs.
  */
 @property (nonatomic, assign) UIEdgeInsets contentInset UI_APPEARANCE_SELECTOR;
+
 /**
  The sizing style to use for tabs in the tab bar.
  
@@ -154,6 +162,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  MSSTabStyleText - use text as the content for each tab.
  */
 @property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
+
 /**
  The color of the tab selection indicator.
  */
@@ -161,11 +170,26 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 /**
  The text color of the tabs.
  */
-@property (nonatomic, strong, nullable) UIColor *tabTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIColor *tabTextColor UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use tabAttributes instead")));
 /**
  The font used for the tabs. A nil value uses the default font from the cell nib.
  */
-@property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong, nullable) UIFont *tabTextFont UI_APPEARANCE_SELECTOR __attribute__((deprecated("Use tabAttributes instead")));
+/**
+ The appearance attributes for tabs.
+ 
+ Available attributes:
+ MSSTabTextColor, MSSTabTextFont
+ */
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *tabAttributes UI_APPEARANCE_SELECTOR;
+/**
+ The appearance attributes for selected tabs.
+ 
+ Available attributes:
+ MSSTabTextColor, MSSTabTextFont
+ */
+@property (nonatomic, strong, nullable) NSDictionary <NSString *, id> *selectedTabAttributes UI_APPEARANCE_SELECTOR;
+
 /**
  The transition style for the tabs to use during transitioning.
  */

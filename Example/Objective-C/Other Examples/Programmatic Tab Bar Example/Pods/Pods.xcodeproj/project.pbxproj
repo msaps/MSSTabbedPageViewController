@@ -1,0 +1,797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		012EFF74154CC93274F925E142243EDA /* MSSTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 784010DD96327B82B1B4B6B6E7CB66DB /* MSSTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E3D73AB122524C9404CF2D5D921A15D /* PureLayoutDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF183D164AEA03A4AA2A2F5185EFE7D /* PureLayoutDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11351C55F7076A4C2C59CEB8695374C2 /* MSSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E979622D6590F0D28278554FEAC2208 /* MSSPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14A4ACC9EDCD1C191A29C28466FA9114 /* MSSTabSizingStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D584170D726E66433C2189143D0692E5 /* MSSTabSizingStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15462B996A9FCBD802809A24F3C88D8B /* MSSTabBarCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BD91BE6843E861C77951CA4A9BCE9121 /* MSSTabBarCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15C20544F2DEF42A408B7E8ABF7A8645 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F545BE94C48C8AFEED462FE6F8D3597A /* NSLayoutConstraint+PureLayout.m */; };
+		3EA86E50A4D97F68924EC0BC06F6BB9E /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D6CD155619B1FFF753F067A22864E /* MSSTabBarCollectionViewCell.m */; };
+		430CBEB58399A81E7676F36C40F1D4E4 /* MSSTabNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 711842F19C8D2B6094E823C72B7BEFA5 /* MSSTabNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B1FF47D1858572CCBB30D5E66C6098C /* MSSTabNavigationBar+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D71E4EE28AABFC09F381706688E259D4 /* MSSTabNavigationBar+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		604CCF621522FBC35A0B5C4D034C7646 /* MSSTabbedPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC0EF206F3AF4E0BBD1F7C6F158FCF9 /* MSSTabbedPageViewController-dummy.m */; };
+		63ADA0D17C744B6DAD84649924A561DB /* UIViewController+MSSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D22D337C12EF70109AAE6672717F6226 /* UIViewController+MSSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6422BFFA5CA94CB8FD9D9474CA2850C3 /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E41D14862AA071D9F8A5E652619270AF /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67FBFC502BDD03AE94975A9A4FC38159 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 873FC3649F700A415796A33CE2641055 /* NSArray+PureLayout.m */; };
+		76978DD8AF4FAB51028CD1286F786BC4 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F48602517ECB353DCB8C98633FCAB09 /* ALView+PureLayout.m */; };
+		773DFA745F986009FF5ED9C7C6728B01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		799EDD4799C6FFA7DEFF9B5B39BFD97E /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C9E21AAA71334727D452201E51D71C /* MSSTabBarView.m */; };
+		9B59E7BFDAEBD4B041639CA2E1215487 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F0B2BB1B28BA2986D798C45CDA2782 /* UIView+MSSAutoLayout.m */; };
+		9DECE0CD0FCE6BB208C1FC351AB2B8FD /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9253E0C4E52883011DF260F650506CB /* MSSPageViewController.m */; };
+		9E623EA12F4EA24EE1D89522501034BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		9F51965C11C9520623A0EBD162F11CE3 /* MSSTabbedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE9870966AEF4AFF46457271A179889 /* MSSTabbedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD4DA67EA96207E75F33C8D4489B4797 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F34D05FBEF694B902289C2E79CA5074 /* MSSTabbedPageViewController.m */; };
+		B0D04EAE45EDD28A7B905AF7E190B89E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		BFE51A0E16F52D3D0B2C95E257B75014 /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A907C755768715DA7F954CDC61B9E /* PureLayout-dummy.m */; };
+		C0966A86BE51E4118C3D14C2EB8815CC /* MSSTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E2A35A0EB246337B0293A66B57A7F0 /* MSSTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3549B8DA7860983D244E4A14482E611 /* MSSTabBarCollectionViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ACAA79BB77DAF38DABB46791BB0458A /* MSSTabBarCollectionViewCell+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7F9AA2DEFD9E9BEDE7FA0C73E9BCB02 /* Pods-ProgrammaticTabExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAE31471ADDFF82621D12E5BB872491 /* Pods-ProgrammaticTabExample-dummy.m */; };
+		CAA7B28488B837768AFDFA11A0188E19 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6864E14DFEDB7105C9849FFAE9A92 /* MSSTabNavigationBar.m */; };
+		DCD3A43D70D098B51C40F7CF6302A4E1 /* ALView+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 45945D8F3DAD605A883B94C9128AB860 /* ALView+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD50ADEA40007A900BB34B8384A74A55 /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D7DC82AF6F6260F768473B043656411 /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E00D4625FD457B0B37333C420E7244C5 /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 57E956DAAFFAB936CB60D9273E05D498 /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1895AC2D7B0E2591F728624C3959480 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D7A7DC9521CD027F9D901F2252B839 /* MSSCustomHeightNavigationBar.m */; };
+		E286D1E8B0C698E0F0E83C381061BB8D /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 953153B4EC28E4AC69615A92FAB78D2B /* UIViewController+MSSUtilities.m */; };
+		EA2E9298A5D6E60F3C1CC73B43E03797 /* MSSCustomHeightNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DBE19F8DA5FCBF0127FB441195B7619 /* MSSCustomHeightNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F260866BD11328CABB711999216F7DFD /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D10E06F10AB8CECE8141D32B75CCA4FE /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4B8C0368B6B387FA1901BD1EC0FEE2B /* UIView+MSSAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F6EDE67E2374BFFD52B40D0DBC36E2 /* UIView+MSSAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F91FFCDC05D98B0BB4248753F3600BDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		FF9DF10EBA306C7146E30341FC4979F0 /* MSSPageViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A250831AEAF421149D2283B2D572C2 /* MSSPageViewController+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6EA5AC0473ED4B098FF43B79AC71C6D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4693893898D917433DEB97FA0628A0BE;
+			remoteInfo = PureLayout;
+		};
+		A94C9FF938E6E3221B2D3980E862A526 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7FC206D3D39B2370D5932AF07A205B2;
+			remoteInfo = MSSTabbedPageViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		077A6E16E0A4EDAAC6DF34D479DB9AC9 /* Pods-ProgrammaticTabExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ProgrammaticTabExample-frameworks.sh"; sourceTree = "<group>"; };
+		129832CAED57495522F06699874AB5E0 /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
+		1951A12F7C46D8BBF64BC9D3F882A2EA /* PureLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.xcconfig; sourceTree = "<group>"; };
+		1CB3DC37C2D70B49E9762840CB92AD13 /* libPods-ProgrammaticTabExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgrammaticTabExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E979622D6590F0D28278554FEAC2208 /* MSSPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		1F34D05FBEF694B902289C2E79CA5074 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		25D7A7DC9521CD027F9D901F2252B839 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		29575B86FE836485F6068A0A2A14F182 /* MSSTabbedPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSSTabbedPageViewController.xcconfig; sourceTree = "<group>"; };
+		2ACAA79BB77DAF38DABB46791BB0458A /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		39F91236D4E67A4154C59440EA8784EB /* libMSSTabbedPageViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMSSTabbedPageViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DBE19F8DA5FCBF0127FB441195B7619 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		4331DCC82C4856EFD6A2E7BFE4002B1E /* Pods-ProgrammaticTabExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ProgrammaticTabExample-resources.sh"; sourceTree = "<group>"; };
+		45945D8F3DAD605A883B94C9128AB860 /* ALView+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "PureLayout/PureLayout/ALView+PureLayout.h"; sourceTree = "<group>"; };
+		50F0B2BB1B28BA2986D798C45CDA2782 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		57E956DAAFFAB936CB60D9273E05D498 /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
+		5F48602517ECB353DCB8C98633FCAB09 /* ALView+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "PureLayout/PureLayout/ALView+PureLayout.m"; sourceTree = "<group>"; };
+		629D4CA32D848A2A630D17E325548E1F /* Pods-ProgrammaticTabExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ProgrammaticTabExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6FE314CD69E4D33CB11A9D88718AF999 /* Pods-ProgrammaticTabExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProgrammaticTabExample.debug.xcconfig"; sourceTree = "<group>"; };
+		711842F19C8D2B6094E823C72B7BEFA5 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		784010DD96327B82B1B4B6B6E7CB66DB /* MSSTabStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		7D7DC82AF6F6260F768473B043656411 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "PureLayout/PureLayout/NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		7E247C89F90321664330A5FAA519876A /* Pods-ProgrammaticTabExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ProgrammaticTabExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		7FE9870966AEF4AFF46457271A179889 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		85084042F1DA5A085D78DB75873BF603 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		873FC3649F700A415796A33CE2641055 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "PureLayout/PureLayout/NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		8E344406FFD2D9E3A96E33440E4B383E /* MSSTabbedPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		953153B4EC28E4AC69615A92FAB78D2B /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A6F6EDE67E2374BFFD52B40D0DBC36E2 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		ACF183D164AEA03A4AA2A2F5185EFE7D /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
+		BD91BE6843E861C77951CA4A9BCE9121 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		BFC0EF206F3AF4E0BBD1F7C6F158FCF9 /* MSSTabbedPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSSTabbedPageViewController-dummy.m"; sourceTree = "<group>"; };
+		C5E2A35A0EB246337B0293A66B57A7F0 /* MSSTabBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		C9253E0C4E52883011DF260F650506CB /* MSSPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		CE0A907C755768715DA7F954CDC61B9E /* PureLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PureLayout-dummy.m"; sourceTree = "<group>"; };
+		CE2D6CD155619B1FFF753F067A22864E /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		D10E06F10AB8CECE8141D32B75CCA4FE /* PureLayout+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
+		D22D337C12EF70109AAE6672717F6226 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		D584170D726E66433C2189143D0692E5 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		D71E4EE28AABFC09F381706688E259D4 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
+		E2954020982B3AEAD7EDD84D4D9FA297 /* libPureLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPureLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B6864E14DFEDB7105C9849FFAE9A92 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		E41D14862AA071D9F8A5E652619270AF /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		E7A250831AEAF421149D2283B2D572C2 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EBAE31471ADDFF82621D12E5BB872491 /* Pods-ProgrammaticTabExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ProgrammaticTabExample-dummy.m"; sourceTree = "<group>"; };
+		F2EE17E8DE3B4C6E782A2CD326801D24 /* Pods-ProgrammaticTabExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProgrammaticTabExample.release.xcconfig"; sourceTree = "<group>"; };
+		F4C9E21AAA71334727D452201E51D71C /* MSSTabBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		F545BE94C48C8AFEED462FE6F8D3597A /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F842ED5FF32E05A32324C586ECCC177 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0D04EAE45EDD28A7B905AF7E190B89E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61FB2961A5D2AE23749DBFBBC9E079EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F91FFCDC05D98B0BB4248753F3600BDE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C48A761D91DD101E5D73627B81958F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773DFA745F986009FF5ED9C7C6728B01 /* Foundation.framework in Frameworks */,
+				9E623EA12F4EA24EE1D89522501034BC /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A8ED153F6A9AF57C9666FE85458910E /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7FE9870966AEF4AFF46457271A179889 /* MSSTabbedPageViewController.h */,
+				1F34D05FBEF694B902289C2E79CA5074 /* MSSTabbedPageViewController.m */,
+				D302268679CF16A63DE7C33D0F0AAE46 /* Components */,
+				ECB575EE225A694C1E77AFE1F91D8DDA /* MSSPageViewController */,
+				D6FE1DC350FCE32CE2D80E0829BEC70F /* Utilities */,
+			);
+			path = MSSTabbedPageViewController;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		454397F689C6480E2C1402EF36F678B2 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A8ED153F6A9AF57C9666FE85458910E /* MSSTabbedPageViewController */,
+				8B8E1250354F7667BC082785F505D2B6 /* Resources */,
+				D71CE188F31DA6728D2DBA2AA28AB4F4 /* Support Files */,
+			);
+			name = MSSTabbedPageViewController;
+			path = ../../../../..;
+			sourceTree = "<group>";
+		};
+		5529605F47ED22E92DCB500152EF7C1F /* Pods-ProgrammaticTabExample */ = {
+			isa = PBXGroup;
+			children = (
+				629D4CA32D848A2A630D17E325548E1F /* Pods-ProgrammaticTabExample-acknowledgements.markdown */,
+				7E247C89F90321664330A5FAA519876A /* Pods-ProgrammaticTabExample-acknowledgements.plist */,
+				EBAE31471ADDFF82621D12E5BB872491 /* Pods-ProgrammaticTabExample-dummy.m */,
+				077A6E16E0A4EDAAC6DF34D479DB9AC9 /* Pods-ProgrammaticTabExample-frameworks.sh */,
+				4331DCC82C4856EFD6A2E7BFE4002B1E /* Pods-ProgrammaticTabExample-resources.sh */,
+				6FE314CD69E4D33CB11A9D88718AF999 /* Pods-ProgrammaticTabExample.debug.xcconfig */,
+				F2EE17E8DE3B4C6E782A2CD326801D24 /* Pods-ProgrammaticTabExample.release.xcconfig */,
+			);
+			name = "Pods-ProgrammaticTabExample";
+			path = "Target Support Files/Pods-ProgrammaticTabExample";
+			sourceTree = "<group>";
+		};
+		5A768B22CF9D9AFAE8142053C8DDEAC4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5529605F47ED22E92DCB500152EF7C1F /* Pods-ProgrammaticTabExample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		601F8FFFAA82B51B77E6C575F431EA41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39F91236D4E67A4154C59440EA8784EB /* libMSSTabbedPageViewController.a */,
+				1CB3DC37C2D70B49E9762840CB92AD13 /* libPods-ProgrammaticTabExample.a */,
+				E2954020982B3AEAD7EDD84D4D9FA297 /* libPureLayout.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62440D572C646B4C09D22346EEC32D07 /* MSSTabNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				711842F19C8D2B6094E823C72B7BEFA5 /* MSSTabNavigationBar.h */,
+				E2B6864E14DFEDB7105C9849FFAE9A92 /* MSSTabNavigationBar.m */,
+				D71E4EE28AABFC09F381706688E259D4 /* MSSTabNavigationBar+Private.h */,
+			);
+			path = MSSTabNavigationBar;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				CABAE341A1B1A1ED71DB57F48194A942 /* Development Pods */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				A2FDD832DA64F35B104DD4C55A31BF8E /* Pods */,
+				601F8FFFAA82B51B77E6C575F431EA41 /* Products */,
+				5A768B22CF9D9AFAE8142053C8DDEAC4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		83F65399C3808A743CC1392CF12DD692 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1951A12F7C46D8BBF64BC9D3F882A2EA /* PureLayout.xcconfig */,
+				CE0A907C755768715DA7F954CDC61B9E /* PureLayout-dummy.m */,
+				129832CAED57495522F06699874AB5E0 /* PureLayout-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PureLayout";
+			sourceTree = "<group>";
+		};
+		8B6841677AC00D5DE2E3C9BE39D75EAA /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				BD91BE6843E861C77951CA4A9BCE9121 /* MSSTabBarCollectionViewCell.h */,
+				CE2D6CD155619B1FFF753F067A22864E /* MSSTabBarCollectionViewCell.m */,
+				2ACAA79BB77DAF38DABB46791BB0458A /* MSSTabBarCollectionViewCell+Private.h */,
+				C5E2A35A0EB246337B0293A66B57A7F0 /* MSSTabBarView.h */,
+				F4C9E21AAA71334727D452201E51D71C /* MSSTabBarView.m */,
+				D584170D726E66433C2189143D0692E5 /* MSSTabSizingStyle.h */,
+				784010DD96327B82B1B4B6B6E7CB66DB /* MSSTabStyle.h */,
+				62440D572C646B4C09D22346EEC32D07 /* MSSTabNavigationBar */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		8B8E1250354F7667BC082785F505D2B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC36A30FF429F58CCA253A4C6E32DE /* MSSTabbedPageViewController */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A2CA85CE803B807D60B9CE6AEC196158 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EE984797F63875EF59C8ECB1F5177458 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A2FDD832DA64F35B104DD4C55A31BF8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB198DB8875A98298498BA74D26897FE /* PureLayout */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB198DB8875A98298498BA74D26897FE /* PureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				45945D8F3DAD605A883B94C9128AB860 /* ALView+PureLayout.h */,
+				5F48602517ECB353DCB8C98633FCAB09 /* ALView+PureLayout.m */,
+				7D7DC82AF6F6260F768473B043656411 /* NSArray+PureLayout.h */,
+				873FC3649F700A415796A33CE2641055 /* NSArray+PureLayout.m */,
+				E41D14862AA071D9F8A5E652619270AF /* NSLayoutConstraint+PureLayout.h */,
+				F545BE94C48C8AFEED462FE6F8D3597A /* NSLayoutConstraint+PureLayout.m */,
+				57E956DAAFFAB936CB60D9273E05D498 /* PureLayout.h */,
+				D10E06F10AB8CECE8141D32B75CCA4FE /* PureLayout+Internal.h */,
+				ACF183D164AEA03A4AA2A2F5185EFE7D /* PureLayoutDefines.h */,
+				83F65399C3808A743CC1392CF12DD692 /* Support Files */,
+			);
+			path = PureLayout;
+			sourceTree = "<group>";
+		};
+		B5BC36A30FF429F58CCA253A4C6E32DE /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A2CA85CE803B807D60B9CE6AEC196158 /* Components */,
+			);
+			path = MSSTabbedPageViewController;
+			sourceTree = "<group>";
+		};
+		CABAE341A1B1A1ED71DB57F48194A942 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				454397F689C6480E2C1402EF36F678B2 /* MSSTabbedPageViewController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		D302268679CF16A63DE7C33D0F0AAE46 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8B6841677AC00D5DE2E3C9BE39D75EAA /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D6FE1DC350FCE32CE2D80E0829BEC70F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE19F8DA5FCBF0127FB441195B7619 /* MSSCustomHeightNavigationBar.h */,
+				25D7A7DC9521CD027F9D901F2252B839 /* MSSCustomHeightNavigationBar.m */,
+				A6F6EDE67E2374BFFD52B40D0DBC36E2 /* UIView+MSSAutoLayout.h */,
+				50F0B2BB1B28BA2986D798C45CDA2782 /* UIView+MSSAutoLayout.m */,
+				D22D337C12EF70109AAE6672717F6226 /* UIViewController+MSSUtilities.h */,
+				953153B4EC28E4AC69615A92FAB78D2B /* UIViewController+MSSUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D71CE188F31DA6728D2DBA2AA28AB4F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				29575B86FE836485F6068A0A2A14F182 /* MSSTabbedPageViewController.xcconfig */,
+				BFC0EF206F3AF4E0BBD1F7C6F158FCF9 /* MSSTabbedPageViewController-dummy.m */,
+				8E344406FFD2D9E3A96E33440E4B383E /* MSSTabbedPageViewController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Objective-C/Other Examples/Programmatic Tab Bar Example/Pods/Target Support Files/MSSTabbedPageViewController";
+			sourceTree = "<group>";
+		};
+		ECB575EE225A694C1E77AFE1F91D8DDA /* MSSPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E979622D6590F0D28278554FEAC2208 /* MSSPageViewController.h */,
+				C9253E0C4E52883011DF260F650506CB /* MSSPageViewController.m */,
+				E7A250831AEAF421149D2283B2D572C2 /* MSSPageViewController+Private.h */,
+			);
+			path = MSSPageViewController;
+			sourceTree = "<group>";
+		};
+		EE984797F63875EF59C8ECB1F5177458 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				85084042F1DA5A085D78DB75873BF603 /* MSSTabBarCollectionViewCell.xib */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		92B99D5871536F53E342A6277B54DC7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD3A43D70D098B51C40F7CF6302A4E1 /* ALView+PureLayout.h in Headers */,
+				DD50ADEA40007A900BB34B8384A74A55 /* NSArray+PureLayout.h in Headers */,
+				6422BFFA5CA94CB8FD9D9474CA2850C3 /* NSLayoutConstraint+PureLayout.h in Headers */,
+				F260866BD11328CABB711999216F7DFD /* PureLayout+Internal.h in Headers */,
+				E00D4625FD457B0B37333C420E7244C5 /* PureLayout.h in Headers */,
+				0E3D73AB122524C9404CF2D5D921A15D /* PureLayoutDefines.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5647460163CAD1DEE97273A91081AB4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA2E9298A5D6E60F3C1CC73B43E03797 /* MSSCustomHeightNavigationBar.h in Headers */,
+				FF9DF10EBA306C7146E30341FC4979F0 /* MSSPageViewController+Private.h in Headers */,
+				11351C55F7076A4C2C59CEB8695374C2 /* MSSPageViewController.h in Headers */,
+				C3549B8DA7860983D244E4A14482E611 /* MSSTabBarCollectionViewCell+Private.h in Headers */,
+				15462B996A9FCBD802809A24F3C88D8B /* MSSTabBarCollectionViewCell.h in Headers */,
+				C0966A86BE51E4118C3D14C2EB8815CC /* MSSTabBarView.h in Headers */,
+				9F51965C11C9520623A0EBD162F11CE3 /* MSSTabbedPageViewController.h in Headers */,
+				4B1FF47D1858572CCBB30D5E66C6098C /* MSSTabNavigationBar+Private.h in Headers */,
+				430CBEB58399A81E7676F36C40F1D4E4 /* MSSTabNavigationBar.h in Headers */,
+				14A4ACC9EDCD1C191A29C28466FA9114 /* MSSTabSizingStyle.h in Headers */,
+				012EFF74154CC93274F925E142243EDA /* MSSTabStyle.h in Headers */,
+				F4B8C0368B6B387FA1901BD1EC0FEE2B /* UIView+MSSAutoLayout.h in Headers */,
+				63ADA0D17C744B6DAD84649924A561DB /* UIViewController+MSSUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2F2201C3E765034CB4F83DE2FC82B162 /* Pods-ProgrammaticTabExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 775363E4B6C6B0344A4D714A75F99D2B /* Build configuration list for PBXNativeTarget "Pods-ProgrammaticTabExample" */;
+			buildPhases = (
+				A0D75F4EC9BE7C20601B49C88769FA3E /* Sources */,
+				61FB2961A5D2AE23749DBFBBC9E079EC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09517741EFF0CF62A4C3E6ECF7C086B8 /* PBXTargetDependency */,
+				0D35CA2D2DE83E60582511CBED2EA0AF /* PBXTargetDependency */,
+			);
+			name = "Pods-ProgrammaticTabExample";
+			productName = "Pods-ProgrammaticTabExample";
+			productReference = 1CB3DC37C2D70B49E9762840CB92AD13 /* libPods-ProgrammaticTabExample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4693893898D917433DEB97FA0628A0BE /* PureLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D25E25D9973A2ACE1F88CD30C1F63684 /* Build configuration list for PBXNativeTarget "PureLayout" */;
+			buildPhases = (
+				2210D9C44BF3E34BA659AD782CB597BB /* Sources */,
+				3F842ED5FF32E05A32324C586ECCC177 /* Frameworks */,
+				92B99D5871536F53E342A6277B54DC7C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PureLayout;
+			productName = PureLayout;
+			productReference = E2954020982B3AEAD7EDD84D4D9FA297 /* libPureLayout.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F7FC206D3D39B2370D5932AF07A205B2 /* MSSTabbedPageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77FDFFF2C1F314073A558D8A946B7BA6 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */;
+			buildPhases = (
+				2989D604BB0CD200F40692823A99B5DE /* Sources */,
+				7C48A761D91DD101E5D73627B81958F9 /* Frameworks */,
+				B5647460163CAD1DEE97273A91081AB4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MSSTabbedPageViewController;
+			productName = MSSTabbedPageViewController;
+			productReference = 39F91236D4E67A4154C59440EA8784EB /* libMSSTabbedPageViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 601F8FFFAA82B51B77E6C575F431EA41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7FC206D3D39B2370D5932AF07A205B2 /* MSSTabbedPageViewController */,
+				2F2201C3E765034CB4F83DE2FC82B162 /* Pods-ProgrammaticTabExample */,
+				4693893898D917433DEB97FA0628A0BE /* PureLayout */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2210D9C44BF3E34BA659AD782CB597BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76978DD8AF4FAB51028CD1286F786BC4 /* ALView+PureLayout.m in Sources */,
+				67FBFC502BDD03AE94975A9A4FC38159 /* NSArray+PureLayout.m in Sources */,
+				15C20544F2DEF42A408B7E8ABF7A8645 /* NSLayoutConstraint+PureLayout.m in Sources */,
+				BFE51A0E16F52D3D0B2C95E257B75014 /* PureLayout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2989D604BB0CD200F40692823A99B5DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1895AC2D7B0E2591F728624C3959480 /* MSSCustomHeightNavigationBar.m in Sources */,
+				9DECE0CD0FCE6BB208C1FC351AB2B8FD /* MSSPageViewController.m in Sources */,
+				3EA86E50A4D97F68924EC0BC06F6BB9E /* MSSTabBarCollectionViewCell.m in Sources */,
+				799EDD4799C6FFA7DEFF9B5B39BFD97E /* MSSTabBarView.m in Sources */,
+				604CCF621522FBC35A0B5C4D034C7646 /* MSSTabbedPageViewController-dummy.m in Sources */,
+				AD4DA67EA96207E75F33C8D4489B4797 /* MSSTabbedPageViewController.m in Sources */,
+				CAA7B28488B837768AFDFA11A0188E19 /* MSSTabNavigationBar.m in Sources */,
+				9B59E7BFDAEBD4B041639CA2E1215487 /* UIView+MSSAutoLayout.m in Sources */,
+				E286D1E8B0C698E0F0E83C381061BB8D /* UIViewController+MSSUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0D75F4EC9BE7C20601B49C88769FA3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7F9AA2DEFD9E9BEDE7FA0C73E9BCB02 /* Pods-ProgrammaticTabExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09517741EFF0CF62A4C3E6ECF7C086B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MSSTabbedPageViewController;
+			target = F7FC206D3D39B2370D5932AF07A205B2 /* MSSTabbedPageViewController */;
+			targetProxy = A94C9FF938E6E3221B2D3980E862A526 /* PBXContainerItemProxy */;
+		};
+		0D35CA2D2DE83E60582511CBED2EA0AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PureLayout;
+			target = 4693893898D917433DEB97FA0628A0BE /* PureLayout */;
+			targetProxy = 6EA5AC0473ED4B098FF43B79AC71C6D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04E2774493A88817AD9B0657094375FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29575B86FE836485F6068A0A2A14F182 /* MSSTabbedPageViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		29AFB3C45FEF66F9E9569CAFAC728167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FE314CD69E4D33CB11A9D88718AF999 /* Pods-ProgrammaticTabExample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A573097703CD65C2525A5730B4B2FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1951A12F7C46D8BBF64BC9D3F882A2EA /* PureLayout.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		309AA20EF9A2EB3EA45A3F0AB0B65566 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29575B86FE836485F6068A0A2A14F182 /* MSSTabbedPageViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		72F979A5A214414E9A16DA632C017208 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2EE17E8DE3B4C6E782A2CD326801D24 /* Pods-ProgrammaticTabExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8CB765FE9F2394A5656EA773ADC9527E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1951A12F7C46D8BBF64BC9D3F882A2EA /* PureLayout.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		775363E4B6C6B0344A4D714A75F99D2B /* Build configuration list for PBXNativeTarget "Pods-ProgrammaticTabExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29AFB3C45FEF66F9E9569CAFAC728167 /* Debug */,
+				72F979A5A214414E9A16DA632C017208 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77FDFFF2C1F314073A558D8A946B7BA6 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				309AA20EF9A2EB3EA45A3F0AB0B65566 /* Debug */,
+				04E2774493A88817AD9B0657094375FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D25E25D9973A2ACE1F88CD30C1F63684 /* Build configuration list for PBXNativeTarget "PureLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB765FE9F2394A5656EA773ADC9527E /* Debug */,
+				2A573097703CD65C2525A5730B4B2FF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,8 @@
+platform :ios, '8.0'
+
+target 'ProgrammaticTabExample' do
+
+pod 'MSSTabbedPageViewController', :path => '../../../../'
+pod 'PureLayout'
+
+end
