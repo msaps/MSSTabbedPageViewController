@@ -1,0 +1,17 @@
+PODS:
+  - MSSTabbedPageViewController (0.2.6)
+  - PureLayout (3.0.1)
+
+DEPENDENCIES:
+  - MSSTabbedPageViewController (from `../../../../`)
+  - PureLayout
+
+EXTERNAL SOURCES:
+  MSSTabbedPageViewController:
+    :path: ../../../../
+
+SPEC CHECKSUMS:
+  MSSTabbedPageViewController: 1ea43893a67cf695ecff7cd68bf47b184366a899
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+
+COCOAPODS: 0.39.0

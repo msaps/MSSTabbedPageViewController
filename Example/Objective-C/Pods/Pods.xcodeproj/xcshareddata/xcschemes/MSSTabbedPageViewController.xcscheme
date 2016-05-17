@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6C9A193F16CFABBC47810A32'
+               BlueprintIdentifier = 'ACDF8298E328C52CBAE50BC7'
                BlueprintName = 'MSSTabbedPageViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMSSTabbedPageViewController.a'>
