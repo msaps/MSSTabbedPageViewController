@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		2B756E049F31A0465510EAF7 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
-		4672AD9F1CD9F95A00BAD572 /* Paged Tabs Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paged Tabs Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4672AD9F1CD9F95A00BAD572 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4672ADAE1CD9F95A00BAD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4672ADB51CD9FD0700BAD572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4672ADB61CD9FD0700BAD572 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		4672ADA01CD9F95A00BAD572 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4672AD9F1CD9F95A00BAD572 /* Paged Tabs Example.app */,
+				4672AD9F1CD9F95A00BAD572 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			);
 			name = "Paged Tabs Example";
 			productName = "Paged Tabs Example";
-			productReference = 4672AD9F1CD9F95A00BAD572 /* Paged Tabs Example.app */;
+			productReference = 4672AD9F1CD9F95A00BAD572 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -345,8 +345,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Paged Tabs Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Paged-Tabs-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.pagedTabsExample;
+				PRODUCT_NAME = Example;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -359,8 +359,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Paged Tabs Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.msapsford.Paged-Tabs-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.msapsford.pagedTabsExample;
+				PRODUCT_NAME = Example;
 			};
 			name = Release;
 		};
