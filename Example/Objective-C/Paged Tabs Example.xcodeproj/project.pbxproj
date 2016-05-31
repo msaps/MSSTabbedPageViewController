@@ -112,13 +112,13 @@
 		4656DCE31CFDC40A0007AB62 /* MSSTabBarView */ = {
 			isa = PBXGroup;
 			children = (
+				4656DCEA1CFDC40A0007AB62 /* MSSTabNavigationBar */,
 				4656DCE41CFDC40A0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
 				4656DCE51CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.h */,
 				4656DCE61CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m */,
 				4656DCE71CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib */,
 				4656DCE81CFDC40A0007AB62 /* MSSTabBarView.h */,
 				4656DCE91CFDC40A0007AB62 /* MSSTabBarView.m */,
-				4656DCEA1CFDC40A0007AB62 /* MSSTabNavigationBar */,
 				4656DCEE1CFDC40A0007AB62 /* MSSTabSizingStyle.h */,
 				4656DCEF1CFDC40A0007AB62 /* MSSTabStyle.h */,
 			);
