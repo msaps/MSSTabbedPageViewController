@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */; };
 		46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */; };
-		4656DCFD1CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCE61CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m */; };
-		4656DCFE1CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656DCE71CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib */; };
-		4656DCFF1CFDC40A0007AB62 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCE91CFDC40A0007AB62 /* MSSTabBarView.m */; };
-		4656DD001CFDC40A0007AB62 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCED1CFDC40A0007AB62 /* MSSTabNavigationBar.m */; };
-		4656DD011CFDC40A0007AB62 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCF31CFDC40A0007AB62 /* MSSPageViewController.m */; };
-		4656DD021CFDC40A0007AB62 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCF51CFDC40A0007AB62 /* MSSTabbedPageViewController.m */; };
-		4656DD031CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCF81CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.m */; };
-		4656DD041CFDC40A0007AB62 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCFA1CFDC40A0007AB62 /* UIView+MSSAutoLayout.m */; };
-		4656DD051CFDC40A0007AB62 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DCFC1CFDC40A0007AB62 /* UIViewController+MSSUtilities.m */; };
+		4656DD231CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */; };
+		4656DD241CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */; };
+		4656DD251CFDCADE0007AB62 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */; };
+		4656DD261CFDCADE0007AB62 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */; };
+		4656DD271CFDCADE0007AB62 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD191CFDCADE0007AB62 /* MSSPageViewController.m */; };
+		4656DD281CFDCADE0007AB62 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */; };
+		4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */; };
+		4656DD2A1CFDCADE0007AB62 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */; };
+		4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */; };
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
 		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
@@ -32,28 +32,29 @@
 		46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylesViewController.m; sourceTree = "<group>"; };
 		46334F191CBBBCBC00DFCEA2 /* TabControllerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerStyle.h; sourceTree = "<group>"; };
 		46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerStyle.m; sourceTree = "<group>"; };
-		4656DCE41CFDC40A0007AB62 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
-		4656DCE51CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
-		4656DCE61CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
-		4656DCE71CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
-		4656DCE81CFDC40A0007AB62 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
-		4656DCE91CFDC40A0007AB62 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
-		4656DCEB1CFDC40A0007AB62 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
-		4656DCEC1CFDC40A0007AB62 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
-		4656DCED1CFDC40A0007AB62 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
-		4656DCEE1CFDC40A0007AB62 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
-		4656DCEF1CFDC40A0007AB62 /* MSSTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
-		4656DCF11CFDC40A0007AB62 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
-		4656DCF21CFDC40A0007AB62 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
-		4656DCF31CFDC40A0007AB62 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
-		4656DCF41CFDC40A0007AB62 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
-		4656DCF51CFDC40A0007AB62 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
-		4656DCF71CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
-		4656DCF81CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
-		4656DCF91CFDC40A0007AB62 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
-		4656DCFA1CFDC40A0007AB62 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
-		4656DCFB1CFDC40A0007AB62 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
-		4656DCFC1CFDC40A0007AB62 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		4656DD091CFDCADE0007AB62 /* MSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBar.h; sourceTree = "<group>"; };
+		4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		4656DD111CFDCADE0007AB62 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
+		4656DD121CFDCADE0007AB62 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		4656DD171CFDCADE0007AB62 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		4656DD181CFDCADE0007AB62 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		4656DD191CFDCADE0007AB62 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		4656DD1A1CFDCADE0007AB62 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		4656DD1D1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		4656DD1F1CFDCADE0007AB62 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		4656DD211CFDCADE0007AB62 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
 		46FA81BF1C2C18FE0020BB60 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,72 +89,73 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4656DCE11CFDC40A0007AB62 /* MSSTabbedPageViewController */ = {
+		4656DD061CFDCADE0007AB62 /* MSSTabbedPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCE21CFDC40A0007AB62 /* Components */,
-				4656DCF01CFDC40A0007AB62 /* MSSPageViewController */,
-				4656DCF41CFDC40A0007AB62 /* MSSTabbedPageViewController.h */,
-				4656DCF51CFDC40A0007AB62 /* MSSTabbedPageViewController.m */,
-				4656DCF61CFDC40A0007AB62 /* Utilities */,
+				4656DD071CFDCADE0007AB62 /* Components */,
+				4656DD161CFDCADE0007AB62 /* MSSPageViewController */,
+				4656DD1A1CFDCADE0007AB62 /* MSSTabbedPageViewController.h */,
+				4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */,
+				4656DD1C1CFDCADE0007AB62 /* Utilities */,
 			);
 			name = MSSTabbedPageViewController;
-			path = ../../MSSTabbedPageViewController;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
-		4656DCE21CFDC40A0007AB62 /* Components */ = {
+		4656DD071CFDCADE0007AB62 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCE31CFDC40A0007AB62 /* MSSTabBarView */,
+				4656DD081CFDCADE0007AB62 /* MSSTabBarView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		4656DCE31CFDC40A0007AB62 /* MSSTabBarView */ = {
+		4656DD081CFDCADE0007AB62 /* MSSTabBarView */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCEA1CFDC40A0007AB62 /* MSSTabNavigationBar */,
-				4656DCE41CFDC40A0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
-				4656DCE51CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.h */,
-				4656DCE61CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m */,
-				4656DCE71CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib */,
-				4656DCE81CFDC40A0007AB62 /* MSSTabBarView.h */,
-				4656DCE91CFDC40A0007AB62 /* MSSTabBarView.m */,
-				4656DCEE1CFDC40A0007AB62 /* MSSTabSizingStyle.h */,
-				4656DCEF1CFDC40A0007AB62 /* MSSTabStyle.h */,
+				4656DD091CFDCADE0007AB62 /* MSSTabBar.h */,
+				4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
+				4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */,
+				4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */,
+				4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */,
+				4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */,
+				4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */,
+				4656DD101CFDCADE0007AB62 /* MSSTabNavigationBar */,
+				4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */,
+				4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */,
 			);
 			path = MSSTabBarView;
 			sourceTree = "<group>";
 		};
-		4656DCEA1CFDC40A0007AB62 /* MSSTabNavigationBar */ = {
+		4656DD101CFDCADE0007AB62 /* MSSTabNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCEB1CFDC40A0007AB62 /* MSSTabNavigationBar+Private.h */,
-				4656DCEC1CFDC40A0007AB62 /* MSSTabNavigationBar.h */,
-				4656DCED1CFDC40A0007AB62 /* MSSTabNavigationBar.m */,
+				4656DD111CFDCADE0007AB62 /* MSSTabNavigationBar+Private.h */,
+				4656DD121CFDCADE0007AB62 /* MSSTabNavigationBar.h */,
+				4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */,
 			);
 			path = MSSTabNavigationBar;
 			sourceTree = "<group>";
 		};
-		4656DCF01CFDC40A0007AB62 /* MSSPageViewController */ = {
+		4656DD161CFDCADE0007AB62 /* MSSPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCF11CFDC40A0007AB62 /* MSSPageViewController+Private.h */,
-				4656DCF21CFDC40A0007AB62 /* MSSPageViewController.h */,
-				4656DCF31CFDC40A0007AB62 /* MSSPageViewController.m */,
+				4656DD171CFDCADE0007AB62 /* MSSPageViewController+Private.h */,
+				4656DD181CFDCADE0007AB62 /* MSSPageViewController.h */,
+				4656DD191CFDCADE0007AB62 /* MSSPageViewController.m */,
 			);
 			path = MSSPageViewController;
 			sourceTree = "<group>";
 		};
-		4656DCF61CFDC40A0007AB62 /* Utilities */ = {
+		4656DD1C1CFDCADE0007AB62 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4656DCF71CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.h */,
-				4656DCF81CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.m */,
-				4656DCF91CFDC40A0007AB62 /* UIView+MSSAutoLayout.h */,
-				4656DCFA1CFDC40A0007AB62 /* UIView+MSSAutoLayout.m */,
-				4656DCFB1CFDC40A0007AB62 /* UIViewController+MSSUtilities.h */,
-				4656DCFC1CFDC40A0007AB62 /* UIViewController+MSSUtilities.m */,
+				4656DD1D1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.h */,
+				4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */,
+				4656DD1F1CFDCADE0007AB62 /* UIView+MSSAutoLayout.h */,
+				4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */,
+				4656DD211CFDCADE0007AB62 /* UIViewController+MSSUtilities.h */,
+				4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -162,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D65592F31C47F275000CAD99 /* Paged Tabs Example */,
-				4656DCE11CFDC40A0007AB62 /* MSSTabbedPageViewController */,
+				4656DD061CFDCADE0007AB62 /* MSSTabbedPageViewController */,
 				46FA81C01C2C18FE0020BB60 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -280,7 +282,7 @@
 			files = (
 				D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */,
 				D65593031C47F275000CAD99 /* Assets.xcassets in Resources */,
-				4656DCFE1CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */,
+				4656DD241CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */,
 				D65593061C47F275000CAD99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,16 +296,16 @@
 			files = (
 				D65593071C47F275000CAD99 /* TabViewController.m in Sources */,
 				D65593021C47F275000CAD99 /* main.m in Sources */,
-				4656DD041CFDC40A0007AB62 /* UIView+MSSAutoLayout.m in Sources */,
+				4656DD2A1CFDCADE0007AB62 /* UIView+MSSAutoLayout.m in Sources */,
 				46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */,
-				4656DCFD1CFDC40A0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */,
-				4656DCFF1CFDC40A0007AB62 /* MSSTabBarView.m in Sources */,
-				4656DD031CFDC40A0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */,
-				4656DD051CFDC40A0007AB62 /* UIViewController+MSSUtilities.m in Sources */,
-				4656DD001CFDC40A0007AB62 /* MSSTabNavigationBar.m in Sources */,
+				4656DD231CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */,
+				4656DD251CFDCADE0007AB62 /* MSSTabBarView.m in Sources */,
+				4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */,
+				4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */,
+				4656DD261CFDCADE0007AB62 /* MSSTabNavigationBar.m in Sources */,
 				D65593081C47F275000CAD99 /* ChildViewController.m in Sources */,
-				4656DD021CFDC40A0007AB62 /* MSSTabbedPageViewController.m in Sources */,
-				4656DD011CFDC40A0007AB62 /* MSSPageViewController.m in Sources */,
+				4656DD281CFDCADE0007AB62 /* MSSTabbedPageViewController.m in Sources */,
+				4656DD271CFDCADE0007AB62 /* MSSPageViewController.m in Sources */,
 				46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */,
 				D65593011C47F275000CAD99 /* AppDelegate.m in Sources */,
 			);

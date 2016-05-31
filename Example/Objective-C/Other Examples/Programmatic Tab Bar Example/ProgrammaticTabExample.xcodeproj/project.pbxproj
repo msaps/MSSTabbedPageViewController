@@ -7,17 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1715AF303BBB51D12B399143 /* libPods-ProgrammaticTabExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBF7388EBDF0C3770A8114B /* libPods-ProgrammaticTabExample.a */; };
+		4656DD491CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD321CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.m */; };
+		4656DD4A1CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656DD331CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.xib */; };
+		4656DD4B1CFDCB1B0007AB62 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD351CFDCB1B0007AB62 /* MSSTabBarView.m */; };
+		4656DD4C1CFDCB1B0007AB62 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD391CFDCB1B0007AB62 /* MSSTabNavigationBar.m */; };
+		4656DD4D1CFDCB1B0007AB62 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD3F1CFDCB1B0007AB62 /* MSSPageViewController.m */; };
+		4656DD4E1CFDCB1B0007AB62 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD411CFDCB1B0007AB62 /* MSSTabbedPageViewController.m */; };
+		4656DD4F1CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD441CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.m */; };
+		4656DD501CFDCB1B0007AB62 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD461CFDCB1B0007AB62 /* UIView+MSSAutoLayout.m */; };
+		4656DD511CFDCB1B0007AB62 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD481CFDCB1B0007AB62 /* UIViewController+MSSUtilities.m */; };
 		4670EFE61CEB2D7D00A5F09F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4670EFDD1CEB2D7D00A5F09F /* Assets.xcassets */; };
 		4670EFE71CEB2D7D00A5F09F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4670EFDE1CEB2D7D00A5F09F /* LaunchScreen.storyboard */; };
 		4670EFE81CEB2D7D00A5F09F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4670EFE11CEB2D7D00A5F09F /* AppDelegate.m */; };
 		4670EFE91CEB2D7D00A5F09F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4670EFE31CEB2D7D00A5F09F /* Main.storyboard */; };
 		4670EFEA1CEB2D7D00A5F09F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4670EFE51CEB2D7D00A5F09F /* ViewController.m */; };
 		46DE67B41CEB2C7A00D414E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DE67AC1CEB2C7A00D414E3 /* main.m */; };
-		6CBB13672347CA8C4CD1157C /* libPods-ProgrammaticTabExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E240950FC66FC67AB0A0A5 /* libPods-ProgrammaticTabExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FF7CC2BF93D7E83B5ECDB90 /* Pods-ProgrammaticTabExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgrammaticTabExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample.debug.xcconfig"; sourceTree = "<group>"; };
+		4656DD2F1CFDCB1B0007AB62 /* MSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBar.h; sourceTree = "<group>"; };
+		4656DD301CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		4656DD311CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		4656DD321CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		4656DD331CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		4656DD341CFDCB1B0007AB62 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		4656DD351CFDCB1B0007AB62 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		4656DD371CFDCB1B0007AB62 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
+		4656DD381CFDCB1B0007AB62 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		4656DD391CFDCB1B0007AB62 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		4656DD3A1CFDCB1B0007AB62 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		4656DD3B1CFDCB1B0007AB62 /* MSSTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		4656DD3D1CFDCB1B0007AB62 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		4656DD3E1CFDCB1B0007AB62 /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		4656DD3F1CFDCB1B0007AB62 /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		4656DD401CFDCB1B0007AB62 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		4656DD411CFDCB1B0007AB62 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		4656DD431CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		4656DD441CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		4656DD451CFDCB1B0007AB62 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		4656DD461CFDCB1B0007AB62 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		4656DD471CFDCB1B0007AB62 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		4656DD481CFDCB1B0007AB62 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
 		4670EFDD1CEB2D7D00A5F09F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4670EFDE1CEB2D7D00A5F09F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4670EFE01CEB2D7D00A5F09F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,8 +59,9 @@
 		46A53B151CE0AEE2000D3D4D /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DE67AB1CEB2C7A00D414E3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		46DE67AC1CEB2C7A00D414E3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
-		DEABEE2148611CB4F43B58B2 /* Pods-ProgrammaticTabExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgrammaticTabExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample.release.xcconfig"; sourceTree = "<group>"; };
-		F8E240950FC66FC67AB0A0A5 /* libPods-ProgrammaticTabExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgrammaticTabExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BBF7388EBDF0C3770A8114B /* libPods-ProgrammaticTabExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgrammaticTabExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0EB31213CD208F851B5FD63 /* Pods-ProgrammaticTabExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgrammaticTabExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample.debug.xcconfig"; sourceTree = "<group>"; };
+		E691BE8DAFB2E957442AC7ED /* Pods-ProgrammaticTabExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgrammaticTabExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,13 +69,84 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CBB13672347CA8C4CD1157C /* libPods-ProgrammaticTabExample.a in Frameworks */,
+				1715AF303BBB51D12B399143 /* libPods-ProgrammaticTabExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4656DD2C1CFDCB1B0007AB62 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD2D1CFDCB1B0007AB62 /* Components */,
+				4656DD3C1CFDCB1B0007AB62 /* MSSPageViewController */,
+				4656DD401CFDCB1B0007AB62 /* MSSTabbedPageViewController.h */,
+				4656DD411CFDCB1B0007AB62 /* MSSTabbedPageViewController.m */,
+				4656DD421CFDCB1B0007AB62 /* Utilities */,
+			);
+			name = MSSTabbedPageViewController;
+			path = ../../../../Source;
+			sourceTree = "<group>";
+		};
+		4656DD2D1CFDCB1B0007AB62 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD2E1CFDCB1B0007AB62 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4656DD2E1CFDCB1B0007AB62 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD2F1CFDCB1B0007AB62 /* MSSTabBar.h */,
+				4656DD301CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
+				4656DD311CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.h */,
+				4656DD321CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.m */,
+				4656DD331CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.xib */,
+				4656DD341CFDCB1B0007AB62 /* MSSTabBarView.h */,
+				4656DD351CFDCB1B0007AB62 /* MSSTabBarView.m */,
+				4656DD361CFDCB1B0007AB62 /* MSSTabNavigationBar */,
+				4656DD3A1CFDCB1B0007AB62 /* MSSTabSizingStyle.h */,
+				4656DD3B1CFDCB1B0007AB62 /* MSSTabStyle.h */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		4656DD361CFDCB1B0007AB62 /* MSSTabNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD371CFDCB1B0007AB62 /* MSSTabNavigationBar+Private.h */,
+				4656DD381CFDCB1B0007AB62 /* MSSTabNavigationBar.h */,
+				4656DD391CFDCB1B0007AB62 /* MSSTabNavigationBar.m */,
+			);
+			path = MSSTabNavigationBar;
+			sourceTree = "<group>";
+		};
+		4656DD3C1CFDCB1B0007AB62 /* MSSPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD3D1CFDCB1B0007AB62 /* MSSPageViewController+Private.h */,
+				4656DD3E1CFDCB1B0007AB62 /* MSSPageViewController.h */,
+				4656DD3F1CFDCB1B0007AB62 /* MSSPageViewController.m */,
+			);
+			path = MSSPageViewController;
+			sourceTree = "<group>";
+		};
+		4656DD421CFDCB1B0007AB62 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD431CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.h */,
+				4656DD441CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.m */,
+				4656DD451CFDCB1B0007AB62 /* UIView+MSSAutoLayout.h */,
+				4656DD461CFDCB1B0007AB62 /* UIView+MSSAutoLayout.m */,
+				4656DD471CFDCB1B0007AB62 /* UIViewController+MSSUtilities.h */,
+				4656DD481CFDCB1B0007AB62 /* UIViewController+MSSUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		4670EFDC1CEB2D7D00A5F09F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				46DE67A31CEB2C7A00D414E3 /* ProgrammaticTabExample */,
+				4656DD2C1CFDCB1B0007AB62 /* MSSTabbedPageViewController */,
 				46A53B161CE0AEE2000D3D4D /* Products */,
-				C7798D89BAC9DDA7AC111526 /* Pods */,
-				B68CB4924769009A803DBE7C /* Frameworks */,
+				4E76BB3DB7445A22F7ACDDC6 /* Pods */,
+				857444297A1ECF5A320037FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,21 +206,21 @@
 			path = ProgrammaticTabExample;
 			sourceTree = "<group>";
 		};
-		B68CB4924769009A803DBE7C /* Frameworks */ = {
+		4E76BB3DB7445A22F7ACDDC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F8E240950FC66FC67AB0A0A5 /* libPods-ProgrammaticTabExample.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C7798D89BAC9DDA7AC111526 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2FF7CC2BF93D7E83B5ECDB90 /* Pods-ProgrammaticTabExample.debug.xcconfig */,
-				DEABEE2148611CB4F43B58B2 /* Pods-ProgrammaticTabExample.release.xcconfig */,
+				C0EB31213CD208F851B5FD63 /* Pods-ProgrammaticTabExample.debug.xcconfig */,
+				E691BE8DAFB2E957442AC7ED /* Pods-ProgrammaticTabExample.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		857444297A1ECF5A320037FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BBF7388EBDF0C3770A8114B /* libPods-ProgrammaticTabExample.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,12 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46A53B2C1CE0AEE2000D3D4D /* Build configuration list for PBXNativeTarget "ProgrammaticTabExample" */;
 			buildPhases = (
-				6E3402535C0BEC110779AD85 /* 📦 Check Pods Manifest.lock */,
+				4988C4714F449872B26BE7EF /* 📦 Check Pods Manifest.lock */,
 				46A53B111CE0AEE2000D3D4D /* Sources */,
 				46A53B121CE0AEE2000D3D4D /* Frameworks */,
 				46A53B131CE0AEE2000D3D4D /* Resources */,
-				7D042FE4E51354F2F2ED9FC5 /* 📦 Embed Pods Frameworks */,
-				E459BEDC3F2ECF5DE9A3DC1B /* 📦 Copy Pods Resources */,
+				C06CE599D4D66B7A93A70D5A /* 📦 Embed Pods Frameworks */,
+				EC6C039A1A95226C4544B210 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +285,7 @@
 			files = (
 				4670EFE91CEB2D7D00A5F09F /* Main.storyboard in Resources */,
 				4670EFE61CEB2D7D00A5F09F /* Assets.xcassets in Resources */,
+				4656DD4A1CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */,
 				4670EFE71CEB2D7D00A5F09F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +293,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E3402535C0BEC110779AD85 /* 📦 Check Pods Manifest.lock */ = {
+		4988C4714F449872B26BE7EF /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,7 +308,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7D042FE4E51354F2F2ED9FC5 /* 📦 Embed Pods Frameworks */ = {
+		C06CE599D4D66B7A93A70D5A /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -218,7 +323,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E459BEDC3F2ECF5DE9A3DC1B /* 📦 Copy Pods Resources */ = {
+		EC6C039A1A95226C4544B210 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,8 +346,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4670EFEA1CEB2D7D00A5F09F /* ViewController.m in Sources */,
+				4656DD4E1CFDCB1B0007AB62 /* MSSTabbedPageViewController.m in Sources */,
+				4656DD4F1CFDCB1B0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */,
+				4656DD501CFDCB1B0007AB62 /* UIView+MSSAutoLayout.m in Sources */,
+				4656DD4D1CFDCB1B0007AB62 /* MSSPageViewController.m in Sources */,
 				4670EFE81CEB2D7D00A5F09F /* AppDelegate.m in Sources */,
+				4656DD491CFDCB1B0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */,
 				46DE67B41CEB2C7A00D414E3 /* main.m in Sources */,
+				4656DD4B1CFDCB1B0007AB62 /* MSSTabBarView.m in Sources */,
+				4656DD4C1CFDCB1B0007AB62 /* MSSTabNavigationBar.m in Sources */,
+				4656DD511CFDCB1B0007AB62 /* UIViewController+MSSUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +446,7 @@
 		};
 		46A53B2D1CE0AEE2000D3D4D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FF7CC2BF93D7E83B5ECDB90 /* Pods-ProgrammaticTabExample.debug.xcconfig */;
+			baseConfigurationReference = C0EB31213CD208F851B5FD63 /* Pods-ProgrammaticTabExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/ProgrammaticTabExample/Info.plist";
@@ -345,7 +458,7 @@
 		};
 		46A53B2E1CE0AEE2000D3D4D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEABEE2148611CB4F43B58B2 /* Pods-ProgrammaticTabExample.release.xcconfig */;
+			baseConfigurationReference = E691BE8DAFB2E957442AC7ED /* Pods-ProgrammaticTabExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/ProgrammaticTabExample/Info.plist";

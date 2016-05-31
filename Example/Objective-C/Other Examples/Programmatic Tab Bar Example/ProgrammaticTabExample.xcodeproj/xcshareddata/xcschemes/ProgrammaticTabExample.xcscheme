@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "46A53B141CE0AEE2000D3D4D"
-               BuildableName = "ProgrammaticTabExample.app"
+               BuildableName = "Example.app"
                BlueprintName = "ProgrammaticTabExample"
                ReferencedContainer = "container:ProgrammaticTabExample.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "46A53B141CE0AEE2000D3D4D"
-            BuildableName = "ProgrammaticTabExample.app"
+            BuildableName = "Example.app"
             BlueprintName = "ProgrammaticTabExample"
             ReferencedContainer = "container:ProgrammaticTabExample.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "46A53B141CE0AEE2000D3D4D"
-            BuildableName = "ProgrammaticTabExample.app"
+            BuildableName = "Example.app"
             BlueprintName = "ProgrammaticTabExample"
             ReferencedContainer = "container:ProgrammaticTabExample.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "46A53B141CE0AEE2000D3D4D"
-            BuildableName = "ProgrammaticTabExample.app"
+            BuildableName = "Example.app"
             BlueprintName = "ProgrammaticTabExample"
             ReferencedContainer = "container:ProgrammaticTabExample.xcodeproj">
          </BuildableReference>
