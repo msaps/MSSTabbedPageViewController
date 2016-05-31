@@ -92,13 +92,6 @@ Called when the page view controller completes a full scroll to a new page.
  - use `setTransitionStyle:` to set both the `selectionIndicatorTransitionStyle` and `tabTransitionStyle`.
 - `tabTransitionStyle` - The transition style to use for the tabs. 
 
-## Enhancements
-I plan to add the following enhancements to the next version:
-
-- Infinite Scrolling - ability to continously scroll page view controller and tab bar.
-- Improved childViewController - Improve on MSSTabbedPageChildViewController.
-- Additional appearance attribute support - Add enhanced attribute support to `MSSTabBarView`
-
 ## Requirements
 Supports iOS 8 and iOS 9.
 
