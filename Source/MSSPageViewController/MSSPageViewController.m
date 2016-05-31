@@ -268,11 +268,36 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     
     if (currentPagePosition != self.previousPagePosition) {
 
+        CGFloat minPagePosition = 0.0f;
+        CGFloat maxPagePosition = (self.viewControllers.count - 1);
+        
         // limit updates if out of bounds updates are disabled
         // updates will be limited to min of 0 and max of number of pages
-        BOOL outOfBounds = currentPagePosition < 0.0f || currentPagePosition > ((scrollView.contentSize.width / pageWidth) - 1.0f);
-        if (!self.provideOutOfBoundsUpdates && outOfBounds) {
-            currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
+        BOOL outOfBounds = currentPagePosition < minPagePosition || currentPagePosition > maxPagePosition;
+        if (outOfBounds) {
+            if (self.infiniteScrollEnabled) {
+                
+                double integral;
+                CGFloat progress = modf(fabs(currentPagePosition), &integral); // calculate transition progress
+                CGFloat infiniteMaxPosition;
+                if (currentPagePosition > 0) { // upper boundary - going to first page
+                    progress = 1.0f - progress;
+                    infiniteMaxPosition = minPagePosition;
+                } else { // lower boundary - going to max page
+                    infiniteMaxPosition = maxPagePosition;
+                }
+                
+                // calculate relative position on overall transition
+                CGFloat infinitePagePosition = (maxPagePosition - minPagePosition) * progress;
+                if ((fmod(progress, 1.0) == 0.0)) {
+                    infinitePagePosition = infiniteMaxPosition;
+                }
+                
+                currentPagePosition = infinitePagePosition;
+                
+            } else if (!self.provideOutOfBoundsUpdates) {
+                currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
+            }
         }
         
         // check whether updates are allowed
