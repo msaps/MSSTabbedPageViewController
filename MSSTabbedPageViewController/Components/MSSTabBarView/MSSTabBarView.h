@@ -18,8 +18,8 @@ typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
-extern NSString *const _Nonnull MSSTabTextColor;
-extern NSString *const _Nonnull MSSTabTextFont;
+extern NSString *const _Nonnull MSSTabTextColor __attribute__((deprecated("Use NSForegroundColorAttributeName instead")));
+extern NSString *const _Nonnull MSSTabTextFont __attribute__((deprecated("Use NSFontAttributeName instead")));
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>

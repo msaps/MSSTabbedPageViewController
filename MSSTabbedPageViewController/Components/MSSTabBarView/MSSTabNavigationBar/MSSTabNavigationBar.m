@@ -88,7 +88,7 @@ CGFloat const kMSSTabNavigationBarBottomPadding = 4.0f;
     if ((foregroundColor = titleTextAttributes[NSForegroundColorAttributeName])) {
         NSMutableDictionary *tabAttributes = self.tabBarView.tabAttributes ?
             [NSMutableDictionary dictionaryWithDictionary:self.tabBarView.tabAttributes] : [NSMutableDictionary new];
-        [tabAttributes setObject:foregroundColor forKey:MSSTabTextColor];
+        [tabAttributes setObject:foregroundColor forKey:NSForegroundColorAttributeName];
         self.tabBarView.tabAttributes = tabAttributes;
     }
 }

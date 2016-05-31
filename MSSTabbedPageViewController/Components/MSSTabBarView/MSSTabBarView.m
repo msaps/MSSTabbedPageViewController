@@ -668,12 +668,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // default appearance
     if (self.tabAttributes) {
         UIColor *tabTextColor;
-        if ((tabTextColor = self.tabAttributes[MSSTabTextColor])) {
+        if ((tabTextColor = self.tabAttributes[MSSTabTextColor]) ||
+            (tabTextColor = self.tabAttributes[NSForegroundColorAttributeName])) {
+            
             cell.textColor = tabTextColor;
         }
         
         UIFont *tabTextFont;
-        if ((tabTextFont = self.tabAttributes[MSSTabTextFont])) {
+        if ((tabTextFont = self.tabAttributes[MSSTabTextFont]) ||
+            (tabTextFont = self.tabAttributes[NSFontAttributeName])) {
             cell.textFont = tabTextFont;
         }
         
@@ -687,12 +690,16 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // selected appearance
     if (self.selectedTabAttributes) {
         UIColor *selectedTabTextColor;
-        if ((selectedTabTextColor = self.selectedTabAttributes[MSSTabTextColor])) {
+        if ((selectedTabTextColor = self.selectedTabAttributes[MSSTabTextColor]) ||
+            (selectedTabTextColor = self.selectedTabAttributes[NSForegroundColorAttributeName])) {
+            
             cell.selectedTextColor = selectedTabTextColor;
         }
         
         UIFont *selectedTabTextFont;
-        if ((selectedTabTextFont = self.selectedTabAttributes[MSSTabTextFont])) {
+        if ((selectedTabTextFont = self.selectedTabAttributes[MSSTabTextFont]) ||
+            (selectedTabTextFont = self.selectedTabAttributes[NSFontAttributeName])) {
+            
             cell.selectedTextFont = selectedTabTextFont;
         }
     }

@@ -43,8 +43,10 @@
     self.tabBarView.tabStyle = self.style.tabStyle;
     self.tabBarView.sizingStyle = self.style.sizingStyle;
     
-    self.tabBarView.tabAttributes = @{MSSTabTextFont : [UIFont systemFontOfSize:16.0f weight:UIFontWeightThin]};
-    self.tabBarView.selectedTabAttributes = @{MSSTabTextFont : [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium]};
+    self.tabBarView.tabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightThin],
+                                      NSForegroundColorAttributeName : [UIColor blackColor]};
+    self.tabBarView.selectedTabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium],
+                                              NSForegroundColorAttributeName : self.view.tintColor};
 }
 
 #pragma mark - Interaction
