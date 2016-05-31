@@ -152,6 +152,10 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  Whether the page view controller is currently animating a page update.
  */
 @property (nonatomic, assign, readonly, getter=isAnimatingPageUpdate) BOOL animatingPageUpdate;
+/**
+ Allows the page view controller to scroll indefinitely when it reaches end of page range.
+ */
+@property (nonatomic, assign, getter=hasInfiniteScrollEnabled) BOOL infiniteScrollEnabled;
 
 /**
  Move page view controller to a page at specific index.

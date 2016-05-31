@@ -53,6 +53,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
+    _infiniteScrollEnabled = YES;
     _currentPage = MSSPageViewControllerPageNumberInvalid;
 }
 
@@ -298,8 +299,12 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
        viewControllerAfterViewController:(UIViewController *)viewController {
     NSInteger index = [self indexOfViewController:viewController];
     
-    if (index != (self.viewControllers.count - 1) && index != NSNotFound) {
-        index++;
+    if (index != NSNotFound) {
+        if (index != (self.viewControllers.count - 1)) { // standard increment
+            index++;
+        } else if (self.infiniteScrollEnabled) { // end of pages - reset to first if infinite scrolling
+            index = 0;
+        }
         return [self viewControllerAtIndex:index];
     }
     return nil;
@@ -309,8 +314,12 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
       viewControllerBeforeViewController:(UIViewController *)viewController {
     NSInteger index = [self indexOfViewController:viewController];
     
-    if (index != 0 && index != NSNotFound) {
-        index--;
+    if (index != NSNotFound) {
+        if (index != 0) { // standard decrement
+            index--;
+        } else if (self.infiniteScrollEnabled) { // first index - reset to end if infinite scrolling
+            index = (self.viewControllers.count - 1);
+        }
         return [self viewControllerAtIndex:index];
     }
     return nil;
