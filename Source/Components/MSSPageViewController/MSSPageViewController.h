@@ -178,15 +178,15 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
 
 @end
 
-@protocol MSSPageChildViewController <NSObject>
+@interface UIViewController (MSSPageViewController)
 
 /**
  The page view controller of the parent
  */
-@property (nonatomic, weak, nullable) MSSPageViewController *pageViewController;
+@property (nonatomic, weak, readonly, nullable) MSSPageViewController *pageViewController;
 /**
  The index of the current view controller
  */
-@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign, readonly) NSInteger pageIndex;
 
 @end

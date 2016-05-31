@@ -18,7 +18,7 @@
 
 @end
 
-@protocol MSSTabbedPageChildViewController <MSSPageChildViewController>
+@protocol MSSTabbedPageChildViewController
 
 /**
  The tab bar view of the parent tabbed page view controller.
