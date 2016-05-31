@@ -53,7 +53,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     _showPageIndicator = NO;
     _allowScrollViewUpdates = YES;
     _scrollUpdatesEnabled = YES;
-    _infiniteScrollEnabled = YES;
+    _infiniteScrollEnabled = NO;
     _currentPage = MSSPageViewControllerPageNumberInvalid;
 }
 
@@ -297,30 +297,36 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 
 - (UIViewController *)pageViewController:(MSSPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger index = [self indexOfViewController:viewController];
+    NSInteger currentIndex = [self indexOfViewController:viewController];
+    NSInteger nextIndex = currentIndex;
     
-    if (index != NSNotFound) {
-        if (index != (self.viewControllers.count - 1)) { // standard increment
-            index++;
+    if (nextIndex != NSNotFound) {
+        if (nextIndex != (self.viewControllers.count - 1)) { // standard increment
+            nextIndex++;
         } else if (self.infiniteScrollEnabled) { // end of pages - reset to first if infinite scrolling
-            index = 0;
+            nextIndex = 0;
         }
-        return [self viewControllerAtIndex:index];
+        if (nextIndex != currentIndex) {
+            return [self viewControllerAtIndex:nextIndex];
+        }
     }
     return nil;
 }
 
 - (UIViewController *)pageViewController:(MSSPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger index = [self indexOfViewController:viewController];
+    NSInteger currentIndex = [self indexOfViewController:viewController];
+    NSInteger nextIndex = currentIndex;
     
-    if (index != NSNotFound) {
-        if (index != 0) { // standard decrement
-            index--;
+    if (nextIndex != NSNotFound) {
+        if (nextIndex != 0) { // standard decrement
+            nextIndex--;
         } else if (self.infiniteScrollEnabled) { // first index - reset to end if infinite scrolling
-            index = (self.viewControllers.count - 1);
+            nextIndex = (self.viewControllers.count - 1);
         }
-        return [self viewControllerAtIndex:index];
+        if (nextIndex != currentIndex) {
+            return [self viewControllerAtIndex:nextIndex];
+        }
     }
     return nil;
 }
