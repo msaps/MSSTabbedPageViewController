@@ -44,19 +44,6 @@ To customise the content of the tabs in the tab bar override the following:
            atIndex:(NSInteger)index;
 ```
 
-Child view controllers can have access to components of the parent `MSSTabbedPageViewController` by implementing the `MSSTabbedPageChildViewController` protocol:
-
-```
-// Parent page view controller
-@property (nonatomic, weak) MSSPageViewController *pageViewController;
-
-// The page index of the child view controller
-@property (nonatomic, assign) NSInteger pageIndex;
-
-// Parent tab bar view
-@property (nonatomic, weak) MSSTabBarView *tabBarView;
-```
-
 ### Page View Controller Enhancements
 
 MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above.
