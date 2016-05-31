@@ -15,11 +15,4 @@
     self.titleLabel.text = [NSString stringWithFormat:@"Page %i", (int)(self.pageIndex + 1)];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    NSLog(@"%@", self.tabBarView);
-    NSLog(@"%@", self.pageViewController);
-}
-
 @end
