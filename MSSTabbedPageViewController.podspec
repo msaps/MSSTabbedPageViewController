@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/MerrickSapsford/MSSTabbedPageViewController.git", :tag => s.version.to_s }
   s.requires_arc = true
-  s.source_files  = "MSSTabbedPageViewController/Classes", "MSSTabbedPageViewController/**/*.{h,m}"
+  s.source_files  = "MSSTabbedPageViewController/Classes", "Source/**/*.{h,m}"
   s.resources = ['MSSTabbedPageViewController/**/*.{xib}']
   s.frameworks = 'UIKit'
 

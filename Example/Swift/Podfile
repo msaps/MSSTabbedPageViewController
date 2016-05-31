@@ -1,8 +1,8 @@
 platform :ios, '9.0'
-use_frameworks!
 
 target 'Paged Tabs Example' do
+  use_frameworks!
 
-pod 'MSSTabbedPageViewController', :path => '../../'
+  pod 'MSSTabbedPageViewController', :path => '../../'
 
 end

@@ -11,7 +11,7 @@ MSSTabbedPageViewController is a UIViewController that provides a simple to impl
 <p><p>
 
 ## Example
-To run the example project, clone the repo and build the workspace. Examples are available for both Objective-C and Swift projects.
+To run the example project, clone the repo and build the project. Examples are available for both Objective-C and Swift projects.
 
 ## Installation
 MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
@@ -59,7 +59,7 @@ Child view controllers can have access to components of the parent `MSSTabbedPag
 
 ### Page View Controller Enhancements
 
-MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above. 
+MSSPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the `MSSTabbedPageViewControllerDataSource` as seen above.
 
 The delegate methods that `MSSPageViewControllerDelegate` provides are listed below:
 
@@ -68,13 +68,13 @@ The delegate methods that `MSSPageViewControllerDelegate` provides are listed be
      didScrollToPageOffset:(CGFloat)pageOffset
                  direction:(MSSPageViewControllerScrollDirection)scrollDirection;
 ```
-Called when the page view controller is scrolled by the user to a specific offset, similar to `scrollViewDidScroll`. The pageOffset maintains the current page position and a scroll direction is provided. 
+Called when the page view controller is scrolled by the user to a specific offset, similar to `scrollViewDidScroll`. The pageOffset maintains the current page position and a scroll direction is provided.
 
 ```
 - (void)pageViewController:(MSSPageViewController *)pageViewController
            didScrollToPage:(NSInteger)page;
 ```
-Called when the page view controller completes a full scroll to a new page. 
+Called when the page view controller completes a full scroll to a new page.
 
 ## Appearance
 `MSSTabBarView` provides properties for appearance customisation, including:
@@ -84,13 +84,13 @@ Called when the page view controller completes a full scroll to a new page.
 - `tabAttributes` - Appearance attributes for tabs:
  - `MSSTabTextColor`
  - `MSSTabTextFont`
-- `selectedTabAttributes` - Appearance attributes for the selected tab. 
+- `selectedTabAttributes` - Appearance attributes for the selected tab.
 - `tabIndicatorColor` - The color of the selection indicator. Also attached to the `tintColor` of the tab bar.
 - `selectionIndicatorTransitionStyle` - The transition style for the selection indicator.
  - `MSSTabTransitionStyleProgressive` to progressively transition between tabs.
  - `MSSTabTransitionStyleSnap` to snap between tabs during transitioning.
  - use `setTransitionStyle:` to set both the `selectionIndicatorTransitionStyle` and `tabTransitionStyle`.
-- `tabTransitionStyle` - The transition style to use for the tabs. 
+- `tabTransitionStyle` - The transition style to use for the tabs.
 
 ## Requirements
 Supports iOS 8 and iOS 9.
