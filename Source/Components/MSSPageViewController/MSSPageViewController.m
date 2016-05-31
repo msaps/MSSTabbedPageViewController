@@ -245,8 +245,16 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     for (UIViewController *viewController in viewControllers) {
         viewController.pageViewController = self;
         viewController.pageIndex = index;
+        [self setUpViewController:viewController
+                            index:index];
+        
         index++;
     }
+}
+
+- (void)setUpViewController:(UIViewController *)viewController
+                      index:(NSInteger)index {
+    
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {

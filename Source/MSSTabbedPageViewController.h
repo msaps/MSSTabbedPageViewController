@@ -18,11 +18,11 @@
 
 @end
 
-@protocol MSSTabbedPageChildViewController
+@interface UIViewController (MSSTabbedPageViewController)
 
 /**
  The tab bar view of the parent tabbed page view controller.
  */
-@property (nonatomic, weak, nullable) MSSTabBarView *tabBarView;
+@property (nonatomic, weak, nullable, readonly) MSSTabBarView *tabBarView;
 
 @end

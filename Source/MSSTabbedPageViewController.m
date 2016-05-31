@@ -9,6 +9,23 @@
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewController+Private.h"
 #import "MSSTabNavigationBar+Private.h"
+#import <objc/runtime.h>
+
+@implementation UIViewController (MSSTabbedPageViewController)
+
+- (void)setTabBarView:(MSSTabBarView * _Nullable)tabBarView {
+    objc_setAssociatedObject(self,
+                             @selector(tabBarView),
+                             tabBarView,
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (MSSTabBarView *)tabBarView {
+    return objc_getAssociatedObject(self, @selector(tabBarView));
+}
+
+@end
+
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
@@ -40,7 +57,7 @@
         MSSTabBarView *tabBarView = navigationBar.tabBarView;
         tabBarView.dataSource = self;
         tabBarView.delegate = self;
-        _tabBarView = tabBarView;
+        self.tabBarView = tabBarView;
         
         BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
         [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
@@ -59,7 +76,7 @@
         }
         
         // remove the current tab bar
-        _tabBarView = nil;
+        self.tabBarView = nil;
     }
 }
 
@@ -70,6 +87,20 @@
     if (delegate == (id<MSSPageViewControllerDelegate>)self) {
         [super setDelegate:delegate];
     }
+}
+
+- (void)setTabBarView:(MSSTabBarView *)tabBarView {
+    _tabBarView = tabBarView;
+    for (UIViewController *viewController in self.viewControllers) {
+        viewController.tabBarView = self.tabBarView;
+    }
+}
+
+#pragma mark - Internal
+
+- (void)setUpViewController:(UIViewController *)viewController
+                      index:(NSInteger)index {
+    viewController.tabBarView = self.tabBarView;
 }
 
 #pragma mark - Tab bar data source
