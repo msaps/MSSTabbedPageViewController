@@ -9,6 +9,7 @@
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewController+Private.h"
 #import "MSSTabNavigationBar+Private.h"
+#import <objc/runtime.h>
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
@@ -40,7 +41,7 @@
         MSSTabBarView *tabBarView = navigationBar.tabBarView;
         tabBarView.dataSource = self;
         tabBarView.delegate = self;
-        _tabBarView = tabBarView;
+        self.tabBarView = tabBarView;
         
         BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
         [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
@@ -59,7 +60,7 @@
         }
         
         // remove the current tab bar
-        _tabBarView = nil;
+        self.tabBarView = nil;
     }
 }
 

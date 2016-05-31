@@ -23,4 +23,7 @@
  */
 @property (nonatomic, assign) BOOL userInteractionEnabled;
 
+- (void)setUpViewController:(nonnull UIViewController *)viewController
+                      index:(NSInteger)index;
+
 @end

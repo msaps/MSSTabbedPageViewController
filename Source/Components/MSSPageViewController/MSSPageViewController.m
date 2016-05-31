@@ -8,20 +8,45 @@
 
 #import "MSSPageViewController.h"
 #import "MSSPageViewController+Private.h"
+#import <objc/runtime.h>
 
 NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
+
+@implementation UIViewController (MSSPageViewController)
+
+- (void)setPageViewController:(MSSPageViewController *)pageViewController {
+    objc_setAssociatedObject(self,
+                             @selector(pageViewController),
+                             pageViewController,
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (MSSPageViewController *)pageViewController {
+    return objc_getAssociatedObject(self, @selector(pageViewController));
+}
+
+- (void)setPageIndex:(NSInteger)pageIndex {
+    objc_setAssociatedObject(self,
+                             @selector(pageIndex),
+                             @(pageIndex),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSInteger)pageIndex {
+    return [objc_getAssociatedObject(self, @selector(pageIndex))integerValue];
+}
+
+@end
+
 
 @interface MSSPageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
     BOOL _viewHasLoaded;
 }
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
-
-@property (nonatomic, weak) UIScrollView *scrollView;
-
 @property (nonatomic, assign) CGFloat previousPagePosition;
 
-/// Internal scroll update toggle
+@property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, assign) BOOL scrollUpdatesEnabled;
 
 @end
@@ -217,13 +242,19 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 
 - (void)setUpViewControllers:(NSArray *)viewControllers {
     NSInteger index = 0;
-    for (UIViewController<MSSPageChildViewController> *viewController in viewControllers) {
-        if ([viewController respondsToSelector:@selector(pageViewController)]) {
-            viewController.pageViewController = self;
-            viewController.pageIndex = index;
-        }
+    for (UIViewController *viewController in viewControllers) {
+        viewController.pageViewController = self;
+        viewController.pageIndex = index;
+        [self setUpViewController:viewController
+                            index:index];
+        
         index++;
     }
+}
+
+- (void)setUpViewController:(UIViewController *)viewController
+                      index:(NSInteger)index {
+    
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
