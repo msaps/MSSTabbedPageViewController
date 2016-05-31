@@ -680,6 +680,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             cell.textFont = tabTextFont;
         }
         
+        UIColor *tabBackgroundColor;
+        if ((tabBackgroundColor = self.tabAttributes[NSBackgroundColorAttributeName])) {
+            cell.tabBackgroundColor = tabBackgroundColor;
+        }
+        
     } else {
         cell.textColor = self.tabTextColor;
         if(self.tabTextFont){
@@ -701,6 +706,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             (selectedTabTextFont = self.selectedTabAttributes[NSFontAttributeName])) {
             
             cell.selectedTextFont = selectedTabTextFont;
+        }
+        
+        UIColor *selectedTabBackgroundColor;
+        if ((selectedTabBackgroundColor = self.selectedTabAttributes[NSBackgroundColorAttributeName])) {
+            cell.selectedTabBackgroundColor = selectedTabBackgroundColor;
         }
     }
     

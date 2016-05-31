@@ -35,16 +35,6 @@
     return self.titleLabel.text;
 }
 
-- (void)setTextColor:(UIColor *)textColor {
-    _textColor = textColor;
-    self.titleLabel.textColor = textColor;
-}
-
-- (void)setTextFont:(UIFont *)textFont {
-    _textFont = textFont;
-	self.titleLabel.font = textFont;
-}
-
 - (void)setImage:(UIImage *)image {
     if (self.tabStyle == MSSTabStyleImage) {
         self.imageView.image = image;
@@ -57,37 +47,31 @@
 
 #pragma mark - Private
 
-- (void)setSelectionProgress:(CGFloat)selectionProgress {
-    _selectionProgress = selectionProgress;
-    switch (self.tabStyle) {
-        case MSSTabStyleText:
-            self.titleLabel.alpha = selectionProgress;
-            break;
-            
-        default:
-            break;
+- (void)setTextColor:(UIColor *)textColor {
+    _textColor = textColor;
+    if (!_isSelected) {
+        self.titleLabel.textColor = textColor;
     }
-    
-    BOOL isSelected = (selectionProgress == 1.0f);
-    if (_isSelected != isSelected) { // update selected state
-        
-        if (self.selectedTextFont || self.selectedTextColor) {
-            [UIView transitionWithView:self
-                              duration:0.2f
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            animations:
-             ^{
-                 if (self.selectedTextColor) {
-                     self.titleLabel.textColor = isSelected ? self.selectedTextColor : self.textColor;
-                 }
-                 if (self.selectedTextFont) {
-                     self.titleLabel.font = isSelected ? self.selectedTextFont : self.textFont;
-                 }
-            } completion:nil];
-        }
-        
-        _isSelected = isSelected;
-        self.selected = isSelected;
+}
+
+- (void)setSelectedTextColor:(UIColor *)selectedTextColor {
+    _selectedTextColor = selectedTextColor;
+    if (_isSelected) {
+        self.titleLabel.textColor = selectedTextColor;
+    }
+}
+
+- (void)setTextFont:(UIFont *)textFont {
+    _textFont = textFont;
+    if (!_isSelected) {
+        self.titleLabel.font = textFont;
+    }
+}
+
+- (void)setSelectedTextFont:(UIFont *)selectedTextFont {
+    _selectedTextFont = selectedTextFont;
+    if (_isSelected) {
+        self.titleLabel.font = selectedTextFont;
     }
 }
 
@@ -114,6 +98,66 @@
 
 - (void)setContentBottomMargin:(CGFloat)contentBottomMargin {
     self.containerViewBottomMargin.constant = contentBottomMargin;
+}
+
+- (void)setTabBackgroundColor:(UIColor *)tabBackgroundColor {
+    _tabBackgroundColor = tabBackgroundColor;
+    if (!_isSelected) {
+        self.backgroundColor = tabBackgroundColor;
+    }
+}
+
+- (void)setSelectedTabBackgroundColor:(UIColor *)selectedTabBackgroundColor {
+    _selectedTabBackgroundColor = selectedTabBackgroundColor;
+    if (_isSelected) {
+        self.backgroundColor = selectedTabBackgroundColor;
+    }
+}
+
+- (void)setSelectionProgress:(CGFloat)selectionProgress {
+    _selectionProgress = selectionProgress;
+    switch (self.tabStyle) {
+        case MSSTabStyleText:
+            self.titleLabel.alpha = selectionProgress;
+            break;
+            
+        default:
+            break;
+    }
+    
+    BOOL isSelected = (selectionProgress == 1.0f);
+    if (_isSelected != isSelected) { // update selected state
+        
+        if (self.selectedTextFont || self.selectedTextColor) {
+            [UIView transitionWithView:self
+                              duration:0.2f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:
+             ^{
+                 if (self.selectedTextColor) {
+                     self.titleLabel.textColor = isSelected ? self.selectedTextColor : self.textColor;
+                 } else {
+                     self.titleLabel.textColor = self.textColor;
+                 }
+                 
+                 if (self.selectedTextFont) {
+                     self.titleLabel.font = isSelected ? self.selectedTextFont : self.textFont;
+                 } else {
+                     self.titleLabel.font = self.textFont;
+                 }
+                 
+                 if (self.selectedTabBackgroundColor) {
+                     self.backgroundColor = isSelected ? self.selectedTabBackgroundColor : self.tabBackgroundColor;
+                 } else {
+                     self.backgroundColor = self.tabBackgroundColor;
+                 }
+                 
+             } completion:nil];
+        }
+        
+        _isSelected = isSelected;
+        self.selected = isSelected;
+    }
 }
 
 @end

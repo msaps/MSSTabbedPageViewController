@@ -14,9 +14,11 @@
 
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *textFont;
+@property (nonatomic, strong) UIColor *tabBackgroundColor;
 
 @property (nonatomic, strong) UIColor *selectedTextColor;
 @property (nonatomic, strong) UIFont *selectedTextFont;
+@property (nonatomic, strong) UIColor *selectedTabBackgroundColor;
 
 @property (nonatomic, assign) CGFloat selectionProgress;
 
