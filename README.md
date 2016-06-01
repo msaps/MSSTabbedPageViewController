@@ -68,9 +68,9 @@ Called when the page view controller completes a full scroll to a new page.
 
 - `sizingStyle` - Whether the tab bar should size to fit or equally distribute its tabs.
 - `tabStyle` - The style to use for tabs, either `MSSTabStyleText` for text or `MSSTabStyleImage` for images.
+- `indicatorAttributes` - Appearance attributes for tab indicator.
 - `tabAttributes` - Appearance attributes for tabs.
 - `selectedTabAttributes` - Appearance attributes for the selected tab.
-- `tabIndicatorColor` - The color of the selection indicator. Also attached to the `tintColor` of the tab bar.
 - `selectionIndicatorTransitionStyle` - The transition style for the selection indicator.
  - `MSSTabTransitionStyleProgressive` to progressively transition between tabs.
  - `MSSTabTransitionStyleSnap` to snap between tabs during transitioning.
