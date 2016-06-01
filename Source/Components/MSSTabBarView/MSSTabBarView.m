@@ -32,6 +32,8 @@ CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 // appearance
 NSString *  const MSSTabTextColor = @"tabTextColor";
 NSString *  const MSSTabTextFont = @"tabTextFont";
+NSString *  const MSSTabIndicatorHeight = @"tabIndicatorHeight";
+NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
 
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -94,7 +96,8 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _tabPadding = MSSTabBarViewDefaultTabPadding;
     CGFloat horizontalInset = MSSTabBarViewDefaultHorizontalContentInset;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
-    
+    _tabOffset = MSSTabBarViewTabOffsetInvalid;
+
     if (_height == 0.0f) {
         _height = MSSTabBarViewDefaultHeight;
     }
@@ -106,14 +109,12 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     self.scrollEnabled = MSSTabBarViewDefaultScrollEnabled;
-    
-    // Tab indicator
-    _selectionIndicatorHeight = MSSTabBarViewDefaultTabIndicatorHeight;
-    _selectionIndicatorView = [UIView new];
-    _tabIndicatorColor = self.tintColor;
     _tabTextColor = [UIColor blackColor];
     
-    _tabOffset = MSSTabBarViewTabOffsetInvalid;
+    // Tab indicator
+    _selectionIndicatorView = [UIView new];
+    _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
+                             NSForegroundColorAttributeName : self.tintColor};
 }
 
 #pragma mark - Lifecycle
@@ -140,7 +141,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     }
     
     if (!self.selectionIndicatorView.superview) {
-        self.selectionIndicatorView.backgroundColor = self.tabIndicatorColor;
+        [self updateIndicatorAppearance];
         [self.collectionView addSubview:self.selectionIndicatorView];
     }
 }
@@ -251,7 +252,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _contentInset = contentInset;
     
     // add selection indicator height to bottom of collection view inset
-    contentInset.bottom += self.selectionIndicatorHeight;
+    CGFloat indicatorHeight;
+    if (self.indicatorAttributes) {
+        indicatorHeight = [self.indicatorAttributes[MSSTabIndicatorHeight]floatValue];
+    } else {
+        indicatorHeight = self.selectionIndicatorHeight;
+    }
+    contentInset.bottom += indicatorHeight;
     
     self.collectionView.contentInset = contentInset;
 }
@@ -287,6 +294,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectionIndicatorView.backgroundColor = tabIndicatorColor;
 }
 
+- (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
+    [self updateIndicatorFrameWithHeight:selectionIndicatorHeight];
+}
+
+- (void)setSelectionIndicatorInset:(CGFloat)selectionIndicatorInset {
+    [self updateIndicatorFrameWithInset:selectionIndicatorInset];
+}
+
 - (void)setTabTextColor:(UIColor *)tabTextColor {
     _tabTextColor = tabTextColor;
     [self reloadData];
@@ -301,24 +316,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _backgroundView = backgroundView;
     [self addExpandingSubview:backgroundView];
     [self sendSubviewToBack:backgroundView];
-}
-
-- (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
-    _selectionIndicatorHeight = selectionIndicatorHeight;
-    CGRect frame = self.selectionIndicatorView.frame;
-    if (frame.size.height != selectionIndicatorHeight) {
-        CGFloat diff = selectionIndicatorHeight - frame.size.height;
-        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
-        frame.size = CGSizeMake(frame.size.width, selectionIndicatorHeight);
-        self.selectionIndicatorView.frame = frame;
-    }
-}
-
-- (void)setSelectionIndicatorInset:(CGFloat)selectionIndicatorInset {
-    _selectionIndicatorInset = selectionIndicatorInset;
-    CGRect frame = self.selectionIndicatorView.frame;
-    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - self.selectionIndicatorInset - self.selectionIndicatorHeight);
-    self.selectionIndicatorView.frame = frame;
 }
 
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource {
@@ -376,6 +373,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)setTabAttributes:(NSDictionary<NSString *,id> *)tabAttributes {
     _tabAttributes = tabAttributes;
     [self reloadData];
+}
+
+- (void)setSelectionIndicatorTransitionStyle:(MSSTabTransitionStyle)selectionIndicatorTransitionStyle {
+    self.indicatorTransitionStyle = selectionIndicatorTransitionStyle;
+}
+
+- (void)setIndicatorAttributes:(NSDictionary<NSString *,id> *)indicatorAttributes {
+    _indicatorAttributes = indicatorAttributes;
+    [self updateIndicatorAppearance];
 }
 
 #pragma mark - Tab Bar State
@@ -534,7 +540,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat newX = 0.0f;
     CGFloat newWidth = 0.0f;
     
-    if (self.selectionIndicatorTransitionStyle == MSSTabTransitionStyleProgressive) {
+    if (self.indicatorTransitionStyle == MSSTabTransitionStyleProgressive) {
         
         // calculate width difference
         CGFloat currentTabWidth = currentTabCell.frame.size.width;
@@ -549,7 +555,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                   andWidth:newWidth
                                          accountForPadding:YES];
         
-    } else if (self.selectionIndicatorTransitionStyle == MSSTabTransitionStyleSnap) {
+    } else if (self.indicatorTransitionStyle == MSSTabTransitionStyleSnap) {
         
         MSSTabBarCollectionViewCell *cell = progress > MSSTabBarViewTabTransitionSnapRatio ? nextTabCell : currentTabCell;
         
@@ -716,6 +722,44 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     cell.backgroundColor = [UIColor clearColor];
     [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+}
+
+- (void)updateIndicatorAppearance {
+    if (self.indicatorAttributes) {
+        
+        UIColor *indicatorColor;
+        if ((indicatorColor = self.indicatorAttributes[NSForegroundColorAttributeName])) {
+            self.selectionIndicatorView.backgroundColor = indicatorColor;
+        }
+        
+        NSNumber *indicatorHeight;
+        if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
+            [self updateIndicatorFrameWithHeight:[indicatorHeight floatValue]];
+        }
+        
+        NSNumber *indicatorInset;
+        if ((indicatorInset = self.indicatorAttributes[MSSTabIndicatorInset])) {
+            [self updateIndicatorFrameWithInset:[indicatorInset floatValue]];
+        }
+    }
+}
+
+- (void)updateIndicatorFrameWithHeight:(CGFloat)height {
+    CGRect frame = self.selectionIndicatorView.frame;
+    if (frame.size.height != height) {
+        _selectionIndicatorHeight = height;
+        CGFloat diff = height - frame.size.height;
+        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
+        frame.size = CGSizeMake(frame.size.width, height);
+        self.selectionIndicatorView.frame = frame;
+    }
+}
+
+- (void)updateIndicatorFrameWithInset:(CGFloat)inset {
+    _selectionIndicatorInset = inset;
+    CGRect frame = self.selectionIndicatorView.frame;
+    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - inset - self.selectionIndicatorHeight);
+    self.selectionIndicatorView.frame = frame;
 }
 
 #pragma clang diagnostic pop
