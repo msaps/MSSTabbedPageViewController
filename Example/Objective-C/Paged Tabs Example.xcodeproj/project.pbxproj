@@ -32,7 +32,6 @@
 		46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylesViewController.m; sourceTree = "<group>"; };
 		46334F191CBBBCBC00DFCEA2 /* TabControllerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerStyle.h; sourceTree = "<group>"; };
 		46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerStyle.m; sourceTree = "<group>"; };
-		4656DD091CFDCADE0007AB62 /* MSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBar.h; sourceTree = "<group>"; };
 		4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
 		4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
 		4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
@@ -113,16 +112,15 @@
 		4656DD081CFDCADE0007AB62 /* MSSTabBarView */ = {
 			isa = PBXGroup;
 			children = (
-				4656DD091CFDCADE0007AB62 /* MSSTabBar.h */,
+				4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */,
+				4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */,
+				4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */,
+				4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */,
 				4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
 				4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */,
 				4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */,
 				4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */,
-				4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */,
-				4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */,
 				4656DD101CFDCADE0007AB62 /* MSSTabNavigationBar */,
-				4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */,
-				4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */,
 			);
 			path = MSSTabBarView;
 			sourceTree = "<group>";
