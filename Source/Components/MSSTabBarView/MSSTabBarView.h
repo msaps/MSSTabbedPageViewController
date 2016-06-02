@@ -16,6 +16,11 @@ typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
     MSSTabTransitionStyleSnap
 };
 
+typedef NS_ENUM(NSInteger, MSSIndicatorStyle) {
+    MSSIndicatorStyleLine,
+    MSSIndicatorStyleImage
+};
+
 extern CGFloat const MSSTabBarViewDefaultHeight;
 
 extern NSString *const _Nonnull MSSTabTextColor __attribute__((deprecated("Use NSForegroundColorAttributeName instead")));
@@ -105,10 +110,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, weak, nullable) IBOutlet id<MSSTabBarViewDelegate> delegate;
 
-/**
- The current tab offset of the tab bar.
- */
-@property (nonatomic, assign) CGFloat tabOffset;
 /**
  The number of tabs in the tab bar.
  */

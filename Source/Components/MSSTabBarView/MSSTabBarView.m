@@ -7,6 +7,7 @@
 //
 
 #import "MSSTabBarView.h"
+#import "MSSTabBarView+Private.h"
 #import "UIView+MSSAutoLayout.h"
 #import "MSSTabBarCollectionViewCell+Private.h"
 
