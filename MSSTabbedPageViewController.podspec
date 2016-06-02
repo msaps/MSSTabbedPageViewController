@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/MerrickSapsford/MSSTabbedPageViewController"
-  s.screenshots  = "https://raw.githubusercontent.com/MerrickSapsford/MSSTabbedPageViewController/develop/MSSTabbedPageViewController.gif"
+  s.screenshots  = "https://raw.githubusercontent.com/MerrickSapsford/MSSTabbedPageViewController/develop/Resource/MSSTabbedPageViewController.gif"
   s.license      = "MIT"
   s.author       = { "Merrick Sapsford" => "merrick@sapsford.tech" }
   s.social_media_url   = "http://twitter.com/MerrickSapsford"
