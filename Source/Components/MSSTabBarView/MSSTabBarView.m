@@ -118,6 +118,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _indicatorContainer = [UIView new];
     _indicatorStyle = MSSIndicatorStyleLine;
     _indicatorContainer.userInteractionEnabled = NO;
+#warning TODO - Remove
     _indicatorContainer.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.3f];
     _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
                              NSForegroundColorAttributeName : self.tintColor};
@@ -742,7 +743,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
-    
+#warning TODO
 }
 
 - (void)updateIndicatorAppearance {
