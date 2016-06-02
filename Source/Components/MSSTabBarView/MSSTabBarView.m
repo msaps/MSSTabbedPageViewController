@@ -42,11 +42,11 @@ NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
 @property (nonatomic, assign) NSInteger tabCount;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @property (nonatomic, strong) UIView *indicatorContainer;
+@property (nonatomic, strong) UIView *indicatorView;
 
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
@@ -298,7 +298,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setTabIndicatorColor:(UIColor *)tabIndicatorColor {
     _tabIndicatorColor = tabIndicatorColor;
-    self.selectionIndicatorView.backgroundColor = tabIndicatorColor;
+    if (self.indicatorStyle == MSSIndicatorStyleLine) {
+        self.indicatorView.backgroundColor = tabIndicatorColor;
+    }
 }
 
 - (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
@@ -580,7 +582,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         newX = cell.frame.origin.x;
         newWidth = cell.frame.size.width;
         
-        BOOL requiresUpdate = self.selectionIndicatorView.frame.origin.x != newX;
+        BOOL requiresUpdate = self.indicatorContainer.frame.origin.x != newX;
         if (requiresUpdate) {
             [UIView animateWithDuration:0.25f animations:^{
                 [self updateIndicatorViewFrameWithXOrigin:newX
@@ -743,45 +745,71 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
-#warning TODO
+    [self.indicatorContainer clearSubviews];
+    
+    #warning TODO - Implement views
+    UIView *indicatorView;
+    switch (indicatorStyle) {
+        case MSSIndicatorStyleLine:
+            break;
+            
+        case MSSIndicatorStyleImage:
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.indicatorView = indicatorView;
 }
 
 - (void)updateIndicatorAppearance {
     if (self.indicatorAttributes) {
         
-        UIColor *indicatorColor;
-        if ((indicatorColor = self.indicatorAttributes[NSForegroundColorAttributeName])) {
-            self.selectionIndicatorView.backgroundColor = indicatorColor;
-        }
-        
-        NSNumber *indicatorHeight;
-        if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
-            [self updateIndicatorFrameWithHeight:[indicatorHeight floatValue]];
-        }
-        
-        NSNumber *indicatorInset;
-        if ((indicatorInset = self.indicatorAttributes[MSSTabIndicatorInset])) {
-            [self updateIndicatorFrameWithInset:[indicatorInset floatValue]];
+        switch (self.indicatorStyle) {
+            case MSSIndicatorStyleLine: {
+                
+                UIColor *indicatorColor;
+                if ((indicatorColor = self.indicatorAttributes[NSForegroundColorAttributeName])) {
+                    self.indicatorView.backgroundColor = indicatorColor;
+                }
+                
+                NSNumber *indicatorHeight;
+                if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
+                    [self updateIndicatorFrameWithHeight:[indicatorHeight floatValue]];
+                }
+                
+                NSNumber *indicatorInset;
+                if ((indicatorInset = self.indicatorAttributes[MSSTabIndicatorInset])) {
+                    [self updateIndicatorFrameWithInset:[indicatorInset floatValue]];
+                }
+            }
+                break;
+                
+            case MSSIndicatorStyleImage:
+                break;
         }
     }
 }
 
 - (void)updateIndicatorFrameWithHeight:(CGFloat)height {
-    CGRect frame = self.selectionIndicatorView.frame;
-    if (frame.size.height != height) {
-        _selectionIndicatorHeight = height;
-        CGFloat diff = height - frame.size.height;
-        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
-        frame.size = CGSizeMake(frame.size.width, height);
-        self.selectionIndicatorView.frame = frame;
-    }
+#warning TODO - Update for new view
+//    CGRect frame = self.indicatorView.frame;
+//    if (frame.size.height != height) {
+//        _selectionIndicatorHeight = height;
+//        CGFloat diff = height - frame.size.height;
+//        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
+//        frame.size = CGSizeMake(frame.size.width, height);
+//        self.indicatorView.frame = frame;
+//    }
 }
 
 - (void)updateIndicatorFrameWithInset:(CGFloat)inset {
-    _selectionIndicatorInset = inset;
-    CGRect frame = self.selectionIndicatorView.frame;
-    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - inset - self.selectionIndicatorHeight);
-    self.selectionIndicatorView.frame = frame;
+    #warning TODO - Update for new view
+//    _selectionIndicatorInset = inset;
+//    CGRect frame = self.indicatorView.frame;
+//    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - inset - self.selectionIndicatorHeight);
+//    self.indicatorView.frame = frame;
 }
 
 #pragma clang diagnostic pop
