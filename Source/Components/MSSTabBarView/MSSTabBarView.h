@@ -154,6 +154,14 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  MSSTabStyleText - use text as the content for each tab.
  */
 @property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
+/**
+ The style for the tab indicator.
+ 
+ MSSIndicatorStyleLine - use a coloured line as the indicator (default).
+ 
+ MSSIndicatorStyleImage - use an image as the indicator.
+ */
+@property (nonatomic, assign) MSSIndicatorStyle indicatorStyle UI_APPEARANCE_SELECTOR;
 
 /**
  The appearance attributes for tabs.

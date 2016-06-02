@@ -116,6 +116,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     // Tab indicator
     _indicatorContainer = [UIView new];
+    _indicatorStyle = MSSIndicatorStyleLine;
     _indicatorContainer.userInteractionEnabled = NO;
     _indicatorContainer.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.3f];
     _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
@@ -147,6 +148,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     
     if (!self.indicatorContainer.superview) {
         [self.collectionView addSubview:self.indicatorContainer];
+        [self updateIndicatorForStyle:self.indicatorStyle];
     }
 }
 
@@ -388,6 +390,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self updateIndicatorAppearance];
 }
 
+- (void)setIndicatorStyle:(MSSIndicatorStyle)indicatorStyle {
+    if (indicatorStyle != _indicatorStyle) {
+        _indicatorStyle = indicatorStyle;
+        [self updateIndicatorForStyle:indicatorStyle];
+    }
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -401,13 +410,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         MSSTabBarCollectionViewCell *firstTabCell = [self collectionViewCellAtTabIndex:0];
         [self updateTabsWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f backwards:NO];
-        [self updateTabSelectionIndicatorWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f];
+        [self updateIndicatorViewWithCurrentTabCell:firstTabCell
+                                        nextTabCell:firstTabCell
+                                           progress:1.0f];
         
     } else if (tabOffset >= self.tabCount - 1) { // stick at top of tab bar
         
         MSSTabBarCollectionViewCell *lastTabCell = [self collectionViewCellAtTabIndex:self.tabCount - 1];
         [self updateTabsWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f backwards:NO];
-        [self updateTabSelectionIndicatorWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f];
+        [self updateIndicatorViewWithCurrentTabCell:lastTabCell
+                                        nextTabCell:lastTabCell
+                                           progress:1.0f];
         
     } else { // update as required
         if (progress != 0.0f) {
@@ -425,9 +438,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                        nextTabCell:nextTabCell
                                           progress:progress
                                          backwards:isBackwards];
-                [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
-                                                        nextTabCell:nextTabCell
-                                                           progress:progress];
+                [self updateIndicatorViewWithCurrentTabCell:currentTabCell
+                                                nextTabCell:nextTabCell
+                                                   progress:progress];
             }
         } else { // finished update - on a tab cell
             
@@ -522,9 +535,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
-                                          nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
-                                              progress:(CGFloat)progress {
+- (void)updateIndicatorViewWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
+                                  nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
+                                     progress:(CGFloat)progress {
     if (self.tabCount == 0) {
         return;
     }
@@ -602,7 +615,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         // scroll collection view to center selection indicator if possible
         CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
-        CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
+        CGFloat scrollViewX = MAX(0, self.indicatorContainer.center.x - (collectionViewWidth / 2.0f));
         [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
                                                             self.collectionView.frame.origin.y,
                                                             collectionViewWidth,
@@ -726,6 +739,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     cell.backgroundColor = [UIColor clearColor];
     [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+}
+
+- (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
+    
 }
 
 - (void)updateIndicatorAppearance {
