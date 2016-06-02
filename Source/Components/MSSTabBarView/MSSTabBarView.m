@@ -45,6 +45,8 @@ NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
+@property (nonatomic, strong) UIView *indicatorContainer;
+
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
 @property (nonatomic, assign) NSInteger defaultTabIndex;
@@ -112,7 +114,9 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _tabTextColor = [UIColor blackColor];
     
     // Tab indicator
-    _selectionIndicatorView = [UIView new];
+    _indicatorContainer = [UIView new];
+    _indicatorContainer.userInteractionEnabled = NO;
+    _indicatorContainer.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.3f];
     _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
                              NSForegroundColorAttributeName : self.tintColor};
 }
@@ -140,9 +144,8 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         self.collectionView.showsHorizontalScrollIndicator = NO;
     }
     
-    if (!self.selectionIndicatorView.superview) {
-        [self updateIndicatorAppearance];
-        [self.collectionView addSubview:self.selectionIndicatorView];
+    if (!self.indicatorContainer.superview) {
+        [self.collectionView addSubview:self.indicatorContainer];
     }
 }
 
@@ -470,14 +473,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     if (self.animateDataSourceTransition) {
         [UIView animateWithDuration:0.25f animations:^{
-            [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                                      andWidth:cell.frame.size.width
-                                             accountForPadding:YES];
+            [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                             andWidth:cell.frame.size.width
+                                    accountForPadding:YES];
         }];
     } else {
-        [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                                  andWidth:cell.frame.size.width
-                                         accountForPadding:YES];
+        [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                         andWidth:cell.frame.size.width
+                                accountForPadding:YES];
     }
 }
 
@@ -551,9 +554,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         newX = lowerXPos + ((upperXPos - lowerXPos) * progress);
         newWidth = currentTabWidth + widthDiff;
         
-        [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                                  andWidth:newWidth
-                                         accountForPadding:YES];
+        [self updateIndicatorViewFrameWithXOrigin:newX
+                                         andWidth:newWidth
+                                accountForPadding:YES];
         
     } else if (self.indicatorTransitionStyle == MSSTabTransitionStyleSnap) {
         
@@ -565,15 +568,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         BOOL requiresUpdate = self.selectionIndicatorView.frame.origin.x != newX;
         if (requiresUpdate) {
             [UIView animateWithDuration:0.25f animations:^{
-                [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                                          andWidth:newWidth
-                                                 accountForPadding:YES];
+                [self updateIndicatorViewFrameWithXOrigin:newX
+                                                 andWidth:newWidth
+                                        accountForPadding:YES];
             }];
         }
     }
 }
 
-- (void)updateSelectionIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
+- (void)updateIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
                                             andWidth:(CGFloat)width
                                    accountForPadding:(BOOL)padding {
     if (self.tabCount == 0) {
@@ -586,10 +589,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         xOrigin += (tabInternalPadding / 2.0f);
     }
     
-    self.selectionIndicatorView.frame = CGRectMake(xOrigin,
-                                                   self.bounds.size.height - self.selectionIndicatorInset - self.selectionIndicatorHeight,
-                                                   width,
-                                                   self.selectionIndicatorHeight);
+    self.indicatorContainer.frame = CGRectMake(xOrigin,
+                                               0.0f,
+                                               width,
+                                               self.bounds.size.height);
     [self updateCollectionViewScrollOffset];
 }
 
