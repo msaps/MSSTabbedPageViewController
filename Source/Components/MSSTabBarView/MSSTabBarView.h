@@ -22,6 +22,7 @@ extern NSString *const _Nonnull MSSTabTextColor __attribute__((deprecated("Use N
 extern NSString *const _Nonnull MSSTabTextFont __attribute__((deprecated("Use NSFontAttributeName instead")));
 extern NSString *const _Nonnull MSSTabIndicatorHeight;
 extern NSString *const _Nonnull MSSTabIndicatorInset;
+extern NSString *const _Nonnull MSSTabTransitionAlphaEffectEnabled;
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>

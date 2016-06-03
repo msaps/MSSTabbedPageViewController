@@ -23,6 +23,27 @@
 
 @implementation MSSTabBarCollectionViewCell
 
+#pragma mark - Init
+
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self baseInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self baseInit];
+    }
+    return self;
+}
+
+- (void)baseInit {
+    _alphaEffectEnabled = YES; // alpha effect enabled by default
+}
+
 #pragma mark - Public
 
 - (void)setTitle:(NSString *)title {
@@ -116,16 +137,37 @@
 
 - (void)setSelectionProgress:(CGFloat)selectionProgress {
     _selectionProgress = selectionProgress;
+    
+    [self updateProgressiveAppearance];
+    [self updateSelectionAppearance];
+}
+
+- (void)setAlphaEffectEnabled:(BOOL)alphaEffectEnabled {
+    _alphaEffectEnabled = alphaEffectEnabled;
+    if (alphaEffectEnabled) {
+        [self updateProgressiveAppearance];
+    } else {
+        self.titleLabel.alpha = 1.0f;
+    }
+}
+
+#pragma mark - Internal
+
+- (void)updateProgressiveAppearance {
     switch (self.tabStyle) {
         case MSSTabStyleText:
-            self.titleLabel.alpha = selectionProgress;
+            if (self.alphaEffectEnabled) {
+                self.titleLabel.alpha = self.selectionProgress;
+            }
             break;
             
         default:
             break;
     }
-    
-    BOOL isSelected = (selectionProgress == 1.0f);
+}
+
+- (void)updateSelectionAppearance {
+    BOOL isSelected = (self.selectionProgress == 1.0f);
     if (_isSelected != isSelected) { // update selected state
         
         if (self.selectedTextFont || self.selectedTextColor) {

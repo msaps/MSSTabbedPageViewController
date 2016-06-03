@@ -22,6 +22,8 @@
 
 @property (nonatomic, assign) CGFloat selectionProgress;
 
+@property (nonatomic, assign) BOOL alphaEffectEnabled;
+
 - (void)setTabStyle:(MSSTabStyle)tabStyle;
 
 - (void)setContentBottomMargin:(CGFloat)contentBottomMargin;
