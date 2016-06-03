@@ -200,10 +200,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  */
 @property (nonatomic, assign) CGFloat selectionIndicatorHeight UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use indicatorAttributes instead")));
 /**
- The inset for the selection indicator from the bottom of the tab bar.
- */
-@property (nonatomic, assign) CGFloat selectionIndicatorInset UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use indicatorAttributes instead")));
-/**
  The color of the tab selection indicator.
  */
 @property (nonatomic, strong, nullable) UIColor *tabIndicatorColor UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use indicatorAttributes instead")));

@@ -43,6 +43,7 @@
     self.tabBarView.tabStyle = self.style.tabStyle;
     self.tabBarView.sizingStyle = self.style.sizingStyle;
     
+//    self.tabBarView.indicatorStyle = MSSIndicatorStyleImage;
     self.tabBarView.tabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightThin],
                                       NSForegroundColorAttributeName : [UIColor blackColor]};
     self.tabBarView.selectedTabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium],

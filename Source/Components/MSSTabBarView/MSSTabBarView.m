@@ -41,6 +41,8 @@ CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
 @property (nonatomic, strong) UIView *indicatorContainer;
 @property (nonatomic, strong) UIView *indicatorView;
+@property (nonatomic, assign) CGFloat lineIndicatorHeight;
+@property (nonatomic, assign) CGFloat lineIndicatorInset;
 
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
@@ -298,11 +300,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
-    [self updateIndicatorFrameWithHeight:selectionIndicatorHeight];
-}
-
-- (void)setSelectionIndicatorInset:(CGFloat)selectionIndicatorInset {
-    [self updateIndicatorFrameWithInset:selectionIndicatorInset];
+    self.lineIndicatorHeight = selectionIndicatorHeight;
 }
 
 - (void)setTabTextColor:(UIColor *)tabTextColor {
@@ -391,6 +389,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indicatorStyle != _indicatorStyle) {
         _indicatorStyle = indicatorStyle;
         [self updateIndicatorForStyle:indicatorStyle];
+    }
+}
+
+- (void)setLineIndicatorHeight:(CGFloat)lineIndicatorHeight {
+    if (lineIndicatorHeight != _lineIndicatorHeight) {
+        _lineIndicatorHeight = lineIndicatorHeight;
+        [self updateIndicatorFrames];
     }
 }
 
@@ -604,6 +609,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                0.0f,
                                                width,
                                                self.bounds.size.height);
+    [self updateIndicatorFrames];
     [self updateCollectionViewScrollOffset];
 }
 
@@ -740,19 +746,25 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     cell.backgroundColor = [UIColor clearColor];
-    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+    [cell setContentBottomMargin:(self.selectionIndicatorHeight)];
 }
 
 - (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
     [self.indicatorContainer clearSubviews];
     
-    #warning TODO - Implement views
     UIView *indicatorView;
     switch (indicatorStyle) {
-        case MSSIndicatorStyleLine:
+        case MSSIndicatorStyleLine: {
+            UIView *indicatorLineView = [UIView new];
+            [self.indicatorContainer addSubview:indicatorLineView];
+            
+            indicatorView = indicatorLineView;
+        }
             break;
             
         case MSSIndicatorStyleImage:
+#warning TODO - Implement image view
+
             break;
             
         default:
@@ -760,6 +772,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     self.indicatorView = indicatorView;
+    [self updateIndicatorAppearance];
 }
 
 - (void)updateIndicatorAppearance {
@@ -775,12 +788,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 NSNumber *indicatorHeight;
                 if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
-                    [self updateIndicatorFrameWithHeight:[indicatorHeight floatValue]];
-                }
-                
-                NSNumber *indicatorInset;
-                if ((indicatorInset = self.indicatorAttributes[MSSTabIndicatorInset])) {
-                    [self updateIndicatorFrameWithInset:[indicatorInset floatValue]];
+                    self.lineIndicatorHeight = [indicatorHeight floatValue];
                 }
             }
                 break;
@@ -791,24 +799,24 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)updateIndicatorFrameWithHeight:(CGFloat)height {
-#warning TODO - Update for new view
-//    CGRect frame = self.indicatorView.frame;
-//    if (frame.size.height != height) {
-//        _selectionIndicatorHeight = height;
-//        CGFloat diff = height - frame.size.height;
-//        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
-//        frame.size = CGSizeMake(frame.size.width, height);
-//        self.indicatorView.frame = frame;
-//    }
-}
-
-- (void)updateIndicatorFrameWithInset:(CGFloat)inset {
-    #warning TODO - Update for new view
-//    _selectionIndicatorInset = inset;
-//    CGRect frame = self.indicatorView.frame;
-//    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - inset - self.selectionIndicatorHeight);
-//    self.indicatorView.frame = frame;
+- (void)updateIndicatorFrames {
+    CGRect containerBounds = self.indicatorContainer.bounds;
+    
+    CGFloat height = 0.0f;
+    switch (self.indicatorStyle) {
+        case MSSIndicatorStyleLine:
+            height = self.lineIndicatorHeight;
+            break;
+            
+        case MSSIndicatorStyleImage:
+            height = self.indicatorContainer.bounds.size.height;
+            break;
+    }
+    
+    self.indicatorView.frame = CGRectMake(0.0f,
+                                          containerBounds.size.height - height,
+                                          containerBounds.size.width,
+                                          height);
 }
 
 #pragma clang diagnostic pop

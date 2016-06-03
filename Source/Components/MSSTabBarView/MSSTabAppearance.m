@@ -11,5 +11,4 @@
 NSString *  const MSSTabTextColor = @"tabTextColor";
 NSString *  const MSSTabTextFont = @"tabTextFont";
 NSString *  const MSSTabIndicatorHeight = @"tabIndicatorHeight";
-NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
 NSString *  const MSSTabTransitionAlphaEffectEnabled = @"alphaEffectEnabled";
