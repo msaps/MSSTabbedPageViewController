@@ -114,9 +114,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _indicatorContainer = [UIView new];
     _indicatorStyle = MSSIndicatorStyleLine;
     _indicatorContainer.userInteractionEnabled = NO;
-#warning TODO - Remove
-    _indicatorContainer.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.3f];
-    _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
+    _indicatorAttributes = @{MSSTabIndicatorLineHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
                              NSForegroundColorAttributeName : self.tintColor};
 }
 
@@ -257,7 +255,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // add selection indicator height to bottom of collection view inset
     CGFloat indicatorHeight;
     if (self.indicatorAttributes) {
-        indicatorHeight = [self.indicatorAttributes[MSSTabIndicatorHeight]floatValue];
+        indicatorHeight = [self.indicatorAttributes[MSSTabIndicatorLineHeight]floatValue];
     } else {
         indicatorHeight = self.selectionIndicatorHeight;
     }
@@ -762,9 +760,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         }
             break;
             
-        case MSSIndicatorStyleImage:
-#warning TODO - Implement image view
-
+        case MSSIndicatorStyleImage: {
+            UIImageView *imageView = [UIImageView new];
+            imageView.contentMode = UIViewContentModeBottom;
+            [self.indicatorContainer addSubview:imageView];
+            
+            indicatorView = imageView;
+        }
             break;
             
         default:
@@ -787,13 +789,25 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 }
                 
                 NSNumber *indicatorHeight;
-                if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
+                if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorLineHeight])) {
                     self.lineIndicatorHeight = [indicatorHeight floatValue];
                 }
             }
                 break;
                 
-            case MSSIndicatorStyleImage:
+            case MSSIndicatorStyleImage: {
+                UIImageView *indicatorImageView = (UIImageView *)self.indicatorView;
+                
+                UIImage *indicatorImage;
+                if ((indicatorImage = self.indicatorAttributes[MSSTabIndicatorImage])) {
+                    indicatorImageView.image = [indicatorImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                }
+                
+                UIColor *indicatorTintColor;
+                if ((indicatorTintColor = self.indicatorAttributes[MSSTabIndicatorImageTintColor])) {
+                    indicatorImageView.tintColor = indicatorTintColor;
+                }
+            }
                 break;
         }
     }
