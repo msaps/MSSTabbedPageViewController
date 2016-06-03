@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MerrickSapsford/MSSKeyboardManager/blob/develop/Resource/Icon.png?raw=true" alt="MSSTabbedPageViewController" height="160" width="160"/>
+  <img src="https://github.com/MerrickSapsford/MSSTabbedPageViewController/blob/develop/Resource/Icon.png?raw=true" alt="MSSTabbedPageViewController" height="160" width="160"/>
 </p>
 
 # MSSTabbedPageViewController
@@ -9,7 +9,7 @@
 MSSTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.
 
 <div style="width:100%;">
-<img src="https://github.com/MerrickSapsford/MSSKeyboardManager/blob/develop/Resource/MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
+<img src="https://github.com/MerrickSapsford/MSSTabbedPageViewController/blob/develop/Resource/MSSTabbedPageViewController.gif" align="center" height="30%" width="30%" style="margin-left:20px;">
 </div>
 
 <p><p>
