@@ -34,6 +34,7 @@ NSString *  const MSSTabTextColor = @"tabTextColor";
 NSString *  const MSSTabTextFont = @"tabTextFont";
 NSString *  const MSSTabIndicatorHeight = @"tabIndicatorHeight";
 NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
+NSString *  const MSSTabTransitionAlphaEffectEnabled = @"alphaEffectEnabled";
 
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -689,6 +690,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         UIColor *tabBackgroundColor;
         if ((tabBackgroundColor = self.tabAttributes[NSBackgroundColorAttributeName])) {
             cell.tabBackgroundColor = tabBackgroundColor;
+        }
+        
+        NSNumber *alphaEffectEnabled;
+        if ((alphaEffectEnabled = self.tabAttributes[MSSTabTransitionAlphaEffectEnabled])) {
+            cell.alphaEffectEnabled = [alphaEffectEnabled boolValue];
         }
         
     } else {
