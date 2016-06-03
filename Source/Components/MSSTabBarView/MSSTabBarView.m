@@ -30,13 +30,6 @@ CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
 
 CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
-// appearance
-NSString *  const MSSTabTextColor = @"tabTextColor";
-NSString *  const MSSTabTextFont = @"tabTextFont";
-NSString *  const MSSTabIndicatorHeight = @"tabIndicatorHeight";
-NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
-NSString *  const MSSTabTransitionAlphaEffectEnabled = @"alphaEffectEnabled";
-
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;

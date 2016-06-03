@@ -10,6 +10,7 @@
 #import "MSSTabBarCollectionViewCell.h"
 #import "MSSTabSizingStyle.h"
 #import "MSSTabStyle.h"
+#import "MSSTabAppearance.h"
 
 typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
     MSSTabTransitionStyleProgressive,
@@ -22,12 +23,6 @@ typedef NS_ENUM(NSInteger, MSSIndicatorStyle) {
 };
 
 extern CGFloat const MSSTabBarViewDefaultHeight;
-
-extern NSString *const _Nonnull MSSTabTextColor __attribute__((deprecated("Use NSForegroundColorAttributeName instead")));
-extern NSString *const _Nonnull MSSTabTextFont __attribute__((deprecated("Use NSFontAttributeName instead")));
-extern NSString *const _Nonnull MSSTabIndicatorHeight;
-extern NSString *const _Nonnull MSSTabIndicatorInset;
-extern NSString *const _Nonnull MSSTabTransitionAlphaEffectEnabled;
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
