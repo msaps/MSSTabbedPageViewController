@@ -48,6 +48,7 @@
                                       MSSTabTransitionAlphaEffectEnabled : @(NO)};
     self.tabBarView.selectedTabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium],
                                               NSForegroundColorAttributeName : self.view.tintColor};
+    self.tabBarView.indicatorAttributes = @{};
 }
 
 #pragma mark - Interaction

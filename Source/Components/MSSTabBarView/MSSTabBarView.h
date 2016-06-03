@@ -10,7 +10,7 @@
 #import "MSSTabBarCollectionViewCell.h"
 #import "MSSTabSizingStyle.h"
 #import "MSSTabStyle.h"
-#import "MSSTabAppearance.h"
+#import "MSSTabBarAppearance.h"
 
 typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
     MSSTabTransitionStyleProgressive,

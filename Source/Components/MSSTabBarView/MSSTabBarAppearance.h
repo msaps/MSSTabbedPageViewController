@@ -1,5 +1,5 @@
 //
-//  MSSTabAppearance.h
+//  MSSTabBarAppearance.h
 //  Paged Tabs Example
 //
 //  Created by Merrick Sapsford on 03/06/2016.
