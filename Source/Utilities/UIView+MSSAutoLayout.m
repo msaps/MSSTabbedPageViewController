@@ -53,6 +53,14 @@ NSInteger const UIViewDefaultZIndex = -1;
                                                                    views:views]];
 }
 
+#pragma mark - Utils
+
+- (void)clearSubviews {
+    for (UIView *subview in self.subviews) {
+        [subview removeFromSuperview];
+    }
+}
+
 #pragma mark - Internal
 
 - (void)addView:(UIView *)subview atZIndex:(NSInteger)index {

@@ -20,4 +20,6 @@ extern NSInteger const UIViewDefaultZIndex;
 
 - (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height;
 
+- (void)clearSubviews;
+
 @end

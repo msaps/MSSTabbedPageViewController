@@ -10,19 +10,19 @@
 #import "MSSTabBarCollectionViewCell.h"
 #import "MSSTabSizingStyle.h"
 #import "MSSTabStyle.h"
+#import "MSSTabBarAppearance.h"
 
 typedef NS_ENUM(NSInteger, MSSTabTransitionStyle) {
     MSSTabTransitionStyleProgressive,
     MSSTabTransitionStyleSnap
 };
 
-extern CGFloat const MSSTabBarViewDefaultHeight;
+typedef NS_ENUM(NSInteger, MSSIndicatorStyle) {
+    MSSIndicatorStyleLine,
+    MSSIndicatorStyleImage
+};
 
-extern NSString *const _Nonnull MSSTabTextColor __attribute__((deprecated("Use NSForegroundColorAttributeName instead")));
-extern NSString *const _Nonnull MSSTabTextFont __attribute__((deprecated("Use NSFontAttributeName instead")));
-extern NSString *const _Nonnull MSSTabIndicatorHeight;
-extern NSString *const _Nonnull MSSTabIndicatorInset;
-extern NSString *const _Nonnull MSSTabTransitionAlphaEffectEnabled;
+extern CGFloat const MSSTabBarViewDefaultHeight;
 
 @class MSSTabBarView;
 @protocol MSSTabBarViewDataSource <NSObject>
@@ -107,10 +107,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
 @property (nonatomic, weak, nullable) IBOutlet id<MSSTabBarViewDelegate> delegate;
 
 /**
- The current tab offset of the tab bar.
- */
-@property (nonatomic, assign) CGFloat tabOffset;
-/**
  The number of tabs in the tab bar.
  */
 @property (nonatomic, assign, readonly) NSInteger tabCount;
@@ -154,6 +150,14 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  MSSTabStyleText - use text as the content for each tab.
  */
 @property (nonatomic, assign) MSSTabStyle tabStyle UI_APPEARANCE_SELECTOR;
+/**
+ The style for the tab indicator.
+ 
+ MSSIndicatorStyleLine - use a coloured line as the indicator (default).
+ 
+ MSSIndicatorStyleImage - use an image as the indicator.
+ */
+@property (nonatomic, assign) MSSIndicatorStyle indicatorStyle UI_APPEARANCE_SELECTOR;
 
 /**
  The appearance attributes for tabs.
@@ -195,10 +199,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The height of the selection indicator.
  */
 @property (nonatomic, assign) CGFloat selectionIndicatorHeight UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use indicatorAttributes instead")));
-/**
- The inset for the selection indicator from the bottom of the tab bar.
- */
-@property (nonatomic, assign) CGFloat selectionIndicatorInset UI_APPEARANCE_SELECTOR  __attribute__((deprecated("Use indicatorAttributes instead")));
 /**
  The color of the tab selection indicator.
  */

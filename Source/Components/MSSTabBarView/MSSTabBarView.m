@@ -7,6 +7,7 @@
 //
 
 #import "MSSTabBarView.h"
+#import "MSSTabBarView+Private.h"
 #import "UIView+MSSAutoLayout.h"
 #import "MSSTabBarCollectionViewCell+Private.h"
 
@@ -29,22 +30,19 @@ CGFloat     const MSSTabBarViewTabTransitionSnapRatio = 0.5f;
 
 CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
-// appearance
-NSString *  const MSSTabTextColor = @"tabTextColor";
-NSString *  const MSSTabTextFont = @"tabTextFont";
-NSString *  const MSSTabIndicatorHeight = @"tabIndicatorHeight";
-NSString *  const MSSTabIndicatorInset = @"tabIndicatorInset";
-NSString *  const MSSTabTransitionAlphaEffectEnabled = @"alphaEffectEnabled";
-
 @interface MSSTabBarView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tabTitles;
 @property (nonatomic, assign) NSInteger tabCount;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, weak) MSSTabBarCollectionViewCell *selectedCell;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
+@property (nonatomic, strong) UIView *indicatorContainer;
+@property (nonatomic, strong) UIView *indicatorView;
+@property (nonatomic, assign) CGFloat lineIndicatorHeight;
+@property (nonatomic, assign) CGFloat lineIndicatorInset;
 
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
@@ -113,8 +111,10 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _tabTextColor = [UIColor blackColor];
     
     // Tab indicator
-    _selectionIndicatorView = [UIView new];
-    _indicatorAttributes = @{MSSTabIndicatorHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
+    _indicatorContainer = [UIView new];
+    _indicatorStyle = MSSIndicatorStyleLine;
+    _indicatorContainer.userInteractionEnabled = NO;
+    _indicatorAttributes = @{MSSTabIndicatorLineHeight : @(MSSTabBarViewDefaultTabIndicatorHeight),
                              NSForegroundColorAttributeName : self.tintColor};
 }
 
@@ -141,9 +141,9 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         self.collectionView.showsHorizontalScrollIndicator = NO;
     }
     
-    if (!self.selectionIndicatorView.superview) {
-        [self updateIndicatorAppearance];
-        [self.collectionView addSubview:self.selectionIndicatorView];
+    if (!self.indicatorContainer.superview) {
+        [self.collectionView addSubview:self.indicatorContainer];
+        [self updateIndicatorForStyle:self.indicatorStyle];
     }
 }
 
@@ -255,7 +255,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // add selection indicator height to bottom of collection view inset
     CGFloat indicatorHeight;
     if (self.indicatorAttributes) {
-        indicatorHeight = [self.indicatorAttributes[MSSTabIndicatorHeight]floatValue];
+        indicatorHeight = [self.indicatorAttributes[MSSTabIndicatorLineHeight]floatValue];
     } else {
         indicatorHeight = self.selectionIndicatorHeight;
     }
@@ -292,15 +292,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setTabIndicatorColor:(UIColor *)tabIndicatorColor {
     _tabIndicatorColor = tabIndicatorColor;
-    self.selectionIndicatorView.backgroundColor = tabIndicatorColor;
+    if (self.indicatorStyle == MSSIndicatorStyleLine) {
+        self.indicatorView.backgroundColor = tabIndicatorColor;
+    }
 }
 
 - (void)setSelectionIndicatorHeight:(CGFloat)selectionIndicatorHeight {
-    [self updateIndicatorFrameWithHeight:selectionIndicatorHeight];
-}
-
-- (void)setSelectionIndicatorInset:(CGFloat)selectionIndicatorInset {
-    [self updateIndicatorFrameWithInset:selectionIndicatorInset];
+    self.lineIndicatorHeight = selectionIndicatorHeight;
 }
 
 - (void)setTabTextColor:(UIColor *)tabTextColor {
@@ -385,6 +383,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self updateIndicatorAppearance];
 }
 
+- (void)setIndicatorStyle:(MSSIndicatorStyle)indicatorStyle {
+    if (indicatorStyle != _indicatorStyle) {
+        _indicatorStyle = indicatorStyle;
+        [self updateIndicatorForStyle:indicatorStyle];
+    }
+}
+
+- (void)setLineIndicatorHeight:(CGFloat)lineIndicatorHeight {
+    if (lineIndicatorHeight != _lineIndicatorHeight) {
+        _lineIndicatorHeight = lineIndicatorHeight;
+        [self updateIndicatorFrames];
+    }
+}
+
 #pragma mark - Tab Bar State
 
 - (void)updateTabBarForTabOffset:(CGFloat)tabOffset {
@@ -398,13 +410,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         MSSTabBarCollectionViewCell *firstTabCell = [self collectionViewCellAtTabIndex:0];
         [self updateTabsWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f backwards:NO];
-        [self updateTabSelectionIndicatorWithCurrentTabCell:firstTabCell nextTabCell:firstTabCell progress:1.0f];
+        [self updateIndicatorViewWithCurrentTabCell:firstTabCell
+                                        nextTabCell:firstTabCell
+                                           progress:1.0f];
         
     } else if (tabOffset >= self.tabCount - 1) { // stick at top of tab bar
         
         MSSTabBarCollectionViewCell *lastTabCell = [self collectionViewCellAtTabIndex:self.tabCount - 1];
         [self updateTabsWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f backwards:NO];
-        [self updateTabSelectionIndicatorWithCurrentTabCell:lastTabCell nextTabCell:lastTabCell progress:1.0f];
+        [self updateIndicatorViewWithCurrentTabCell:lastTabCell
+                                        nextTabCell:lastTabCell
+                                           progress:1.0f];
         
     } else { // update as required
         if (progress != 0.0f) {
@@ -422,9 +438,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                        nextTabCell:nextTabCell
                                           progress:progress
                                          backwards:isBackwards];
-                [self updateTabSelectionIndicatorWithCurrentTabCell:currentTabCell
-                                                        nextTabCell:nextTabCell
-                                                           progress:progress];
+                [self updateIndicatorViewWithCurrentTabCell:currentTabCell
+                                                nextTabCell:nextTabCell
+                                                   progress:progress];
             }
         } else { // finished update - on a tab cell
             
@@ -471,14 +487,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     if (self.animateDataSourceTransition) {
         [UIView animateWithDuration:0.25f animations:^{
-            [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                                      andWidth:cell.frame.size.width
-                                             accountForPadding:YES];
+            [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                             andWidth:cell.frame.size.width
+                                    accountForPadding:YES];
         }];
     } else {
-        [self updateSelectionIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                                  andWidth:cell.frame.size.width
-                                         accountForPadding:YES];
+        [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                         andWidth:cell.frame.size.width
+                                accountForPadding:YES];
     }
 }
 
@@ -519,9 +535,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)updateTabSelectionIndicatorWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
-                                          nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
-                                              progress:(CGFloat)progress {
+- (void)updateIndicatorViewWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
+                                  nextTabCell:(MSSTabBarCollectionViewCell *)nextTabCell
+                                     progress:(CGFloat)progress {
     if (self.tabCount == 0) {
         return;
     }
@@ -552,9 +568,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         newX = lowerXPos + ((upperXPos - lowerXPos) * progress);
         newWidth = currentTabWidth + widthDiff;
         
-        [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                                  andWidth:newWidth
-                                         accountForPadding:YES];
+        [self updateIndicatorViewFrameWithXOrigin:newX
+                                         andWidth:newWidth
+                                accountForPadding:YES];
         
     } else if (self.indicatorTransitionStyle == MSSTabTransitionStyleSnap) {
         
@@ -563,18 +579,18 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         newX = cell.frame.origin.x;
         newWidth = cell.frame.size.width;
         
-        BOOL requiresUpdate = self.selectionIndicatorView.frame.origin.x != newX;
+        BOOL requiresUpdate = self.indicatorContainer.frame.origin.x != newX;
         if (requiresUpdate) {
             [UIView animateWithDuration:0.25f animations:^{
-                [self updateSelectionIndicatorViewFrameWithXOrigin:newX
-                                                          andWidth:newWidth
-                                                 accountForPadding:YES];
+                [self updateIndicatorViewFrameWithXOrigin:newX
+                                                 andWidth:newWidth
+                                        accountForPadding:YES];
             }];
         }
     }
 }
 
-- (void)updateSelectionIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
+- (void)updateIndicatorViewFrameWithXOrigin:(CGFloat)xOrigin
                                             andWidth:(CGFloat)width
                                    accountForPadding:(BOOL)padding {
     if (self.tabCount == 0) {
@@ -587,10 +603,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         xOrigin += (tabInternalPadding / 2.0f);
     }
     
-    self.selectionIndicatorView.frame = CGRectMake(xOrigin,
-                                                   self.bounds.size.height - self.selectionIndicatorInset - self.selectionIndicatorHeight,
-                                                   width,
-                                                   self.selectionIndicatorHeight);
+    self.indicatorContainer.frame = CGRectMake(xOrigin,
+                                               0.0f,
+                                               width,
+                                               self.bounds.size.height);
+    [self updateIndicatorFrames];
     [self updateCollectionViewScrollOffset];
 }
 
@@ -599,7 +616,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
         // scroll collection view to center selection indicator if possible
         CGFloat collectionViewWidth = self.collectionView.bounds.size.width - self.contentInset.left - self.contentInset.right;
-        CGFloat scrollViewX = MAX(0, self.selectionIndicatorView.center.x - (collectionViewWidth / 2.0f));
+        CGFloat scrollViewX = MAX(0, self.indicatorContainer.center.x - (collectionViewWidth / 2.0f));
         [self.collectionView scrollRectToVisible:CGRectMake(scrollViewX,
                                                             self.collectionView.frame.origin.y,
                                                             collectionViewWidth,
@@ -727,45 +744,93 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     cell.backgroundColor = [UIColor clearColor];
-    [cell setContentBottomMargin:(self.selectionIndicatorInset + self.selectionIndicatorHeight)];
+    [cell setContentBottomMargin:(self.selectionIndicatorHeight)];
+}
+
+- (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
+    [self.indicatorContainer clearSubviews];
+    
+    UIView *indicatorView;
+    switch (indicatorStyle) {
+        case MSSIndicatorStyleLine: {
+            UIView *indicatorLineView = [UIView new];
+            [self.indicatorContainer addSubview:indicatorLineView];
+            
+            indicatorView = indicatorLineView;
+        }
+            break;
+            
+        case MSSIndicatorStyleImage: {
+            UIImageView *imageView = [UIImageView new];
+            imageView.contentMode = UIViewContentModeBottom;
+            [self.indicatorContainer addSubview:imageView];
+            
+            indicatorView = imageView;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.indicatorView = indicatorView;
+    [self updateIndicatorAppearance];
 }
 
 - (void)updateIndicatorAppearance {
     if (self.indicatorAttributes) {
         
-        UIColor *indicatorColor;
-        if ((indicatorColor = self.indicatorAttributes[NSForegroundColorAttributeName])) {
-            self.selectionIndicatorView.backgroundColor = indicatorColor;
-        }
-        
-        NSNumber *indicatorHeight;
-        if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorHeight])) {
-            [self updateIndicatorFrameWithHeight:[indicatorHeight floatValue]];
-        }
-        
-        NSNumber *indicatorInset;
-        if ((indicatorInset = self.indicatorAttributes[MSSTabIndicatorInset])) {
-            [self updateIndicatorFrameWithInset:[indicatorInset floatValue]];
+        switch (self.indicatorStyle) {
+            case MSSIndicatorStyleLine: {
+                
+                UIColor *indicatorColor;
+                if ((indicatorColor = self.indicatorAttributes[NSForegroundColorAttributeName])) {
+                    self.indicatorView.backgroundColor = indicatorColor;
+                }
+                
+                NSNumber *indicatorHeight;
+                if ((indicatorHeight = self.indicatorAttributes[MSSTabIndicatorLineHeight])) {
+                    self.lineIndicatorHeight = [indicatorHeight floatValue];
+                }
+            }
+                break;
+                
+            case MSSIndicatorStyleImage: {
+                UIImageView *indicatorImageView = (UIImageView *)self.indicatorView;
+                
+                UIImage *indicatorImage;
+                if ((indicatorImage = self.indicatorAttributes[MSSTabIndicatorImage])) {
+                    indicatorImageView.image = [indicatorImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                }
+                
+                UIColor *indicatorTintColor;
+                if ((indicatorTintColor = self.indicatorAttributes[MSSTabIndicatorImageTintColor])) {
+                    indicatorImageView.tintColor = indicatorTintColor;
+                }
+            }
+                break;
         }
     }
 }
 
-- (void)updateIndicatorFrameWithHeight:(CGFloat)height {
-    CGRect frame = self.selectionIndicatorView.frame;
-    if (frame.size.height != height) {
-        _selectionIndicatorHeight = height;
-        CGFloat diff = height - frame.size.height;
-        frame.origin = CGPointMake(frame.origin.x, frame.origin.y - diff);
-        frame.size = CGSizeMake(frame.size.width, height);
-        self.selectionIndicatorView.frame = frame;
+- (void)updateIndicatorFrames {
+    CGRect containerBounds = self.indicatorContainer.bounds;
+    
+    CGFloat height = 0.0f;
+    switch (self.indicatorStyle) {
+        case MSSIndicatorStyleLine:
+            height = self.lineIndicatorHeight;
+            break;
+            
+        case MSSIndicatorStyleImage:
+            height = self.indicatorContainer.bounds.size.height;
+            break;
     }
-}
-
-- (void)updateIndicatorFrameWithInset:(CGFloat)inset {
-    _selectionIndicatorInset = inset;
-    CGRect frame = self.selectionIndicatorView.frame;
-    frame.origin = CGPointMake(frame.origin.x, self.bounds.size.height - inset - self.selectionIndicatorHeight);
-    self.selectionIndicatorView.frame = frame;
+    
+    self.indicatorView.frame = CGRectMake(0.0f,
+                                          containerBounds.size.height - height,
+                                          containerBounds.size.width,
+                                          height);
 }
 
 #pragma clang diagnostic pop

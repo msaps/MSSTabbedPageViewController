@@ -17,6 +17,7 @@
 		4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */; };
 		4656DD2A1CFDCADE0007AB62 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */; };
 		4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */; };
+		46759B3C1D017D1800F91973 /* MSSTabBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */; };
 		46C9887E1CFDDFD4000C26EF /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C9887D1CFDDFD4000C26EF /* MSSPageViewController.m */; };
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
@@ -51,9 +52,12 @@
 		4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
 		4656DD211CFDCADE0007AB62 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
 		4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		46759B3A1D017D1800F91973 /* MSSTabBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarAppearance.h; sourceTree = "<group>"; };
+		46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarAppearance.m; sourceTree = "<group>"; };
 		46C9887B1CFDDFD4000C26EF /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
 		46C9887C1CFDDFD4000C26EF /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
 		46C9887D1CFDDFD4000C26EF /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		46CB84851D0084A100FCB715 /* MSSTabBarView+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarView+Private.h"; sourceTree = "<group>"; };
 		46FA81BF1C2C18FE0020BB60 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,10 +116,13 @@
 		4656DD081CFDCADE0007AB62 /* MSSTabBarView */ = {
 			isa = PBXGroup;
 			children = (
+				46CB84851D0084A100FCB715 /* MSSTabBarView+Private.h */,
 				4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */,
 				4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */,
 				4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */,
 				4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */,
+				46759B3A1D017D1800F91973 /* MSSTabBarAppearance.h */,
+				46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */,
 				4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
 				4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */,
 				4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */,
@@ -299,6 +306,7 @@
 				46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */,
 				4656DD231CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */,
 				4656DD251CFDCADE0007AB62 /* MSSTabBarView.m in Sources */,
+				46759B3C1D017D1800F91973 /* MSSTabBarAppearance.m in Sources */,
 				4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */,
 				4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */,
 				4656DD261CFDCADE0007AB62 /* MSSTabNavigationBar.m in Sources */,
