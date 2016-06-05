@@ -7,140 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10886CFF7FEEB94D6340B0C71832873A /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */; };
-		141F4E3AF9575988DD05387AFEBFC86A /* MSSTabSizingStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19924EE9F13B417197DB79748BCC08F3 /* MSSTabBarCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3795D891E3FFB6B206CEBB1BF3CC0126 /* UIViewController+MSSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B423059CD6B2FD8D4FE6F342F4DFE41 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */; };
-		3CD21CF0F902003F8D72E5C76495A323 /* MSSTabNavigationBar+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E8A41712432260586490FC6158C7F03 /* MSSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F7B9A87507D404031CFB5113CE1D649 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		4007833A14ED2EF7FDF3C1C33B3BA2AC /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */; };
-		44187F07495581A8EA7180E9A59D570A /* MSSTabbedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59D624CCEA129E52B67A4E1753857B46 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */; };
-		5A7F6A740FC2DA57CA4F604FC3EA3B24 /* MSSTabbedPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C5DD9CB580013A5391890F9A43B67AB /* MSSTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6255DF05E24FD9DCC4F9C099BA692461 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */; };
-		8767A1FFA735FA4E28A6CE13CA36CD9A /* Pods-Paged Tabs Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8BB469DBECEA1030DF3702E24FA01924 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */; };
-		8E28E4CF64A4B5990D68DD50B29084B7 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */; };
-		95E67FDE74B60CC0499F04CB447BA487 /* MSSPageViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		960CB4822FA38463912989662C906FAF /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */; };
-		9C80EA6B0A0244641ABD8701A00D77C1 /* MSSTabBarCollectionViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7E394F4B0CFC917AB232A767A5E706B /* MSSCustomHeightNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAC705986F1225F10AFD35D7B1E021C7 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */; };
-		B60738DBD65CFFB03603E8D2B0385ED1 /* Pods-Paged Tabs Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */; };
-		C41F60D52649C4BB8FA29674711317B2 /* MSSTabNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC147EAE3CA487F61E3F4B367FCD9AFC /* MSSTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E75E497FB300E260C4CD626B38CED9AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		E8B4CF645C252388C332DB3BB6D4E82D /* MSSTabbedPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */; };
-		EABB159C87BDFCA0AF05522376A2F4E2 /* UIView+MSSAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7CF2F6AA433275646486CBFABA960B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		00049B1FAEBA00A768429D857CCF1ADD /* Pods-Paged Tabs Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */; };
+		0F71ABFB5B706548ACD5A7FFAC68B0A4 /* Pods-Paged Tabs Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD2D07A272133CE97DDDC88FAD6DDD2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9A8098F6AEBC801C7083F07E6E85B45E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75C4D2827AA37B8970E3737902A1A3DB;
-			remoteInfo = MSSTabbedPageViewController;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		006BBAB4A3A7359093A9A4228EE5F1C4 /* MSSTabbedPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-prefix.pch"; sourceTree = "<group>"; };
-		0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
 		09EB5ED131916C041F1D255D861943C5 /* Pods-Paged Tabs Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Paged Tabs Example.modulemap"; sourceTree = "<group>"; };
-		0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
 		1091FB7913AE4DA091AD67D6694FBA2F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
-		1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
-		1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
-		29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSSTabbedPageViewController.xcconfig; sourceTree = "<group>"; };
-		3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
-		487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
 		4FA7F441EC5F667B27E0F73B8BBB52C9 /* Pods-Paged Tabs Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Paged Tabs Example-dummy.m"; sourceTree = "<group>"; };
-		5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
-		6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
 		7D7319A93DE38DF80B295CB2F3286D0D /* Pods-Paged Tabs Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paged Tabs Example-resources.sh"; sourceTree = "<group>"; };
-		80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
-		87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
 		8CA36D05FC117F0609F553031FB44F9A /* Pods-Paged Tabs Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Paged Tabs Example-umbrella.h"; sourceTree = "<group>"; };
-		8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
-		936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A210AD2134A7AE0FFF5CBF08A8CAB19 /* Pods-Paged Tabs Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Paged Tabs Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSSTabbedPageViewController-dummy.m"; sourceTree = "<group>"; };
 		B5277288938F0AA84D21EAC46C7B082A /* Pods-Paged Tabs Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Paged Tabs Example-frameworks.sh"; sourceTree = "<group>"; };
-		BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
-		C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
 		C1191CC7B643740658E62C06291608CD /* Pods-Paged Tabs Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Paged Tabs Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
-		C7799E16AE5A76844D9763178FDDAF66 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
 		CD78223081637C649C2F673350064EC0 /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
-		CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
-		D5C052C925978EC68F3BD6E15994FCB6 /* MSSTabbedPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSSTabbedPageViewController.modulemap; sourceTree = "<group>"; };
-		DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
-		E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
-		E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSSTabbedPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-umbrella.h"; sourceTree = "<group>"; };
-		F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D56608D09AF913F0EA068B4ED6344509 /* Pods_Paged_Tabs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paged_Tabs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
-		FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5D807E03BE27FC5A95DFFA9C13D69FA6 /* Frameworks */ = {
+		A5F1CDE27EE3208DC5D0B5F0BAF8783A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7CF2F6AA433275646486CBFABA960B3 /* Foundation.framework in Frameworks */,
-				3F7B9A87507D404031CFB5113CE1D649 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB26D8865A9ACE3DF4E63320416D6241 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E75E497FB300E260C4CD626B38CED9AE /* Foundation.framework in Frameworks */,
+				BD2D07A272133CE97DDDC88FAD6DDD2E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		109B912A153CEB5FE868E8CB0A292133 /* MSSTabbedPageViewController */ = {
+		323B6721A21D5F66D99063E132862A33 /* MSSTabbedPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F0296EEA54AB3B94543D5C2EF82A4D80 /* MSSTabbedPageViewController.h */,
-				936CDC78E1EB0F0DF3841B1D11D89217 /* MSSTabbedPageViewController.m */,
-				A1588B34637F3163885732C4CBBC5A5E /* Components */,
-				80A83221E880C93958526E451699409E /* MSSPageViewController */,
-				FBBAD9AF687935E3A5B31D2EAC7E6492 /* Utilities */,
 			);
-			path = MSSTabbedPageViewController;
+			name = MSSTabbedPageViewController;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
-		2392CF548FC97B41737451DB59DE9CF2 /* MSSTabBarView */ = {
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BF549AB6DA7EE1933249981764BE64D0 /* MSSTabBarCollectionViewCell.xib */,
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
 			);
-			path = MSSTabBarView;
-			sourceTree = "<group>";
-		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
-			);
-			name = Frameworks;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		531F024353D062EDF593A46CA01504B0 /* Pods-Paged Tabs Example */ = {
@@ -169,217 +82,70 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		76B99FE8F387F9E117551FC3291F6826 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C7799E16AE5A76844D9763178FDDAF66 /* Info.plist */,
-				D5C052C925978EC68F3BD6E15994FCB6 /* MSSTabbedPageViewController.modulemap */,
-				29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */,
-				B09818BCE246B7457262328876569D61 /* MSSTabbedPageViewController-dummy.m */,
-				006BBAB4A3A7359093A9A4228EE5F1C4 /* MSSTabbedPageViewController-prefix.pch */,
-				EAA48F96035B37CF257A4D3444261230 /* MSSTabbedPageViewController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Swift/Pods/Target Support Files/MSSTabbedPageViewController";
-			sourceTree = "<group>";
-		};
-		771626EEB82DF3E12D86695FA18CE5D1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */,
-				C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7C5F74EBAAC0A903D9F74E7340D4C15F /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B4FB94EA8759B8C292BCAE5B8E12D48E /* MSSTabbedPageViewController */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7C5F74EBAAC0A903D9F74E7340D4C15F /* Development Pods */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				771626EEB82DF3E12D86695FA18CE5D1 /* Products */,
+				FBAFD3571C604978422A6966B77D68A8 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				B79FD9B0A550E1A57773264321D27DE3 /* Products */,
 				75183DFA0FD679894415E21B0F756F24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		80A83221E880C93958526E451699409E /* MSSPageViewController */ = {
+		B79FD9B0A550E1A57773264321D27DE3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD438666901C8CAFAD443FA0E02575A4 /* MSSPageViewController.h */,
-				5CC1B4631B7F702D37D2B18381778A1A /* MSSPageViewController.m */,
-				80A0CF1F3103248325120A49D671EF35 /* MSSPageViewController+Private.h */,
+				D56608D09AF913F0EA068B4ED6344509 /* Pods_Paged_Tabs_Example.framework */,
 			);
-			path = MSSPageViewController;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		85C32667272F54358D762839A794F5D6 /* MSSTabbedPageViewController */ = {
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6C16B192C0D256B723731ABDD8EE234 /* Components */,
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
 			);
-			path = MSSTabbedPageViewController;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A1588B34637F3163885732C4CBBC5A5E /* Components */ = {
+		FBAFD3571C604978422A6966B77D68A8 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0B91E59A32438509FA8653487884C9C /* MSSTabBarView */,
+				323B6721A21D5F66D99063E132862A33 /* MSSTabbedPageViewController */,
 			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		A6C16B192C0D256B723731ABDD8EE234 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				2392CF548FC97B41737451DB59DE9CF2 /* MSSTabBarView */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		B4FB94EA8759B8C292BCAE5B8E12D48E /* MSSTabbedPageViewController */ = {
-			isa = PBXGroup;
-			children = (
-				109B912A153CEB5FE868E8CB0A292133 /* MSSTabbedPageViewController */,
-				E86D2C29C235DF702E70A306707EFF7B /* Resources */,
-				76B99FE8F387F9E117551FC3291F6826 /* Support Files */,
-			);
-			name = MSSTabbedPageViewController;
-			path = ../../..;
-			sourceTree = "<group>";
-		};
-		B8EE61E03B42007C6B32A269FD8D13B0 /* MSSTabNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				1FA4279D8D65165E4E1015BBED25D7DE /* MSSTabNavigationBar.h */,
-				87C5CAB71A661CBE8A0DEA86EA6F6185 /* MSSTabNavigationBar.m */,
-				8FEE1047047C8683DB0D4859771160E1 /* MSSTabNavigationBar+Private.h */,
-			);
-			path = MSSTabNavigationBar;
-			sourceTree = "<group>";
-		};
-		C0B91E59A32438509FA8653487884C9C /* MSSTabBarView */ = {
-			isa = PBXGroup;
-			children = (
-				0C87734963D4D24842F1D75C5B014D18 /* MSSTabBarCollectionViewCell.h */,
-				CF4FBC13537ABEC0EFCBD54995A54BA9 /* MSSTabBarCollectionViewCell.m */,
-				6F68C38D103C9E1561E42B455A4E1859 /* MSSTabBarCollectionViewCell+Private.h */,
-				FB94F388DAAFA02319CDE00B4FF34ADE /* MSSTabBarView.h */,
-				C05A38AE329C4B4B3C273E036FF0263D /* MSSTabBarView.m */,
-				0250E5FB6CA82AF8C03E6E0E9CE60F39 /* MSSTabSizingStyle.h */,
-				487F680F36CF5C1DDD343C925D73B767 /* MSSTabStyle.h */,
-				B8EE61E03B42007C6B32A269FD8D13B0 /* MSSTabNavigationBar */,
-			);
-			path = MSSTabBarView;
-			sourceTree = "<group>";
-		};
-		E86D2C29C235DF702E70A306707EFF7B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				85C32667272F54358D762839A794F5D6 /* MSSTabbedPageViewController */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
-				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		FBBAD9AF687935E3A5B31D2EAC7E6492 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				E4D0C0EF34AFB575148D19B5CFD102D9 /* MSSCustomHeightNavigationBar.h */,
-				DF67E28BF69E8EA0B9361B9BF45A95D8 /* MSSCustomHeightNavigationBar.m */,
-				1E1D8A363F9782AE068074B59C009C50 /* UIView+MSSAutoLayout.h */,
-				3274672595B76034B56A18E73BD88B7D /* UIView+MSSAutoLayout.m */,
-				C4B67A942326F49D57FBBB05A645F992 /* UIViewController+MSSUtilities.h */,
-				10A8FFD848FDF0D64C2E975642C7E805 /* UIViewController+MSSUtilities.m */,
-			);
-			path = Utilities;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		EEC3C5C523482B2FBBFA91D06F40FE01 /* Headers */ = {
+		43C2402A0F3C9B6076C74296DB638568 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7E394F4B0CFC917AB232A767A5E706B /* MSSCustomHeightNavigationBar.h in Headers */,
-				95E67FDE74B60CC0499F04CB447BA487 /* MSSPageViewController+Private.h in Headers */,
-				3E8A41712432260586490FC6158C7F03 /* MSSPageViewController.h in Headers */,
-				9C80EA6B0A0244641ABD8701A00D77C1 /* MSSTabBarCollectionViewCell+Private.h in Headers */,
-				19924EE9F13B417197DB79748BCC08F3 /* MSSTabBarCollectionViewCell.h in Headers */,
-				CC147EAE3CA487F61E3F4B367FCD9AFC /* MSSTabBarView.h in Headers */,
-				5A7F6A740FC2DA57CA4F604FC3EA3B24 /* MSSTabbedPageViewController-umbrella.h in Headers */,
-				44187F07495581A8EA7180E9A59D570A /* MSSTabbedPageViewController.h in Headers */,
-				3CD21CF0F902003F8D72E5C76495A323 /* MSSTabNavigationBar+Private.h in Headers */,
-				C41F60D52649C4BB8FA29674711317B2 /* MSSTabNavigationBar.h in Headers */,
-				141F4E3AF9575988DD05387AFEBFC86A /* MSSTabSizingStyle.h in Headers */,
-				5C5DD9CB580013A5391890F9A43B67AB /* MSSTabStyle.h in Headers */,
-				EABB159C87BDFCA0AF05522376A2F4E2 /* UIView+MSSAutoLayout.h in Headers */,
-				3795D891E3FFB6B206CEBB1BF3CC0126 /* UIViewController+MSSUtilities.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F438E77CDFB81B4BC5B211EBAE0CE9EE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8767A1FFA735FA4E28A6CE13CA36CD9A /* Pods-Paged Tabs Example-umbrella.h in Headers */,
+				0F71ABFB5B706548ACD5A7FFAC68B0A4 /* Pods-Paged Tabs Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6BA146D0F4F1CE202FA9693D8346A340 /* Pods-Paged Tabs Example */ = {
+		4AFA159F8701C9CC8A3D369AAE00A47D /* Pods-Paged Tabs Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03E52DB2D410E61583BC9FD166199BE9 /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */;
+			buildConfigurationList = 2819D034A42E5C0C138DA48B5BD2352A /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */;
 			buildPhases = (
-				60058E62B902E3C1C3EE5F932959C1C2 /* Sources */,
-				AB26D8865A9ACE3DF4E63320416D6241 /* Frameworks */,
-				F438E77CDFB81B4BC5B211EBAE0CE9EE /* Headers */,
+				919BB913C893F2E5D8FC520F1BBB5817 /* Sources */,
+				A5F1CDE27EE3208DC5D0B5F0BAF8783A /* Frameworks */,
+				43C2402A0F3C9B6076C74296DB638568 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2A6609FA42402CA3DACEAE9F56A24046 /* PBXTargetDependency */,
 			);
 			name = "Pods-Paged Tabs Example";
 			productName = "Pods-Paged Tabs Example";
-			productReference = C04D9C6018BFF759F28B15424CB681CA /* Pods_Paged_Tabs_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5278E61234CF3A2803F099C38DF95611 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */;
-			buildPhases = (
-				09B1A4B6BE3AB0B4E646BCEB0982925F /* Sources */,
-				5D807E03BE27FC5A95DFFA9C13D69FA6 /* Frameworks */,
-				EEC3C5C523482B2FBBFA91D06F40FE01 /* Headers */,
-				7DBEFF31B4DAD4E56D24BFB9115E6262 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MSSTabbedPageViewController;
-			productName = MSSTabbedPageViewController;
-			productReference = E4DFA3319E5F6950D386696B68452AB5 /* MSSTabbedPageViewController.framework */;
+			productReference = D56608D09AF913F0EA068B4ED6344509 /* Pods_Paged_Tabs_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -399,62 +165,25 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 771626EEB82DF3E12D86695FA18CE5D1 /* Products */;
+			productRefGroup = B79FD9B0A550E1A57773264321D27DE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */,
-				6BA146D0F4F1CE202FA9693D8346A340 /* Pods-Paged Tabs Example */,
+				4AFA159F8701C9CC8A3D369AAE00A47D /* Pods-Paged Tabs Example */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		7DBEFF31B4DAD4E56D24BFB9115E6262 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59D624CCEA129E52B67A4E1753857B46 /* MSSTabBarCollectionViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		09B1A4B6BE3AB0B4E646BCEB0982925F /* Sources */ = {
+		919BB913C893F2E5D8FC520F1BBB5817 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960CB4822FA38463912989662C906FAF /* MSSCustomHeightNavigationBar.m in Sources */,
-				3B423059CD6B2FD8D4FE6F342F4DFE41 /* MSSPageViewController.m in Sources */,
-				AAC705986F1225F10AFD35D7B1E021C7 /* MSSTabBarCollectionViewCell.m in Sources */,
-				6255DF05E24FD9DCC4F9C099BA692461 /* MSSTabBarView.m in Sources */,
-				E8B4CF645C252388C332DB3BB6D4E82D /* MSSTabbedPageViewController-dummy.m in Sources */,
-				8E28E4CF64A4B5990D68DD50B29084B7 /* MSSTabbedPageViewController.m in Sources */,
-				4007833A14ED2EF7FDF3C1C33B3BA2AC /* MSSTabNavigationBar.m in Sources */,
-				8BB469DBECEA1030DF3702E24FA01924 /* UIView+MSSAutoLayout.m in Sources */,
-				10886CFF7FEEB94D6340B0C71832873A /* UIViewController+MSSUtilities.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60058E62B902E3C1C3EE5F932959C1C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B60738DBD65CFFB03603E8D2B0385ED1 /* Pods-Paged Tabs Example-dummy.m in Sources */,
+				00049B1FAEBA00A768429D857CCF1ADD /* Pods-Paged Tabs Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2A6609FA42402CA3DACEAE9F56A24046 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MSSTabbedPageViewController;
-			target = 75C4D2827AA37B8970E3737902A1A3DB /* MSSTabbedPageViewController */;
-			targetProxy = 9A8098F6AEBC801C7083F07E6E85B45E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		034014829C1E4434983CF3A690C12017 /* Debug */ = {
@@ -499,69 +228,7 @@
 			};
 			name = Debug;
 		};
-		4375DC9C8A0DC4F9388776B73179E001 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Paged Tabs Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Paged_Tabs_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		570D5649ED3548B9C916AF7E3869ECD1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MSSTabbedPageViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A66AE780B04CDB5F6B526093C5F15049 /* Debug */ = {
+		232A70D0DAA8C99D26172EDBFADB4041 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD78223081637C649C2F673350064EC0 /* Pods-Paged Tabs Example.debug.xcconfig */;
 			buildSettings = {
@@ -594,9 +261,9 @@
 			};
 			name = Debug;
 		};
-		C0D19C4C564B03557947E8F7817685B1 /* Release */ = {
+		BEC867DC35D35BB441D943A37A96FA44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29C869751C4E10675624A3DA00BC30A0 /* MSSTabbedPageViewController.xcconfig */;
+			baseConfigurationReference = F170B17F9AA4D2B200281002BF403BD8 /* Pods-Paged Tabs Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -607,14 +274,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Paged Tabs Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MSSTabbedPageViewController;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Paged_Tabs_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -664,11 +335,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03E52DB2D410E61583BC9FD166199BE9 /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */ = {
+		2819D034A42E5C0C138DA48B5BD2352A /* Build configuration list for PBXNativeTarget "Pods-Paged Tabs Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A66AE780B04CDB5F6B526093C5F15049 /* Debug */,
-				4375DC9C8A0DC4F9388776B73179E001 /* Release */,
+				232A70D0DAA8C99D26172EDBFADB4041 /* Debug */,
+				BEC867DC35D35BB441D943A37A96FA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -678,15 +349,6 @@
 			buildConfigurations = (
 				034014829C1E4434983CF3A690C12017 /* Debug */,
 				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5278E61234CF3A2803F099C38DF95611 /* Build configuration list for PBXNativeTarget "MSSTabbedPageViewController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				570D5649ED3548B9C916AF7E3869ECD1 /* Debug */,
-				C0D19C4C564B03557947E8F7817685B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

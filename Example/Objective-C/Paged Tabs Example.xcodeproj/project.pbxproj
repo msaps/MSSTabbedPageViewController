@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */; };
 		46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */; };
+		4656DD231CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */; };
+		4656DD241CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */; };
+		4656DD251CFDCADE0007AB62 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */; };
+		4656DD261CFDCADE0007AB62 /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */; };
+		4656DD281CFDCADE0007AB62 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */; };
+		4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */; };
+		4656DD2A1CFDCADE0007AB62 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */; };
+		4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */; };
+		46759B3C1D017D1800F91973 /* MSSTabBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */; };
+		46C9887E1CFDDFD4000C26EF /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C9887D1CFDDFD4000C26EF /* MSSPageViewController.m */; };
 		D65593011C47F275000CAD99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F51C47F275000CAD99 /* AppDelegate.m */; };
 		D65593021C47F275000CAD99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592F61C47F275000CAD99 /* main.m */; };
 		D65593031C47F275000CAD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65592F81C47F275000CAD99 /* Assets.xcassets */; };
@@ -16,18 +26,39 @@
 		D65593061C47F275000CAD99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65592FC1C47F275000CAD99 /* Main.storyboard */; };
 		D65593071C47F275000CAD99 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65592FE1C47F275000CAD99 /* TabViewController.m */; };
 		D65593081C47F275000CAD99 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65593001C47F275000CAD99 /* ChildViewController.m */; };
-		E945DCBA1E22CBC347EE4624 /* libPods-Paged Tabs Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Paged Tabs Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46334F151CBBBB7C00DFCEA2 /* StylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylesViewController.h; sourceTree = "<group>"; };
 		46334F161CBBBB7C00DFCEA2 /* StylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StylesViewController.m; sourceTree = "<group>"; };
 		46334F191CBBBCBC00DFCEA2 /* TabControllerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabControllerStyle.h; sourceTree = "<group>"; };
 		46334F1A1CBBBCBC00DFCEA2 /* TabControllerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabControllerStyle.m; sourceTree = "<group>"; };
+		4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
+		4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarView.h; sourceTree = "<group>"; };
+		4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarView.m; sourceTree = "<group>"; };
+		4656DD111CFDCADE0007AB62 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
+		4656DD121CFDCADE0007AB62 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabStyle.h; sourceTree = "<group>"; };
+		4656DD1A1CFDCADE0007AB62 /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		4656DD1D1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		4656DD1F1CFDCADE0007AB62 /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		4656DD211CFDCADE0007AB62 /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
+		46759B3A1D017D1800F91973 /* MSSTabBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSTabBarAppearance.h; sourceTree = "<group>"; };
+		46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSTabBarAppearance.m; sourceTree = "<group>"; };
+		46C9887B1CFDDFD4000C26EF /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		46C9887C1CFDDFD4000C26EF /* MSSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSPageViewController.h; sourceTree = "<group>"; };
+		46C9887D1CFDDFD4000C26EF /* MSSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSPageViewController.m; sourceTree = "<group>"; };
+		46CB84851D0084A100FCB715 /* MSSTabBarView+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSSTabBarView+Private.h"; sourceTree = "<group>"; };
 		46FA81BF1C2C18FE0020BB60 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.release.xcconfig"; sourceTree = "<group>"; };
-		701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paged Tabs Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D65592F41C47F275000CAD99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D65592F51C47F275000CAD99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D65592F61C47F275000CAD99 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,21 +77,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E945DCBA1E22CBC347EE4624 /* libPods-Paged Tabs Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C6393D457D15B8EE812DEA8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				149A6EE6D7DD6246276DCE40 /* libPods-Paged Tabs Example.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		46334F181CBBBC9E00DFCEA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,13 +92,85 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4656DD061CFDCADE0007AB62 /* MSSTabbedPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD1A1CFDCADE0007AB62 /* MSSTabbedPageViewController.h */,
+				4656DD1B1CFDCADE0007AB62 /* MSSTabbedPageViewController.m */,
+				4656DD071CFDCADE0007AB62 /* Components */,
+				4656DD1C1CFDCADE0007AB62 /* Utilities */,
+			);
+			name = MSSTabbedPageViewController;
+			path = ../../Source;
+			sourceTree = "<group>";
+		};
+		4656DD071CFDCADE0007AB62 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				46C9887A1CFDDFD4000C26EF /* MSSPageViewController */,
+				4656DD081CFDCADE0007AB62 /* MSSTabBarView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4656DD081CFDCADE0007AB62 /* MSSTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				46CB84851D0084A100FCB715 /* MSSTabBarView+Private.h */,
+				4656DD0E1CFDCADE0007AB62 /* MSSTabBarView.h */,
+				4656DD0F1CFDCADE0007AB62 /* MSSTabBarView.m */,
+				4656DD141CFDCADE0007AB62 /* MSSTabSizingStyle.h */,
+				4656DD151CFDCADE0007AB62 /* MSSTabStyle.h */,
+				46759B3A1D017D1800F91973 /* MSSTabBarAppearance.h */,
+				46759B3B1D017D1800F91973 /* MSSTabBarAppearance.m */,
+				4656DD0A1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell+Private.h */,
+				4656DD0B1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.h */,
+				4656DD0C1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m */,
+				4656DD0D1CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib */,
+				4656DD101CFDCADE0007AB62 /* MSSTabNavigationBar */,
+			);
+			path = MSSTabBarView;
+			sourceTree = "<group>";
+		};
+		4656DD101CFDCADE0007AB62 /* MSSTabNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD111CFDCADE0007AB62 /* MSSTabNavigationBar+Private.h */,
+				4656DD121CFDCADE0007AB62 /* MSSTabNavigationBar.h */,
+				4656DD131CFDCADE0007AB62 /* MSSTabNavigationBar.m */,
+			);
+			path = MSSTabNavigationBar;
+			sourceTree = "<group>";
+		};
+		4656DD1C1CFDCADE0007AB62 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4656DD1D1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.h */,
+				4656DD1E1CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m */,
+				4656DD1F1CFDCADE0007AB62 /* UIView+MSSAutoLayout.h */,
+				4656DD201CFDCADE0007AB62 /* UIView+MSSAutoLayout.m */,
+				4656DD211CFDCADE0007AB62 /* UIViewController+MSSUtilities.h */,
+				4656DD221CFDCADE0007AB62 /* UIViewController+MSSUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		46C9887A1CFDDFD4000C26EF /* MSSPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46C9887B1CFDDFD4000C26EF /* MSSPageViewController+Private.h */,
+				46C9887C1CFDDFD4000C26EF /* MSSPageViewController.h */,
+				46C9887D1CFDDFD4000C26EF /* MSSPageViewController.m */,
+			);
+			path = MSSPageViewController;
+			sourceTree = "<group>";
+		};
 		46FA81B61C2C18FE0020BB60 = {
 			isa = PBXGroup;
 			children = (
 				D65592F31C47F275000CAD99 /* Paged Tabs Example */,
+				4656DD061CFDCADE0007AB62 /* MSSTabbedPageViewController */,
 				46FA81C01C2C18FE0020BB60 /* Products */,
-				B08E52CA33BE40D3111B41A1 /* Pods */,
-				0C6393D457D15B8EE812DEA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,15 +180,6 @@
 				46FA81BF1C2C18FE0020BB60 /* Example.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B08E52CA33BE40D3111B41A1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */,
-				5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		D65592F31C47F275000CAD99 /* Paged Tabs Example */ = {
@@ -149,12 +234,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46FA81D61C2C18FE0020BB60 /* Build configuration list for PBXNativeTarget "Paged Tabs Example" */;
 			buildPhases = (
-				EE09CE227179E1F5BAE4A211 /* 📦 Check Pods Manifest.lock */,
 				46FA81BB1C2C18FE0020BB60 /* Sources */,
 				46FA81BC1C2C18FE0020BB60 /* Frameworks */,
 				46FA81BD1C2C18FE0020BB60 /* Resources */,
-				2F90482B7AC34ACDF07BE9F2 /* 📦 Embed Pods Frameworks */,
-				308191F38190CDE33E7EF005 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,59 +287,12 @@
 			files = (
 				D65593051C47F275000CAD99 /* LaunchScreen.storyboard in Resources */,
 				D65593031C47F275000CAD99 /* Assets.xcassets in Resources */,
+				4656DD241CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.xib in Resources */,
 				D65593061C47F275000CAD99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2F90482B7AC34ACDF07BE9F2 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		308191F38190CDE33E7EF005 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paged Tabs Example/Pods-Paged Tabs Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE09CE227179E1F5BAE4A211 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		46FA81BB1C2C18FE0020BB60 /* Sources */ = {
@@ -265,9 +300,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65593071C47F275000CAD99 /* TabViewController.m in Sources */,
+				46C9887E1CFDDFD4000C26EF /* MSSPageViewController.m in Sources */,
 				D65593021C47F275000CAD99 /* main.m in Sources */,
+				4656DD2A1CFDCADE0007AB62 /* UIView+MSSAutoLayout.m in Sources */,
 				46334F1B1CBBBCBC00DFCEA2 /* TabControllerStyle.m in Sources */,
+				4656DD231CFDCADE0007AB62 /* MSSTabBarCollectionViewCell.m in Sources */,
+				4656DD251CFDCADE0007AB62 /* MSSTabBarView.m in Sources */,
+				46759B3C1D017D1800F91973 /* MSSTabBarAppearance.m in Sources */,
+				4656DD291CFDCADE0007AB62 /* MSSCustomHeightNavigationBar.m in Sources */,
+				4656DD2B1CFDCADE0007AB62 /* UIViewController+MSSUtilities.m in Sources */,
+				4656DD261CFDCADE0007AB62 /* MSSTabNavigationBar.m in Sources */,
 				D65593081C47F275000CAD99 /* ChildViewController.m in Sources */,
+				4656DD281CFDCADE0007AB62 /* MSSTabbedPageViewController.m in Sources */,
 				46334F171CBBBB7C00DFCEA2 /* StylesViewController.m in Sources */,
 				D65593011C47F275000CAD99 /* AppDelegate.m in Sources */,
 			);
@@ -360,7 +404,6 @@
 		};
 		46FA81D71C2C18FE0020BB60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 701B15BA1219674E16F8C341 /* Pods-Paged Tabs Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
@@ -373,7 +416,6 @@
 		};
 		46FA81D81C2C18FE0020BB60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5107936AB325CDA708C83D23 /* Pods-Paged Tabs Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Paged Tabs Example/Resources/Info.plist";
