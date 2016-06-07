@@ -48,6 +48,8 @@ CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 @property (nonatomic, assign) CGFloat previousTabOffset;
 @property (nonatomic, assign) NSInteger defaultTabIndex;
 
+@property (nonatomic, assign) CGFloat tabDeselectedAlpha;
+
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
 
 @property (nonatomic, assign) BOOL animateDataSourceTransition;
@@ -188,7 +190,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         [self.dataSource tabBarView:self populateTab:cell atIndex:indexPath.item];
     }
     
-    cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
+    cell.selectionProgress = self.tabDeselectedAlpha;
     
     if ((!self.hasRespectedDefaultTabIndex && indexPath.row == self.defaultTabIndex) ||
         ([self.selectedIndexPath isEqual:indexPath] && self.tabOffset == MSSTabBarViewTabOffsetInvalid)) {
@@ -499,7 +501,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setTabCellInactive:(MSSTabBarCollectionViewCell *)cell {
-    cell.selectionProgress = MSSTabBarViewDefaultTabUnselectedAlpha;
+    cell.selectionProgress = self.tabDeselectedAlpha;
 }
 
 - (void)updateTabsWithCurrentTabCell:(MSSTabBarCollectionViewCell *)currentTabCell
@@ -512,7 +514,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.tabTransitionStyle == MSSTabTransitionStyleProgressive) { // progressive
         
-        CGFloat unselectedAlpha = MSSTabBarViewDefaultTabUnselectedAlpha;
+        CGFloat unselectedAlpha = self.tabDeselectedAlpha;
         CGFloat alphaDiff = (1.0f - unselectedAlpha) * progress;
         CGFloat nextAlpha = unselectedAlpha + alphaDiff;
         CGFloat currentAlpha = 1.0f - alphaDiff;
@@ -522,8 +524,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         
     } else { // snap
         
-        CGFloat currentAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? MSSTabBarViewDefaultTabUnselectedAlpha : 1.0f;
-        CGFloat targetAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? 1.0f : MSSTabBarViewDefaultTabUnselectedAlpha;
+        CGFloat currentAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? self.tabDeselectedAlpha : 1.0f;
+        CGFloat targetAlpha = (progress > MSSTabBarViewTabTransitionSnapRatio) ? 1.0f : self.tabDeselectedAlpha;
         
         BOOL requiresUpdate = (nextTabCell.selectionProgress != targetAlpha);
         if (requiresUpdate) {
@@ -714,6 +716,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             cell.alphaEffectEnabled = [alphaEffectEnabled boolValue];
         }
         
+        NSNumber *deselectedAlphaValue;
+        if ((deselectedAlphaValue = self.tabAttributes[MSSTabTitleAlpha])) {
+            self.tabDeselectedAlpha = [deselectedAlphaValue floatValue];
+        }
+        
     } else {
         cell.textColor = self.tabTextColor;
         if(self.tabTextFont){
@@ -831,6 +838,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                           containerBounds.size.height - height,
                                           containerBounds.size.width,
                                           height);
+}
+
+- (CGFloat)tabDeselectedAlpha {
+    if (_tabDeselectedAlpha == 0.0f) {
+        return MSSTabBarViewDefaultTabUnselectedAlpha;
+    } else {
+        return _tabDeselectedAlpha;
+    }
 }
 
 #pragma clang diagnostic pop
