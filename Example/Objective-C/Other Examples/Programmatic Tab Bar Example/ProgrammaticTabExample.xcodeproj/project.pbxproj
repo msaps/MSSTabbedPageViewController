@@ -230,12 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46A53B2C1CE0AEE2000D3D4D /* Build configuration list for PBXNativeTarget "ProgrammaticTabExample" */;
 			buildPhases = (
-				4988C4714F449872B26BE7EF /* 📦 Check Pods Manifest.lock */,
+				4988C4714F449872B26BE7EF /* [CP] Check Pods Manifest.lock */,
 				46A53B111CE0AEE2000D3D4D /* Sources */,
 				46A53B121CE0AEE2000D3D4D /* Frameworks */,
 				46A53B131CE0AEE2000D3D4D /* Resources */,
-				C06CE599D4D66B7A93A70D5A /* 📦 Embed Pods Frameworks */,
-				EC6C039A1A95226C4544B210 /* 📦 Copy Pods Resources */,
+				C06CE599D4D66B7A93A70D5A /* [CP] Embed Pods Frameworks */,
+				EC6C039A1A95226C4544B210 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,14 +293,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4988C4714F449872B26BE7EF /* 📦 Check Pods Manifest.lock */ = {
+		4988C4714F449872B26BE7EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,14 +308,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C06CE599D4D66B7A93A70D5A /* 📦 Embed Pods Frameworks */ = {
+		C06CE599D4D66B7A93A70D5A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,14 +323,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgrammaticTabExample/Pods-ProgrammaticTabExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC6C039A1A95226C4544B210 /* 📦 Copy Pods Resources */ = {
+		EC6C039A1A95226C4544B210 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
