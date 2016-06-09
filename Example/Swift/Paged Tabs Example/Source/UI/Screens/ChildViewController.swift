@@ -9,24 +9,11 @@
 import UIKit
 import MSSTabbedPageViewController
 
-class ChildViewController: UIViewController, MSSTabbedPageChildViewController {
-    
-    // MARK: MSSTabbedPageChildViewController
-    
-    var pageViewController: MSSPageViewController?
-    var tabBarView: MSSTabBarView?
-    var pageIndex: Int
+class ChildViewController: UIViewController {
     
     // MARK: Vars
     
     @IBOutlet weak var titleLabel: UILabel?
-    
-    // MARK: Init
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.pageIndex = 0
-        super.init(coder: aDecoder)
-    }
     
     // MARK: Lifecycle
     
