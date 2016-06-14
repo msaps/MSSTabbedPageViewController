@@ -24,11 +24,11 @@
     [super viewDidLoad];
     
     self.styles = @[
-                    [TabControllerStyle styleWithName:@"Wrapped Text" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleSizeToFit numberOfTabs:5],
-                    [TabControllerStyle styleWithName:@"Distributed Text" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3],
-                    [TabControllerStyle styleWithName:@"Wrapped Images" tabStyle:MSSTabStyleImage sizingStyle:MSSTabSizingStyleSizeToFit numberOfTabs:5],
-                    [TabControllerStyle styleWithName:@"Distributed Images" tabStyle:MSSTabStyleImage sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3],
-                    [TabControllerStyle styleWithName:@"Snap Transition" tabStyle:MSSTabStyleText sizingStyle:MSSTabSizingStyleDistributed transitionStyle:MSSTabTransitionStyleSnap numberOfTabs:2]
+                    [TabControllerStyle styleWithName:@"Wrapped Text" tabStyle:MSSTabStyleTextOnly sizingStyle:MSSTabSizingStyleSizeToFit numberOfTabs:5],
+                    [TabControllerStyle styleWithName:@"Distributed Text" tabStyle:MSSTabStyleTextOnly sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3],
+                    [TabControllerStyle styleWithName:@"Wrapped Images" tabStyle:MSSTabStyleImageOnly sizingStyle:MSSTabSizingStyleSizeToFit numberOfTabs:5],
+                    [TabControllerStyle styleWithName:@"Distributed Images" tabStyle:MSSTabStyleImageOnly sizingStyle:MSSTabSizingStyleDistributed numberOfTabs:3],
+                    [TabControllerStyle styleWithName:@"Snap Transition" tabStyle:MSSTabStyleTextOnly sizingStyle:MSSTabSizingStyleDistributed transitionStyle:MSSTabTransitionStyleSnap numberOfTabs:2]
                     ];
 }
 
