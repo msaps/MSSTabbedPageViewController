@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, MSSTabStyle) {
-    MSSTabStyleDefault,
-    MSSTabStyleTextOnly,
-    MSSTabStyleImageOnly
+    MSSTabStyleText,
+    MSSTabStyleImage,
+    MSSTabStyleImageAndText
 };

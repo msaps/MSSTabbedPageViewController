@@ -50,7 +50,7 @@
 #pragma mark - Public
 
 - (void)setTitle:(NSString *)title {
-    if (self.tabStyle == MSSTabStyleTextOnly || self.tabStyle == MSSTabStyleDefault) {
+    if (self.tabStyle == MSSTabStyleText || self.tabStyle == MSSTabStyleImageAndText) {
         self.titleLabel.text = title;
     }
 }
@@ -60,7 +60,7 @@
 }
 
 - (void)setImage:(UIImage *)image {
-    if (self.tabStyle == MSSTabStyleImageOnly || self.tabStyle == MSSTabStyleDefault) {
+    if (self.tabStyle == MSSTabStyleImage || self.tabStyle == MSSTabStyleImageAndText) {
         self.imageView.image = image;
     }
 }
@@ -103,7 +103,7 @@
     _tabStyle = tabStyle;
     
     switch (tabStyle) {
-        case MSSTabStyleTextOnly:
+        case MSSTabStyleText:
             self.imageView.image = nil;
             self.titleLabel.hidden = NO;
             self.imageView.hidden = YES;
@@ -112,7 +112,7 @@
             self.textCenterAlignment.active = YES;
             break;
             
-        case MSSTabStyleImageOnly:
+        case MSSTabStyleImage:
             self.titleLabel.text = nil;
             self.titleLabel.hidden = NO;
             self.imageView.hidden = NO;
@@ -169,8 +169,8 @@
 
 - (void)updateProgressiveAppearance {
     switch (self.tabStyle) {
-        case MSSTabStyleTextOnly:
-        case MSSTabStyleDefault:
+        case MSSTabStyleText:
+        case MSSTabStyleImageAndText:
             if (self.alphaEffectEnabled) {
                 self.titleLabel.alpha = self.selectionProgress;
             }
