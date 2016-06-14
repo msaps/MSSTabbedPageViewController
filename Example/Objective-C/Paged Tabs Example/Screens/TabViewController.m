@@ -16,7 +16,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         _style = [TabControllerStyle styleWithName:@"Default"
-                                          tabStyle:MSSTabStyleText
+                                          tabStyle:MSSTabStyleTextOnly
                                        sizingStyle:MSSTabSizingStyleSizeToFit
                                       numberOfTabs:6];
     }
