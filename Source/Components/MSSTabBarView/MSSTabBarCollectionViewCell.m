@@ -18,6 +18,9 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *containerViewBottomMargin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopAlignment;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageBottomAlignment;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textCenterAlignment;
 
 @end
 
@@ -47,7 +50,7 @@
 #pragma mark - Public
 
 - (void)setTitle:(NSString *)title {
-    if (self.tabStyle == MSSTabStyleText) {
+    if (self.tabStyle == MSSTabStyleTextOnly || self.tabStyle == MSSTabStyleDefault) {
         self.titleLabel.text = title;
     }
 }
@@ -57,7 +60,7 @@
 }
 
 - (void)setImage:(UIImage *)image {
-    if (self.tabStyle == MSSTabStyleImage) {
+    if (self.tabStyle == MSSTabStyleImageOnly || self.tabStyle == MSSTabStyleDefault) {
         self.imageView.image = image;
     }
 }
@@ -100,19 +103,30 @@
     _tabStyle = tabStyle;
     
     switch (tabStyle) {
-        case MSSTabStyleText:
+        case MSSTabStyleTextOnly:
             self.imageView.image = nil;
             self.titleLabel.hidden = NO;
             self.imageView.hidden = YES;
+            self.imageBottomAlignment.active = NO;
+            self.textTopAlignment.active = NO;
+            self.textCenterAlignment.active = YES;
             break;
             
-        case MSSTabStyleImage:
+        case MSSTabStyleImageOnly:
             self.titleLabel.text = nil;
-            self.titleLabel.hidden = YES;
+            self.titleLabel.hidden = NO;
             self.imageView.hidden = NO;
+            self.imageBottomAlignment.active = YES;
+            self.textTopAlignment.active = NO;
+            self.textCenterAlignment.active = NO;
             break;
             
         default:
+            self.titleLabel.hidden = NO;
+            self.imageView.hidden = NO;
+            self.imageBottomAlignment.active = NO;
+            self.textCenterAlignment.active = NO;
+            self.textTopAlignment.active = YES;
             break;
     }
 }
@@ -155,7 +169,8 @@
 
 - (void)updateProgressiveAppearance {
     switch (self.tabStyle) {
-        case MSSTabStyleText:
+        case MSSTabStyleTextOnly:
+        case MSSTabStyleDefault:
             if (self.alphaEffectEnabled) {
                 self.titleLabel.alpha = self.selectionProgress;
             }
