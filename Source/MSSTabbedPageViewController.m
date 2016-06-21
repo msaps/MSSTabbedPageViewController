@@ -14,7 +14,9 @@
 
 @interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
 
+#if !defined(MSS_APP_EXTENSIONS)
 @property (nonatomic, weak) MSSTabNavigationBar *tabNavigationBar;
+#endif
 
 @property (nonatomic, assign) BOOL allowTabBarRequiredCancellation;
 
@@ -30,6 +32,7 @@
     self.provideOutOfBoundsUpdates = NO;
 }
 
+#if !defined(MSS_APP_EXTENSIONS)
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -64,6 +67,7 @@
         self.tabBarView = nil;
     }
 }
+#endif
 
 #pragma mark - Public
 
@@ -137,6 +141,7 @@
 
 #pragma mark - Navigation Controller delegate
 
+#if !defined(MSS_APP_EXTENSIONS)
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated {
@@ -151,6 +156,7 @@
         }
     }];
 }
+#endif
 
 #pragma mark - Scroll View delegate
 

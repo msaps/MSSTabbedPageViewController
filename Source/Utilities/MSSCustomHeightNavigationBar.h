@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_EXTENSION_UNAVAILABLE_IOS("MSSCustomHeightNavigationBar is unavailable in app extensions.")
 @interface MSSCustomHeightNavigationBar : UINavigationBar
 
 @property (nonatomic, assign) BOOL offsetTransformRequired;

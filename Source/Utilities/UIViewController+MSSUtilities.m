@@ -34,18 +34,4 @@
     [self didMoveToParentViewController:parentViewController];
 }
 
-- (CGFloat)requiredTopMargin {
-    CGFloat inset = 0.0f;
-    
-    if (![[UIApplication sharedApplication]isStatusBarHidden]) {
-        inset += [[UIApplication sharedApplication]statusBarFrame].size.height;
-    }
-    
-    if (self.navigationController.navigationBar && !self.navigationController.navigationBarHidden) {
-        inset += self.navigationController.navigationBar.frame.size.height;
-    }
-    
-    return inset;
-}
-
 @end
