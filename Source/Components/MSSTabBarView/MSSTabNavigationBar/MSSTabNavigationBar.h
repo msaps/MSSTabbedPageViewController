@@ -9,6 +9,7 @@
 #import "MSSCustomHeightNavigationBar.h"
 #import "MSSTabBarView.h"
 
+NS_EXTENSION_UNAVAILABLE_IOS("MSSTabNavigationBar is unavailable in app extensions.")
 @interface MSSTabNavigationBar : MSSCustomHeightNavigationBar
 
 /**
