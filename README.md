@@ -20,7 +20,7 @@ To run the example project, clone the repo and build the project. Examples are a
 ## Installation
 MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-    pod "MSSTabbedPageViewController"
+    pod MSSTabbedPageViewController
 
 And run `pod install`.
 
@@ -83,7 +83,7 @@ Called when the page view controller completes a full scroll to a new page.
 - `tabTransitionStyle` - The transition style to use for the tabs.
 
 ## Requirements
-Supports iOS 8 and iOS 9.
+Supports iOS 8 and above.
 
 ## Author
 Merrick Sapsford
