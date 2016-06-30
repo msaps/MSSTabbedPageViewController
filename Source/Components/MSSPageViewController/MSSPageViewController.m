@@ -296,6 +296,16 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     
     CGFloat currentXOffset = (self.currentPage * pageWidth) + scrollOffset;
     CGFloat currentPagePosition = currentXOffset / pageWidth;
+    MSSPageViewControllerScrollDirection direction =
+    currentPagePosition > _previousPagePosition ?
+    MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
+    
+    // check if reached a page incase page view controller delegate does not report
+    if (direction == MSSPageViewControllerScrollDirectionForward && currentPagePosition >= self.currentPage) {
+        _currentPage = floorf(currentPagePosition);
+    } else if (direction == MSSPageViewControllerScrollDirectionBackward && currentPagePosition < self.currentPage) {
+        _currentPage = ceilf(currentPagePosition);
+    }
     
     if (currentPagePosition != self.previousPagePosition) {
 
@@ -330,15 +340,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                 currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
             }
         }
-        
+
         // check whether updates are allowed
         if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
             if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
-                
-                MSSPageViewControllerScrollDirection direction =
-                currentPagePosition > _previousPagePosition ?
-                MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
-                
                 [self.delegate pageViewController:self
                             didScrollToPageOffset:currentPagePosition
                                         direction:direction];
