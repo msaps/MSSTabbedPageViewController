@@ -306,7 +306,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     
     // check if reached a page incase page view controller delegate does not report
     // occurs when scrollview is continuously dragged
-    if (scrollView.isDragging) {
+    if (!self.isAnimatingPageUpdate) {
         if (direction == MSSPageViewControllerScrollDirectionForward && currentPagePosition >= self.currentPage + 1) {
             [self updateCurrentPage:self.currentPage + 1];
         } else if (direction == MSSPageViewControllerScrollDirectionBackward && currentPagePosition <= self.currentPage - 1) {
