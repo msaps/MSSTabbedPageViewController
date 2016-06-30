@@ -20,7 +20,7 @@ To run the example project, clone the repo and build the project. Examples are a
 ## Installation
 MSSTabbedPageViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-    pod MSSTabbedPageViewController
+    pod 'MSSTabbedPageViewController'
 
 And run `pod install`.
 
