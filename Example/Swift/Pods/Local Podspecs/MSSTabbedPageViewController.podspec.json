@@ -1,6 +1,6 @@
 {
   "name": "MSSTabbedPageViewController",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "summary": "A custom container UIViewController which provides a simple to implement page view controller with scrolling tab bar",
   "description": "MSSTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. Also includes a UIPageViewController wrapper that provides improved data source and delegation methods.",
   "homepage": "https://github.com/MerrickSapsford/MSSTabbedPageViewController",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/MerrickSapsford/MSSTabbedPageViewController.git",
-    "tag": "0.3.2"
+    "tag": "0.3.3"
   },
   "requires_arc": true,
   "source_files": [
