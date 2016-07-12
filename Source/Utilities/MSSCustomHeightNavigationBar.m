@@ -8,6 +8,14 @@
 
 #import "MSSCustomHeightNavigationBar.h"
 
+CGFloat const MSSStandardBarHeightInvalid = -1.0f;
+
+@interface MSSCustomHeightNavigationBar ()
+
+@property (nonatomic, assign) CGFloat standardBarHeight;
+
+@end
+
 @implementation MSSCustomHeightNavigationBar
 
 #pragma mark - Init
@@ -27,6 +35,7 @@
 }
 
 - (void)baseInit {
+    self.standardBarHeight = MSSStandardBarHeightInvalid;
 }
 
 #pragma mark - Lifecycle
@@ -43,7 +52,7 @@
             CGRect bounds = [self bounds];
             CGRect frame = [view frame];
             CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-            CGFloat heightIncrease = self.heightIncreaseRequired ? [self getHeightIncreaseValue] : 0.0f;
+            CGFloat heightIncrease = self.heightIncreaseRequired ? [self heightIncreaseValue] : 0.0f;
             CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarHidden ? 0.0f : statusBarFrame.size.height;
             
             if (!CGAffineTransformEqualToTransform(self.transform, CGAffineTransformIdentity)) {
@@ -61,8 +70,18 @@
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize originalSize = [super sizeThatFits:size];
-    originalSize.height += [self getHeightIncreaseValue];
     
+    // capture original size
+    if (self.standardBarHeight == MSSStandardBarHeightInvalid) {
+        self.standardBarHeight = originalSize.height;
+    }
+    
+    // if a transform is active always account for the height increase
+    if (!CGAffineTransformIsIdentity(self.transform)) {
+        originalSize.height += [self heightIncreaseValue];
+    } else {
+        originalSize.height += [self safeHeightIncreaseValue];
+    }
     return originalSize;
 }
 
@@ -86,8 +105,8 @@
 
 #pragma mark - Internal
 
-- (CGFloat)getHeightIncreaseValue {
-    if (self.heightIncreaseRequired) {
+- (CGFloat)safeHeightIncreaseValue {
+    if (self.heightIncreaseRequired && self.frame.size.height == self.standardBarHeight) {
         return [self heightIncreaseValue];
     }
     return 0.0f;
