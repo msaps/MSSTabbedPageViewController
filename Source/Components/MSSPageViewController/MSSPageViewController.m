@@ -130,7 +130,6 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
         _animatingPageUpdate = YES;
         
         BOOL isForwards = index > self.currentPage;
-        NSArray *viewControllers = self.pageViewController.viewControllers;
         UIViewController *viewController = [self viewControllerAtIndex:index];
         
         typeof(self) __weak weakSelf = self;
@@ -140,11 +139,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                                            animated:animated
                                          completion:^(BOOL finished) {
                                              typeof(weakSelf) __strong strongSelf = weakSelf;
-                                             [strongSelf pageViewController:strongSelf.pageViewController
-                                                         didFinishAnimating:YES
-                                                    previousViewControllers:viewControllers
-                                                        transitionCompleted:finished];
-                                             
+                                             [strongSelf updateCurrentPage:index];
                                              if (completion) {
                                                  completion(viewController, animated, finished);
                                              }
@@ -283,6 +278,15 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     return _scrollView;
 }
 
+- (void)updateCurrentPage:(NSInteger)currentPage {
+    if (currentPage >= 0 && currentPage < self.numberOfPages) {
+        _currentPage = currentPage;
+        if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {
+            [self.delegate pageViewController:self didScrollToPage:self.currentPage];
+        }
+    }
+}
+
 #pragma mark - Scroll View delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -296,6 +300,19 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     
     CGFloat currentXOffset = (self.currentPage * pageWidth) + scrollOffset;
     CGFloat currentPagePosition = currentXOffset / pageWidth;
+    MSSPageViewControllerScrollDirection direction =
+    currentPagePosition > _previousPagePosition ?
+    MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
+    
+    // check if reached a page incase page view controller delegate does not report
+    // occurs when scrollview is continuously dragged
+    if (!self.isAnimatingPageUpdate) {
+        if (direction == MSSPageViewControllerScrollDirectionForward && currentPagePosition >= self.currentPage + 1) {
+            [self updateCurrentPage:self.currentPage + 1];
+        } else if (direction == MSSPageViewControllerScrollDirectionBackward && currentPagePosition <= self.currentPage - 1) {
+            [self updateCurrentPage:self.currentPage - 1];
+        }
+    }
     
     if (currentPagePosition != self.previousPagePosition) {
 
@@ -330,15 +347,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                 currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
             }
         }
-        
+
         // check whether updates are allowed
         if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
             if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {
-                
-                MSSPageViewControllerScrollDirection direction =
-                currentPagePosition > _previousPagePosition ?
-                MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
-                
                 [self.delegate pageViewController:self
                             didScrollToPageOffset:currentPagePosition
                                         direction:direction];
@@ -413,20 +425,6 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
         [self.delegate pageViewController:self
                          willScrollToPage:nextPage
                               currentPage:currentPage];
-    }
-}
-
-- (void)pageViewController:(UIPageViewController *)pageViewController
-        didFinishAnimating:(BOOL)finished
-   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
-       transitionCompleted:(BOOL)completed {
-    
-    if (completed || ((previousViewControllers.firstObject == [self viewControllerAtIndex:self.currentPage]) && !self.isDragging)) {
-        _currentPage = [self indexOfViewController:self.pageViewController.viewControllers.firstObject];
-        
-        if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {
-            [self.delegate pageViewController:self didScrollToPage:self.currentPage];
-        }
     }
 }
 

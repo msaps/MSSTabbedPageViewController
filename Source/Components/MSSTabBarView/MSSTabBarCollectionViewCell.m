@@ -14,13 +14,18 @@
 }
 
 @property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, weak) IBOutlet UIView *textContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *textTitleLabel;
+
+@property (nonatomic, weak) IBOutlet UIView *imageContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *imageImageView;
+
+@property (nonatomic, weak) IBOutlet UIView *imageTextContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *imageTextTitleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *imageTextImageView;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *containerViewBottomMargin;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textTopAlignment;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageBottomAlignment;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textCenterAlignment;
 
 @end
 
@@ -50,23 +55,23 @@
 #pragma mark - Public
 
 - (void)setTitle:(NSString *)title {
-    if (self.tabStyle == MSSTabStyleText || self.tabStyle == MSSTabStyleImageAndText) {
-        self.titleLabel.text = title;
-    }
+    self.textTitleLabel.text = title;
+    self.imageTextTitleLabel.text = title;
 }
 
 - (NSString *)title {
-    return self.titleLabel.text;
+    return self.textTitleLabel.text;
 }
 
 - (void)setImage:(UIImage *)image {
     if (self.tabStyle == MSSTabStyleImage || self.tabStyle == MSSTabStyleImageAndText) {
-        self.imageView.image = image;
+        self.imageImageView.image = image;
+        self.imageTextImageView.image = image;
     }
 }
 
 - (UIImage *)image {
-    return self.imageView.image;
+    return self.imageImageView.image;
 }
 
 #pragma mark - Private
@@ -74,28 +79,32 @@
 - (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
     if (!_isSelected) {
-        self.titleLabel.textColor = textColor;
+        self.textTitleLabel.textColor = textColor;
+        self.imageTextTitleLabel.textColor = textColor;
     }
 }
 
 - (void)setSelectedTextColor:(UIColor *)selectedTextColor {
     _selectedTextColor = selectedTextColor;
     if (_isSelected) {
-        self.titleLabel.textColor = selectedTextColor;
+        self.textTitleLabel.textColor = selectedTextColor;
+        self.imageTextTitleLabel.textColor = selectedTextColor;
     }
 }
 
 - (void)setTextFont:(UIFont *)textFont {
     _textFont = textFont;
     if (!_isSelected) {
-        self.titleLabel.font = textFont;
+        self.textTitleLabel.font = textFont;
+        self.imageTextTitleLabel.font = textFont;
     }
 }
 
 - (void)setSelectedTextFont:(UIFont *)selectedTextFont {
     _selectedTextFont = selectedTextFont;
     if (_isSelected) {
-        self.titleLabel.font = selectedTextFont;
+        self.textTitleLabel.font = selectedTextFont;
+        self.imageTextTitleLabel.font = selectedTextFont;
     }
 }
 
@@ -103,30 +112,22 @@
     _tabStyle = tabStyle;
     
     switch (tabStyle) {
-        case MSSTabStyleText:
-            self.imageView.image = nil;
-            self.titleLabel.hidden = NO;
-            self.imageView.hidden = YES;
-            self.imageBottomAlignment.active = NO;
-            self.textTopAlignment.active = NO;
-            self.textCenterAlignment.active = YES;
+        case MSSTabStyleImageAndText:
+            self.textContainerView.hidden = YES;
+            self.imageContainerView.hidden = YES;
+            self.imageTextContainerView.hidden = NO;
             break;
             
         case MSSTabStyleImage:
-            self.titleLabel.text = nil;
-            self.titleLabel.hidden = NO;
-            self.imageView.hidden = NO;
-            self.imageBottomAlignment.active = YES;
-            self.textTopAlignment.active = NO;
-            self.textCenterAlignment.active = NO;
+            self.textContainerView.hidden = YES;
+            self.imageContainerView.hidden = NO;
+            self.imageTextContainerView.hidden = YES;
             break;
             
         default:
-            self.titleLabel.hidden = NO;
-            self.imageView.hidden = NO;
-            self.imageBottomAlignment.active = NO;
-            self.textCenterAlignment.active = NO;
-            self.textTopAlignment.active = YES;
+            self.textContainerView.hidden = NO;
+            self.imageContainerView.hidden = YES;
+            self.imageTextContainerView.hidden = YES;
             break;
     }
 }
@@ -161,7 +162,8 @@
     if (alphaEffectEnabled) {
         [self updateProgressiveAppearance];
     } else {
-        self.titleLabel.alpha = 1.0f;
+        self.textTitleLabel.alpha = 1.0f;
+        self.imageTextTitleLabel.alpha = 1.0f;
     }
 }
 
@@ -172,7 +174,8 @@
         case MSSTabStyleText:
         case MSSTabStyleImageAndText:
             if (self.alphaEffectEnabled) {
-                self.titleLabel.alpha = self.selectionProgress;
+                self.textTitleLabel.alpha = self.selectionProgress;
+                self.imageTextTitleLabel.alpha = self.selectionProgress;
             }
             break;
             
@@ -192,15 +195,21 @@
                             animations:
              ^{
                  if (self.selectedTextColor) {
-                     self.titleLabel.textColor = isSelected ? self.selectedTextColor : self.textColor;
+                     UIColor *textColor = isSelected ? self.selectedTextColor : self.textColor;
+                     self.textTitleLabel.textColor = textColor;
+                     self.imageTextTitleLabel.textColor = textColor;
                  } else {
-                     self.titleLabel.textColor = self.textColor;
+                     self.textTitleLabel.textColor = self.textColor;
+                     self.imageTextTitleLabel.textColor = self.textColor;
                  }
                  
                  if (self.selectedTextFont) {
-                     self.titleLabel.font = isSelected ? self.selectedTextFont : self.textFont;
+                     UIFont *textFont = isSelected ? self.selectedTextFont : self.textFont;
+                     self.textTitleLabel.font = textFont;
+                     self.imageTextTitleLabel.font = textFont;
                  } else {
-                     self.titleLabel.font = self.textFont;
+                     self.textTitleLabel.font = self.textFont;
+                     self.imageTextTitleLabel.font = self.textFont;
                  }
                  
                  if (self.selectedTabBackgroundColor) {
