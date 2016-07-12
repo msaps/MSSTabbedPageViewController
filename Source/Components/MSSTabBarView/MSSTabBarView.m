@@ -751,7 +751,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     cell.backgroundColor = [UIColor clearColor];
-    [cell setContentBottomMargin:(self.selectionIndicatorHeight)];
+    [cell setContentBottomMargin:[self.indicatorAttributes[MSSTabIndicatorLineHeight]floatValue]];
 }
 
 - (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
