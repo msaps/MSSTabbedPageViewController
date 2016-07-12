@@ -61,7 +61,13 @@
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize originalSize = [super sizeThatFits:size];
-    originalSize.height += [self getHeightIncreaseValue];
+    
+    // if a transform is active always account for the height increase
+    if (!CGAffineTransformIsIdentity(self.transform)) {
+        originalSize.height += [self heightIncreaseValue];
+    } else {
+        originalSize.height += [self getHeightIncreaseValue];
+    }
     
     return originalSize;
 }
