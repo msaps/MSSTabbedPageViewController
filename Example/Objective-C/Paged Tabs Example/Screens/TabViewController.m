@@ -40,8 +40,7 @@
     [super viewWillAppear:animated];
     
     [self.tabBarView setTransitionStyle:self.style.transitionStyle];
-//    self.tabBarView.tabStyle = self.style.tabStyle;
-    self.tabBarView.tabStyle = MSSTabStyleImageAndText;
+    self.tabBarView.tabStyle = self.style.tabStyle;
     self.tabBarView.sizingStyle = self.style.sizingStyle;
     
     self.tabBarView.tabAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16.0f weight:UIFontWeightThin],
