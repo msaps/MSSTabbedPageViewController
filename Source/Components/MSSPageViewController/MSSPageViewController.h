@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
     MSSPageViewControllerScrollDirectionForward = 1
 };
 
-typedef void(^MSSPageViewControllerPageMoveCompletion)(UIViewController *_Nonnull newViewController, BOOL animated, BOOL transitionFinished);
+typedef void(^MSSPageViewControllerPageMoveCompletion)(UIViewController *_Nullable newViewController, BOOL animated, BOOL transitionFinished);
 
 @class MSSPageViewController;
 
@@ -174,6 +174,20 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  Completion of the page move.
  */
 - (void)moveToPageAtIndex:(NSInteger)index
+               completion:(nullable MSSPageViewControllerPageMoveCompletion)completion;
+
+/**
+ Move page view controller to a page at specific index.
+ 
+ @param index
+ The index of the page to display.
+ @param animated
+ Whether to animate the page transition.
+ @param completion
+ Completion of the page move.
+ */
+- (void)moveToPageAtIndex:(NSInteger)index
+                 animated:(BOOL)animated
                completion:(nullable MSSPageViewControllerPageMoveCompletion)completion;
 
 @end
