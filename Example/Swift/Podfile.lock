@@ -1,5 +1,5 @@
 PODS:
-  - MSSTabbedPageViewController (0.3.3)
+  - MSSTabbedPageViewController (0.3.6)
 
 DEPENDENCIES:
   - MSSTabbedPageViewController (from `../../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  MSSTabbedPageViewController: 4b3e78e61162329e0c024c80959ac321c354063d
+  MSSTabbedPageViewController: 5b9b64250f25ee6a05c45702b3c251843818147b
 
 PODFILE CHECKSUM: 1f7f2561a204ec5f8d03bd3a20ad12e2e6514322
 
