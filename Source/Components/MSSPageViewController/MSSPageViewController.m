@@ -218,7 +218,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
         [self setUpViewControllers:self.viewControllers];
         
         _numberOfPages = self.viewControllers.count;
-        self.currentPage = self.defaultPageIndex;
+        _currentPage = self.defaultPageIndex;
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
             [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];
@@ -284,6 +284,14 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 }
 
 - (void)updateCurrentPage:(NSInteger)currentPage {
+    if (self.infiniteScrollEnabled) {
+        if (currentPage >= self.numberOfPages) {
+            currentPage = 0;
+        } else if (currentPage < 0) {
+            currentPage = self.numberOfPages - 1;
+        }
+    }
+    
     if (currentPage >= 0 && currentPage < self.numberOfPages) {
         _currentPage = currentPage;
         if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPage:)]) {
@@ -309,13 +317,15 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     currentPagePosition > _previousPagePosition ?
     MSSPageViewControllerScrollDirectionForward : MSSPageViewControllerScrollDirectionBackward;
     
-    // check if reached a page incase page view controller delegate does not report
+    // check if reached a page as page view controller delegate does not report reliably
     // occurs when scrollview is continuously dragged
     if (!self.isAnimatingPageUpdate) {
         if (direction == MSSPageViewControllerScrollDirectionForward && currentPagePosition >= self.currentPage + 1) {
             [self updateCurrentPage:self.currentPage + 1];
+            return; // ignore update if we've changed page
         } else if (direction == MSSPageViewControllerScrollDirectionBackward && currentPagePosition <= self.currentPage - 1) {
             [self updateCurrentPage:self.currentPage - 1];
+            return;
         }
     }
     
@@ -352,7 +362,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                 currentPagePosition = MAX(0.0f, MIN(currentPagePosition, self.numberOfPages - 1));
             }
         }
-
+        
         // check whether updates are allowed
         if (self.scrollUpdatesEnabled && self.allowScrollViewUpdates) {
             if ([self.delegate respondsToSelector:@selector(pageViewController:didScrollToPageOffset:direction:)]) {

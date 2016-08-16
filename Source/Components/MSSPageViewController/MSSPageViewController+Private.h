@@ -8,16 +8,12 @@
 
 #import "MSSPageViewController.h"
 
-@interface MSSPageViewController () <UIScrollViewDelegate>
+@interface MSSPageViewController ()
 
 /**
  The default page index of the page view controller.
  */
 @property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
-/**
- The current active page index of the page view controller.
- */
-@property (nonatomic, assign) NSInteger currentPage;
 /**
  Whether user interaction is currently enabled on the page view controller
  */
