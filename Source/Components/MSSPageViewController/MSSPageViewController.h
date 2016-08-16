@@ -107,7 +107,7 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
 
 @end
 
-@interface MSSPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSPageViewControllerDataSource>
+@interface MSSPageViewController : UIViewController <MSSPageViewControllerDelegate, MSSPageViewControllerDataSource, UIScrollViewDelegate>
 
 /**
  The object that acts as a data source for the page view controller.
@@ -189,6 +189,11 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
 - (void)moveToPageAtIndex:(NSInteger)index
                  animated:(BOOL)animated
                completion:(nullable MSSPageViewControllerPageMoveCompletion)completion;
+
+
+/** UIScrollViewDelegate */
+- (void)scrollViewWillBeginDragging:(nonnull UIScrollView *)scrollView NS_REQUIRES_SUPER;
+- (void)scrollViewDidScroll:(nonnull UIScrollView *)scrollView NS_REQUIRES_SUPER;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "MSSPageViewController.h"
 
-@interface MSSPageViewController () <UIScrollViewDelegate>
+@interface MSSPageViewController ()
 
 /**
  The default page index of the page view controller.
