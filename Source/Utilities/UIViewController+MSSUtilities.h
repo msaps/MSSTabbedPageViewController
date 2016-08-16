@@ -10,10 +10,10 @@
 
 @interface UIViewController (MSSUtilities)
 
-- (void)addToParentViewController:(UIViewController *)parentViewController;
+- (void)mss_addToParentViewController:(UIViewController *)parentViewController;
 
-- (void)addToParentViewController:(UIViewController *)parentViewController atZIndex:(NSInteger)index;
+- (void)mss_addToParentViewController:(UIViewController *)parentViewController atZIndex:(NSInteger)index;
 
-- (void)addToParentViewController:(UIViewController *)parentViewController withView:(UIView *)view;
+- (void)mss_addToParentViewController:(UIViewController *)parentViewController withView:(UIView *)view;
 
 @end

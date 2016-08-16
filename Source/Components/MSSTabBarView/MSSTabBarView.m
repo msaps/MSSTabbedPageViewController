@@ -137,7 +137,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         }
         
         // collection view
-        [self addExpandingSubview:self.collectionView];
+        [self mss_addExpandingSubview:self.collectionView];
         self.collectionView.contentInset = self.contentInset;
         self.collectionView.backgroundColor = [UIColor clearColor];
         self.collectionView.showsHorizontalScrollIndicator = NO;
@@ -315,7 +315,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)setBackgroundView:(UIView *)backgroundView {
     _backgroundView = backgroundView;
-    [self addExpandingSubview:backgroundView];
+    [self mss_addExpandingSubview:backgroundView];
     [self sendSubviewToBack:backgroundView];
 }
 
@@ -755,7 +755,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)updateIndicatorForStyle:(MSSIndicatorStyle)indicatorStyle {
-    [self.indicatorContainer clearSubviews];
+    [self.indicatorContainer mss_clearSubviews];
     
     UIView *indicatorView;
     switch (indicatorStyle) {
