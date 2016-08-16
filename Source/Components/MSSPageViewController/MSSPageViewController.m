@@ -218,7 +218,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
         [self setUpViewControllers:self.viewControllers];
         
         _numberOfPages = self.viewControllers.count;
-        self.currentPage = self.defaultPageIndex;
+        _currentPage = self.defaultPageIndex;
         
         if ([self.delegate respondsToSelector:@selector(pageViewController:didPrepareViewControllers:)]) {
             [self.delegate pageViewController:self didPrepareViewControllers:self.viewControllers];

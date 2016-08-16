@@ -122,6 +122,10 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  The number of pages in the page view controller.
  */
 @property (nonatomic, assign ,readonly) NSInteger numberOfPages;
+/**
+ The current active page index of the page view controller.
+ */
+@property (nonatomic, assign, readonly) NSInteger currentPage;
 /** 
  The view controllers within the page view controller.
  */
