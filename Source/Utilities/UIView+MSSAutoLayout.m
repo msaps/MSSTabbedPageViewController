@@ -8,19 +8,19 @@
 
 #import "UIView+MSSAutoLayout.h"
 
-NSInteger const UIViewDefaultZIndex = -1;
+NSInteger const MSSViewDefaultZIndex = -1;
 
 @implementation UIView (MSSAutoLayout)
 
-- (void)addExpandingSubview:(UIView *)subview {
-    [self addExpandingSubview:subview edgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+- (void)mss_addExpandingSubview:(UIView *)subview {
+    [self mss_addExpandingSubview:subview edgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 }
 
-- (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets {
-    [self addExpandingSubview:subview edgeInsets:insets atZIndex:UIViewDefaultZIndex];
+- (void)mss_addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets {
+    [self mss_addExpandingSubview:subview edgeInsets:insets atZIndex:MSSViewDefaultZIndex];
 }
 
-- (void)addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets atZIndex:(NSInteger)index {
+- (void)mss_addExpandingSubview:(UIView *)subview edgeInsets:(UIEdgeInsets)insets atZIndex:(NSInteger)index {
     [self addView:subview atZIndex:index];
     NSDictionary *views = NSDictionaryOfVariableBindings(subview);
     
@@ -36,8 +36,8 @@ NSInteger const UIViewDefaultZIndex = -1;
                                                                    views:views]];
 }
 
-- (void)addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height {
-    [self addView:subview atZIndex:UIViewDefaultZIndex];
+- (void)mss_addPinnedToTopAndSidesSubview:(UIView *)subview withHeight:(CGFloat)height {
+    [self addView:subview atZIndex:MSSViewDefaultZIndex];
     NSDictionary *views = NSDictionaryOfVariableBindings(subview);
     
     NSDictionary *metrics = @{@"viewHeight":@(height)};
@@ -55,7 +55,7 @@ NSInteger const UIViewDefaultZIndex = -1;
 
 #pragma mark - Utils
 
-- (void)clearSubviews {
+- (void)mss_clearSubviews {
     for (UIView *subview in self.subviews) {
         [subview removeFromSuperview];
     }

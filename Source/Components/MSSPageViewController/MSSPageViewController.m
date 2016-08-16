@@ -100,7 +100,7 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     [super viewDidLoad];
     _viewHasLoaded = YES;
     
-    [self.pageViewController addToParentViewController:self atZIndex:0];
+    [self.pageViewController mss_addToParentViewController:self atZIndex:0];
     self.scrollView.delegate = self;
     
     [self setUpPages];
