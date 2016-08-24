@@ -10,6 +10,7 @@
 #import "MSSTabBarView.h"
 
 NS_EXTENSION_UNAVAILABLE_IOS("MSSTabNavigationBar is unavailable in app extensions.")
+__attribute__ ((deprecated))
 @interface MSSTabNavigationBar : MSSCustomHeightNavigationBar
 
 /**
