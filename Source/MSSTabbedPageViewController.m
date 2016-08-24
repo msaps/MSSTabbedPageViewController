@@ -8,19 +8,7 @@
 
 #import "MSSTabbedPageViewController.h"
 #import "MSSPageViewController+Private.h"
-#import "MSSTabNavigationBar+Private.h"
 #import "MSSTabBarView+Private.h"
-#import <objc/runtime.h>
-
-@interface MSSTabbedPageViewController () <UINavigationControllerDelegate>
-
-#if !defined(MSS_APP_EXTENSIONS)
-@property (nonatomic, weak) MSSTabNavigationBar *tabNavigationBar;
-#endif
-
-@property (nonatomic, assign) BOOL allowTabBarRequiredCancellation;
-
-@end
 
 @implementation MSSTabbedPageViewController
 
@@ -31,43 +19,6 @@
 
     self.provideOutOfBoundsUpdates = NO;
 }
-
-#if !defined(MSS_APP_EXTENSIONS)
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // set up navigation bar for tabbed page view if available
-    if ([self.navigationController.navigationBar isMemberOfClass:[MSSTabNavigationBar class]] && !self.tabBarView) {
-        MSSTabNavigationBar *navigationBar = (MSSTabNavigationBar *)self.navigationController.navigationBar;
-        self.navigationController.delegate = self;
-        _tabNavigationBar = navigationBar;
-        
-        MSSTabBarView *tabBarView = navigationBar.tabBarView;
-        tabBarView.dataSource = self;
-        tabBarView.delegate = self;
-        self.tabBarView = tabBarView;
-        
-        BOOL isInitialController = (self.navigationController.viewControllers.firstObject == self);
-        [navigationBar tabbedPageViewController:self viewWillAppear:animated isInitial:isInitialController];
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    if (self.tabNavigationBar && (self.tabBarView == self.tabNavigationBar.tabBarView)) {
-        
-        // if next view controller is not tabbed page view controller update navigation bar
-        self.allowTabBarRequiredCancellation = ![self.navigationController.visibleViewController isKindOfClass:[MSSTabbedPageViewController class]];
-        if (self.allowTabBarRequiredCancellation) {
-            [self.tabNavigationBar tabbedPageViewController:self viewWillDisappear:animated];
-        }
-        
-        // remove the current tab bar
-        self.tabBarView = nil;
-    }
-}
-#endif
 
 #pragma mark - Public
 
@@ -138,25 +89,6 @@
     self.allowScrollViewUpdates = YES;
     self.userInteractionEnabled = YES;
 }
-
-#pragma mark - Navigation Controller delegate
-
-#if !defined(MSS_APP_EXTENSIONS)
-- (void)navigationController:(UINavigationController *)navigationController
-      willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated {
-    
-    // Fix for navigation controller swipe back gesture
-    // Manually set tab bar to hidden if gesture was cancelled
-    id<UIViewControllerTransitionCoordinator> transitionCoordinator = navigationController.topViewController.transitionCoordinator;
-    [transitionCoordinator notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        if ([context isCancelled] && self.allowTabBarRequiredCancellation) {
-            self.tabNavigationBar.tabBarRequired = NO;
-            [self.tabNavigationBar setNeedsLayout];
-        }
-    }];
-}
-#endif
 
 #pragma mark - Scroll View delegate
 
