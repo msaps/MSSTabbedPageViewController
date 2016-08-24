@@ -136,11 +136,21 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
         _animatingPageUpdate = YES;
         
         BOOL isForwards = index > self.currentPage;
+        if (self.infiniteScrollEnabled &&
+            self.infiniteScrollPagingBehaviour == MSSPageViewControllerInfinitePagingBehaviorStandard) {
+            if (index == 0 && self.currentPage == self.viewControllers.count - 1) { // moving to first page
+                isForwards = YES;
+            } else if (index == self.viewControllers.count - 1 && self.currentPage == 0) { // moving to last page
+                isForwards = NO;
+            }
+        }
+        
         UIViewController *viewController = [self viewControllerAtIndex:index];
+        UIPageViewControllerNavigationDirection direction = isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
         
         typeof(self) __weak weakSelf = self;
         [self.pageViewController setViewControllers:@[viewController]
-                                          direction:isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                          direction:direction
                                            animated:animated
                                          completion:^(BOOL finished) {
                                              typeof(weakSelf) __strong strongSelf = weakSelf;
