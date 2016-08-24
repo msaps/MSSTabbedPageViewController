@@ -467,7 +467,7 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
        transitionCompleted:(BOOL)completed {
     
     NSInteger index = [self indexOfViewController:pageViewController.viewControllers.firstObject];
-    if (index != NSNotFound) {
+    if (index != NSNotFound && !self.scrollView.isDragging) {
         [self updateCurrentPage:index];
     }
 }
