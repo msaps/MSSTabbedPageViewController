@@ -132,8 +132,9 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                  animated:(BOOL)animated
                completion:(MSSPageViewControllerPageMoveCompletion)completion {
     
-    if (index != self.currentPage) {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
         _animatingPageUpdate = YES;
+        self.view.userInteractionEnabled = NO;
         
         BOOL isForwards = index > self.currentPage;
         if (self.infiniteScrollEnabled &&
@@ -158,7 +159,6 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                                              if (completion) {
                                                  completion(viewController, animated, finished);
                                              }
-                                             _animatingPageUpdate = NO;
                                          }];
     } else {
         if (completion) {
@@ -305,6 +305,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
             currentPage = self.numberOfPages - 1;
         }
     }
+    
+    // has reached page
+    _animatingPageUpdate = NO;
+    self.view.userInteractionEnabled = YES;
     
     if (currentPage >= 0 && currentPage < self.numberOfPages) {
         _currentPage = currentPage;
