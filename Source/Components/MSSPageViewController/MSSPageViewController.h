@@ -18,6 +18,23 @@ typedef NS_ENUM(NSInteger, MSSPageViewControllerScrollDirection) {
     MSSPageViewControllerScrollDirectionForward = 1
 };
 
+typedef NS_ENUM(NSInteger, MSSPageViewControllerInfinitePagingBehavior) {
+    /**
+     The infinite page behavior will be standard.
+     
+     I.e. Going from last index to index 0 will have a forward transition, 
+     index 0 to last index will have a reverse transition.
+     */
+    MSSPageViewControllerInfinitePagingBehaviorStandard,
+    /**
+     The infinite page behavior will be reversed.
+     
+     I.e. Going from last index to index 0 will have a reverse transition,
+     index 0 to last index will have a forward transition.
+     */
+    MSSPageViewControllerInfinitePagingBehaviorReversed
+};
+
 typedef void(^MSSPageViewControllerPageMoveCompletion)(UIViewController *_Nullable newViewController, BOOL animated, BOOL transitionFinished);
 
 @class MSSPageViewController;
@@ -160,6 +177,11 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  Allows the page view controller to scroll indefinitely when it reaches end of page range.
  */
 @property (nonatomic, assign, getter=hasInfiniteScrollEnabled) BOOL infiniteScrollEnabled;
+/**
+ The paging behavior to use when infinite scroll is enabled. This adjusts page transition animations
+ when using moveToPageAtIndex functions. MSSPageViewControllerInfinitePagingBehaviorStandard by default.
+ */
+@property (nonatomic, assign) MSSPageViewControllerInfinitePagingBehavior infiniteScrollPagingBehaviour;
 
 /**
  Move page view controller to a page at specific index.

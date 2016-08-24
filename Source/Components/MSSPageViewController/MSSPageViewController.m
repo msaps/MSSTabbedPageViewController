@@ -132,15 +132,26 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                  animated:(BOOL)animated
                completion:(MSSPageViewControllerPageMoveCompletion)completion {
     
-    if (index != self.currentPage) {
+    if (index != self.currentPage && !self.isAnimatingPageUpdate) {
         _animatingPageUpdate = YES;
+        self.view.userInteractionEnabled = NO;
         
         BOOL isForwards = index > self.currentPage;
+        if (self.infiniteScrollEnabled &&
+            self.infiniteScrollPagingBehaviour == MSSPageViewControllerInfinitePagingBehaviorStandard) {
+            if (index == 0 && self.currentPage == self.viewControllers.count - 1) { // moving to first page
+                isForwards = YES;
+            } else if (index == self.viewControllers.count - 1 && self.currentPage == 0) { // moving to last page
+                isForwards = NO;
+            }
+        }
+        
         UIViewController *viewController = [self viewControllerAtIndex:index];
+        UIPageViewControllerNavigationDirection direction = isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
         
         typeof(self) __weak weakSelf = self;
         [self.pageViewController setViewControllers:@[viewController]
-                                          direction:isForwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
+                                          direction:direction
                                            animated:animated
                                          completion:^(BOOL finished) {
                                              typeof(weakSelf) __strong strongSelf = weakSelf;
@@ -148,7 +159,6 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
                                              if (completion) {
                                                  completion(viewController, animated, finished);
                                              }
-                                             _animatingPageUpdate = NO;
                                          }];
     } else {
         if (completion) {
@@ -284,6 +294,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 }
 
 - (void)updateCurrentPage:(NSInteger)currentPage {
+    if (currentPage == self.currentPage) {
+        return;
+    }
+    
     if (self.infiniteScrollEnabled) {
         if (currentPage >= self.numberOfPages) {
             currentPage = 0;
@@ -291,6 +305,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
             currentPage = self.numberOfPages - 1;
         }
     }
+    
+    // has reached page
+    _animatingPageUpdate = NO;
+    self.view.userInteractionEnabled = YES;
     
     if (currentPage >= 0 && currentPage < self.numberOfPages) {
         _currentPage = currentPage;
@@ -440,6 +458,17 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
         [self.delegate pageViewController:self
                          willScrollToPage:nextPage
                               currentPage:currentPage];
+    }
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    
+    NSInteger index = [self indexOfViewController:pageViewController.viewControllers.firstObject];
+    if (index != NSNotFound && !self.scrollView.isDragging) {
+        [self updateCurrentPage:index];
     }
 }
 
