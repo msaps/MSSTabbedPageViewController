@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSSTabbedPageViewController"
-  s.version      = "0.3.6"
+  s.version      = "0.3.7"
   s.summary      = "A custom container UIViewController which provides a simple to implement page view controller with scrolling tab bar"
 
   s.description  = <<-DESC
