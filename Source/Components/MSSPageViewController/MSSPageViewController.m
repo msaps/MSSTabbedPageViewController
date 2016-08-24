@@ -284,6 +284,10 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 }
 
 - (void)updateCurrentPage:(NSInteger)currentPage {
+    if (currentPage == self.currentPage) {
+        return;
+    }
+    
     if (self.infiniteScrollEnabled) {
         if (currentPage >= self.numberOfPages) {
             currentPage = 0;
@@ -440,6 +444,17 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
         [self.delegate pageViewController:self
                          willScrollToPage:nextPage
                               currentPage:currentPage];
+    }
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    
+    NSInteger index = [self indexOfViewController:pageViewController.viewControllers.firstObject];
+    if (index != NSNotFound) {
+        [self updateCurrentPage:index];
     }
 }
 
