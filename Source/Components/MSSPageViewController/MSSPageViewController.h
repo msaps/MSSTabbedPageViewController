@@ -182,6 +182,10 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  when using moveToPageAtIndex functions. MSSPageViewControllerInfinitePagingBehaviorStandard by default.
  */
 @property (nonatomic, assign) MSSPageViewControllerInfinitePagingBehavior infiniteScrollPagingBehaviour;
+/**
+ A floating-point value that determines the rate of deceleration after the user lifts their finger.
+ */
+@property (nonatomic, assign) CGFloat decelerationRate;
 
 /**
  Move page view controller to a page at specific index.

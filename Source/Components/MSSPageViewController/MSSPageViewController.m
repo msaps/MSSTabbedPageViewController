@@ -215,6 +215,14 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     return _defaultPageIndex;
 }
 
+- (void)setDecelerationRate:(CGFloat)decelerationRate {
+    self.scrollView.decelerationRate = decelerationRate;
+}
+
+- (CGFloat)decelerationRate {
+    return self.scrollView.decelerationRate;
+}
+
 #pragma mark - Internal
 
 - (void)setUpPages {
