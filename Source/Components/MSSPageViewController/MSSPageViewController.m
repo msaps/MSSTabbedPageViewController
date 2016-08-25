@@ -466,6 +466,11 @@ willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewContro
    previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     
+    if (completed) {
+        NSInteger index = [self indexOfViewController:pageViewController.viewControllers.firstObject];
+        if (index != NSNotFound) {
+            [self updateCurrentPage:index];
+        }
     }
 }
 
