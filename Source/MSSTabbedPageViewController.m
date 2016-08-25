@@ -33,10 +33,25 @@
         MSSTabBarView *tabBar = [MSSTabBarView new];
         tabBar.delegate = self;
         tabBar.dataSource = self;
-        tabBar.frame = CGRectMake(0.0f, 100.0f, 300.0f, 44.0f);
         [self.view addSubview:tabBar];
+        [self pinTabBarToTopLayoutGuide:tabBar];
         _tabBar = tabBar;
     }
+}
+
+- (void)pinTabBarToTopLayoutGuide:(MSSTabBarView *)tabBarView {
+    tabBarView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    id topLayoutGuide = self.topLayoutGuide;
+    NSDictionary *views = NSDictionaryOfVariableBindings(tabBarView, topLayoutGuide);
+    
+    NSDictionary *metrics = @{@"tabBarHeight":@(MSSTabBarViewDefaultHeight)};
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-0-[tabBarView(tabBarHeight)]"
+                                                                     options:0 metrics:metrics
+                                                                        views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tabBarView]-0-|"
+                                                                      options:0 metrics:nil
+                                                                        views:views]];
 }
 
 - (MSSTabBarView *)tabBarView {
