@@ -10,17 +10,43 @@
 #import "MSSPageViewController+Private.h"
 #import "MSSTabBarView+Private.h"
 
+@interface MSSTabbedPageViewController () {
+    MSSTabBarView *_tabBar;
+}
+@end
+
 @implementation MSSTabbedPageViewController
 
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setUpTabBarIfRequired];
+    
     self.provideOutOfBoundsUpdates = NO;
 }
 
-#pragma mark - Public
+#pragma mark - Tab Bar
+
+- (void)setUpTabBarIfRequired {
+    if (!_tabBarView && !_tabBar) {
+        MSSTabBarView *tabBar = [MSSTabBarView new];
+        tabBar.delegate = self;
+        tabBar.dataSource = self;
+        tabBar.frame = CGRectMake(0.0f, 100.0f, 300.0f, 44.0f);
+        [self.view addSubview:tabBar];
+        _tabBar = tabBar;
+    }
+}
+
+- (MSSTabBarView *)tabBarView {
+    if (_tabBarView) { // use attached tab bar if possible
+        return _tabBarView;
+    }
+    return _tabBar;
+}
+
+#pragma mark - MSSPageViewController
 
 - (void)setDelegate:(id<MSSPageViewControllerDelegate>)delegate {
     // only allow self to be page view controller delegate
@@ -29,7 +55,7 @@
     }
 }
 
-#pragma mark - Tab bar data source
+#pragma mark - MSSTabBarViewDataSource
 
 - (NSInteger)numberOfItemsForTabBarView:(MSSTabBarView *)tabBarView {
     return self.viewControllers.count;
@@ -48,7 +74,7 @@
     return self.currentPage;
 }
 
-#pragma mark - Tab bar delegate
+#pragma mark - MSSTabBarViewDelegate
 
 - (void)tabBarView:(MSSTabBarView *)tabBarView tabSelectedAtIndex:(NSInteger)index {
     if (index != self.currentPage && !self.isAnimatingPageUpdate && index < self.viewControllers.count) {
@@ -66,7 +92,7 @@
     }
 }
 
-#pragma mark - Page View Controller delegate
+#pragma mark - MSSPageViewControllerDelegate
 
 - (void)pageViewController:(MSSPageViewController *)pageViewController
      didScrollToPageOffset:(CGFloat)pageOffset
@@ -90,7 +116,7 @@
     self.userInteractionEnabled = YES;
 }
 
-#pragma mark - Scroll View delegate
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [super scrollViewWillBeginDragging:scrollView];
