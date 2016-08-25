@@ -51,8 +51,6 @@ CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 
 @property (nonatomic, assign) BOOL hasRespectedDefaultTabIndex;
 
-@property (nonatomic, assign) BOOL animateDataSourceTransition;
-
 @end
 
 static MSSTabBarCollectionViewCell *_sizingCell;
@@ -153,7 +151,7 @@ static MSSTabBarCollectionViewCell *_sizingCell;
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.defaultTabIndex inSection:0];
         [self.collectionView scrollToItemAtIndexPath:indexPath
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
-                                            animated:self.animateDataSourceTransition];
+                                            animated:NO];
     }
 }
 
@@ -314,12 +312,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource {
-    self.animateDataSourceTransition = NO;
-    [self doSetDataSource:dataSource];
-}
-
-- (void)setDataSource:(id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated {
-    self.animateDataSourceTransition = animated;
     [self doSetDataSource:dataSource];
 }
 
@@ -480,18 +472,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedIndexPath = indexPath;
     
     cell.selectionProgress = 1.0f;
-
-    if (self.animateDataSourceTransition) {
-        [UIView animateWithDuration:0.25f animations:^{
-            [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                             andWidth:cell.frame.size.width
-                                    accountForPadding:YES];
-        }];
-    } else {
-        [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
-                                         andWidth:cell.frame.size.width
-                                accountForPadding:YES];
-    }
+    [self updateIndicatorViewFrameWithXOrigin:cell.frame.origin.x
+                                     andWidth:cell.frame.size.width
+                            accountForPadding:YES];
 }
 
 - (void)setTabCellInactive:(MSSTabBarCollectionViewCell *)cell {

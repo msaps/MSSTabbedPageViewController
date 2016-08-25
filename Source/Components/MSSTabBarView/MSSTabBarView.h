@@ -231,15 +231,6 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  Animate the tab index transition.
  */
 - (void)setTabIndex:(NSInteger)index animated:(BOOL)animated;
-/**
- Set the data source of the tab bar.
- 
- @param dataSource
- The data source.
- @param animated
- Animate the data source transition.
- */
-- (void)setDataSource:(nullable id<MSSTabBarViewDataSource>)dataSource animated:(BOOL)animated;
 
 /**
  Set the tab and selection indicator transition style.
