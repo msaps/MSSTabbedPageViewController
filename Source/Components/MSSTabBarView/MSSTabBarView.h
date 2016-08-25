@@ -220,7 +220,7 @@ __attribute__((deprecated("Use numberOfItemsForTabBarView and tabBarView:populat
  The height for the tab bar.
  @return Tab bar instance.
  */
-- (nonnull instancetype)initWithHeight:(CGFloat)height;
+- (nonnull instancetype)initWithHeight:(CGFloat)height __attribute__((deprecated("This initializer does not affect any layout parameters")));
 
 /**
  Set the current selected tab index of the tab bar.

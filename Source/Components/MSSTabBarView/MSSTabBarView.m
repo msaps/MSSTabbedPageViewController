@@ -44,7 +44,6 @@ CGFloat     const MSSTabBarViewTabOffsetInvalid = -1.0f;
 @property (nonatomic, assign) CGFloat lineIndicatorHeight;
 @property (nonatomic, assign) CGFloat lineIndicatorInset;
 
-@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat previousTabOffset;
 @property (nonatomic, assign) NSInteger defaultTabIndex;
 
@@ -85,7 +84,6 @@ static MSSTabBarCollectionViewCell *_sizingCell;
 
 - (instancetype)initWithHeight:(CGFloat)height {
     if (self = [super init]) {
-        _height = height;
         [self baseInit];
     }
     return self;
@@ -99,10 +97,6 @@ static MSSTabBarCollectionViewCell *_sizingCell;
     _contentInset = UIEdgeInsetsMake(0.0f, horizontalInset, 0.0f, horizontalInset);
     _tabOffset = MSSTabBarViewTabOffsetInvalid;
 
-    if (_height == 0.0f) {
-        _height = MSSTabBarViewDefaultHeight;
-    }
-    
     // Collection view
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
