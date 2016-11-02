@@ -166,6 +166,10 @@ willDisplayInitialViewController:(nonnull UIViewController *)viewController;
  */
 @property (nonatomic, assign, getter=isScrollEnabled) BOOL scrollEnabled;
 /**
+ Whether user interaction is allowed on the page view controller.
+ */
+@property (nonatomic, assign) BOOL userInteractionEnabled;
+/**
  Whether page view controller will provide scroll updates when out of bounds.
  */
 @property (nonatomic, assign, getter=willProvideOutOfBoundsUpdates) BOOL provideOutOfBoundsUpdates;

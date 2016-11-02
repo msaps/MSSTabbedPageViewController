@@ -14,10 +14,6 @@
  The default page index of the page view controller.
  */
 @property (nonatomic, assign, readonly) NSInteger defaultPageIndex;
-/**
- Whether user interaction is currently enabled on the page view controller
- */
-@property (nonatomic, assign) BOOL userInteractionEnabled;
 
 - (void)setUpViewController:(nonnull UIViewController *)viewController
                       index:(NSInteger)index;

@@ -179,6 +179,14 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
     return self.scrollView.scrollEnabled;
 }
 
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    self.pageViewController.view.userInteractionEnabled = userInteractionEnabled;
+}
+
+- (BOOL)userInteractionEnabled {
+    return self.pageViewController.view.userInteractionEnabled;
+}
+
 - (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
     _dataSource = dataSource;
     if (_viewHasLoaded) {
@@ -198,14 +206,6 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
         return _delegate;
     }
     return self;
-}
-
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
-    self.scrollView.userInteractionEnabled = userInteractionEnabled;
-}
-
-- (BOOL)userInteractionEnabled {
-    return self.scrollView.userInteractionEnabled;
 }
 
 - (NSInteger)defaultPageIndex {
