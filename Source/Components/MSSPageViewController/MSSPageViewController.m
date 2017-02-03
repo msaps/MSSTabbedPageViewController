@@ -188,8 +188,8 @@ NSInteger const MSSPageViewControllerPageNumberInvalid = -1;
 }
 
 - (void)setDataSource:(id<MSSPageViewControllerDataSource>)dataSource {
-    _dataSource = dataSource;
-    if (_viewHasLoaded) {
+    if (_viewHasLoaded && dataSource != self.dataSource) {
+        _dataSource = dataSource;
         [self setUpPages];
     }
 }
