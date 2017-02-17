@@ -1,6 +1,6 @@
 **NOTE: I am in the process of rewriting this component in Swift, therefore there will be no further releases of MSSTabbedPageViewController.**
 
-**The rewritten UIPageViewController component is already available in the form of [Pageboy]("https://github.com/MerrickSapsford/Pageboy").**
+**The rewritten UIPageViewController component is already available in the form of [Pageboy](https://github.com/MerrickSapsford/Pageboy).**
 
 <p align="center">
   <img src="https://github.com/MerrickSapsford/MSSTabbedPageViewController/blob/develop/Resource/Icon.png?raw=true" alt="MSSTabbedPageViewController" height="160" width="160"/>
