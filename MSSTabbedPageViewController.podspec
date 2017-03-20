@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MSSTabbedPageViewController"
-  s.version      = "0.3.9"
+  s.version      = "0.3.10"
   s.summary      = "A custom container UIViewController which provides a simple to implement page view controller with scrolling tab bar"
 
   s.description  = <<-DESC
@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.source_files  = "MSSTabbedPageViewController/Classes", "Source/**/*.{h,m}"
   s.resources = ['Source/**/*.{xib}']
   s.frameworks = 'UIKit'
+  s.deprecated_in_favor_of = 'Tabman'
 
 end
