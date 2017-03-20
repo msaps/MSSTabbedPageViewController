@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.source_files  = "MSSTabbedPageViewController/Classes", "Source/**/*.{h,m}"
   s.resources = ['Source/**/*.{xib}']
   s.frameworks = 'UIKit'
+  s.deprecated_in_favor_of = 'Tabman'
 
 end
