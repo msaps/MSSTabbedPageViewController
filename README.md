@@ -1,13 +1,14 @@
-**NOTE: I am in the process of rewriting this component in Swift, therefore there will be no further releases of MSSTabbedPageViewController.**
+**MSSTabbedPageViewController is now deprecated, and a new Swift component is available in the form of [Tabman](https://github.com/MerrickSapsford/Tabman). Unfortunately this can't be made compatible with Objective-C.**
 
-**The rewritten UIPageViewController component is already available in the form of [Pageboy](https://github.com/MerrickSapsford/Pageboy).**
+**A seperate component, [Pageboy](https://github.com/MerrickSapsford/Pageboy) is available to provide the UIPageViewController enhancements present in MSSTabbedPageViewController and much more.**
 
 <p align="center">
   <img src="https://github.com/MerrickSapsford/MSSTabbedPageViewController/blob/develop/Resource/Icon.png?raw=true" alt="MSSTabbedPageViewController" height="160" width="160"/>
 </p>
 
 # MSSTabbedPageViewController
-[![Build Status](https://travis-ci.org/MerrickSapsford/MSSTabbedPageViewController.svg?branch=develop)](https://travis-ci.org/MerrickSapsford/MSSTabbedPageViewController)
+[![Status](https://img.shields.io/badge/status-deprecated-red.svg)]()
+[![Build Status](https://travis-ci.org/msaps/MSSTabbedPageViewController.svg?branch=develop)](https://travis-ci.org/msaps/MSSTabbedPageViewController)
 [![CocoaPods](https://img.shields.io/cocoapods/v/MSSTabbedPageViewController.svg)]()
 
 MSSTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.
