@@ -10,6 +10,8 @@
 
 CGFloat const MSSStandardBarHeightInvalid = -1.0f;
 
+#define MSS_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)	([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @interface MSSCustomHeightNavigationBar ()
 
 @property (nonatomic, assign) CGFloat standardBarHeight;
@@ -43,8 +45,7 @@ CGFloat const MSSStandardBarHeightInvalid = -1.0f;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    NSArray *classNamesToReposition = @[@"_UINavigationBarBackground"];
-    
+     NSArray *classNamesToReposition = MSS_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0") ? @[@"_UIBarBackground"] : @[@"_UINavigationBarBackground"];
     for (UIView *view in [self subviews]) {
         
         if ([classNamesToReposition containsObject:NSStringFromClass([view class])]) {
